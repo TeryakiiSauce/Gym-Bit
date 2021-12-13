@@ -2,7 +2,7 @@ import Foundation
 
 struct User {
     
-//    main user attributes
+    //    main user attributes
     let id = UUID()
     let dateJoined: Date
     var fullName: String?
@@ -14,15 +14,16 @@ struct User {
     var dailyWorkoutMinutes: Int?
     var dailyCardioMinutes: Int?
     
-//    weekly user stats
+    //    weekly user stats
     var avgWeeklyWorkoutMinutes: Int?
     var avgWeeklyCardioMinutes: Int?
     
-//    all time user stats
+    //    all time user stats
     var totalyWorkoutMinutes: Int?
     var totalCardioMinutes: Int?
     var totalWorkedoutDays: Int?
     var workoutStreak: Int?
     
+    var schedules: [Schedule]?
 }
 

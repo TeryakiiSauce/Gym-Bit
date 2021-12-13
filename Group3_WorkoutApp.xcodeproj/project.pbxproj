@@ -14,6 +14,8 @@
 		9669362427674BD500206950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9669362327674BD500206950 /* Assets.xcassets */; };
 		9669362727674BD500206950 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9669362527674BD500206950 /* LaunchScreen.storyboard */; };
 		96693632276751E600206950 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96693631276751E600206950 /* User.swift */; };
+		966936342767570200206950 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966936332767570200206950 /* Schedule.swift */; };
+		966936362767578400206950 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966936352767578400206950 /* Exercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		9669362627674BD500206950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9669362827674BD500206950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96693631276751E600206950 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		966936332767570200206950 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		966936352767578400206950 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				96693631276751E600206950 /* User.swift */,
+				966936332767570200206950 /* Schedule.swift */,
+				966936352767578400206950 /* Exercise.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,7 +173,9 @@
 				96693632276751E600206950 /* User.swift in Sources */,
 				9669361F27674BD400206950 /* ViewController.swift in Sources */,
 				9669361B27674BD400206950 /* AppDelegate.swift in Sources */,
+				966936342767570200206950 /* Schedule.swift in Sources */,
 				9669361D27674BD400206950 /* SceneDelegate.swift in Sources */,
+				966936362767578400206950 /* Exercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
