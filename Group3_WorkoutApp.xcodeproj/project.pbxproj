@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96433C712767632000263B52 /* Quiz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C702767632000263B52 /* Quiz.storyboard */; };
+		96433C732767633800263B52 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C722767633800263B52 /* Profile.storyboard */; };
+		96433C752767634100263B52 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C742767634100263B52 /* Settings.storyboard */; };
+		96433C772767635500263B52 /* PlayWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C762767635500263B52 /* PlayWorkout.storyboard */; };
+		96433C792767636B00263B52 /* ViewWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C782767636B00263B52 /* ViewWorkout.storyboard */; };
+		96433C7B2767637900263B52 /* ViewSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C7A2767637900263B52 /* ViewSchedule.storyboard */; };
+		96433C7D2767638500263B52 /* ManageSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C7C2767638500263B52 /* ManageSchedule.storyboard */; };
 		9669361B27674BD400206950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9669361A27674BD400206950 /* AppDelegate.swift */; };
 		9669361D27674BD400206950 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9669361C27674BD400206950 /* SceneDelegate.swift */; };
 		9669361F27674BD400206950 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9669361E27674BD400206950 /* ViewController.swift */; };
@@ -19,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96433C702767632000263B52 /* Quiz.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quiz.storyboard; sourceTree = "<group>"; };
+		96433C722767633800263B52 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		96433C742767634100263B52 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		96433C762767635500263B52 /* PlayWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayWorkout.storyboard; sourceTree = "<group>"; };
+		96433C782767636B00263B52 /* ViewWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewWorkout.storyboard; sourceTree = "<group>"; };
+		96433C7A2767637900263B52 /* ViewSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewSchedule.storyboard; sourceTree = "<group>"; };
+		96433C7C2767638500263B52 /* ManageSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManageSchedule.storyboard; sourceTree = "<group>"; };
 		9669361727674BD400206950 /* Group3_WorkoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group3_WorkoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9669361A27674BD400206950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9669361C27674BD400206950 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,9 +82,7 @@
 				9669361A27674BD400206950 /* AppDelegate.swift */,
 				9669361C27674BD400206950 /* SceneDelegate.swift */,
 				9669361E27674BD400206950 /* ViewController.swift */,
-				9669362027674BD400206950 /* Main.storyboard */,
 				9669362327674BD500206950 /* Assets.xcassets */,
-				9669362527674BD500206950 /* LaunchScreen.storyboard */,
 				9669362827674BD500206950 /* Info.plist */,
 			);
 			path = Group3_WorkoutApp;
@@ -96,6 +108,15 @@
 		96693630276750DE00206950 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				9669362027674BD400206950 /* Main.storyboard */,
+				9669362527674BD500206950 /* LaunchScreen.storyboard */,
+				96433C702767632000263B52 /* Quiz.storyboard */,
+				96433C722767633800263B52 /* Profile.storyboard */,
+				96433C742767634100263B52 /* Settings.storyboard */,
+				96433C762767635500263B52 /* PlayWorkout.storyboard */,
+				96433C782767636B00263B52 /* ViewWorkout.storyboard */,
+				96433C7A2767637900263B52 /* ViewSchedule.storyboard */,
+				96433C7C2767638500263B52 /* ManageSchedule.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -159,7 +180,14 @@
 			files = (
 				9669362727674BD500206950 /* LaunchScreen.storyboard in Resources */,
 				9669362427674BD500206950 /* Assets.xcassets in Resources */,
+				96433C732767633800263B52 /* Profile.storyboard in Resources */,
+				96433C7B2767637900263B52 /* ViewSchedule.storyboard in Resources */,
+				96433C792767636B00263B52 /* ViewWorkout.storyboard in Resources */,
+				96433C752767634100263B52 /* Settings.storyboard in Resources */,
+				96433C7D2767638500263B52 /* ManageSchedule.storyboard in Resources */,
 				9669362227674BD400206950 /* Main.storyboard in Resources */,
+				96433C772767635500263B52 /* PlayWorkout.storyboard in Resources */,
+				96433C712767632000263B52 /* Quiz.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
