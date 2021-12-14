@@ -80,13 +80,12 @@
 		9669361927674BD400206950 /* Group3_WorkoutApp */ = {
 			isa = PBXGroup;
 			children = (
-				96A167172768A0930000947A /* Shared */,
+				96A167172768A0930000947A /* Global */,
 				96693630276750DE00206950 /* Storyboards */,
 				9669362F276750D700206950 /* ViewControllers */,
 				9669362E276750CD00206950 /* Models */,
 				9669361A27674BD400206950 /* AppDelegate.swift */,
 				9669361C27674BD400206950 /* SceneDelegate.swift */,
-				9669361E27674BD400206950 /* ViewController.swift */,
 				9669362327674BD500206950 /* Assets.xcassets */,
 				9669362827674BD500206950 /* Info.plist */,
 			);
@@ -106,6 +105,7 @@
 		9669362F276750D700206950 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9669361E27674BD400206950 /* ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -126,13 +126,13 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		96A167172768A0930000947A /* Shared */ = {
+		96A167172768A0930000947A /* Global */ = {
 			isa = PBXGroup;
 			children = (
 				96A167182768A0AE0000947A /* Constants.swift */,
 				96A1671A2768A20E0000947A /* AppColors.swift */,
 			);
-			path = Shared;
+			path = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

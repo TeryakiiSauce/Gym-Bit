@@ -15,8 +15,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     
         Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:mainButton )
     }
