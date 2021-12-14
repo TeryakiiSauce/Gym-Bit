@@ -9,12 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var bodyView: UIView!
+    @IBOutlet weak var mainButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+    
+        Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:mainButton )
     }
 
 
+
+
+    
+   
     
 }
 

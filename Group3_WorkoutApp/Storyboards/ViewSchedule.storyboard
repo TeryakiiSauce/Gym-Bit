@@ -11,16 +11,49 @@
         <!--Schedule List-->
         <scene sceneID="YDn-md-ybd">
             <objects>
-                <viewController id="V7c-4E-Kwx" sceneMemberID="viewController">
+                <viewController id="V7c-4E-Kwx" customClass="ViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tFG-xj-vzt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hK4-WA-i5A" userLabel="HeaderView">
+                                <rect key="frame" x="0.0" y="114.5" width="394" height="130"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKy-gq-FoD" userLabel="BodyView">
+                                <rect key="frame" x="20" y="264.5" width="374" height="478.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHk-Kl-BQX">
+                                <rect key="frame" x="20" y="763" width="374" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Zhz-7w-1uA"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstItem="hK4-WA-i5A" firstAttribute="leading" secondItem="Zhz-7w-1uA" secondAttribute="leading" id="4lo-oE-IYO"/>
+                            <constraint firstItem="Zhz-7w-1uA" firstAttribute="bottom" secondItem="vHk-Kl-BQX" secondAttribute="bottom" constant="20" id="4rw-GL-T2i"/>
+                            <constraint firstItem="vHk-Kl-BQX" firstAttribute="top" secondItem="aKy-gq-FoD" secondAttribute="bottom" constant="20" id="78c-Pi-04W"/>
+                            <constraint firstItem="vHk-Kl-BQX" firstAttribute="leading" secondItem="Zhz-7w-1uA" secondAttribute="leading" constant="20" id="8Gg-19-zXd"/>
+                            <constraint firstItem="aKy-gq-FoD" firstAttribute="top" secondItem="hK4-WA-i5A" secondAttribute="bottom" constant="20" id="9Gc-vs-3WZ"/>
+                            <constraint firstItem="Zhz-7w-1uA" firstAttribute="trailing" secondItem="vHk-Kl-BQX" secondAttribute="trailing" constant="20" id="Jvo-wr-I2F"/>
+                            <constraint firstItem="aKy-gq-FoD" firstAttribute="leading" secondItem="Zhz-7w-1uA" secondAttribute="leading" constant="20" id="UxA-Ks-EsK"/>
+                            <constraint firstItem="hK4-WA-i5A" firstAttribute="top" secondItem="Zhz-7w-1uA" secondAttribute="top" multiplier="1.3" id="Z3z-PU-Mu5"/>
+                            <constraint firstItem="Zhz-7w-1uA" firstAttribute="trailing" secondItem="aKy-gq-FoD" secondAttribute="trailing" constant="20" id="rB1-Ha-e9U"/>
+                            <constraint firstItem="Zhz-7w-1uA" firstAttribute="trailing" secondItem="hK4-WA-i5A" secondAttribute="trailing" constant="20" id="tpS-AR-5D8"/>
+                            <constraint firstItem="hK4-WA-i5A" firstAttribute="height" secondItem="tFG-xj-vzt" secondAttribute="height" multiplier="0.145" id="wtA-hR-MHs"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="KUq-GX-Xpk"/>
                     <navigationItem key="navigationItem" title="Schedule List" id="lOr-JH-R1j"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bodyView" destination="aKy-gq-FoD" id="tUG-5H-9zu"/>
+                        <outlet property="headerView" destination="hK4-WA-i5A" id="R5v-jw-y1b"/>
+                        <outlet property="mainButton" destination="vHk-Kl-BQX" id="C22-eH-100"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKs-ZW-plW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,8 +80,11 @@
     </scenes>
     <resources>
         <image name="schedule" width="24" height="24"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
