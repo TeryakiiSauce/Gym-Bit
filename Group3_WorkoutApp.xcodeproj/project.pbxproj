@@ -23,6 +23,8 @@
 		96693632276751E600206950 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96693631276751E600206950 /* User.swift */; };
 		966936342767570200206950 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966936332767570200206950 /* Schedule.swift */; };
 		966936362767578400206950 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966936352767578400206950 /* Exercise.swift */; };
+		96A167192768A0AE0000947A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A167182768A0AE0000947A /* Constants.swift */; };
+		96A1671B2768A20E0000947A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1671A2768A20E0000947A /* AppColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		96693631276751E600206950 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		966936332767570200206950 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		966936352767578400206950 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		96A167182768A0AE0000947A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		96A1671A2768A20E0000947A /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 		9669361927674BD400206950 /* Group3_WorkoutApp */ = {
 			isa = PBXGroup;
 			children = (
+				96A167172768A0930000947A /* Shared */,
 				96693630276750DE00206950 /* Storyboards */,
 				9669362F276750D700206950 /* ViewControllers */,
 				9669362E276750CD00206950 /* Models */,
@@ -119,6 +124,15 @@
 				96433C7C2767638500263B52 /* ManageSchedule.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		96A167172768A0930000947A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				96A167182768A0AE0000947A /* Constants.swift */,
+				96A1671A2768A20E0000947A /* AppColors.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +213,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				96693632276751E600206950 /* User.swift in Sources */,
+				96A1671B2768A20E0000947A /* AppColors.swift in Sources */,
 				9669361F27674BD400206950 /* ViewController.swift in Sources */,
 				9669361B27674BD400206950 /* AppDelegate.swift in Sources */,
 				966936342767570200206950 /* Schedule.swift in Sources */,
+				96A167192768A0AE0000947A /* Constants.swift in Sources */,
 				9669361D27674BD400206950 /* SceneDelegate.swift in Sources */,
 				966936362767578400206950 /* Exercise.swift in Sources */,
 			);
