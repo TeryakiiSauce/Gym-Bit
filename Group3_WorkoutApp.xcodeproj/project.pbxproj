@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9617126827748809008186F4 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617126727748809008186F4 /* TimerViewController.swift */; };
 		96433C712767632000263B52 /* Quiz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C702767632000263B52 /* Quiz.storyboard */; };
 		96433C732767633800263B52 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C722767633800263B52 /* Profile.storyboard */; };
 		96433C752767634100263B52 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C742767634100263B52 /* Settings.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9617126727748809008186F4 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		96433C702767632000263B52 /* Quiz.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quiz.storyboard; sourceTree = "<group>"; };
 		96433C722767633800263B52 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		96433C742767634100263B52 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				9669361E27674BD400206950 /* ViewController.swift */,
+				9617126727748809008186F4 /* TimerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96693632276751E600206950 /* User.swift in Sources */,
+				9617126827748809008186F4 /* TimerViewController.swift in Sources */,
 				96A1671B2768A20E0000947A /* AppColors.swift in Sources */,
 				9669361F27674BD400206950 /* ViewController.swift in Sources */,
 				9669361B27674BD400206950 /* AppDelegate.swift in Sources */,
