@@ -11,7 +11,6 @@
         <!--Timer View Controller-->
         <scene sceneID="qMK-Bi-jKM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wzi-vk-VaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="umb-GW-khk" customClass="TimerViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6BZ-e7-8vI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -77,6 +76,7 @@
                         <outlet property="startStopButton" destination="KIp-Xw-IKP" id="2fh-Sh-A1b"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wzi-vk-VaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2518.840579710145" y="-869.19642857142856"/>
         </scene>
