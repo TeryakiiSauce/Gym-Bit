@@ -101,6 +101,9 @@
                                     <constraint firstAttribute="height" constant="50" id="fkI-Vl-IKI"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="AWb-L0-Hhl" kind="show" id="VWr-hc-mLc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zhz-7w-1uA"/>
@@ -132,6 +135,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKs-ZW-plW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2176.8115942028985" y="-655.58035714285711"/>
+        </scene>
+        <!--ManageSchedule-->
+        <scene sceneID="wGh-f5-KYb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ManageSchedule" id="AWb-L0-Hhl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QYL-S2-N4U"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nxH-6V-8tp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1499" y="-656"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="esU-in-qR5">
