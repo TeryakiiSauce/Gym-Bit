@@ -18,7 +18,45 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDZ-cH-Mtz" userLabel="HeaderView">
                                 <rect key="frame" x="0.0" y="57" width="394" height="130"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_body building_637498" translatesAutoresizingMaskIntoConstraints="NO" id="frb-ja-Dwu">
+                                        <rect key="frame" x="25" y="25" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="KCr-H3-SWx"/>
+                                            <constraint firstAttribute="height" constant="80" id="SO9-bz-3YU"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0I-Ns-eaH">
+                                        <rect key="frame" x="140" y="80.5" width="42.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abs and Chest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwq-9V-fT5">
+                                        <rect key="frame" x="187.5" y="80.5" width="88.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Workout Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6L-W8-xi0">
+                                        <rect key="frame" x="140" y="38" width="218" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="a0I-Ns-eaH" firstAttribute="leading" secondItem="L6L-W8-xi0" secondAttribute="leading" id="3yg-lj-MUc"/>
+                                    <constraint firstItem="nwq-9V-fT5" firstAttribute="top" secondItem="L6L-W8-xi0" secondAttribute="bottom" constant="15" id="7ms-YQ-6ma"/>
+                                    <constraint firstItem="L6L-W8-xi0" firstAttribute="top" secondItem="qDZ-cH-Mtz" secondAttribute="top" constant="38" id="O4G-sM-Bhw"/>
+                                    <constraint firstItem="L6L-W8-xi0" firstAttribute="leading" secondItem="frb-ja-Dwu" secondAttribute="trailing" constant="35" id="ZfR-NM-kAa"/>
+                                    <constraint firstItem="frb-ja-Dwu" firstAttribute="top" secondItem="qDZ-cH-Mtz" secondAttribute="top" constant="25" id="f4j-TF-CHG"/>
+                                    <constraint firstItem="frb-ja-Dwu" firstAttribute="leading" secondItem="qDZ-cH-Mtz" secondAttribute="leading" constant="25" id="haQ-WI-V5u"/>
+                                    <constraint firstItem="nwq-9V-fT5" firstAttribute="height" secondItem="a0I-Ns-eaH" secondAttribute="height" multiplier="1.02439" id="m17-RT-pJN"/>
+                                    <constraint firstItem="nwq-9V-fT5" firstAttribute="leading" secondItem="a0I-Ns-eaH" secondAttribute="trailing" constant="5" id="rDF-KA-Inn"/>
+                                    <constraint firstItem="a0I-Ns-eaH" firstAttribute="top" secondItem="L6L-W8-xi0" secondAttribute="bottom" constant="15" id="rOt-px-zY8"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQ8-r1-mbn" userLabel="BodyView">
                                 <rect key="frame" x="20" y="207" width="374" height="565"/>
@@ -136,6 +174,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="noun_body building_637498" width="231" height="235.80000305175781"/>
         <image name="schedule" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

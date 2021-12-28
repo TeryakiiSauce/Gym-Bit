@@ -9,9 +9,9 @@ import UIKit
 
 class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
-    let titles = ["Workout 1", "Workout 2", "Workout 3", "Workout 4"]
-    let subtitles = ["Legs workout 1", "Back workout 2", "Chest workout 3", "abs workout 4"]
-    let images = ["abs1", "abs2", "abs3", "abs4"]
+    var titles = ["Workout 1", "Workout 2", "Workout 3", "Workout 4"]
+    var subtitles = ["Legs workout 1", "Back workout 2", "Chest workout 3", "abs workout 4"]
+    var images = ["abs1", "abs2", "abs3", "abs4"]
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
@@ -78,4 +78,14 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         return 120
     }
 
+    //makes it so that you can swipe to delete
+    // Override to support editing the table view.
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            titles.remove(at: indexPath.row)
+            images.remove(at: indexPath.row)
+            subtitles.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
