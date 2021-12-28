@@ -26,6 +26,18 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     
     @IBAction func ClickSaveButton(_ sender: Any) {
     }
+    //method to open a popup and change schedule name
+    @IBAction func ClickUpdateScheduleButton(_ sender: Any) {
+        
+        //creating a var of the popup viewcontroller
+        let popOverVc = UIStoryboard(name: "ManageSchedule", bundle: nil).instantiateViewController(withIdentifier: "sbPopupID") as! PopupViewController
+        
+        //assigning it as a child view and opening it over the parent view
+        self.addChild(popOverVc)
+        popOverVc.view.frame = self.view.frame
+        self.view.addSubview(popOverVc.view)
+        popOverVc.didMove(toParent: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +48,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         //styling table view
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
+  
         
     }
     
@@ -45,14 +58,21 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
+        //creating a cell identifier
+        let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+
+        
+        
+        
+        //adding data to the cell
         cell.titleLabel.text = titles[indexPath.row]
         cell.subtitleLabel.text = subtitles[indexPath.row]
         cell.cellImage.image = UIImage(named: images[indexPath.row])
+        
         return cell
     }
-    
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120

@@ -29,6 +29,7 @@
 		966936362767578400206950 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966936352767578400206950 /* Exercise.swift */; };
 		96A167192768A0AE0000947A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A167182768A0AE0000947A /* Constants.swift */; };
 		96A1671B2768A20E0000947A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1671A2768A20E0000947A /* AppColors.swift */; };
+		F081CBDC277B975B00F2CAA6 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CBDB277B975B00F2CAA6 /* PopupViewController.swift */; };
 		F0CF27B22779F12500832E6C /* CreateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		966936352767578400206950 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		96A167182768A0AE0000947A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		96A1671A2768A20E0000947A /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		F081CBDB277B975B00F2CAA6 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 				9669361E27674BD400206950 /* ScheduleListViewController.swift */,
 				9617126727748809008186F4 /* TimerViewController.swift */,
 				F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */,
+				F081CBDB277B975B00F2CAA6 /* PopupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				F0CF27B22779F12500832E6C /* CreateScheduleViewController.swift in Sources */,
 				9669361D27674BD400206950 /* SceneDelegate.swift in Sources */,
 				966936362767578400206950 /* Exercise.swift in Sources */,
+				F081CBDC277B975B00F2CAA6 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

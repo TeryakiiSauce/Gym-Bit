@@ -37,6 +37,9 @@ class TemplateScreenViewController: UIViewController,UITableViewDataSource, UITa
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
             
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = AppColors.bodyBg
+            cell.selectedBackgroundView = bgColorView
             cell.titleLabel.text = titles[indexPath.row]
             cell.subtitleLabel.text = subtitles[indexPath.row]
             cell.cellImage.image = UIImage(named: "play")

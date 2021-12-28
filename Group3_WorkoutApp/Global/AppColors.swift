@@ -24,6 +24,7 @@ struct AppColors {
         didSet{
             if isDarkMode {
                 bodyBg = UIColor(red: 45/255, green: 57/255, blue: 73/255, alpha: 1)
+                print("")
             }
         }
     }

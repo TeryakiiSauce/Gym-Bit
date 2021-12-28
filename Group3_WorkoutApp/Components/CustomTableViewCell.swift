@@ -16,15 +16,24 @@ class CustomTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-
-        cellView.layer.borderColor = AppColors.secondaryColor.cgColor
-        cellView.layer.borderWidth = 1
         cellView.layer.cornerRadius = Constants.viewRadius
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+        if self.isSelected{
+            cellView.layer.borderColor = AppColors.buttonColor.cgColor
+            cellView.layer.borderWidth = 3
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = AppColors.bodyBg
+            self.selectedBackgroundView = bgColorView
+            
+        }else{
+            cellView.layer.borderColor = AppColors.secondaryColor.cgColor
+            cellView.layer.borderWidth = 1
+        }
+        
     }
 
 
