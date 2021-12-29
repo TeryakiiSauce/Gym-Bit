@@ -7,16 +7,22 @@
 
 import Foundation
 
-struct Exercise {
+struct Exercise: Codable {
     
     let id = UUID()
     let name: String
     let description: String
     let imagePath: String
     let tips: [String]
-    let targetMuscle: TargetMuscle
+    let targetMuscle: String
     
-    enum TargetMuscle {
-        case back, chest, biceps, triceps, abs, shoulders, legs
+    enum TargetMuscle: String {
+        case back = "back"
+        case chest = "chest"
+        case biceps = "biceps"
+        case triceps = "triceps"
+        case abs = "abs"
+        case shoulders = "shoulders"
+        case legs = "legs"
     }
 }

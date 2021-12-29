@@ -13,6 +13,12 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     var subtitles = ["Legs workout 1", "Back workout 2", "Chest workout 3", "abs workout 4"]
     var images = ["abs1", "abs2", "abs3", "abs4"]
     
+    
+    
+    var schedules =
+    Schedule(dateCreated: nil, name: "", playsCounter: 0, exercises: [Exercise(name: "bench Press", description: "benche press description", imagePath: "/path", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.chest.rawValue)])
+    
+    
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var mainButton: UIButton!
@@ -20,11 +26,19 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     @IBOutlet weak var IconImage: UIImageView!
     
     @IBAction func ClickClearScheduleButton(_ sender: Any) {
+        //removing all the arrays
+        titles.removeAll()
+        subtitles.removeAll()
+        images.removeAll()
+        //reloading the table
+        customTableView.reloadData()
     }
     @IBAction func ClickAddSchedulebutton(_ sender: Any) {
     }
     
     @IBAction func ClickSaveButton(_ sender: Any) {
+
+        Schedule.saveSchedules(schedules)
     }
     //method to open a popup and change schedule name
     @IBAction func ClickUpdateScheduleButton(_ sender: Any) {
@@ -62,9 +76,6 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
 
-        
-        
-        
         //adding data to the cell
         cell.titleLabel.text = titles[indexPath.row]
         cell.subtitleLabel.text = subtitles[indexPath.row]
@@ -79,12 +90,14 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     }
 
     //makes it so that you can swipe to delete
-    // Override to support editing the table view.
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //checking the editing style
         if editingStyle == .delete {
+            //removing the instance from the stored array
             titles.remove(at: indexPath.row)
             images.remove(at: indexPath.row)
             subtitles.remove(at: indexPath.row)
+            //removing the row from the table in the gui
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

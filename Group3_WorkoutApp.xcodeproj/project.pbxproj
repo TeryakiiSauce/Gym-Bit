@@ -52,7 +52,6 @@
 		9669362127674BD400206950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9669362327674BD500206950 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9669362627674BD500206950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9669362827674BD500206950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96693631276751E600206950 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		966936332767570200206950 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		966936352767578400206950 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -110,7 +109,6 @@
 				9669361A27674BD400206950 /* AppDelegate.swift */,
 				9669361C27674BD400206950 /* SceneDelegate.swift */,
 				9669362327674BD500206950 /* Assets.xcassets */,
-				9669362827674BD500206950 /* Info.plist */,
 			);
 			path = Group3_WorkoutApp;
 			sourceTree = "<group>";
