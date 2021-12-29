@@ -25,5 +25,6 @@ struct User {
     var workoutStreak: Int?
     
     var schedules: [Schedule]?
+    var activeSchedule: Schedule
 }
 
