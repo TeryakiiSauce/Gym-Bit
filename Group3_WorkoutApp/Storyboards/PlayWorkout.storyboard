@@ -13,55 +13,58 @@
             <objects>
                 <viewController id="umb-GW-khk" customClass="TimerViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6BZ-e7-8vI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itg-kC-L5J" userLabel="BodyView">
-                                <rect key="frame" x="20" y="271" width="374" height="522"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIp-Xw-IKP">
-                                        <rect key="frame" x="136" y="174" width="109" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Play"/>
-                                        <connections>
-                                            <action selector="playButtonPressed:" destination="umb-GW-khk" eventType="touchUpInside" id="POM-Lg-nnY"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLd-gi-lkk">
-                                        <rect key="frame" x="113" y="56" width="149" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7z-Dc-6gI">
-                                        <rect key="frame" x="142" y="238" width="97" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Reset"/>
-                                        <connections>
-                                            <action selector="resetButtonPressed:" destination="umb-GW-khk" eventType="touchUpInside" id="4KS-Wd-hOH"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                                <rect key="frame" x="20" y="175" width="374" height="522"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="522" id="aU6-5Q-ajl"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scW-2A-hN9" userLabel="HeaderView">
-                                <rect key="frame" x="0.0" y="114.5" width="394" height="130"/>
+                                <rect key="frame" x="0.0" y="25" width="394" height="130"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_body building_637498" translatesAutoresizingMaskIntoConstraints="NO" id="rMn-8K-jBf">
+                                        <rect key="frame" x="25" y="25" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="XbR-f2-P7j"/>
+                                            <constraint firstAttribute="height" constant="80" id="jsU-j3-Qaf"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your warmup timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsg-3r-prM">
+                                        <rect key="frame" x="140" y="77.5" width="137.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer Set-up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkJ-Ut-rvF">
+                                        <rect key="frame" x="140" y="35" width="131" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="jsg-3r-prM" firstAttribute="leading" secondItem="bkJ-Ut-rvF" secondAttribute="leading" id="20H-GM-DPM"/>
                                     <constraint firstAttribute="height" constant="130" id="9YV-cq-sL3"/>
+                                    <constraint firstItem="bkJ-Ut-rvF" firstAttribute="leading" secondItem="rMn-8K-jBf" secondAttribute="trailing" constant="35" id="9fj-XV-9dZ"/>
+                                    <constraint firstItem="rMn-8K-jBf" firstAttribute="leading" secondItem="scW-2A-hN9" secondAttribute="leading" constant="25" id="Eb8-mK-84E"/>
+                                    <constraint firstItem="bkJ-Ut-rvF" firstAttribute="top" secondItem="scW-2A-hN9" secondAttribute="top" constant="35" id="Q42-rH-l1Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="rMn-8K-jBf" secondAttribute="bottom" constant="25" id="SV9-cc-IZJ"/>
+                                    <constraint firstItem="jsg-3r-prM" firstAttribute="top" secondItem="bkJ-Ut-rvF" secondAttribute="bottom" constant="15" id="WtD-eD-79i"/>
+                                    <constraint firstItem="rMn-8K-jBf" firstAttribute="top" secondItem="scW-2A-hN9" secondAttribute="top" constant="25" id="b8O-Nb-l4o"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qmr-ix-yTO"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Qmr-ix-yTO" firstAttribute="bottom" secondItem="itg-kC-L5J" secondAttribute="bottom" constant="20" id="DVs-f8-Cga"/>
-                            <constraint firstItem="scW-2A-hN9" firstAttribute="top" secondItem="Qmr-ix-yTO" secondAttribute="top" multiplier="1.3" id="KqK-Bo-hmH"/>
+                            <constraint firstItem="scW-2A-hN9" firstAttribute="top" secondItem="Qmr-ix-yTO" secondAttribute="top" constant="25" id="KqK-Bo-hmH"/>
                             <constraint firstItem="Qmr-ix-yTO" firstAttribute="trailing" secondItem="itg-kC-L5J" secondAttribute="trailing" constant="20" id="eXP-if-A24"/>
+                            <constraint firstItem="itg-kC-L5J" firstAttribute="top" secondItem="scW-2A-hN9" secondAttribute="bottom" constant="20" id="fpG-7q-XWE"/>
                             <constraint firstItem="Qmr-ix-yTO" firstAttribute="trailing" secondItem="scW-2A-hN9" secondAttribute="trailing" constant="20" id="hRc-HB-2bf"/>
                             <constraint firstItem="scW-2A-hN9" firstAttribute="leading" secondItem="Qmr-ix-yTO" secondAttribute="leading" id="k5B-bK-IgC"/>
                             <constraint firstItem="itg-kC-L5J" firstAttribute="leading" secondItem="Qmr-ix-yTO" secondAttribute="leading" constant="20" id="riQ-Zx-Yqj"/>
@@ -70,10 +73,7 @@
                     <navigationItem key="navigationItem" id="P4v-YR-95r"/>
                     <connections>
                         <outlet property="bodyView" destination="itg-kC-L5J" id="vdf-aK-Mpr"/>
-                        <outlet property="countDownLabel" destination="sLd-gi-lkk" id="xws-ql-NOU"/>
                         <outlet property="headerView" destination="scW-2A-hN9" id="sl8-sh-GlG"/>
-                        <outlet property="resetButton" destination="P7z-Dc-6gI" id="urI-B6-ivC"/>
-                        <outlet property="startStopButton" destination="KIp-Xw-IKP" id="2fh-Sh-A1b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzi-vk-VaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -93,7 +93,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play Workout"/>
                                 <connections>
-                                    <segue destination="umb-GW-khk" kind="push" id="WtD-fC-IIK"/>
+                                    <segue destination="umb-GW-khk" kind="presentation" id="UoD-Zz-UHX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -128,6 +128,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="noun_body building_637498" width="231" height="235.80000305175781"/>
         <image name="play" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
