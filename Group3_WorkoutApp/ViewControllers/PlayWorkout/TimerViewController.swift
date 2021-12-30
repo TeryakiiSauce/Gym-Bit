@@ -23,33 +23,20 @@ extension Int {
 
 class TimerViewController: UIViewController {
     
-    // views outlets
+    // outlets
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var playPauseButton: UIButton!
     
     // constants and variables
-    
-    
     let shapeLayer = CAShapeLayer()
-    let timeLeftShapeLayer = CAShapeLayer() //outter circle
-    let bgShapeLayer = CAShapeLayer() // inner circle
-    var selectedTime: Int = 300
+    var selectedTime: Int = 300 //default seconds
     var timeRemaining: TimeInterval = 60 // time remaining
     var endTime: Date?
     var timeLabel =  UILabel() // label to show the remaining time
     var timer = Timer() // timer to calculate the remaining selected time
     // to animate stroke end property
     let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-    
-    
-    func addTimeLabel() {
-        timeLabel = UILabel(frame: CGRect(x: timeLeftShapeLayer.frame.midX ,y: timeLeftShapeLayer.frame.midY, width: 100, height: 50))
-        timeLabel.textAlignment = .center
-        timeLabel.text = timeRemaining.time
-        view.addSubview(timeLabel)
-    }
-    
     
     
     
@@ -59,13 +46,47 @@ class TimerViewController: UIViewController {
         // apply default styling for the views
         Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:nil)
         drawTimerCircle()
-        
+        addTimeLabel()
         
         
         // define the future end time by adding the timeLeft to now Date()
         endTime = Date().addingTimeInterval(timeRemaining)
         
         
+        
+    }
+    
+    
+    
+    func addTimeLabel() {
+        timeLabel = UILabel(frame: CGRect(x: shapeLayer.frame.midX ,y: shapeLayer.frame.height/2, width: 100, height: 50))
+        timeLabel.center = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
+        timeLabel.textAlignment = .center
+        timeLabel.text = timeRemaining.time
+        bodyView.addSubview(timeLabel)
+    }
+    
+    func drawTimerCircle()
+    {
+        
+        // body view center point
+        let position = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
+        // define shape path
+        let circularPath = UIBezierPath(arcCenter: position, radius: 140, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        
+        
+        // change circle fill and stoke color
+        shapeLayer.strokeColor = AppColors.buttonColor.cgColor
+        shapeLayer.fillColor = AppColors.phoneBg.cgColor
+        // stroke width
+        shapeLayer.lineWidth = 20
+        // assign circular path to the shape path
+        shapeLayer.path = circularPath.cgPath
+        //
+        shapeLayer.strokeEnd = 0
+        // add shape to the view
+        bodyView.layer.addSublayer(shapeLayer)
+        bodyView.addSubview(timeLabel)
         
     }
     
@@ -97,28 +118,6 @@ class TimerViewController: UIViewController {
             timer.invalidate()
         }
     }
-    func drawTimerCircle()
-    {
-        
-        // body view center point
-        let center = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
-        // define shape path
-        let circularPath = UIBezierPath(arcCenter: center, radius: 140, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        
-        // change circle fill and stoke color
-        shapeLayer.strokeColor = AppColors.buttonColor.cgColor
-        shapeLayer.fillColor = AppColors.phoneBg.cgColor
-        // stroke width
-        shapeLayer.lineWidth = 20
-        // assign circular path to the shape path
-        shapeLayer.path = circularPath.cgPath
-        //
-        shapeLayer.strokeEnd = 0
-        // add shape to the view
-        bodyView.layer.addSublayer(shapeLayer)
-        
-    }
-    
     
     @IBAction func playTapped(_ sender: Any) {
         // init timer
