@@ -11,6 +11,8 @@
 		9608FB472779E3B1009498F9 /* TemplateScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9608FB462779E3B1009498F9 /* TemplateScreen.storyboard */; };
 		9608FB492779E4C9009498F9 /* TemplateScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9608FB482779E4C9009498F9 /* TemplateScreenViewController.swift */; };
 		9617126827748809008186F4 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617126727748809008186F4 /* TimerViewController.swift */; };
+		9622BD76277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622BD75277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift */; };
+		9641726D277D3576007BF9D0 /* SelectTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641726C277D3576007BF9D0 /* SelectTimeViewController.swift */; };
 		96433C712767632000263B52 /* Quiz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C702767632000263B52 /* Quiz.storyboard */; };
 		96433C732767633800263B52 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C722767633800263B52 /* Profile.storyboard */; };
 		96433C752767634100263B52 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C742767634100263B52 /* Settings.storyboard */; };
@@ -38,6 +40,8 @@
 		9608FB462779E3B1009498F9 /* TemplateScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TemplateScreen.storyboard; sourceTree = "<group>"; };
 		9608FB482779E4C9009498F9 /* TemplateScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateScreenViewController.swift; sourceTree = "<group>"; };
 		9617126727748809008186F4 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		9622BD75277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWorkoutLandingViewController.swift; sourceTree = "<group>"; };
+		9641726C277D3576007BF9D0 /* SelectTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeViewController.swift; sourceTree = "<group>"; };
 		96433C702767632000263B52 /* Quiz.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quiz.storyboard; sourceTree = "<group>"; };
 		96433C722767633800263B52 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		96433C742767634100263B52 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -81,6 +85,16 @@
 				9608FB482779E4C9009498F9 /* TemplateScreenViewController.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		9622BD77277BF18800B5BFA8 /* PlayWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				9617126727748809008186F4 /* TimerViewController.swift */,
+				9622BD75277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift */,
+				9641726C277D3576007BF9D0 /* SelectTimeViewController.swift */,
+			);
+			path = PlayWorkout;
 			sourceTree = "<group>";
 		};
 		9669360E27674BD400206950 = {
@@ -128,8 +142,8 @@
 		9669362F276750D700206950 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9622BD77277BF18800B5BFA8 /* PlayWorkout */,
 				9669361E27674BD400206950 /* ScheduleListViewController.swift */,
-				9617126727748809008186F4 /* TimerViewController.swift */,
 				F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */,
 				F081CBDB277B975B00F2CAA6 /* PopupViewController.swift */,
 			);
@@ -240,11 +254,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				96693632276751E600206950 /* User.swift in Sources */,
+				9641726D277D3576007BF9D0 /* SelectTimeViewController.swift in Sources */,
 				9617126827748809008186F4 /* TimerViewController.swift in Sources */,
 				96A1671B2768A20E0000947A /* AppColors.swift in Sources */,
 				9669361F27674BD400206950 /* ScheduleListViewController.swift in Sources */,
 				9669361B27674BD400206950 /* AppDelegate.swift in Sources */,
 				966936342767570200206950 /* Schedule.swift in Sources */,
+				9622BD76277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift in Sources */,
 				9608FB4527793802009498F9 /* CustomTableViewCell.swift in Sources */,
 				9608FB492779E4C9009498F9 /* TemplateScreenViewController.swift in Sources */,
 				96A167192768A0AE0000947A /* Constants.swift in Sources */,
