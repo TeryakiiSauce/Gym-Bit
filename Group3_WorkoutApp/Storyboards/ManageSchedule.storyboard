@@ -211,6 +211,7 @@
                         <outlet property="customTableView" destination="C40-cr-peu" id="ozi-Uw-WjL"/>
                         <outlet property="headerView" destination="sIz-aj-y8N" id="ckr-d2-Zcf"/>
                         <outlet property="mainButton" destination="CBc-pd-E8C" id="Btl-2d-tGU"/>
+                        <outlet property="scheduleName" destination="dPs-jw-RUr" id="018-hs-pfa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6r-Lv-pJD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -283,6 +284,7 @@
                     </view>
                     <connections>
                         <outlet property="BodyView" destination="ZjZ-9q-bcp" id="Nf6-IB-CxS"/>
+                        <outlet property="ScheduleNameTextField" destination="XtY-8y-ubS" id="vll-oI-38W"/>
                         <outlet property="returnButton" destination="Aze-AZ-NLP" id="Z0U-Lr-r5W"/>
                     </connections>
                 </viewController>
@@ -293,7 +295,7 @@
         <!--Muscle List-->
         <scene sceneID="E01-jy-p10">
             <objects>
-                <viewController id="LSm-UT-NVT" customClass="TemplateScreenViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LSm-UT-NVT" customClass="MuscleListViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hfv-2L-psG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -328,8 +330,8 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBl-ce-Qif">
-                                                                    <rect key="frame" x="131" y="61.5" width="58.5" height="20.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBl-ce-Qif">
+                                                                    <rect key="frame" x="133" y="61.5" width="58.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -386,18 +388,18 @@
                     <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="iKw-i1-lAo"/>
                     <navigationItem key="navigationItem" title="Muscle List" id="MT7-Yo-dQe"/>
                     <connections>
-                        <outlet property="bodyView" destination="h1O-5y-f4v" id="prk-fQ-U8h"/>
-                        <outlet property="customTableView" destination="bXH-bg-T7j" id="eJ8-BH-qXx"/>
+                        <outlet property="bodyView" destination="h1O-5y-f4v" id="fqV-Tu-25z"/>
+                        <outlet property="customTableView" destination="bXH-bg-T7j" id="UHJ-fZ-ZFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ur-mF-GEC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2422" y="-389"/>
         </scene>
-        <!--Create Schedule-->
+        <!--Pick Exercise-->
         <scene sceneID="ajN-rJ-Tyv">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" wantsFullScreenLayout="YES" id="JlC-RW-KeR" customClass="CreateScheduleViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" wantsFullScreenLayout="YES" id="JlC-RW-KeR" customClass="ExerciseListViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7gW-fa-q5k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -405,43 +407,43 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgN-Jo-R0Y" userLabel="HeaderView">
                                 <rect key="frame" x="0.0" y="114.5" width="394" height="130"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="schedule" translatesAutoresizingMaskIntoConstraints="NO" id="xPy-Ci-TAn">
-                                        <rect key="frame" x="25" y="25" width="80" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="Qrl-yh-C4P"/>
-                                            <constraint firstAttribute="height" constant="80" id="e36-nW-fJu"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yq9-sc-E5A">
-                                        <rect key="frame" x="139" y="68" width="42.5" height="16"/>
+                                        <rect key="frame" x="134" y="68" width="42.5" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fu-Gw-zGC">
-                                        <rect key="frame" x="186.5" y="68" width="35.5" height="16.5"/>
+                                        <rect key="frame" x="181.5" y="68" width="35.5" height="16.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Selected Exercises (0)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="td5-NJ-oVX">
-                                        <rect key="frame" x="139" y="25" width="237" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Exercises (0)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="td5-NJ-oVX">
+                                        <rect key="frame" x="134" y="25" width="221.5" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HLn-oD-6T9">
+                                        <rect key="frame" x="29" y="25" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="A8g-rv-54p"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="et8-Il-YAm"/>
+                                            <constraint firstAttribute="width" constant="80" id="mYN-hv-J4P"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="HLn-oD-6T9" firstAttribute="top" secondItem="tgN-Jo-R0Y" secondAttribute="top" constant="25" id="CXj-Pv-nJQ"/>
                                     <constraint firstItem="5fu-Gw-zGC" firstAttribute="height" secondItem="yq9-sc-E5A" secondAttribute="height" multiplier="1.02439" id="Hbu-aK-FoN"/>
                                     <constraint firstItem="td5-NJ-oVX" firstAttribute="top" secondItem="tgN-Jo-R0Y" secondAttribute="top" constant="25" id="Jf0-MX-Qxs"/>
-                                    <constraint firstItem="td5-NJ-oVX" firstAttribute="leading" secondItem="xPy-Ci-TAn" secondAttribute="trailing" constant="34" id="LKM-z0-SK5"/>
+                                    <constraint firstItem="td5-NJ-oVX" firstAttribute="leading" secondItem="HLn-oD-6T9" secondAttribute="trailing" constant="25" id="OKg-fq-5fL"/>
                                     <constraint firstItem="yq9-sc-E5A" firstAttribute="top" secondItem="td5-NJ-oVX" secondAttribute="bottom" constant="15" id="WP4-t9-coN"/>
                                     <constraint firstItem="yq9-sc-E5A" firstAttribute="leading" secondItem="td5-NJ-oVX" secondAttribute="leading" id="WmS-AM-bgt"/>
-                                    <constraint firstAttribute="bottom" secondItem="xPy-Ci-TAn" secondAttribute="bottom" constant="25" id="dCX-cL-4Dt"/>
                                     <constraint firstItem="5fu-Gw-zGC" firstAttribute="leading" secondItem="yq9-sc-E5A" secondAttribute="trailing" constant="5" id="erQ-H4-dqZ"/>
-                                    <constraint firstItem="xPy-Ci-TAn" firstAttribute="leading" secondItem="tgN-Jo-R0Y" secondAttribute="leading" constant="25" id="kEM-hW-IxV"/>
-                                    <constraint firstItem="xPy-Ci-TAn" firstAttribute="top" secondItem="tgN-Jo-R0Y" secondAttribute="top" constant="25" id="khG-0Z-kc1"/>
+                                    <constraint firstItem="HLn-oD-6T9" firstAttribute="leading" secondItem="tgN-Jo-R0Y" secondAttribute="leading" constant="29" id="hch-uJ-ufL"/>
                                     <constraint firstItem="5fu-Gw-zGC" firstAttribute="top" secondItem="td5-NJ-oVX" secondAttribute="bottom" constant="15" id="q69-0u-u4C"/>
                                 </constraints>
                             </view>
@@ -522,13 +524,15 @@
                                 </constraints>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="ClickSaveButton:" destination="JlC-RW-KeR" eventType="touchUpInside" id="aDW-0b-zxQ"/>
+                                    <action selector="clickSaveButton:" destination="JlC-RW-KeR" eventType="touchUpInside" id="m5A-Wc-fnC"/>
+                                    <segue destination="OPd-fH-ZXE" kind="unwind" identifier="unwindToCreateSchedule" unwindAction="unwindtoCreateScheduleWithSeague:" id="RuW-AU-alY"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="feW-FL-AuU"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
+                            <constraint firstItem="yqX-B0-Rm7" firstAttribute="top" secondItem="7gW-fa-q5k" secondAttribute="top" constant="264.5" id="1XW-F9-pkE"/>
                             <constraint firstItem="tgN-Jo-R0Y" firstAttribute="top" secondItem="feW-FL-AuU" secondAttribute="top" multiplier="1.3" id="2co-ke-yUU"/>
                             <constraint firstItem="feW-FL-AuU" firstAttribute="trailing" secondItem="K1j-F2-as4" secondAttribute="trailing" constant="20" id="3Jw-gh-Rmi"/>
                             <constraint firstItem="feW-FL-AuU" firstAttribute="trailing" secondItem="yqX-B0-Rm7" secondAttribute="trailing" constant="20" id="4AJ-QF-pdU"/>
@@ -542,16 +546,17 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Create Schedule" id="SG3-rb-cZ2"/>
+                    <navigationItem key="navigationItem" title="Pick Exercise" id="SG3-rb-cZ2"/>
                     <connections>
-                        <outlet property="IconImage" destination="xPy-Ci-TAn" id="C3T-WW-oVp"/>
-                        <outlet property="bodyView" destination="yqX-B0-Rm7" id="Kwt-3G-Z6c"/>
+                        <outlet property="IconImage" destination="HLn-oD-6T9" id="AYN-5v-MMU"/>
+                        <outlet property="bodyView" destination="yqX-B0-Rm7" id="gbJ-U6-28s"/>
                         <outlet property="customTableView" destination="eml-YS-lvi" id="9Sp-Xc-w6y"/>
-                        <outlet property="headerView" destination="tgN-Jo-R0Y" id="0cx-iB-swD"/>
-                        <outlet property="mainButton" destination="K1j-F2-as4" id="gop-VA-VXD"/>
+                        <outlet property="headerView" destination="tgN-Jo-R0Y" id="z2d-fS-gA4"/>
+                        <outlet property="mainButton" destination="K1j-F2-as4" id="o88-NT-4p5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCW-Bf-npI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="OPd-fH-ZXE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1643.4782608695652" y="-389.0625"/>
         </scene>

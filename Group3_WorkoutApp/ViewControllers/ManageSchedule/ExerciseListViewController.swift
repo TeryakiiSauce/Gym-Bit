@@ -1,58 +1,27 @@
-//
-//  CreateScheduleViewController.swift
-//  Group3_WorkoutApp
-//
-//  Created by mobileProg on 27/12/2021.
-//
-
 import UIKit
 
-class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class ExerciseListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
+    //temp infromation
     var titles = ["Workout 1", "Workout 2", "Workout 3", "Workout 4"]
-    var subtitles = ["Legs workout 1", "Back workout 2", "Chest workout 3", "abs workout 4"]
+    var subtitles = ["abs workout 1", "abs workout 2", "abs workout 3", "abs workout 4"]
     var images = ["abs1", "abs2", "abs3", "abs4"]
+    var mainImageIconName = ""
     
-    
-    
-    var schedules =
-    Schedule(dateCreated: nil, name: "", playsCounter: 0, exercises: [Exercise(name: "bench Press", description: "benche press description", imagePath: "/path", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.chest.rawValue)])
-    
-    
+    //connectors connecting the gui to the code
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var mainButton: UIButton!
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
     
-    @IBAction func ClickClearScheduleButton(_ sender: Any) {
-        //removing all the arrays
-        titles.removeAll()
-        subtitles.removeAll()
-        images.removeAll()
-        //reloading the table
-        customTableView.reloadData()
-    }
-    @IBAction func ClickAddSchedulebutton(_ sender: Any) {
+    //function that preformes a segue when the save button is clicked
+    @IBAction func clickSaveButton(_ sender: Any) {
+        //segue command to send to create schedule page 
+        performSegue(withIdentifier: "unwindToCreateSchedule", sender: self)
     }
     
-    @IBAction func ClickSaveButton(_ sender: Any) {
-
-        Schedule.saveSchedules(schedules)
-    }
-    //method to open a popup and change schedule name
-    @IBAction func ClickUpdateScheduleButton(_ sender: Any) {
-        
-        //creating a var of the popup viewcontroller
-        let popOverVc = UIStoryboard(name: "ManageSchedule", bundle: nil).instantiateViewController(withIdentifier: "sbPopupID") as! PopupViewController
-        
-        //assigning it as a child view and opening it over the parent view
-        self.addChild(popOverVc)
-        popOverVc.view.frame = self.view.frame
-        self.view.addSubview(popOverVc.view)
-        popOverVc.didMove(toParent: self)
-    }
-    
+    //view did load function
     override func viewDidLoad() {
         super.viewDidLoad()
         // apply default styling
@@ -62,15 +31,16 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         //styling table view
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
-  
-        
+        IconImage.image = UIImage(named: mainImageIconName)
+        print(mainImageIconName)
     }
     
+    //function that sets the number of rows in the table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
     }
     
-    
+    //function that fill the table with infromation
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //creating a cell identifier
@@ -80,11 +50,10 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         cell.titleLabel.text = titles[indexPath.row]
         cell.subtitleLabel.text = subtitles[indexPath.row]
         cell.cellImage.image = UIImage(named: images[indexPath.row])
-        
         return cell
     }
 
-    
+    //function that sets the height of the table
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
