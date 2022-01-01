@@ -247,6 +247,7 @@
                                         <state key="normal" title="Update"/>
                                         <connections>
                                             <action selector="updateScheduleButton:" destination="Beh-Mm-Jff" eventType="touchUpInside" id="WOZ-gN-az0"/>
+                                            <segue destination="eeZ-hI-7tF" kind="unwind" unwindAction="unwindtoCreateScheduleWithSeague:" id="NfS-0w-6vm"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Schedule Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1g-91-jSH">
@@ -289,6 +290,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVE-C2-Uh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="eeZ-hI-7tF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3268" y="288"/>
         </scene>

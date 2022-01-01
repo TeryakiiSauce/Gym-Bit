@@ -51,8 +51,16 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         popOverVc.didMove(toParent: self)
     }
     
+    
     //function that creates an unwind segue for this page
-    @IBAction func unwindtoCreateSchedule(seague: UIStoryboardSegue){}
+    @IBAction func unwindtoCreateSchedule(seague: UIStoryboardSegue){
+        if let sourceViewController = seague.source as? PopupViewController   {
+            scheduleName.text = sourceViewController.ScheduleNameTextField.text
+                }
+        if let sourceViewController = seague.source as? MuscleListViewController      {
+            
+                }
+    }
     
     //view did load function
     override func viewDidLoad() {
