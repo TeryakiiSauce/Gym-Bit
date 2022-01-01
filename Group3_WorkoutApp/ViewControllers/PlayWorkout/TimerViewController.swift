@@ -7,13 +7,6 @@
 
 import UIKit
 
-// format the time
-extension TimeInterval {
-    var time: String {
-        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
-    }
-}
-
 // convert degrees to radians
 extension Int {
     var degreesToRadians : CGFloat {
@@ -23,34 +16,30 @@ extension Int {
 
 class TimerViewController: UIViewController {
     
-    // views outlets
+    // outlets
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var playPauseButton: UIButton!
     
     // constants and variables
+    // circle of the timer background
+    let backgroundShape = CAShapeLayer()
+    // circle to use its stroke for timer animation
+    let timerShape = CAShapeLayer()
     
-    
-    let shapeLayer = CAShapeLayer()
-    let timeLeftShapeLayer = CAShapeLayer() //outter circle
-    let bgShapeLayer = CAShapeLayer() // inner circle
+    // timer to calculate the remaining selected time
+    var timer = Timer()
+    //default selected time
     var selectedTime: Int = 300
-    var timeRemaining: TimeInterval = 60 // time remaining
-    var endTime: Date?
-    var timeLabel =  UILabel() // label to show the remaining time
-    var timer = Timer() // timer to calculate the remaining selected time
-    // to animate stroke end property
+    var timeRemaining: Int = 300
+    // label to show the remaining time
+    var timeLabel =  UILabel()
+    // animation object to animate timer shape stroke
     let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-    
-    
-    func addTimeLabel() {
-        timeLabel = UILabel(frame: CGRect(x: timeLeftShapeLayer.frame.midX ,y: timeLeftShapeLayer.frame.midY, width: 100, height: 50))
-        timeLabel.textAlignment = .center
-        timeLabel.text = timeRemaining.time
-        view.addSubview(timeLabel)
-    }
-    
-    
+    // to show play or pause button
+    var timerIsCounting: Bool = false
+    // to add the animation on the first run only
+    var firstRun = true
     
     
     override func viewDidLoad() {
@@ -58,102 +47,183 @@ class TimerViewController: UIViewController {
         
         // apply default styling for the views
         Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:nil)
+        
+        // draw and build elements
+        drawBackroundCircle()
         drawTimerCircle()
+        addTimeLabelToBackgroundCircle()
         
-        
-        
-        // define the future end time by adding the timeLeft to now Date()
-        endTime = Date().addingTimeInterval(timeRemaining)
-        
-        
-        
-    }
-    
-    @objc func updateTime() {
-        
-        // don't remove the stroke when reaching the end
-        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-        basicAnimation.isRemovedOnCompletion = false
-        
-        
-//        if timeRemaining > 0 {
-//            // subtract 1 from the time remaining if > 10
-//            timeRemaining -= 1
-//        }else{
-//            // stop the timer when time remaining reaches 0
-//            timer.invalidate()
-//            // reset time remaining to its original value
-//            timeRemaining = 10
-//        }
-        // update timer label
-        //        timerLabel.text = "\(timeRemaining)"
-        
-        if timeRemaining > 0 {
-            // subtract 1 second from the time remaining
-            timeRemaining = endTime?.timeIntervalSinceNow ?? 0
-            timeLabel.text = timeRemaining.time
-        } else {
-            timeLabel.text = "00:00"
-            timer.invalidate()
-        }
-    }
-    func drawTimerCircle()
-    {
-        
-        // body view center point
-        let center = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
-        // define shape path
-        let circularPath = UIBezierPath(arcCenter: center, radius: 140, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        
-        // change circle fill and stoke color
-        shapeLayer.strokeColor = AppColors.buttonColor.cgColor
-        shapeLayer.fillColor = AppColors.phoneBg.cgColor
-        // stroke width
-        shapeLayer.lineWidth = 20
-        // assign circular path to the shape path
-        shapeLayer.path = circularPath.cgPath
-        //
-        shapeLayer.strokeEnd = 0
-        // add shape to the view
-        bodyView.layer.addSublayer(shapeLayer)
-        
-    }
-    
-    
-    @IBAction func playTapped(_ sender: Any) {
-        // init timer
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        // set time remaining as the selected time
+        timeRemaining = selectedTime
         
         // define the fromValue, toValue and duration of animation
         basicAnimation.fromValue = 0
         basicAnimation.toValue = 1
-        basicAnimation.duration = timeRemaining
+        basicAnimation.duration = CFTimeInterval(timeRemaining)
+        // don't remove the stroke when reaching the end
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+        basicAnimation.isRemovedOnCompletion = false
         
-        shapeLayer.add(basicAnimation, forKey: nil)
-        
-        
-        let image = UIImage(named: "pause_button.svg")
-        playPauseButton.setImage(image, for: .normal)
     }
     
     
-    @IBAction func pauseTapped(_ sender: Any) {
-        // stop the timer
-        timer.invalidate()
+    
+    func addTimeLabelToBackgroundCircle() {
+        timeLabel = UILabel(frame: CGRect(x: backgroundShape.frame.midX ,y: backgroundShape.frame.height/2, width: 100, height: 50))
+        timeLabel.center = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
+        timeLabel.textAlignment = .center
+        
+        // format time remaining
+        let time = Constants.secondsToHoursMinutesSeconds(seconds: selectedTime)
+        let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+        
+        timeLabel.text = timeString
+        
+        bodyView.addSubview(timeLabel)
     }
     
+    func drawBackroundCircle()
+    {
+        // background circle position
+        let position = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
+        
+        // define shape path
+        let circularPath = UIBezierPath(arcCenter: position, radius: 140, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
+        
+        // set circle fill
+        backgroundShape.fillColor = AppColors.phoneBg.cgColor
+        // assign circular path to the shape path
+        backgroundShape.path = circularPath.cgPath
+        // set stroke properties
+        backgroundShape.strokeColor = AppColors.buttonSecondaryColor.cgColor
+        backgroundShape.lineWidth = 15
+        // add shape to the body view
+        bodyView.layer.addSublayer(backgroundShape)
+    }
+    
+    func drawTimerCircle() {
+        // timer circle position
+        let position = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
+        // define shape path
+        let circularPath = UIBezierPath(arcCenter:position, radius:
+            140, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
+        // assign circular path to the shape path
+        timerShape.path = circularPath.cgPath
+        // set stroke fill color
+        timerShape.fillColor = UIColor.clear.cgColor
+        // set stroke properties
+        timerShape.strokeColor = AppColors.buttonColor.cgColor
+        timerShape.lineWidth = 15
+        timerShape.strokeEnd = 0
+        // add shape to body view
+        bodyView.layer.addSublayer(timerShape)
+    }
+    
+    func formatTimeRemaining()
+    {
+        
+        let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(timeRemaining))
+        let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+        // update timer label
+        timeLabel.text = timeString
+    }
+    
+    
+    @objc func updateTime() {
+        if timeRemaining > 0 {
+            // subtract 1 second from the time remaining
+            timeRemaining -= 1
+        } else {
+            // reset time remaining
+            self.timeRemaining = selectedTime
+            // stop time
+            timer.invalidate()
+            // reset time label
+            timeLabel.text = "00 : 00 : 00"
+            // display play button
+            playPauseButton.setImage(UIImage(named: "play_button.svg"), for: .normal)
+            timerIsCounting = false
+        }
+        // format time remaining
+        formatTimeRemaining()
+    }
+    
+    @IBAction func playPauseTapped(_ sender: Any) {
+        
+        // add animation to the timer circle only in first run
+        if firstRun {
+            firstRun = false
+            timerShape.add(basicAnimation, forKey: nil)
+        }
+        // user clicks pause button
+        if timerIsCounting {
+            timerIsCounting = false
+            // stop the timer
+            timer.invalidate()
+            // change the button to play
+            playPauseButton.setImage(UIImage(named: "play_button.svg"), for: .normal)
+            // stop animation
+            pauseAnimation()
+            
+        }
+        // user clicks play button
+        else{
+            timerIsCounting = true
+            // change the button to play
+            playPauseButton.setImage(UIImage(named: "pause_button.svg"), for: .normal)
+            // init timer
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            // resume the animation
+            resumeAnimation()
+        }
+    }
+    
+    // pause timer circle stroke animation
+    func pauseAnimation(){
+        let pausedTime : CFTimeInterval = timerShape.convertTime(CACurrentMediaTime(), from: nil)
+        timerShape.speed = 0.0
+        timerShape.timeOffset = pausedTime
+
+    }
+
+    // resume timer circle stroke animation
+    func resumeAnimation(){
+        let pausedTime = timerShape.timeOffset
+        timerShape.speed = 1.0
+        timerShape.timeOffset = 0.0
+        timerShape.beginTime = 0.0
+        let timeSincePause = timerShape.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        timerShape.beginTime = timeSincePause
+    }
+ 
     
     @IBAction func resetTapped(_ sender: Any) {
-        // stop the timer
-        timer.invalidate()
-        // reset time remaining
-        timeRemaining = 10
-        // update timer label
-        //        timerLabel.text = "\(timeRemaining)"
         
+        // show alert dialog
+        let alert = UIAlertController(title: "Reset Timer?", message: "Are you sure you would like to reset the timer?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(_) in
+            // continue counting
+        }))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler:  {(_) in
+            // stop time
+            self.timer.invalidate()
+            // reset time remaining
+            self.timeRemaining = self.selectedTime
+            // reset time label
+            self.formatTimeRemaining()
+            // display play button
+            self.playPauseButton.setImage(UIImage(named: "play_button.svg"), for: .normal)
+            self.timerIsCounting = false
+            
+            self.timerShape.add(self.basicAnimation, forKey: nil)
+            self.pauseAnimation()
+
+        }))
+
+        // format time remaining
+        formatTimeRemaining()
+        
+        self.present(alert, animated: true, completion: nil)
     }
-    
-    
-    
-    
+   
 }

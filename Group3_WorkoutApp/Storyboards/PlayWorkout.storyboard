@@ -23,12 +23,21 @@
                                         <rect key="frame" x="113" y="362" width="148" height="148"/>
                                         <state key="normal" title="Button" image="play_button"/>
                                         <connections>
-                                            <action selector="playTapped:" destination="umb-GW-khk" eventType="touchUpInside" id="qWN-fy-ZLP"/>
+                                            <action selector="playPauseTapped:" destination="umb-GW-khk" eventType="touchUpInside" id="qWN-fy-ZLP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3V5-Og-sjW">
+                                        <rect key="frame" x="315" y="20" width="39" height="30"/>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="resetTapped:" destination="umb-GW-khk" eventType="touchUpInside" id="19K-Tx-tVr"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="3V5-Og-sjW" firstAttribute="top" secondItem="itg-kC-L5J" secondAttribute="top" constant="20" id="60Y-LH-ktW"/>
+                                    <constraint firstAttribute="trailing" secondItem="3V5-Og-sjW" secondAttribute="trailing" constant="20" id="GoW-mE-zP8"/>
                                     <constraint firstAttribute="trailing" secondItem="Xcv-kD-MCO" secondAttribute="trailing" constant="113" id="LLy-iZ-Gcx"/>
                                     <constraint firstItem="Xcv-kD-MCO" firstAttribute="leading" secondItem="itg-kC-L5J" secondAttribute="leading" constant="113" id="rcj-3S-XFw"/>
                                     <constraint firstAttribute="bottom" secondItem="Xcv-kD-MCO" secondAttribute="bottom" constant="20" id="yFh-sZ-sRH"/>
@@ -168,8 +177,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBV-c1-M9t">
-                                        <rect key="frame" x="198" y="324" width="71" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBV-c1-M9t">
+                                        <rect key="frame" x="198" y="324" width="88.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

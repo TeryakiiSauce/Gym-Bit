@@ -21,6 +21,7 @@ class SelectTimeViewController: UIViewController {
     var hour:Int = 0
     var minutes:Int = 0
     var seconds:Int = 0
+    var totalSeconds = 0
     
     
     override func viewDidLoad() {
@@ -34,15 +35,20 @@ class SelectTimeViewController: UIViewController {
     
     // update total time label
     func updateTotalTime(){
-        totalTimeLabel.text = "\(hour):\(minutes):\(seconds)"
+        // format time
+        totalSeconds = (hour * 3600 ) + (minutes * 60) + seconds
+        let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(totalSeconds))
+        let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+        // update timer label
+        totalTimeLabel.text = timeString
     }
     
     
     @IBAction func startButtonPressed(_ sender: Any) {
         
         guard let timerView = storyboard?.instantiateViewController(identifier: "warmupView") as? TimerViewController else {return}
-        let totalSeconds = (hour * 3600 ) + (minutes * 60) + seconds
-        timerView.timeRemaining = TimeInterval(totalSeconds)
+        
+        timerView.selectedTime = totalSeconds
         present(timerView, animated: true)
         
         

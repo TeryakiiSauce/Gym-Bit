@@ -30,4 +30,22 @@ struct Constants {
             button.layer.masksToBounds = true
         }
     }
+    
+    // format time functions
+    static func secondsToHoursMinutesSeconds(seconds: Int) -> (Int,Int,Int)
+    {
+        return (seconds / 3600, (seconds % 3600)/60,  (seconds % 3600) % 60)
+    }
+    
+    static func formatTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
+        var timeString = ""
+        timeString += String (format: "%02d", hours)
+        timeString += " : "
+        timeString += String (format: "%02d", minutes)
+        timeString += " : "
+        timeString += String (format: "%02d", seconds)
+        
+        return timeString
+                       
+    }
 }
