@@ -3,8 +3,8 @@ import UIKit
 class MuscleListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate  {
 
     //temp infromation
-    let cellImageArray = ["abs","back","biceps","chest","legs","shoulders","triceps"]
     let cellNameArray = ["Abs","Back","Biceps","Chest","Legs","Shoulders","Triceps"]
+    let exersizeCountArray = [DefaultData.absExercises.count,DefaultData.backExercises.count,DefaultData.bicepExercises.count,DefaultData.chestExercises.count,DefaultData.legExercises.count,DefaultData.shoulderExercises.count,DefaultData.tricepExercises.count]
     //connectors connecting gui to code
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var customTableView: UITableView!
@@ -15,7 +15,7 @@ class MuscleListViewController: UIViewController,UITableViewDataSource, UITableV
         let viewController = segue.destination as! ExerciseListViewController
         let selectedCell = customTableView.indexPathForSelectedRow?.row
         //setting the image on the next page as the selected image picture
-        viewController.mainImageIconName = cellImageArray[selectedCell!]
+        viewController.mainImageIconName = cellNameArray[selectedCell!]
     }
     
     //function that resets the table whenever the page appears
@@ -46,7 +46,8 @@ class MuscleListViewController: UIViewController,UITableViewDataSource, UITableV
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         //adding data to the cell
         cell.titleLabel.text = cellNameArray[indexPath.row]
-        cell.cellImage.image = UIImage(named: cellImageArray[indexPath.row])
+        cell.subtitleLabel.text = "Total exercises (" + String(exersizeCountArray[indexPath.row]) + ")"
+        cell.cellImage.image = UIImage(named: cellNameArray[indexPath.row])
         return cell
     }
 

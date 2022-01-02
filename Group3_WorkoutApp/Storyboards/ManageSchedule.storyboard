@@ -457,7 +457,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" rowHeight="120" id="Yqt-Uz-myw" customClass="CustomTableViewCell" customModule="Group3_WorkoutApp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" rowHeight="120" id="Yqt-Uz-myw" customClass="ExerciseTableViewCell" customModule="Group3_WorkoutApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="24.5" width="374" height="120"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yqt-Uz-myw" id="oeM-Ly-GqJ">
@@ -507,10 +507,10 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="cellImage" destination="alP-l3-MZU" id="gsI-A7-InI"/>
-                                                    <outlet property="cellView" destination="vvG-5n-0ou" id="49x-1h-pz0"/>
-                                                    <outlet property="subtitleLabel" destination="wfn-Nc-mEB" id="nw0-VM-KuU"/>
-                                                    <outlet property="titleLabel" destination="X83-3P-T3h" id="xyp-vI-gGJ"/>
+                                                    <outlet property="cellImage" destination="alP-l3-MZU" id="eXW-8i-h6C"/>
+                                                    <outlet property="cellView" destination="vvG-5n-0ou" id="f6F-x9-c2Y"/>
+                                                    <outlet property="subtitleLabel" destination="wfn-Nc-mEB" id="J1g-KA-ETk"/>
+                                                    <outlet property="titleLabel" destination="X83-3P-T3h" id="ZSH-7x-Een"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

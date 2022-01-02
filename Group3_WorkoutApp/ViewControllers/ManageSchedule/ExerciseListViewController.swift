@@ -2,11 +2,9 @@ import UIKit
 
 class ExerciseListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
-    //temp infromation
-    var titles = ["Workout 1", "Workout 2", "Workout 3", "Workout 4"]
-    var subtitles = ["abs workout 1", "abs workout 2", "abs workout 3", "abs workout 4"]
-    var images = ["abs1", "abs2", "abs3", "abs4"]
     var mainImageIconName = ""
+    var exersizeList : [Exercise]?
+    var pickedExercises : [Exercise] = []
     
     //connectors connecting the gui to the code
     @IBOutlet weak var headerView: UIView!
@@ -15,12 +13,33 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
     
-    //function that preformes a segue when the save button is clicked
-    @IBAction func clickSaveButton(_ sender: Any) {
-        //segue command to send to create schedule page 
-        performSegue(withIdentifier: "unwindToCreateSchedule", sender: self)
+    func getExercises(Type:String){
+        switch Type {
+        case "Chest":
+            exersizeList = DefaultData.chestExercises
+        case "Legs":
+            exersizeList = DefaultData.legExercises
+        case "Abs":
+            exersizeList = DefaultData.absExercises
+        case "Triceps":
+            exersizeList = DefaultData.tricepExercises
+        case "Biceps":
+            exersizeList = DefaultData.bicepExercises
+        case "Back":
+            exersizeList = DefaultData.backExercises
+        default:
+            exersizeList = DefaultData.shoulderExercises
+        }
     }
     
+    //function that preformes a segue when the save button is clicked
+    @IBAction func clickSaveButton(_ sender: Any) {
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getExercises(Type: mainImageIconName)
+    }
     //view did load function
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,46 +47,50 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
         Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:mainButton)
         customTableView.delegate = self
         customTableView.dataSource = self
+        //allowing the user to multicelect the cell 
+        customTableView.allowsMultipleSelection = true
         //styling table view
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
         IconImage.image = UIImage(named: mainImageIconName)
-        print(mainImageIconName)
     }
     
     //function that sets the number of rows in the table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
+        return exersizeList?.count ?? 0
     }
     
     //function that fill the table with infromation
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //creating a cell identifier
-        let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+        let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! ExerciseTableViewCell
 
         //adding data to the cell
-        cell.titleLabel.text = titles[indexPath.row]
-        cell.subtitleLabel.text = subtitles[indexPath.row]
-        cell.cellImage.image = UIImage(named: images[indexPath.row])
+        cell.titleLabel.text = exersizeList?[indexPath.row].name
+        cell.subtitleLabel.text = ""
+        cell.cellImage.image = UIImage(named: exersizeList?[indexPath.row].imagePath ?? "")
         return cell
     }
-
+    
+    //method that checkes if the user selects a cell and adds it to the pickedexercises array
+    func tableView(_ tableView: UITableView, didSelectRowAt : IndexPath) {
+        let addedcell = exersizeList?[didSelectRowAt.row]
+        pickedExercises.append(addedcell!)
+    }
+    
+    //method that checkes if the user deselects a cell and removes it from the pickedexercises array
+    func tableView(_ tableView: UITableView, didDeselectRowAt : IndexPath) {
+        let removecell = exersizeList?[didDeselectRowAt.row]
+        //finding the index of the deselected array so that it could be removed
+        let index = pickedExercises.firstIndex(where:{$0.name == removecell?.name})
+            pickedExercises.remove(at: index!)
+    }
+    
     //function that sets the height of the table
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
 
-    //makes it so that you can swipe to delete
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        //checking the editing style
-        if editingStyle == .delete {
-            //removing the instance from the stored array
-            titles.remove(at: indexPath.row)
-            images.remove(at: indexPath.row)
-            subtitles.remove(at: indexPath.row)
-            //removing the row from the table in the gui
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
+
 }

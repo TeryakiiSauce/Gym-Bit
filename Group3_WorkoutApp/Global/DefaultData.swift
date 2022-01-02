@@ -25,7 +25,7 @@ struct DefaultData {
     
     static var shoulderExercises =
         [
-            Exercise(name: "Shoulder Press", description: "description", imagePath: "shoulder1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue)
+            Exercise(name: "Shoulder Press", description: "description", imagePath: "shoulder2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue)
         ]
     
     static var legExercises =
