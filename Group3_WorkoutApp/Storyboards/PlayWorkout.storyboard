@@ -228,7 +228,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="3yw-AE-iU0"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Set Rest Time"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45 sec" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOy-QR-Gsh">
                                         <rect key="frame" x="302" y="20" width="52" height="50"/>
@@ -288,6 +288,8 @@
                         <outlet property="headerView" destination="uci-75-dda" id="b2V-aT-dib"/>
                         <outlet property="restTimeButton" destination="I1H-Sw-jdd" id="CCG-IO-cWy"/>
                         <outlet property="restTimeLabel" destination="cOy-QR-Gsh" id="nn5-l8-a4M"/>
+                        <outlet property="scheduleNameLabel" destination="Bz8-mH-CJQ" id="qz8-8i-kBE"/>
+                        <outlet property="scheduleTargetLabel" destination="buW-Xc-Efn" id="7u5-4g-z3c"/>
                         <outlet property="startButton" destination="PM1-hp-in5" id="D7b-qs-y5a"/>
                     </connections>
                 </viewController>
