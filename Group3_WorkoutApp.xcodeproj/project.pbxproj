@@ -10,6 +10,7 @@
 		9608FB4527793802009498F9 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9608FB4427793802009498F9 /* CustomTableViewCell.swift */; };
 		9608FB472779E3B1009498F9 /* TemplateScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9608FB462779E3B1009498F9 /* TemplateScreen.storyboard */; };
 		9608FB492779E4C9009498F9 /* TemplateScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9608FB482779E4C9009498F9 /* TemplateScreenViewController.swift */; };
+		96170D982781341F001CA441 /* RestTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96170D972781341F001CA441 /* RestTimeViewController.swift */; };
 		9617126827748809008186F4 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617126727748809008186F4 /* TimerViewController.swift */; };
 		9622BD76277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622BD75277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift */; };
 		9641726D277D3576007BF9D0 /* SelectTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641726C277D3576007BF9D0 /* SelectTimeViewController.swift */; };
@@ -42,6 +43,7 @@
 		9608FB4427793802009498F9 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		9608FB462779E3B1009498F9 /* TemplateScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TemplateScreen.storyboard; sourceTree = "<group>"; };
 		9608FB482779E4C9009498F9 /* TemplateScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateScreenViewController.swift; sourceTree = "<group>"; };
+		96170D972781341F001CA441 /* RestTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimeViewController.swift; sourceTree = "<group>"; };
 		9617126727748809008186F4 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		9622BD75277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWorkoutLandingViewController.swift; sourceTree = "<group>"; };
 		9641726C277D3576007BF9D0 /* SelectTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				9617126727748809008186F4 /* TimerViewController.swift */,
 				9622BD75277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift */,
 				9641726C277D3576007BF9D0 /* SelectTimeViewController.swift */,
+				96170D972781341F001CA441 /* RestTimeViewController.swift */,
 			);
 			path = PlayWorkout;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				96613EEE2780CD0C0008992E /* DefaultData.swift in Sources */,
 				966936362767578400206950 /* Exercise.swift in Sources */,
 				F081CBDC277B975B00F2CAA6 /* PopupViewController.swift in Sources */,
+				96170D982781341F001CA441 /* RestTimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

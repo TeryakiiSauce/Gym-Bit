@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class LandingPlayWorkoutViewController:UIViewController,UITableViewDataSource, UITableViewDelegate {
+class LandingPlayWorkoutViewController:UIViewController,UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
@@ -18,6 +18,9 @@ class LandingPlayWorkoutViewController:UIViewController,UITableViewDataSource, U
     @IBOutlet weak var restTimeLabel: UILabel!
     @IBOutlet weak var scheduleNameLabel: UILabel!
     @IBOutlet weak var scheduleTargetLabel: UILabel!
+    
+    // default rest time
+    var restTime = 45
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,4 +64,28 @@ class LandingPlayWorkoutViewController:UIViewController,UITableViewDataSource, U
     }
     
 
+    @IBAction func setRestTimeTapped(_ sender: Any) {
+        guard let restTimeView = storyboard?.instantiateViewController(identifier: "restTimeView") as? RestTimeViewController else {return}
+        
+        present(restTimeView, animated: true)
+    }
+    
+    @IBAction func didUnwindFromSelectRestTime(_ seague: UIStoryboardSegue)
+    {
+            if let restTimeVc = seague.source as? RestTimeViewController {
+               restTime = restTimeVc.totalSeconds
+                
+                let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(restTime))
+                let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+                
+                restTimeLabel.text = timeString
+            }
+            else{
+                return
+            }
+        
+    }
+    
+    
 }
+
