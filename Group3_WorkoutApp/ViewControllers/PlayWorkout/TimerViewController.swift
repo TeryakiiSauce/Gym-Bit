@@ -20,6 +20,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var selectedTimeLabel: UILabel!
     
     // constants and variables
     // circle of the timer background
@@ -30,8 +31,8 @@ class TimerViewController: UIViewController {
     // timer to calculate the remaining selected time
     var timer = Timer()
     //default selected time
-    var selectedTime: Int = 300
-    var timeRemaining: Int = 300
+    var selectedTime: Double = 300
+    var timeRemaining: Double = 300
     // label to show the remaining time
     var timeLabel =  UILabel()
     // animation object to animate timer shape stroke
@@ -47,14 +48,18 @@ class TimerViewController: UIViewController {
         
         // apply default styling for the views
         Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:nil)
+        view.backgroundColor = AppColors.phoneBg
+
+        // set time remaining as the selected time
+        timeRemaining = selectedTime
         
         // draw and build elements
         drawBackroundCircle()
         drawTimerCircle()
         addTimeLabelToBackgroundCircle()
         
-        // set time remaining as the selected time
-        timeRemaining = selectedTime
+        // set selected time in header
+        selectedTimeLabel.text = "Selected Time \(timeLabel.text!)"
         
         // define the fromValue, toValue and duration of animation
         basicAnimation.fromValue = 0
@@ -74,7 +79,7 @@ class TimerViewController: UIViewController {
         timeLabel.textAlignment = .center
         
         // format time remaining
-        let time = Constants.secondsToHoursMinutesSeconds(seconds: selectedTime)
+        let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(selectedTime))
         let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         
         timeLabel.text = timeString
@@ -130,6 +135,8 @@ class TimerViewController: UIViewController {
     
     
     @objc func updateTime() {
+        
+        print("Time remaining = \(timeRemaining)")
         if timeRemaining > 0 {
             // subtract 1 second from the time remaining
             timeRemaining -= 1
@@ -138,8 +145,6 @@ class TimerViewController: UIViewController {
             self.timeRemaining = selectedTime
             // stop time
             timer.invalidate()
-            // reset time label
-            timeLabel.text = "00 : 00 : 00"
             // display play button
             playPauseButton.setImage(UIImage(named: "play_button.svg"), for: .normal)
             timerIsCounting = false
@@ -183,6 +188,7 @@ class TimerViewController: UIViewController {
         let pausedTime : CFTimeInterval = timerShape.convertTime(CACurrentMediaTime(), from: nil)
         timerShape.speed = 0.0
         timerShape.timeOffset = pausedTime
+//        timeRemaining =  selectedTime - pausedTime
 
     }
 
@@ -194,6 +200,7 @@ class TimerViewController: UIViewController {
         timerShape.beginTime = 0.0
         let timeSincePause = timerShape.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         timerShape.beginTime = timeSincePause
+//        timeRemaining =  selectedTime - pausedTime
     }
  
     
@@ -215,6 +222,7 @@ class TimerViewController: UIViewController {
             self.playPauseButton.setImage(UIImage(named: "play_button.svg"), for: .normal)
             self.timerIsCounting = false
             
+            // add animation but pause it
             self.timerShape.add(self.basicAnimation, forKey: nil)
             self.pauseAnimation()
 
