@@ -21,7 +21,6 @@ struct Schedule: Codable {
         let codedSchedules = try? propertyListEncoder.encode(Schedule)
         //writing the encoded sehedule to the file
         try? codedSchedules?.write(to: archiveURL, options: .noFileProtection)
-        print(archiveURL)
     }
 }
 

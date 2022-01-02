@@ -35,6 +35,7 @@
 		96A1671B2768A20E0000947A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1671A2768A20E0000947A /* AppColors.swift */; };
 		F017CF4A277E449E002569A9 /* MuscleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF49277E449E002569A9 /* MuscleListViewController.swift */; };
 		F017CF4D277E4F4D002569A9 /* ExerciseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF4C277E4F4D002569A9 /* ExerciseListViewController.swift */; };
+		F017CF502781F269002569A9 /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF4F2781F269002569A9 /* ExerciseTableViewCell.swift */; };
 		F081CBDC277B975B00F2CAA6 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CBDB277B975B00F2CAA6 /* PopupViewController.swift */; };
 		F0CF27B22779F12500832E6C /* CreateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		96A1671A2768A20E0000947A /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		F017CF49277E449E002569A9 /* MuscleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleListViewController.swift; sourceTree = "<group>"; };
 		F017CF4C277E4F4D002569A9 /* ExerciseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewController.swift; sourceTree = "<group>"; };
+		F017CF4F2781F269002569A9 /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
 		F081CBDB277B975B00F2CAA6 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +191,7 @@
 				F017CF49277E449E002569A9 /* MuscleListViewController.swift */,
 				F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */,
 				F017CF4C277E4F4D002569A9 /* ExerciseListViewController.swift */,
+				F017CF4F2781F269002569A9 /* ExerciseTableViewCell.swift */,
 			);
 			path = ManageSchedule;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96693632276751E600206950 /* User.swift in Sources */,
+				F017CF502781F269002569A9 /* ExerciseTableViewCell.swift in Sources */,
 				9641726D277D3576007BF9D0 /* SelectTimeViewController.swift in Sources */,
 				9617126827748809008186F4 /* TimerViewController.swift in Sources */,
 				F017CF4D277E4F4D002569A9 /* ExerciseListViewController.swift in Sources */,
