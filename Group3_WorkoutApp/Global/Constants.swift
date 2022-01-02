@@ -28,6 +28,8 @@ struct Constants {
         if let button = button {
             button.layer.cornerRadius = Constants.viewRadius
             button.layer.masksToBounds = true
+            button.backgroundColor = AppColors.buttonColor
+            button.tintColor = AppColors.bodyBg
         }
     }
     
