@@ -31,12 +31,27 @@ class SelectTimeViewController: UIViewController {
         Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:startButton)
         
         pickerView.delegate = self
+        
+        //disable start button by default
+        enableStartButton()
+    }
+    
+    func enableStartButton()
+    {
+        if totalSeconds > 0 {
+            startButton.isEnabled = true
+            startButton.alpha = 1
+        }else{
+            startButton.isEnabled = false
+            startButton.alpha = 0.5
+        }
     }
     
     // update total time label
     func updateTotalTime(){
         // format time
         totalSeconds = (hour * 3600 ) + (minutes * 60) + seconds
+        enableStartButton()
         let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(totalSeconds))
         let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
         // update timer label
@@ -48,7 +63,7 @@ class SelectTimeViewController: UIViewController {
         
         guard let timerView = storyboard?.instantiateViewController(identifier: "warmupView") as? TimerViewController else {return}
         
-        timerView.selectedTime = totalSeconds
+        timerView.selectedTime = Double(totalSeconds)
         present(timerView, animated: true)
         
         

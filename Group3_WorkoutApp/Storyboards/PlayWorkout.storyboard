@@ -53,8 +53,8 @@
                                             <constraint firstAttribute="height" constant="80" id="jsU-j3-Qaf"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start routine by warming up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsg-3r-prM">
-                                        <rect key="frame" x="140" y="78" width="169" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Time: 5 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsg-3r-prM">
+                                        <rect key="frame" x="140" y="78" width="154" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -99,6 +99,7 @@
                         <outlet property="bodyView" destination="itg-kC-L5J" id="vdf-aK-Mpr"/>
                         <outlet property="headerView" destination="scW-2A-hN9" id="sl8-sh-GlG"/>
                         <outlet property="playPauseButton" destination="Xcv-kD-MCO" id="Vmk-kY-KsW"/>
+                        <outlet property="selectedTimeLabel" destination="jsg-3r-prM" id="HJD-ZG-a1o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzi-vk-VaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
