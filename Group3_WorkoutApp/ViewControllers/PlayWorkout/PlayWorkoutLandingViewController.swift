@@ -16,16 +16,15 @@ class LandingPlayWorkoutViewController:UIViewController,UITableViewDataSource, U
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
-    @IBOutlet weak var mainButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var restTimeButton: UIButton!
+    @IBOutlet weak var restTimeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // apply default styling
-        Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:mainButton)
-        Constants.buildRoundedUIView(headerView: nil, bodyView: nil, button:restTimeButton)
-        view.backgroundColor = AppColors.phoneBg
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: startButton, secondaryButton: restTimeButton)
         
         customTableView.delegate = self
         customTableView.dataSource = self
