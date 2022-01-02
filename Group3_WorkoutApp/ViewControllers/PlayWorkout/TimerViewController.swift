@@ -46,9 +46,8 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // apply default styling for the views
-        Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:nil)
-        view.backgroundColor = AppColors.phoneBg
+        // apply default styling
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
 
         // set time remaining as the selected time
         timeRemaining = selectedTime

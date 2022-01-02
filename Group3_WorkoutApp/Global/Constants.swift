@@ -9,7 +9,8 @@ struct Constants {
     
     
     // function to change the radius on view did load in the view controller
-    static func buildRoundedUIView(headerView: UIView?, bodyView: UIView?, button: UIButton?){
+    static func buildRoundedUIView(
+        headerView: UIView?, bodyView: UIView?, button: UIButton?){
         
         if let headerView = headerView {
             headerView.layer.cornerRadius = Constants.viewRadius
@@ -28,6 +29,46 @@ struct Constants {
         if let button = button {
             button.layer.cornerRadius = Constants.viewRadius
             button.layer.masksToBounds = true
+            button.backgroundColor = AppColors.buttonColor
+            button.tintColor = AppColors.bodyBg
+        }
+    }
+    
+    static func applyDefaultStyling(
+        backgroundView: UIView?,
+        headerView: UIView?, bodyView: UIView?, mainButton: UIButton?, secondaryButton: UIButton?){
+        
+        if let backgroundView = backgroundView {
+            backgroundView.backgroundColor = AppColors.phoneBg
+        }
+        
+        
+        if let headerView = headerView {
+            headerView.layer.cornerRadius = Constants.viewRadius
+            headerView.layer.masksToBounds = true
+            
+            headerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+        }
+        
+        if let bodyView = bodyView {
+            bodyView.layer.cornerRadius = Constants.viewRadius
+            bodyView.layer.masksToBounds = true
+            
+        }
+        
+    
+        if let mainButton = mainButton {
+            mainButton.layer.cornerRadius = Constants.viewRadius
+            mainButton.layer.masksToBounds = true
+            mainButton.backgroundColor = AppColors.buttonColor
+            mainButton.tintColor = AppColors.bodyBg
+        }
+        
+        if let secondaryButton = secondaryButton {
+            secondaryButton.layer.cornerRadius = Constants.viewRadius
+            secondaryButton.layer.masksToBounds = true
+            secondaryButton.backgroundColor = AppColors.buttonColor
+            secondaryButton.tintColor = AppColors.bodyBg
         }
     }
     
