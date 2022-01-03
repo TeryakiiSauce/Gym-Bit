@@ -316,7 +316,6 @@
                                                                 <constraint firstAttribute="bottom" secondItem="2ns-Ny-76y" secondAttribute="bottom" constant="16" id="Rm8-Wd-dXV"/>
                                                                 <constraint firstItem="Sqg-6d-fFw" firstAttribute="top" secondItem="XED-7l-2VM" secondAttribute="top" constant="15" id="nU8-1g-pwP"/>
                                                                 <constraint firstAttribute="bottom" secondItem="yoe-HR-CAF" secondAttribute="bottom" constant="10" id="vIM-74-S4g"/>
-                                                                <constraint firstItem="yoe-HR-CAF" firstAttribute="top" secondItem="XED-7l-2VM" secondAttribute="top" constant="8" id="xEt-Xn-nFR"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
