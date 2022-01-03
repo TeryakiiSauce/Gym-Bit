@@ -46,13 +46,14 @@ struct Constants {
         if let headerView = headerView {
             headerView.layer.cornerRadius = Constants.viewRadius
             headerView.layer.masksToBounds = true
-            
+            headerView.backgroundColor = AppColors.bodyBg
             headerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
         }
         
         if let bodyView = bodyView {
             bodyView.layer.cornerRadius = Constants.viewRadius
             bodyView.layer.masksToBounds = true
+            bodyView.backgroundColor = AppColors.bodyBg
             
         }
         

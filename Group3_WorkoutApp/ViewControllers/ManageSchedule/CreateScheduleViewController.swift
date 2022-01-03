@@ -6,7 +6,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     var displayedSchedule = DefaultData.schedules[0]
     var originalschedule : Schedule?
     var addedExercises : [Exercise] = []
-    
+    //var exerciseType = {"Abs":0,"Chest":0,"Back":0,"Legs":0,"Shoulders":0,"Triceps":0,"Biceps":0}
     //connectors that connect the gui to code
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
@@ -63,7 +63,9 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // apply default styling
-        Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:mainButton)
+        AppColors.toggleDarkMode()
+        //Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:mainButton)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil)
         customTableView.delegate = self
         customTableView.dataSource = self
         //styling table view
