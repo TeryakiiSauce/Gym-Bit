@@ -21,6 +21,11 @@
 		96433C792767636B00263B52 /* ViewWorkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C782767636B00263B52 /* ViewWorkout.storyboard */; };
 		96433C7B2767637900263B52 /* ViewSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C7A2767637900263B52 /* ViewSchedule.storyboard */; };
 		96433C7D2767638500263B52 /* ManageSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96433C7C2767638500263B52 /* ManageSchedule.storyboard */; };
+		9645EDA027827C0600348FDA /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9645ED9F27827C0600348FDA /* CustomPresentationController.swift */; };
+		9645EDA2278282C200348FDA /* PlayWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9645EDA1278282C200348FDA /* PlayWorkoutViewController.swift */; };
+		9645EDA6278287EA00348FDA /* PlayWorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9645EDA5278287EA00348FDA /* PlayWorkoutTableViewController.swift */; };
+		9645EDA82782889B00348FDA /* PlayWorkoutSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9645EDA72782889B00348FDA /* PlayWorkoutSetTableViewCell.swift */; };
+		9645EDAA278288B500348FDA /* PlayWorkoutTimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9645EDA9278288B500348FDA /* PlayWorkoutTimerTableViewCell.swift */; };
 		96613EEE2780CD0C0008992E /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96613EED2780CD0C0008992E /* DefaultData.swift */; };
 		9669361B27674BD400206950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9669361A27674BD400206950 /* AppDelegate.swift */; };
 		9669361D27674BD400206950 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9669361C27674BD400206950 /* SceneDelegate.swift */; };
@@ -55,6 +60,11 @@
 		96433C782767636B00263B52 /* ViewWorkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewWorkout.storyboard; sourceTree = "<group>"; };
 		96433C7A2767637900263B52 /* ViewSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewSchedule.storyboard; sourceTree = "<group>"; };
 		96433C7C2767638500263B52 /* ManageSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManageSchedule.storyboard; sourceTree = "<group>"; };
+		9645ED9F27827C0600348FDA /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
+		9645EDA1278282C200348FDA /* PlayWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWorkoutViewController.swift; sourceTree = "<group>"; };
+		9645EDA5278287EA00348FDA /* PlayWorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWorkoutTableViewController.swift; sourceTree = "<group>"; };
+		9645EDA72782889B00348FDA /* PlayWorkoutSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWorkoutSetTableViewCell.swift; sourceTree = "<group>"; };
+		9645EDA9278288B500348FDA /* PlayWorkoutTimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWorkoutTimerTableViewCell.swift; sourceTree = "<group>"; };
 		96613EED2780CD0C0008992E /* DefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultData.swift; sourceTree = "<group>"; };
 		9669361727674BD400206950 /* Group3_WorkoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group3_WorkoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9669361A27674BD400206950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,12 +109,25 @@
 		9622BD77277BF18800B5BFA8 /* PlayWorkout */ = {
 			isa = PBXGroup;
 			children = (
+				9645EDAB27829F9700348FDA /* Components */,
 				9617126727748809008186F4 /* TimerViewController.swift */,
 				9622BD75277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift */,
 				9641726C277D3576007BF9D0 /* SelectTimeViewController.swift */,
 				96170D972781341F001CA441 /* RestTimeViewController.swift */,
+				9645ED9F27827C0600348FDA /* CustomPresentationController.swift */,
+				9645EDA1278282C200348FDA /* PlayWorkoutViewController.swift */,
+				9645EDA5278287EA00348FDA /* PlayWorkoutTableViewController.swift */,
 			);
 			path = PlayWorkout;
+			sourceTree = "<group>";
+		};
+		9645EDAB27829F9700348FDA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9645EDA72782889B00348FDA /* PlayWorkoutSetTableViewCell.swift */,
+				9645EDA9278288B500348FDA /* PlayWorkoutTimerTableViewCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		9669360E27674BD400206950 = {
@@ -275,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96693632276751E600206950 /* User.swift in Sources */,
+				9645EDAA278288B500348FDA /* PlayWorkoutTimerTableViewCell.swift in Sources */,
 				F017CF502781F269002569A9 /* ExerciseTableViewCell.swift in Sources */,
 				9641726D277D3576007BF9D0 /* SelectTimeViewController.swift in Sources */,
 				9617126827748809008186F4 /* TimerViewController.swift in Sources */,
@@ -284,7 +308,9 @@
 				9669361B27674BD400206950 /* AppDelegate.swift in Sources */,
 				966936342767570200206950 /* Schedule.swift in Sources */,
 				9622BD76277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift in Sources */,
+				9645EDA2278282C200348FDA /* PlayWorkoutViewController.swift in Sources */,
 				9608FB4527793802009498F9 /* CustomTableViewCell.swift in Sources */,
+				9645EDA82782889B00348FDA /* PlayWorkoutSetTableViewCell.swift in Sources */,
 				9608FB492779E4C9009498F9 /* TemplateScreenViewController.swift in Sources */,
 				96A167192768A0AE0000947A /* Constants.swift in Sources */,
 				F0CF27B22779F12500832E6C /* CreateScheduleViewController.swift in Sources */,
@@ -293,6 +319,8 @@
 				96613EEE2780CD0C0008992E /* DefaultData.swift in Sources */,
 				966936362767578400206950 /* Exercise.swift in Sources */,
 				F081CBDC277B975B00F2CAA6 /* PopupViewController.swift in Sources */,
+				9645EDA027827C0600348FDA /* CustomPresentationController.swift in Sources */,
+				9645EDA6278287EA00348FDA /* PlayWorkoutTableViewController.swift in Sources */,
 				96170D982781341F001CA441 /* RestTimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

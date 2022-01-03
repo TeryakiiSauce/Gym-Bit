@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class LandingPlayWorkoutViewController:UIViewController,UITableViewDataSource, UITableViewDelegate, UIViewControllerTransitioningDelegate {
+class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
@@ -63,29 +63,32 @@ class LandingPlayWorkoutViewController:UIViewController,UITableViewDataSource, U
         return 120
     }
     
-
+    
     @IBAction func setRestTimeTapped(_ sender: Any) {
         guard let restTimeView = storyboard?.instantiateViewController(identifier: "restTimeView") as? RestTimeViewController else {return}
-        
+        restTimeView.modalPresentationStyle = .custom
+        restTimeView.transitioningDelegate = self
         present(restTimeView, animated: true)
     }
     
     @IBAction func didUnwindFromSelectRestTime(_ seague: UIStoryboardSegue)
     {
-            if let restTimeVc = seague.source as? RestTimeViewController {
-               restTime = restTimeVc.totalSeconds
-                
-                let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(restTime))
-                let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
-                
-                restTimeLabel.text = timeString
-            }
-            else{
-                return
-            }
-        
+        if let restTimeVc = seague.source as? RestTimeViewController {
+            restTime = restTimeVc.totalSeconds
+            
+            let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(restTime))
+            let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+            
+            restTimeLabel.text = timeString
+        }
+        else{
+            return
+        }
     }
-    
-    
 }
 
+extension PlayWorkoutLandingViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        CustomPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
