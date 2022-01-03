@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class LandingPlayWorkoutViewController:UIViewController,UITableViewDataSource, UITableViewDelegate {
+class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
@@ -87,7 +87,7 @@ class LandingPlayWorkoutViewController:UIViewController,UITableViewDataSource, U
     }
 }
 
-extension LandingPlayWorkoutViewController: UIViewControllerTransitioningDelegate {
+extension PlayWorkoutLandingViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         CustomPresentationController(presentedViewController: presented, presenting: presenting)
     }
