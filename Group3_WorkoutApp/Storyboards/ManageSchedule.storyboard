@@ -216,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6r-Lv-pJD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3268.115942028986" y="-384.375"/>
+            <point key="canvasLocation" x="-3294" y="-389"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="4We-JC-omk">
@@ -292,7 +292,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVE-C2-Uh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="eeZ-hI-7tF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3268" y="288"/>
+            <point key="canvasLocation" x="-2813" y="297"/>
         </scene>
         <!--Muscle List-->
         <scene sceneID="E01-jy-p10">
