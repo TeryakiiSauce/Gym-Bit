@@ -90,7 +90,7 @@
                                 </state>
                                 <connections>
                                     <action selector="startButtonPressed:" destination="Vs4-Fn-JvQ" eventType="touchUpInside" id="E7g-Le-pZb"/>
-                                    <segue destination="Ug1-W0-7V4" kind="presentation" id="e0Q-ml-1Nr"/>
+                                    <segue destination="Ug1-W0-7V4" kind="presentation" id="RtP-jS-l8t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -376,7 +376,7 @@
                                 </constraints>
                                 <state key="normal" title="Start"/>
                                 <connections>
-                                    <segue destination="Vs4-Fn-JvQ" kind="show" id="9YL-RQ-lra"/>
+                                    <segue destination="Vs4-Fn-JvQ" kind="presentation" id="9YL-RQ-lra"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -437,29 +437,29 @@
             <objects>
                 <viewController storyboardIdentifier="SelectTimeView" id="Vs4-Fn-JvQ" customClass="SelectTimeViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xu9-gF-p1c">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXb-Oc-9y3" userLabel="BodyView">
-                                <rect key="frame" x="20" y="258" width="374" height="465"/>
+                                <rect key="frame" x="20" y="226" width="374" height="492"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9LI-Wv-HfC">
-                                        <rect key="frame" x="5" y="85.5" width="364" height="216"/>
+                                        <rect key="frame" x="5" y="99" width="364" height="216"/>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Warmup Duration" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bs6-iw-SZc">
-                                        <rect key="frame" x="94" y="39" width="186" height="20.5"/>
+                                        <rect key="frame" x="94" y="52.5" width="186" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbc-Va-JgK">
-                                        <rect key="frame" x="94" y="326.5" width="84" height="21"/>
+                                        <rect key="frame" x="94" y="340" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBV-c1-M9t">
-                                        <rect key="frame" x="198" y="326.5" width="88.5" height="21"/>
+                                        <rect key="frame" x="198" y="340" width="88.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -480,7 +480,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEA-JM-fEk" userLabel="HeaderView">
-                                <rect key="frame" x="0.0" y="108" width="394" height="130"/>
+                                <rect key="frame" x="0.0" y="76" width="394" height="130"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="N5D-AE-e0c">
                                         <rect key="frame" x="25" y="25" width="80" height="80"/>
@@ -489,14 +489,14 @@
                                             <constraint firstAttribute="width" constant="80" id="bM2-BD-9oM"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your warmup timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhI-Nq-erg">
-                                        <rect key="frame" x="140" y="77.5" width="137.5" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your warmup time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhI-Nq-erg">
+                                        <rect key="frame" x="140" y="78" width="133" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer Set-up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4g-T9-WmB">
-                                        <rect key="frame" x="140" y="35" width="131" height="27.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warmup Set-up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4g-T9-WmB">
+                                        <rect key="frame" x="140" y="35" width="158" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -515,7 +515,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zib-0Z-soc">
-                                <rect key="frame" x="20" y="743" width="374" height="50"/>
+                                <rect key="frame" x="20" y="738" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.54031985999999999" green="0.75212955469999998" blue="0.81177008149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tO2-ae-2ol"/>
@@ -630,7 +630,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="iGQ-m9-bjQ"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Continue"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pbQ-06-Jow"/>
@@ -654,8 +654,11 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bodyView" destination="EUt-S7-CTD" id="DIr-Kh-99O"/>
+                        <outlet property="currentExerciseNoLabel" destination="ewX-ds-xlZ" id="pmY-0y-LJf"/>
                         <outlet property="headerView" destination="pow-W3-wje" id="zah-XS-jEb"/>
                         <outlet property="mainButton" destination="8tg-uV-BGu" id="6iR-xc-PwT"/>
+                        <outlet property="progressView" destination="5Cr-6A-ofF" id="0AD-RZ-Zl6"/>
+                        <outlet property="totalExercisesLabel" destination="YmV-Sw-iEl" id="5MY-wR-zil"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bz0-3H-wss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -709,7 +712,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked_box" translatesAutoresizingMaskIntoConstraints="NO" id="edI-bP-R7V">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked_box" translatesAutoresizingMaskIntoConstraints="NO" id="edI-bP-R7V">
                                                             <rect key="frame" x="279" y="14" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="T1M-6X-qbj"/>
@@ -743,7 +746,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellView" destination="BPO-Aj-e4y" id="fVU-QC-MOO"/>
-                                            <outlet property="checkImage" destination="edI-bP-R7V" id="qI5-qp-lAe"/>
+                                            <outlet property="checkBoxImage" destination="edI-bP-R7V" id="qI5-qp-lAe"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="SOr-gs-FLg" customClass="PlayWorkoutTimerTableViewCell" customModule="Group3_WorkoutApp" customModuleProvider="target">
@@ -836,7 +839,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked_box" translatesAutoresizingMaskIntoConstraints="NO" id="6Rt-g2-uRg">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked_box" translatesAutoresizingMaskIntoConstraints="NO" id="6Rt-g2-uRg">
                                                             <rect key="frame" x="279" y="14" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="nwR-QV-Akm"/>
@@ -870,7 +873,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellView" destination="XWy-Sg-cQi" id="ZlT-U1-JNC"/>
-                                            <outlet property="checkImage" destination="6Rt-g2-uRg" id="Woq-l2-mxC"/>
+                                            <outlet property="checkBoxImage" destination="6Rt-g2-uRg" id="Woq-l2-mxC"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="wG6-SU-nS0" customClass="PlayWorkoutTimerTableViewCell" customModule="Group3_WorkoutApp" customModuleProvider="target">
@@ -963,7 +966,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked_box" translatesAutoresizingMaskIntoConstraints="NO" id="wds-C7-VRA">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked_box" translatesAutoresizingMaskIntoConstraints="NO" id="wds-C7-VRA">
                                                             <rect key="frame" x="279" y="14" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="cSS-DL-a06"/>
@@ -997,7 +1000,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellView" destination="SuX-JP-1t9" id="t5F-Ca-TUa"/>
-                                            <outlet property="checkImage" destination="wds-C7-VRA" id="TrV-PE-6vh"/>
+                                            <outlet property="checkBoxImage" destination="wds-C7-VRA" id="TrV-PE-6vh"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="HeH-ze-KgK" customClass="PlayWorkoutTimerTableViewCell" customModule="Group3_WorkoutApp" customModuleProvider="target">
@@ -1069,12 +1072,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checked_box" width="50" height="50"/>
         <image name="noun_body building_637498" width="231" height="235.80000305175781"/>
         <image name="play" width="24" height="24"/>
         <image name="play_button" width="148" height="148"/>
         <image name="schedule" width="24" height="24"/>
         <image name="timer" width="24" height="24"/>
+        <image name="unchecked_box" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
