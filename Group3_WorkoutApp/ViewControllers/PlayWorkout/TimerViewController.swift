@@ -21,6 +21,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var selectedTimeLabel: UILabel!
+    @IBOutlet weak var continueButton: UIButton!
     
     // constants and variables
     // circle of the timer background
@@ -47,7 +48,7 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         
         // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: continueButton, secondaryButton: nil)
 
         // set time remaining as the selected time
         timeRemaining = selectedTime

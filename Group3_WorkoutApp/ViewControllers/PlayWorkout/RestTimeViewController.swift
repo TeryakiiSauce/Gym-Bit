@@ -111,5 +111,5 @@ extension RestTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         updateTotalTime()
     }
-    
+
 }
