@@ -11,7 +11,7 @@ class PlayWorkoutSetTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var checkBoxImage: UIImageView!
-    
+    @IBOutlet weak var repsLabel: UILabel!
     var isChecked = false
     override func awakeFromNib() {
         super.awakeFromNib()

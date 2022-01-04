@@ -14,8 +14,8 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     @IBOutlet weak var timeRemainingLabel: UILabel!
     var timer = Timer()
     //default selected time
-    var selectedTime: Double = 45
-    var timeRemaining: Double = 45
+    var selectedTime: Int = PlayWorkoutLandingViewController.restTime
+    var timeRemaining: Int = 45
     var timerIsCounting: Bool = false
     var timerStarted = false
     
@@ -30,6 +30,9 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         playImage.isUserInteractionEnabled = true
         playImage.addGestureRecognizer(tapGestureRecognizer)
+        
+        timeRemaining = selectedTime
+        formatTimeRemaining()
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)

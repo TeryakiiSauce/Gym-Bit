@@ -16,6 +16,18 @@ class PlayWorkoutTableViewController: UITableViewController {
     }
 
     
+    
+
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let customCell = cell as? PlayWorkoutSetTableViewCell else {
+            print("cell cannot be changed")
+            return}
+        print("cell being changed")
+
+        customCell.repsLabel.text = "test"
+    }
     // MARK: - Table view data source
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {
