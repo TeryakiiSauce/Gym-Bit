@@ -42,6 +42,7 @@
 		F017CF4A277E449E002569A9 /* MuscleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF49277E449E002569A9 /* MuscleListViewController.swift */; };
 		F017CF4D277E4F4D002569A9 /* ExerciseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF4C277E4F4D002569A9 /* ExerciseListViewController.swift */; };
 		F017CF502781F269002569A9 /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF4F2781F269002569A9 /* ExerciseTableViewCell.swift */; };
+		F017CF522783BCCC002569A9 /* GenerateScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF512783BCCC002569A9 /* GenerateScheduleTableViewController.swift */; };
 		F081CBDC277B975B00F2CAA6 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CBDB277B975B00F2CAA6 /* PopupViewController.swift */; };
 		F083A26627834DFA00A7919E /* ViewMuscleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083A26527834DFA00A7919E /* ViewMuscleViewController.swift */; };
 		F083A26827834E1400A7919E /* ViewExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083A26727834E1400A7919E /* ViewExerciseViewController.swift */; };
@@ -85,6 +86,7 @@
 		F017CF49277E449E002569A9 /* MuscleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleListViewController.swift; sourceTree = "<group>"; };
 		F017CF4C277E4F4D002569A9 /* ExerciseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewController.swift; sourceTree = "<group>"; };
 		F017CF4F2781F269002569A9 /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		F017CF512783BCCC002569A9 /* GenerateScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateScheduleTableViewController.swift; sourceTree = "<group>"; };
 		F081CBDB277B975B00F2CAA6 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		F083A26527834DFA00A7919E /* ViewMuscleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMuscleViewController.swift; sourceTree = "<group>"; };
 		F083A26727834E1400A7919E /* ViewExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExerciseViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */,
 				F017CF4C277E4F4D002569A9 /* ExerciseListViewController.swift */,
 				F017CF4F2781F269002569A9 /* ExerciseTableViewCell.swift */,
+				F017CF512783BCCC002569A9 /* GenerateScheduleTableViewController.swift */,
 			);
 			path = ManageSchedule;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				9622BD76277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift in Sources */,
 				9645EDA2278282C200348FDA /* PlayWorkoutViewController.swift in Sources */,
 				9608FB4527793802009498F9 /* CustomTableViewCell.swift in Sources */,
+				F017CF522783BCCC002569A9 /* GenerateScheduleTableViewController.swift in Sources */,
 				9645EDA82782889B00348FDA /* PlayWorkoutSetTableViewCell.swift in Sources */,
 				F083A26627834DFA00A7919E /* ViewMuscleViewController.swift in Sources */,
 				9608FB492779E4C9009498F9 /* TemplateScreenViewController.swift in Sources */,

@@ -15,37 +15,81 @@ struct DefaultData {
     //default instance of exercises
     static var backExercises =
         [
-            Exercise(name: "Pull down", description: "description", imagePath: "back2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.back.rawValue)
+            Exercise(name: "Pull down7", description: "description", imagePath: "back2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.back.rawValue),
+            Exercise(name: "Pull down6", description: "description", imagePath: "back2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.back.rawValue),
+            Exercise(name: "Pull down5", description: "description", imagePath: "back2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.back.rawValue),
+            Exercise(name: "Pull down4", description: "description", imagePath: "back2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.back.rawValue),
+            Exercise(name: "Pull down3", description: "description", imagePath: "back2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.back.rawValue),
+            Exercise(name: "Pull down2", description: "description", imagePath: "back2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.back.rawValue),
+            Exercise(name: "Pull down1", description: "description", imagePath: "back2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.back.rawValue),
         ]
     
     static var chestExercises =
         [
-            Exercise(name: "Chest bench Press", description: "description", imagePath: "chest1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.chest.rawValue)
+            Exercise(name: "Chest bench Press7", description: "description", imagePath: "chest1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.chest.rawValue),
+            Exercise(name: "Chest bench Press6", description: "description", imagePath: "chest1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.chest.rawValue),
+            Exercise(name: "Chest bench Press5", description: "description", imagePath: "chest1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.chest.rawValue),
+            Exercise(name: "Chest bench Press4", description: "description", imagePath: "chest1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.chest.rawValue),
+            Exercise(name: "Chest bench Press3", description: "description", imagePath: "chest1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.chest.rawValue),
+            Exercise(name: "Chest bench Press2", description: "description", imagePath: "chest1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.chest.rawValue),
+            Exercise(name: "Chest bench Press1", description: "description", imagePath: "chest1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.chest.rawValue),
         ]
     
     static var shoulderExercises =
         [
-            Exercise(name: "Shoulder Press", description: "description", imagePath: "shoulder2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue)
+            Exercise(name: "Shoulder Press7", description: "description", imagePath: "shoulder2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue),
+            Exercise(name: "Shoulder Press6", description: "description", imagePath: "shoulder2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue),
+            Exercise(name: "Shoulder Press5", description: "description", imagePath: "shoulder2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue),
+            Exercise(name: "Shoulder Press4", description: "description", imagePath: "shoulder2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue),
+            Exercise(name: "Shoulder Press3", description: "description", imagePath: "shoulder2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue),
+            Exercise(name: "Shoulder Press2", description: "description", imagePath: "shoulder2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue),
+            Exercise(name: "Shoulder Press1", description: "description", imagePath: "shoulder2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue),
+            
         ]
     
     static var legExercises =
         [
-            Exercise(name: "Leg Press", description: "description", imagePath: "legs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.legs.rawValue)
+            Exercise(name: "Leg Press7", description: "description", imagePath: "legs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.legs.rawValue),
+            Exercise(name: "Leg Press6", description: "description", imagePath: "legs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.legs.rawValue),
+            Exercise(name: "Leg Press5", description: "description", imagePath: "legs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.legs.rawValue),
+            Exercise(name: "Leg Press4", description: "description", imagePath: "legs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.legs.rawValue),
+            Exercise(name: "Leg Press3", description: "description", imagePath: "legs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.legs.rawValue),
+            Exercise(name: "Leg Press2", description: "description", imagePath: "legs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.legs.rawValue),
+            Exercise(name: "Leg Press1", description: "description", imagePath: "legs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.legs.rawValue),
+            
         ]
     
     static var absExercises =
         [
-            Exercise(name: "Crunches", description: "description", imagePath: "abs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.abs.rawValue)
+            Exercise(name: "Crunches1", description: "description", imagePath: "abs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.abs.rawValue),
+            Exercise(name: "Crunches2", description: "description", imagePath: "abs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.abs.rawValue),
+            Exercise(name: "Crunches3", description: "description", imagePath: "abs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.abs.rawValue),
+            Exercise(name: "Crunches4", description: "description", imagePath: "abs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.abs.rawValue),
+            Exercise(name: "Crunches5", description: "description", imagePath: "abs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.abs.rawValue),
+            Exercise(name: "Crunches6", description: "description", imagePath: "abs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.abs.rawValue),
+            Exercise(name: "Crunches7", description: "description", imagePath: "abs1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.abs.rawValue),
         ]
     
     static var bicepExercises =
         [
-            Exercise(name: "Curls", description: "description", imagePath: "bi2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.biceps.rawValue)
+            Exercise(name: "Curls1", description: "description", imagePath: "bi2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.biceps.rawValue),
+            Exercise(name: "Curls2", description: "description", imagePath: "bi2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.biceps.rawValue),
+            Exercise(name: "Curls3", description: "description", imagePath: "bi2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.biceps.rawValue),
+            Exercise(name: "Curls4", description: "description", imagePath: "bi2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.biceps.rawValue),
+            Exercise(name: "Curls5", description: "description", imagePath: "bi2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.biceps.rawValue),
+            Exercise(name: "Curls6", description: "description", imagePath: "bi2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.biceps.rawValue),
+            Exercise(name: "Curls7", description: "description", imagePath: "bi2", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.biceps.rawValue),
         ]
     
     static var tricepExercises =
         [
-            Exercise(name: "Rope", description: "description", imagePath: "tri1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.triceps.rawValue)
+            Exercise(name: "Rope", description: "description1", imagePath: "tri1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.triceps.rawValue),
+            Exercise(name: "Rope", description: "description2", imagePath: "tri1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.triceps.rawValue),
+            Exercise(name: "Rope", description: "description3", imagePath: "tri1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.triceps.rawValue),
+            Exercise(name: "Rope", description: "description4", imagePath: "tri1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.triceps.rawValue),
+            Exercise(name: "Rope", description: "description5", imagePath: "tri1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.triceps.rawValue),
+            Exercise(name: "Rope", description: "description6", imagePath: "tri1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.triceps.rawValue),
+            Exercise(name: "Rope", description: "description7", imagePath: "tri1", tips: ["tip1","tip2"], targetMuscle: Exercise.TargetMuscle.triceps.rawValue),
         ]
     
     

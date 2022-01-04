@@ -3,9 +3,10 @@ import UIKit
 class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     //filling data to test
-    var displayedSchedule = DefaultData.schedules[0]
+    var displayedSchedule : Schedule?
     var originalschedule : Schedule?
     var addedExercises : [Exercise] = []
+    
     //var exerciseType = {"Abs":0,"Chest":0,"Back":0,"Legs":0,"Shoulders":0,"Triceps":0,"Biceps":0}
     //connectors that connect the gui to code
     @IBOutlet weak var headerView: UIView!
@@ -19,7 +20,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     //button that clears the whole table
     @IBAction func ClickClearScheduleButton(_ sender: Any) {
         //removing all the exercises
-        displayedSchedule.exercises.removeAll()
+        displayedSchedule?.exercises.removeAll()
         //reloading the table
         customTableView.reloadData()
     }
@@ -28,7 +29,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     
     //button that saves the Schedule in a .json file
     @IBAction func ClickSaveButton(_ sender: Any) {
-        Schedule.saveSchedules(displayedSchedule)
+        Schedule.saveSchedules(displayedSchedule!)
     }
     
     //method to opens a popup and changes  the schedule name
@@ -54,7 +55,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         if let sourceViewController = seague.source as? ExerciseListViewController      {
             print(sourceViewController.pickedExercises)
             addedExercises = sourceViewController.pickedExercises
-            displayedSchedule.exercises.append(contentsOf: addedExercises)
+            displayedSchedule?.exercises.append(contentsOf: addedExercises)
             customTableView.reloadData()
         }
     }
@@ -63,8 +64,6 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // apply default styling
-        AppColors.toggleDarkMode()
-        //Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:mainButton)
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil)
         customTableView.delegate = self
         customTableView.dataSource = self
@@ -72,12 +71,12 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
         
-        scheduleName.text = displayedSchedule.name
+        scheduleName.text = displayedSchedule?.name
     }
     
     //function that sets the number of rows in the exercises table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayedSchedule.exercises.count
+        return displayedSchedule!.exercises.count
     }
     
     //function that fills the exercise table
@@ -86,9 +85,9 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         //adding data to the cell
-        cell.titleLabel.text = displayedSchedule.exercises[indexPath.row].name
-        cell.subtitleLabel.text = displayedSchedule.exercises[indexPath.row].targetMuscle
-        cell.cellImage.image = UIImage(named: displayedSchedule.exercises[indexPath.row].imagePath)
+        cell.titleLabel.text = displayedSchedule?.exercises[indexPath.row].name
+        cell.subtitleLabel.text = displayedSchedule?.exercises[indexPath.row].targetMuscle
+        cell.cellImage.image = UIImage(named: displayedSchedule!.exercises[indexPath.row].imagePath)
         return cell
     }
 
@@ -102,7 +101,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         //checking the editing style
         if editingStyle == .delete {
             //removing the instance from the stored schedule
-            displayedSchedule.exercises.remove(at: indexPath.row)
+            displayedSchedule?.exercises.remove(at: indexPath.row)
             //removing the row from the table in the gui
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

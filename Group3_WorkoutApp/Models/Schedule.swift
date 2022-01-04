@@ -3,7 +3,7 @@ import Foundation
 
 struct Schedule: Codable {
     
-    let id = UUID()
+    var id = UUID()
     let dateCreated: Date?
     var name: String?
     var playsCounter: Int?
