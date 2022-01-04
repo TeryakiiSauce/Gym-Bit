@@ -76,8 +76,8 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         if let restTimeVc = seague.source as? RestTimeViewController {
             restTime = restTimeVc.totalSeconds
             
-            let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(restTime))
-            let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+            let time = Constants.secondsToMinutesSeconds(seconds: Int(restTime))
+            let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
             
             restTimeLabel.text = timeString
         }

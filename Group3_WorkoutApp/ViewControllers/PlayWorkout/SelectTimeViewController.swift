@@ -18,7 +18,7 @@ class SelectTimeViewController: UIViewController {
     
     
     // variables
-    var hour:Int = 0
+    //    var hour:Int = 0
     var minutes:Int = 0
     var seconds:Int = 0
     var totalSeconds = 0
@@ -50,10 +50,10 @@ class SelectTimeViewController: UIViewController {
     // update total time label
     func updateTotalTime(){
         // format time
-        totalSeconds = (hour * 3600 ) + (minutes * 60) + seconds
+        totalSeconds = (minutes * 60) + seconds
         enableStartButton()
-        let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(totalSeconds))
-        let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+        let time = Constants.secondsToMinutesSeconds(seconds: Int(totalSeconds))
+        let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
         // update timer label
         totalTimeLabel.text = timeString
     }
@@ -61,12 +61,11 @@ class SelectTimeViewController: UIViewController {
     
     @IBAction func startButtonPressed(_ sender: Any) {
         
-        guard let timerView = storyboard?.instantiateViewController(identifier: "warmupView") as? TimerViewController else {return}
+        guard let timerView = self.storyboard?.instantiateViewController(identifier: "warmupView") as? TimerViewController else {return}
         
-        timerView.selectedTime = Double(totalSeconds)
-        present(timerView, animated: true)
-        
-        
+        timerView.selectedTime = Double(self.totalSeconds)
+        self.show(timerView, sender: sender)
+//        self.present(timerView, animated: true)
     }
 }
 
@@ -74,15 +73,13 @@ extension SelectTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource
     
     // 3 sections in the picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
+        return 2
     }
     
     // number of rows for hours, minutes and seconds
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
-        case 0:
-            return 25
-        case 1, 2:
+        case 0, 1:
             return 60
         default:
             return 0
@@ -98,10 +95,8 @@ extension SelectTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
-            return "\(row) hours"
-        case 1:
             return "\(row) min"
-        case 2:
+        case 1:
             return "\(row) sec"
         default:
             return ""
@@ -112,10 +107,8 @@ extension SelectTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:
-            hour = row
-        case 1:
             minutes = row
-        case 2:
+        case 1:
             seconds = row
         default:
             break;

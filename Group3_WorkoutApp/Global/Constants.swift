@@ -74,15 +74,13 @@ struct Constants {
     }
     
     // format time functions
-    static func secondsToHoursMinutesSeconds(seconds: Int) -> (Int,Int,Int)
+    static func secondsToMinutesSeconds(seconds: Int) -> (Int,Int)
     {
-        return (seconds / 3600, (seconds % 3600)/60,  (seconds % 3600) % 60)
+        return ((seconds % 3600)/60,  (seconds % 3600) % 60)
     }
     
-    static func formatTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
+    static func formatTimeString(minutes: Int, seconds: Int) -> String {
         var timeString = ""
-        timeString += String (format: "%02d", hours)
-        timeString += " : "
         timeString += String (format: "%02d", minutes)
         timeString += " : "
         timeString += String (format: "%02d", seconds)
