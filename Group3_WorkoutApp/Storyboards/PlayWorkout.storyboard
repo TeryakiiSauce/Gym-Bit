@@ -630,7 +630,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="iGQ-m9-bjQ"/>
                                 </constraints>
-                                <state key="normal" title="Continue"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="Ug1-W0-7V4" eventType="touchUpInside" id="5gM-7S-nyU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pbQ-06-Jow"/>
@@ -655,6 +658,7 @@
                     <connections>
                         <outlet property="bodyView" destination="EUt-S7-CTD" id="DIr-Kh-99O"/>
                         <outlet property="currentExerciseNoLabel" destination="ewX-ds-xlZ" id="pmY-0y-LJf"/>
+                        <outlet property="exerciseNameLabel" destination="JPV-eI-BIY" id="evz-tf-s5p"/>
                         <outlet property="headerView" destination="pow-W3-wje" id="zah-XS-jEb"/>
                         <outlet property="mainButton" destination="8tg-uV-BGu" id="6iR-xc-PwT"/>
                         <outlet property="progressView" destination="5Cr-6A-ofF" id="0AD-RZ-Zl6"/>
