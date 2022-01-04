@@ -89,8 +89,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="continueTapped:" destination="umb-GW-khk" eventType="touchUpInside" id="18E-UN-6Uv"/>
                                     <action selector="startButtonPressed:" destination="Vs4-Fn-JvQ" eventType="touchUpInside" id="E7g-Le-pZb"/>
-                                    <segue destination="Ug1-W0-7V4" kind="presentation" id="RtP-jS-l8t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,6 +117,7 @@
                         <outlet property="headerView" destination="scW-2A-hN9" id="sl8-sh-GlG"/>
                         <outlet property="playPauseButton" destination="Xcv-kD-MCO" id="Vmk-kY-KsW"/>
                         <outlet property="selectedTimeLabel" destination="jsg-3r-prM" id="HJD-ZG-a1o"/>
+                        <segue destination="Ug1-W0-7V4" kind="presentation" id="BxE-at-fBH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzi-vk-VaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -376,7 +377,7 @@
                                 </constraints>
                                 <state key="normal" title="Start"/>
                                 <connections>
-                                    <segue destination="Vs4-Fn-JvQ" kind="show" id="9YL-RQ-lra"/>
+                                    <segue destination="Vs4-Fn-JvQ" kind="show" identifier="displayTimerPicker" id="9YL-RQ-lra"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -561,7 +562,7 @@
         <!--Play Workout-->
         <scene sceneID="oQ2-8f-ral">
             <objects>
-                <viewController id="Ug1-W0-7V4" userLabel="Play Workout" customClass="PlayWorkoutViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="performWorkoutView" id="Ug1-W0-7V4" userLabel="Play Workout" customClass="PlayWorkoutViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BVA-ka-Ccn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

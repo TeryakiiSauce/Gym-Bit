@@ -233,5 +233,13 @@ class TimerViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-   
+    
+    
+    @IBAction func continueTapped(_ sender: Any) {
+        
+        guard let playWorkoutVC = self.storyboard?.instantiateViewController(identifier: "performWorkoutView") as? PlayWorkoutViewController else {return}
+        
+        present(playWorkoutVC, animated: true)
+    }
+    
 }

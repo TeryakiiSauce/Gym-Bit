@@ -20,7 +20,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     @IBOutlet weak var scheduleTargetLabel: UILabel!
     
     // default rest time
-    var restTime = 45
+    static var restTime = 45
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,9 +74,9 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     @IBAction func didUnwindFromSelectRestTime(_ seague: UIStoryboardSegue)
     {
         if let restTimeVc = seague.source as? RestTimeViewController {
-            restTime = restTimeVc.totalSeconds
+            PlayWorkoutLandingViewController.restTime = restTimeVc.totalSeconds
             
-            let time = Constants.secondsToMinutesSeconds(seconds: Int(restTime))
+            let time = Constants.secondsToMinutesSeconds(seconds: Int(PlayWorkoutLandingViewController.restTime))
             let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
             
             restTimeLabel.text = timeString

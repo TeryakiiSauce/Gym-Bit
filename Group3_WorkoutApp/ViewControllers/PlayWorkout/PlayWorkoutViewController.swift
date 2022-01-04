@@ -20,7 +20,8 @@ class PlayWorkoutViewController: UIViewController {
     @IBOutlet weak var exerciseNameLabel: UILabel!
     
     var exerciseIndex = 0
-    var exercisesCount = DefaultData.schedules[0].exercises.count
+    var schedule = DefaultData.user.activeSchedule
+    var exercisesCount: Int?
     
     var progress = Progress(totalUnitCount: Int64(DefaultData.schedules[0].exercises.count))
     
@@ -28,12 +29,17 @@ class PlayWorkoutViewController: UIViewController {
         super.viewDidLoad()
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil)
+        // set exercises count
+        exercisesCount = schedule?.exercises.count
+
         // set total exercises
-        totalExercisesLabel.text = "/ \(String(exercisesCount))"
+        totalExercisesLabel.text = "/ \(String(exercisesCount!))"
         
         customizeProgressView()
         setExerciseInfo()
         updateProgressView()
+        
+        print("Selected Rest time \(PlayWorkoutLandingViewController.restTime)")
     }
     
     func customizeProgressView(){
@@ -60,11 +66,11 @@ class PlayWorkoutViewController: UIViewController {
     @IBAction func nextButtonTapped(_ sender: Any) {
         
         // change button title when reaching the last exercise
-        if exerciseIndex == exercisesCount - 2 {
+        if exerciseIndex == exercisesCount! - 2 {
             mainButton.setTitle("Finish", for: .normal)
         }
         
-        if exerciseIndex == exercisesCount - 1 {
+        if exerciseIndex == exercisesCount! - 1 {
             // display pop up
             dismiss(animated: true, completion: nil)
         }else{
