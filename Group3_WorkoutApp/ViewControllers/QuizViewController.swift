@@ -15,6 +15,10 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var Line2: UILabel!
     @IBOutlet weak var Line3: UILabel!
     @IBOutlet weak var Line4: UILabel!
+    @IBOutlet weak var slider1: UISlider!
+    @IBOutlet weak var slider2: UISlider!
+    @IBOutlet weak var slider3: UISlider!
+    @IBOutlet weak var slider4: UISlider!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var finishButton: UIButton!
     override func viewDidLoad() {
@@ -28,6 +32,14 @@ class QuizViewController: UIViewController {
         Line2.textColor = AppColors.phoneBg
         Line3.textColor = AppColors.phoneBg
         Line4.textColor = AppColors.phoneBg
+        slider1.thumbTintColor = AppColors.buttonColor
+        slider1.tintColor = AppColors.buttonColor
+        slider2.thumbTintColor = AppColors.buttonColor
+        slider2.tintColor = AppColors.buttonColor
+        slider3.thumbTintColor = AppColors.buttonColor
+        slider3.tintColor = AppColors.buttonColor
+        slider4.thumbTintColor = AppColors.buttonColor
+        slider4.tintColor = AppColors.buttonColor
         // Changing the style of the first part of the head text to bold.
         let firstPart = "Before you get started, "
         let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 27)]
@@ -41,7 +53,32 @@ class QuizViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func fieldIsFocused(_ sender: UITextField)
+    {
+        if (sender.text == "Your name")
+        {
+            sender.text = "";
+            sender.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+    }
+//    @IBAction func changeLanguage(sender: AnyObject) {
+//        guard let button = sender as? UIButton else {
+//            return
+//        }
+//
+//        switch button.tag {
+//        case 1:
+//            // Change to English
+//        case 2:
+//            // Change to Spanish
+//        case 3:
+//            // Change to French, etc
+//        default:
+//            print("Unknown language")
+//            return
+//        }
+//    }
+    
     /*
     // MARK: - Navigation
 
