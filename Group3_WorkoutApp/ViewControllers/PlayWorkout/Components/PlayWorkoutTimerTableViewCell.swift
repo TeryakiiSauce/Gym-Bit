@@ -45,8 +45,8 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     func formatTimeRemaining()
     {
         
-        let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(timeRemaining))
-        let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+        let time = Constants.secondsToMinutesSeconds(seconds: Int(timeRemaining))
+        let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
         // update timer label
         timeRemainingLabel.text = timeString
     }
