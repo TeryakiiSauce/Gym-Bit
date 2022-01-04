@@ -15,16 +15,28 @@ struct Exercise: Codable {
     let imagePath: String
     let tips: [String]
     let targetMuscle: String
-    var reps: String {
+    var sets: Int {
         switch targetMuscle {
         case "back","chest":
-            return "12 reps x 3 sets"
+            return 3
         case "biceps","triceps","shoulders":
-            return "10 reps x 3 sets"
+            return 3
         case "abs","legs":
-            return "15 reps x 4 sets"
+            return 4
         default:
-            return "10 reps x 3 sets"
+            return 3
+        }
+    }
+    var reps: Int {
+        switch targetMuscle {
+        case "back","chest":
+            return 12
+        case "biceps","triceps","shoulders":
+            return 10
+        case "abs","legs":
+            return 15
+        default:
+            return 10
         }
     }
     

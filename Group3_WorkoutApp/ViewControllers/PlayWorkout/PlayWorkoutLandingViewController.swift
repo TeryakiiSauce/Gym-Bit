@@ -53,7 +53,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         bgColorView.backgroundColor = AppColors.bodyBg
         cell.selectedBackgroundView = bgColorView
         cell.titleLabel.text = DefaultData.schedules[0].exercises[indexPath.row].name
-        cell.subtitleLabel.text = DefaultData.schedules[0].exercises[indexPath.row].reps
+        cell.subtitleLabel.text = "\(DefaultData.schedules[0].exercises[indexPath.row].reps) reps x \(DefaultData.schedules[0].exercises[indexPath.row].sets ) sets"
         cell.cellImage.image = UIImage(named: DefaultData.schedules[0].exercises[indexPath.row].imagePath)
         return cell
     }
