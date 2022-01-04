@@ -101,7 +101,22 @@ class QuizViewController: UIViewController {
             }
         }
     }
-//    @IBAction func changeLanguage(sender: AnyObject) {
+    @IBAction func sliderMoved(_ sender: UISlider)
+    {
+        switch sender.tag {
+        case 1:
+            print("first slider!")
+        case 2:
+            print("second slider!")
+        case 3:
+            print("third slider!")
+        case 4:
+            print("fourth slider!")
+        default:
+            return;
+        }
+    }
+    //    @IBAction func changeLanguage(sender: AnyObject) {
 //        guard let button = sender as? UIButton else {
 //            return
 //        }
