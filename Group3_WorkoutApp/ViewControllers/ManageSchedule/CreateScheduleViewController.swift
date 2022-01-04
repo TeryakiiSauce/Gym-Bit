@@ -26,7 +26,6 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     @IBAction func ClickAddSchedulebutton(_ sender: Any) {}
-    
     //button that saves the Schedule in a .json file
     @IBAction func ClickSaveButton(_ sender: Any) {
         Schedule.saveSchedules(displayedSchedule!)
@@ -34,10 +33,8 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     
     //method to opens a popup and changes  the schedule name
     @IBAction func ClickUpdateScheduleButton(_ sender: Any) {
-        
         //creating a var of the popup viewcontroller
         let popOverVc = UIStoryboard(name: "ManageSchedule", bundle: nil).instantiateViewController(withIdentifier: "sbPopupID") as! PopupViewController
-        
         //assigning it as a child view and opening it over the parent view
         self.addChild(popOverVc)
         popOverVc.view.frame = self.view.frame
@@ -50,8 +47,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     @IBAction func unwindtoCreateSchedule(seague: UIStoryboardSegue){
         if let sourceViewController = seague.source as? PopupViewController   {
             scheduleName.text = sourceViewController.ScheduleNameTextField.text
-            }
-        
+        }
         if let sourceViewController = seague.source as? ExerciseListViewController      {
             print(sourceViewController.pickedExercises)
             addedExercises = sourceViewController.pickedExercises
@@ -70,9 +66,10 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         //styling table view
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
-        
         scheduleName.text = displayedSchedule?.name
     }
+    
+   
     
     //function that sets the number of rows in the exercises table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,7 +77,6 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     //function that fills the exercise table
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell

@@ -28,6 +28,8 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
         //setting controller variable
         
         let viewController = segue.destination as! CreateScheduleViewController
+        viewController.displayedSchedule = nil
+            viewController.originalschedule = nil
         viewController.displayedSchedule = genratedSchedule
             viewController.originalschedule = genratedSchedule
         listOfSelectedExerciseArrays.removeAll()
@@ -35,6 +37,7 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
     
     //function that resets the table whenever the page appears
     override func viewWillAppear(_ animated: Bool) {
+        
         customTableView.reloadData()
     }
     
@@ -108,6 +111,8 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
             default:
                 getGeneratedExercises(numberOfExercisesWanted: 1)
             }
+        numberOfSelectedMuscles = 0
+        selectedMuscles = [false,false,false,false,false,false,false]
     }
     
     
@@ -118,8 +123,10 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
             if isSelected{
                 TempExerciseList = Constants.getExerciseArray(exercisePostion: postion)
                 listOfSelectedExerciseArrays = listOfSelectedExerciseArrays + Constants.randomNumberGenerator(exercisesWanted: numberOfExercisesWanted, exersizeArray: TempExerciseList)
-                postion = postion+1
+
             }
+            postion = postion+1
         }
+        
     }
 }
