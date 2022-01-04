@@ -15,31 +15,32 @@
                     <view key="view" contentMode="scaleToFill" id="Gj4-8i-biw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRv-Mk-QJM">
-                                <rect key="frame" x="161" y="404" width="93" height="89"/>
+                        <viewLayoutGuide key="safeArea" id="XRv-RE-fiC"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" selectedImage="profile" id="Hek-Oq-EnP"/>
+                    <navigationItem key="navigationItem" title="Profile" id="w4b-Ze-qFb">
+                        <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" landscapeImage="gearshape" largeContentSizeImage="gearshape" style="plain" id="puA-DJ-2ph">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="uRv-Mk-QJM">
+                                <rect key="frame" x="301" y="0.0" width="93" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="fe1-wb-c12" kind="show" id="xkm-eX-24u"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="XRv-RE-fiC"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="profile" selectedImage="profile" id="Hek-Oq-EnP"/>
-                    <navigationItem key="navigationItem" title="Profile" id="w4b-Ze-qFb"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BwT-5X-zSL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1540.5797101449277" y="-868.52678571428567"/>
         </scene>
-        <!--Quiz-->
+        <!--Settings-->
         <scene sceneID="ewM-0M-N4c">
             <objects>
-                <viewControllerPlaceholder storyboardName="Quiz" id="fe1-wb-c12" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Settings" id="fe1-wb-c12" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="BqC-r7-PNv"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGI-7V-Fwk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,6 +67,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="profile" width="24" height="24"/>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
