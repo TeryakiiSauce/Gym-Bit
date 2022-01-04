@@ -27,7 +27,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xcv-kD-MCO">
-                                        <rect key="frame" x="113" y="297" width="148" height="148"/>
+                                        <rect key="frame" x="127" y="325" width="120" height="120"/>
                                         <state key="normal" title="Button" image="play_button"/>
                                         <connections>
                                             <action selector="playPauseTapped:" destination="umb-GW-khk" eventType="touchUpInside" id="qWN-fy-ZLP"/>
@@ -37,9 +37,9 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="3V5-Og-sjW" firstAttribute="top" secondItem="itg-kC-L5J" secondAttribute="top" constant="20" id="60Y-LH-ktW"/>
+                                    <constraint firstItem="Xcv-kD-MCO" firstAttribute="leading" secondItem="itg-kC-L5J" secondAttribute="leading" constant="127" id="6dk-Wl-Ib3"/>
                                     <constraint firstAttribute="trailing" secondItem="3V5-Og-sjW" secondAttribute="trailing" constant="20" id="GoW-mE-zP8"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xcv-kD-MCO" secondAttribute="trailing" constant="113" id="LLy-iZ-Gcx"/>
-                                    <constraint firstItem="Xcv-kD-MCO" firstAttribute="leading" secondItem="itg-kC-L5J" secondAttribute="leading" constant="113" id="rcj-3S-XFw"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xcv-kD-MCO" secondAttribute="trailing" constant="127" id="w1D-8x-qNk"/>
                                     <constraint firstAttribute="bottom" secondItem="Xcv-kD-MCO" secondAttribute="bottom" constant="20" id="yFh-sZ-sRH"/>
                                 </constraints>
                             </view>
@@ -1081,7 +1081,7 @@
     <resources>
         <image name="noun_body building_637498" width="231" height="235.80000305175781"/>
         <image name="play" width="24" height="24"/>
-        <image name="play_button" width="148" height="148"/>
+        <image name="play_button" width="120" height="120"/>
         <image name="schedule" width="24" height="24"/>
         <image name="timer" width="24" height="24"/>
         <image name="unchecked_box" width="50" height="50"/>

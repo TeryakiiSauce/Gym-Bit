@@ -93,7 +93,7 @@ class TimerViewController: UIViewController {
         let position = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
         
         // define shape path
-        let circularPath = UIBezierPath(arcCenter: position, radius: 110, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: position, radius: 120, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
         
         // set circle fill
         backgroundShape.fillColor = AppColors.phoneBg.cgColor
@@ -111,7 +111,7 @@ class TimerViewController: UIViewController {
         let position = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
         // define shape path
         let circularPath = UIBezierPath(arcCenter:position, radius:
-            110, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
+            120, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
         // assign circular path to the shape path
         timerShape.path = circularPath.cgPath
         // set stroke fill color
