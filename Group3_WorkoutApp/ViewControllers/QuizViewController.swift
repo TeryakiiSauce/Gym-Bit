@@ -9,8 +9,9 @@ import UIKit
 
 class QuizViewController: UIViewController {
     
-    var switchOnImg: UIImage = UIImage(named: "switch_off.svg")!
-    var switchOffImg: UIImage = UIImage(named: "switch_on.svg")!
+    var switchOnImg: UIImage = UIImage(named: "switch_on.svg")!
+    var switchOffImg: UIImage = UIImage(named: "switch_off.svg")!
+    var isPoundFeet = false
 
     @IBOutlet weak var HeadLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
@@ -77,6 +78,15 @@ class QuizViewController: UIViewController {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
         unitSwitch.addGestureRecognizer(tapGR)
         unitSwitch.isUserInteractionEnabled = true
+        //Set sliders and labels values
+        slider1.value = 38
+        slider2.value = 175
+        slider3.value = 90
+        slider4.value = 90
+        yearsValue.text = getYears()
+        heightValue.text = getHeight()
+        weightValue.text = getWeight()
+        goalValue.text = getGoal()
     }
     
     @IBAction func fieldIsFocused(_ sender: UITextField)
@@ -94,45 +104,88 @@ class QuizViewController: UIViewController {
             if unitSwitch.image == switchOffImg
             {
                 unitSwitch.image = switchOnImg
+                unitTxt.text = "Unit (Foot/lbs)"
+                isPoundFeet = true
             }
             else
             {
                 unitSwitch.image = switchOffImg
+                unitTxt.text = "Unit (cm/Kg)"
+                isPoundFeet = false;
             }
+            heightValue.text = getHeight()
+            weightValue.text = getWeight()
+            goalValue.text = getGoal()
         }
     }
     @IBAction func sliderMoved(_ sender: UISlider)
     {
         switch sender.tag {
         case 1:
-            print("first slider!")
+            yearsValue.text = getYears()
         case 2:
-            print("second slider!")
+            heightValue.text = getHeight()
         case 3:
-            print("third slider!")
+            weightValue.text = getWeight()
         case 4:
-            print("fourth slider!")
+            goalValue.text = getGoal()
         default:
             return;
         }
     }
-    //    @IBAction func changeLanguage(sender: AnyObject) {
-//        guard let button = sender as? UIButton else {
-//            return
-//        }
-//
-//        switch button.tag {
-//        case 1:
-//            // Change to English
-//        case 2:
-//            // Change to Spanish
-//        case 3:
-//            // Change to French, etc
-//        default:
-//            print("Unknown language")
-//            return
-//        }
-//    }
+    func getYears() -> String
+    {
+        var years: String
+        years = String(Int(slider1.value))
+        years += " years"
+        return years
+    }
+    func getHeight() -> String
+    {
+        var height: String
+        if (!isPoundFeet)
+        {
+            height = String(Int(slider2.value))
+            height += " cm"
+        }
+        else
+        {
+            let roundedInFoot = round((slider2.value / 30.48) * 10) / 10.0
+            height = String(roundedInFoot)
+            height += " Foot"
+        }
+        
+        return height
+    }
+    func getWeight() -> String
+    {
+        var weight: String
+        if (!isPoundFeet)
+        {
+            weight = String(Int(slider3.value))
+            weight += " Kg"
+        }
+        else
+        {
+            weight = String(Int(slider3.value * 2.205))
+            weight += " lbs"
+        }
+        return weight
+    }
+    func getGoal() -> String {
+        var goal: String
+        if (!isPoundFeet)
+        {
+            goal = String(Int(slider4.value))
+            goal += " Kg"
+        }
+        else
+        {
+            goal = String(Int(slider4.value * 2.205))
+            goal += " lbs"
+        }
+        return goal
+    }
     
     /*
     // MARK: - Navigation
