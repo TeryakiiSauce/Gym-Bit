@@ -23,7 +23,6 @@ class SelectTimeViewController: UIViewController {
     var seconds:Int = 0
     var totalSeconds = 0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,10 +60,10 @@ class SelectTimeViewController: UIViewController {
     
     @IBAction func startButtonPressed(_ sender: Any) {
         
-        guard let timerView = self.storyboard?.instantiateViewController(identifier: "warmupView") as? TimerViewController else {return}
+        guard let timerVC = self.storyboard?.instantiateViewController(identifier: "warmupView") as? TimerViewController else {return}
         
-        timerView.selectedTime = Double(self.totalSeconds)
-        self.show(timerView, sender: sender)
+        timerVC.selectedTime = Double(self.totalSeconds)
+        self.show(timerVC, sender: sender)
 //        self.present(timerView, animated: true)
     }
 }
