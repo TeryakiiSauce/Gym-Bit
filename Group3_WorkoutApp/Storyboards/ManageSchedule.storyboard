@@ -565,7 +565,7 @@
         <!--Muscle List-->
         <scene sceneID="0K6-XH-wPR">
             <objects>
-                <viewController storyboardIdentifier="GenerateViewController" id="ROU-0Y-NTZ" customClass="MuscleListViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GenerateViewController" id="ROU-0Y-NTZ" customClass="GenerateScheduleTableViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U7a-fw-cpO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
