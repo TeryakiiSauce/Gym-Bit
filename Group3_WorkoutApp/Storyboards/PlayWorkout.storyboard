@@ -752,6 +752,7 @@
                                         <connections>
                                             <outlet property="cellView" destination="BPO-Aj-e4y" id="fVU-QC-MOO"/>
                                             <outlet property="checkBoxImage" destination="edI-bP-R7V" id="qI5-qp-lAe"/>
+                                            <outlet property="repsLabel" destination="t0L-qQ-lDa" id="KE3-GM-jcA"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="SOr-gs-FLg" customClass="PlayWorkoutTimerTableViewCell" customModule="Group3_WorkoutApp" customModuleProvider="target">
@@ -880,6 +881,7 @@
                                         <connections>
                                             <outlet property="cellView" destination="XWy-Sg-cQi" id="ZlT-U1-JNC"/>
                                             <outlet property="checkBoxImage" destination="6Rt-g2-uRg" id="Woq-l2-mxC"/>
+                                            <outlet property="repsLabel" destination="5GT-Dw-pGr" id="7xo-RN-5Bk"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="wG6-SU-nS0" customClass="PlayWorkoutTimerTableViewCell" customModule="Group3_WorkoutApp" customModuleProvider="target">
@@ -1008,6 +1010,7 @@
                                         <connections>
                                             <outlet property="cellView" destination="SuX-JP-1t9" id="t5F-Ca-TUa"/>
                                             <outlet property="checkBoxImage" destination="wds-C7-VRA" id="TrV-PE-6vh"/>
+                                            <outlet property="repsLabel" destination="gue-b6-hHw" id="NvT-a8-7MR"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="HeH-ze-KgK" customClass="PlayWorkoutTimerTableViewCell" customModule="Group3_WorkoutApp" customModuleProvider="target">
