@@ -72,8 +72,5 @@ class PlayWorkoutViewController: UIViewController {
             updateProgressView()
             setExerciseInfo()
         }
-        
-        
     }
-    
 }
