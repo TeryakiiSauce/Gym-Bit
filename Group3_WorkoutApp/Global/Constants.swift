@@ -54,7 +54,6 @@ struct Constants {
             bodyView.layer.cornerRadius = Constants.viewRadius
             bodyView.layer.masksToBounds = true
             bodyView.backgroundColor = AppColors.bodyBg
-            
         }
         
     
@@ -89,5 +88,50 @@ struct Constants {
         
         return timeString
                        
+    }
+    
+    
+    //random exercise picker function
+    static func randomNumberGenerator(exercisesWanted: Int,exersizeArray: [Exercise]) -> [Exercise]{
+        //setting the output array and making a temporary editable array
+        var outputArray : [Exercise] = []
+        var temparray:[Exercise] = []
+        temparray.append(contentsOf: exersizeArray)
+
+        //while loop that runs to the amount of times requested
+        while temparray.count > (exersizeArray.count-exercisesWanted) {
+
+            //taking a random key from array
+            let arrayKey = Int(arc4random_uniform(UInt32(temparray.count)))
+            print(arrayKey)
+            print(temparray[arrayKey])
+            //adding the randomly selected exercise to the output array
+            outputArray.append(temparray[arrayKey])
+
+            // make sure the exercise isnt repeated by making it the last postion in the array and deleting it
+            temparray.swapAt(arrayKey, temparray.count-1)
+            temparray.removeLast()
+        }
+        return outputArray
+    }
+    
+    //function that gets an exercise array 
+    static func getExerciseArray(exercisePostion: Int)-> [Exercise]{
+        switch exercisePostion {
+        case 0:
+            return DefaultData.absExercises
+        case 1:
+            return DefaultData.backExercises
+        case 2:
+            return DefaultData.bicepExercises
+        case 3:
+            return DefaultData.chestExercises
+        case 4:
+            return DefaultData.legExercises
+        case 5:
+            return DefaultData.shoulderExercises
+        default:
+            return DefaultData.tricepExercises
+        }
     }
 }
