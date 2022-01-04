@@ -8,30 +8,53 @@
 import UIKit
 
 class QuizViewController: UIViewController {
+    
+    var switchOnImg: UIImage = UIImage(named: "switch_off.svg")!
+    var switchOffImg: UIImage = UIImage(named: "switch_on.svg")!
 
     @IBOutlet weak var HeadLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var ageTxt: UILabel!
+    @IBOutlet weak var heightTxt: UILabel!
+    @IBOutlet weak var weightTxt: UILabel!
+    @IBOutlet weak var goalTxt: UILabel!
+    @IBOutlet weak var yearsValue: UILabel!
+    @IBOutlet weak var heightValue: UILabel!
+    @IBOutlet weak var weightValue: UILabel!
+    @IBOutlet weak var goalValue: UILabel!
     @IBOutlet weak var Line1: UILabel!
     @IBOutlet weak var Line2: UILabel!
     @IBOutlet weak var Line3: UILabel!
     @IBOutlet weak var Line4: UILabel!
+    @IBOutlet weak var unitTxt: UILabel!
     @IBOutlet weak var slider1: UISlider!
     @IBOutlet weak var slider2: UISlider!
     @IBOutlet weak var slider3: UISlider!
     @IBOutlet weak var slider4: UISlider!
     @IBOutlet weak var bodyView: UIView!
+    @IBOutlet weak var unitSwitch: UIImageView!
     @IBOutlet weak var finishButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Setting the default style to the view and the body view by calling a funcation from Constants struct.
         Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: finishButton, secondaryButton: nil)
         // Changing colors to match the app theme by calling AppColors stuct.
+        HeadLabel.textColor = AppColors.textColor
         bodyView.backgroundColor = AppColors.bodyBg
         nameField.textColor = AppColors.phoneBg
         Line1.textColor = AppColors.phoneBg
         Line2.textColor = AppColors.phoneBg
         Line3.textColor = AppColors.phoneBg
         Line4.textColor = AppColors.phoneBg
+        ageTxt.textColor = AppColors.textColor
+        heightTxt.textColor = AppColors.textColor
+        weightTxt.textColor = AppColors.textColor
+        goalTxt.textColor = AppColors.textColor
+        unitTxt.textColor = AppColors.textColor
+        yearsValue.textColor = AppColors.buttonColor
+        heightValue.textColor = AppColors.buttonColor
+        weightValue.textColor = AppColors.buttonColor
+        goalValue.textColor = AppColors.buttonColor
         slider1.thumbTintColor = AppColors.buttonColor
         slider1.tintColor = AppColors.buttonColor
         slider2.thumbTintColor = AppColors.buttonColor
@@ -50,7 +73,10 @@ class QuizViewController: UIViewController {
 
         attributedString.append(normalString)
         HeadLabel.attributedText = attributedString
-        // Do any additional setup after loading the view.
+        // Adding gesture to switch image
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        unitSwitch.addGestureRecognizer(tapGR)
+        unitSwitch.isUserInteractionEnabled = true
     }
     
     @IBAction func fieldIsFocused(_ sender: UITextField)
@@ -59,6 +85,20 @@ class QuizViewController: UIViewController {
         {
             sender.text = "";
             sender.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+    }
+    @objc func imageTapped(sender: UITapGestureRecognizer)
+    {
+        if sender.state == .ended
+        {
+            if unitSwitch.image == switchOffImg
+            {
+                unitSwitch.image = switchOnImg
+            }
+            else
+            {
+                unitSwitch.image = switchOffImg
+            }
         }
     }
 //    @IBAction func changeLanguage(sender: AnyObject) {

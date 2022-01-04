@@ -111,6 +111,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unit (cm/Kg)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jve-Bn-ZsJ">
+                                        <rect key="frame" x="42" y="521" width="140" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ctj-tA-cdc">
                                         <rect key="frame" x="49" y="449" width="275" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -129,6 +136,10 @@
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="switch_off" translatesAutoresizingMaskIntoConstraints="NO" id="s8K-Sf-EF9">
+                                        <rect key="frame" x="239" y="528" width="84" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                             </view>
@@ -160,13 +171,23 @@
                         <outlet property="Line2" destination="0cp-zD-pLF" id="PFI-7O-hvo"/>
                         <outlet property="Line3" destination="J5z-DK-CrH" id="Tcn-1Y-fZC"/>
                         <outlet property="Line4" destination="TSE-f3-2RA" id="jv4-qM-tjn"/>
+                        <outlet property="ageTxt" destination="Oys-Qc-CkN" id="jna-cE-Tmd"/>
                         <outlet property="bodyView" destination="Sae-x7-rU3" id="czt-5Q-q08"/>
                         <outlet property="finishButton" destination="lec-i1-x9J" id="zcn-yg-bzI"/>
+                        <outlet property="goalTxt" destination="r0n-4S-fWy" id="Luh-Ag-H2m"/>
+                        <outlet property="goalValue" destination="0Vb-IQ-nsW" id="4Ys-XY-j79"/>
+                        <outlet property="heightTxt" destination="h0j-bL-1LK" id="gmg-ZQ-slw"/>
+                        <outlet property="heightValue" destination="LNC-MF-cCp" id="hEg-GW-clT"/>
                         <outlet property="nameField" destination="tGW-TX-RGA" id="eUo-wK-JU9"/>
                         <outlet property="slider1" destination="UBd-1x-h6y" id="aNx-uo-Z9L"/>
                         <outlet property="slider2" destination="GIS-1V-mHd" id="X3A-0Z-tSV"/>
                         <outlet property="slider3" destination="X78-r3-GVF" id="ZoR-qx-sU7"/>
                         <outlet property="slider4" destination="Ctj-tA-cdc" id="2cr-4O-7F3"/>
+                        <outlet property="unitSwitch" destination="s8K-Sf-EF9" id="mov-l0-Ck9"/>
+                        <outlet property="unitTxt" destination="Jve-Bn-ZsJ" id="QCE-gy-oeB"/>
+                        <outlet property="weightTxt" destination="ds5-4s-DXj" id="GPp-ZH-Dha"/>
+                        <outlet property="weightValue" destination="lum-2T-Jpu" id="N95-5U-0iI"/>
+                        <outlet property="yearsValue" destination="wED-SH-aTA" id="GEM-qq-QGI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -175,6 +196,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="switch_off" width="51" height="22"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
