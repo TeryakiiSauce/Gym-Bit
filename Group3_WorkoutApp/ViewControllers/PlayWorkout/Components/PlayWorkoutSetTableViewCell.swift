@@ -37,5 +37,10 @@ class PlayWorkoutSetTableViewCell: UITableViewCell {
         
         isChecked.toggle()
     }
+    
+    func resetCell(){
+        isChecked = false
+        checkBoxImage.image = UIImage(named: "unchecked_box")
+    }
 
 }

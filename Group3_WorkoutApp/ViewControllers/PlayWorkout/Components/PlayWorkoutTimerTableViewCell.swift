@@ -16,7 +16,7 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     //default selected time
     var selectedTime: Int = PlayWorkoutLandingViewController.restTime
     var timeRemaining: Int = 45
-    var timerIsCounting: Bool = false
+//    var timerIsCounting: Bool = false
     var timerStarted = false
     
     override func awakeFromNib() {
@@ -37,7 +37,7 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        timerIsCounting = true
+//        timerIsCounting = true
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         playImage.image = UIImage(named: "unchecked_box")
         playImage.isUserInteractionEnabled = false
@@ -47,7 +47,6 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     
     func formatTimeRemaining()
     {
-        
         let time = Constants.secondsToMinutesSeconds(seconds: Int(timeRemaining))
         let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
         // update timer label
@@ -69,6 +68,15 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
             playImage.image = UIImage(named: "checked_box")
         }
         // format time remaining
+        formatTimeRemaining()
+    }
+    
+    func resetCell(){
+        playImage.image = UIImage(named: "play")
+        // reset time remaining
+        self.timeRemaining = selectedTime
+        // stop time
+        timer.invalidate()
         formatTimeRemaining()
     }
 }

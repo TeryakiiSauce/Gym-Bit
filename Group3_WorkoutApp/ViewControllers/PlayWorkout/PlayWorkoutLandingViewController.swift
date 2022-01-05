@@ -21,6 +21,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     
     // default rest time
     static var restTime = 45
+    var schedule = DefaultData.user.activeSchedule
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DefaultData.schedules[0].exercises.count
+        return schedule?.exercises.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,8 +54,8 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         bgColorView.backgroundColor = AppColors.bodyBg
         cell.selectedBackgroundView = bgColorView
         cell.titleLabel.text = DefaultData.schedules[0].exercises[indexPath.row].name
-        cell.subtitleLabel.text = "\(DefaultData.schedules[0].exercises[indexPath.row].reps) reps x \(DefaultData.schedules[0].exercises[indexPath.row].sets ) sets"
-        cell.cellImage.image = UIImage(named: DefaultData.schedules[0].exercises[indexPath.row].imagePath)
+        cell.subtitleLabel.text = "\(schedule?.exercises[indexPath.row].reps ?? 0) reps x \(schedule?.exercises[indexPath.row].sets ?? 0) sets"
+        cell.cellImage.image = UIImage(named: schedule?.exercises[indexPath.row].imagePath ?? "")
         return cell
     }
     

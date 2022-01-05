@@ -9,8 +9,6 @@ import UIKit
 
 class PlayWorkoutViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var mainButton: UIButton!
@@ -25,8 +23,19 @@ class PlayWorkoutViewController: UIViewController {
     
     var progress = Progress(totalUnitCount: Int64(DefaultData.schedules[0].exercises.count))
     
+    // to access table view
+    var tableViewController : PlayWorkoutTableViewController?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // set table view to the first embedded view controller (play workout table)
+        tableViewController = self.children[0] as? PlayWorkoutTableViewController
+        
+        // set initial reps to be used for first exercise
+        tableViewController?.initialReps = schedule?.exercises[exerciseIndex].reps
+        
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil)
         // set exercises count
@@ -38,8 +47,6 @@ class PlayWorkoutViewController: UIViewController {
         customizeProgressView()
         setExerciseInfo()
         updateProgressView()
-        
-        print("Selected Rest time \(PlayWorkoutLandingViewController.restTime)")
     }
     
     func customizeProgressView(){
@@ -77,6 +84,10 @@ class PlayWorkoutViewController: UIViewController {
             exerciseIndex += 1
             updateProgressView()
             setExerciseInfo()
+            // update reps
+            tableViewController?.setReps(reps: schedule?.exercises[exerciseIndex].reps ?? 99)
+            // reset table
+            tableViewController?.resetTable()
         }
     }
 }
