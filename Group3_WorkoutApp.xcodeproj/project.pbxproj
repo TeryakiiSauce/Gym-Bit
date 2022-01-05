@@ -48,6 +48,7 @@
 		F081CBDC277B975B00F2CAA6 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081CBDB277B975B00F2CAA6 /* PopupViewController.swift */; };
 		F083A26627834DFA00A7919E /* ViewMuscleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083A26527834DFA00A7919E /* ViewMuscleViewController.swift */; };
 		F083A26827834E1400A7919E /* ViewExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083A26727834E1400A7919E /* ViewExerciseViewController.swift */; };
+		F083A26A2784D04E00A7919E /* ViewDetailExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083A2692784D04E00A7919E /* ViewDetailExerciseViewController.swift */; };
 		F0CF27B22779F12500832E6C /* CreateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		F081CBDB277B975B00F2CAA6 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		F083A26527834DFA00A7919E /* ViewMuscleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMuscleViewController.swift; sourceTree = "<group>"; };
 		F083A26727834E1400A7919E /* ViewExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExerciseViewController.swift; sourceTree = "<group>"; };
+		F083A2692784D04E00A7919E /* ViewDetailExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailExerciseViewController.swift; sourceTree = "<group>"; };
 		F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,6 +251,7 @@
 			children = (
 				F083A26527834DFA00A7919E /* ViewMuscleViewController.swift */,
 				F083A26727834E1400A7919E /* ViewExerciseViewController.swift */,
+				F083A2692784D04E00A7919E /* ViewDetailExerciseViewController.swift */,
 			);
 			path = "ViewMuscle&Exercise";
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				F081CBDC277B975B00F2CAA6 /* PopupViewController.swift in Sources */,
 				9645EDA027827C0600348FDA /* CustomPresentationController.swift in Sources */,
 				9645EDA6278287EA00348FDA /* PlayWorkoutTableViewController.swift in Sources */,
+				F083A26A2784D04E00A7919E /* ViewDetailExerciseViewController.swift in Sources */,
 				96170D982781341F001CA441 /* RestTimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
