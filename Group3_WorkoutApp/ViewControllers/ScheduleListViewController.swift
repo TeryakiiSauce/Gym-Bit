@@ -27,26 +27,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //styling table view
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        customTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender:Any?) {
         //setting controller variable
         if segue.identifier == "createPage"{
-        let viewController = segue.destination as! CreateScheduleViewController
-        viewController.displayedSchedule = DefaultData.schedules[0]
-            viewController.originalschedule = DefaultData.schedules[0]}
+           // let viewController = segue.destination as! CreateScheduleViewController
+            //viewController.displayedSchedule = DefaultData.schedules[0]
+        }
         else{}
        
     }
+    @IBAction func unwindtoViewSchedule(seague: UIStoryboardSegue){
+        if let sourceViewController = seague.source as? CreateScheduleViewController   {
+            displayedSchedule = displayedSchedule + [sourceViewController.displayedSchedule]
+            print(displayedSchedule.count)
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DefaultData.schedules.count
+        return displayedSchedule.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         cell.titleLabel.text = displayedSchedule[indexPath.row].name
+        print(displayedSchedule.count)
         return cell
     }
     

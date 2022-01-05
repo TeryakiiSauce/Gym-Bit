@@ -24,14 +24,10 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
     override func prepare(for segue: UIStoryboardSegue, sender:Any?) {
         generateRandomExercises()
         let genratedSchedule = Schedule(dateCreated: Date(), name: "Generated Workout", playsCounter: 0,exercises: listOfSelectedExerciseArrays)
-        print(genratedSchedule)
         //setting controller variable
         
         let viewController = segue.destination as! CreateScheduleViewController
-        viewController.displayedSchedule = nil
-            viewController.originalschedule = nil
         viewController.displayedSchedule = genratedSchedule
-            viewController.originalschedule = genratedSchedule
         listOfSelectedExerciseArrays.removeAll()
     }
     
