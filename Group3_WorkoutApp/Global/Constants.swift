@@ -88,22 +88,18 @@ struct Constants {
                        
     }
     
-    
     //random exercise picker function
     static func randomNumberGenerator(exercisesWanted: Int,exersizeArray: [Exercise]) -> [Exercise]{
         //setting the output array and making a temporary editable array
         var outputArray : [Exercise] = []
         var temparray:[Exercise] = []
         temparray.append(contentsOf: exersizeArray)
-
         //while loop that runs to the amount of times requested
         while temparray.count > (exersizeArray.count-exercisesWanted) {
-
             //taking a random key from array
             let arrayKey = Int(arc4random_uniform(UInt32(temparray.count)))
             //adding the randomly selected exercise to the output array
             outputArray.append(temparray[arrayKey])
-
             // make sure the exercise isnt repeated by making it the last postion in the array and deleting it
             temparray.swapAt(arrayKey, temparray.count-1)
             temparray.removeLast()
@@ -111,8 +107,9 @@ struct Constants {
         return outputArray
     }
     
-    //function that gets an exercise array 
+    //function that gets an exercise array
     static func getExerciseArray(exercisePostion: Int)-> [Exercise]{
+        //switch statment that returns the list of exercises depending on the postion sent
         switch exercisePostion {
         case 0:
             return DefaultData.absExercises
