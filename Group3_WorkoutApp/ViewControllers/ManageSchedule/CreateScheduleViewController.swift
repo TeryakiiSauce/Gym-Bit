@@ -3,10 +3,9 @@ import UIKit
 class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     //filling data to test
-    var displayedSchedule : Schedule?
-    var originalschedule : Schedule?
+    var displayedSchedule = Schedule(dateCreated: Date(), name: "Your Schedule", playsCounter: nil, exercises: [])
     var addedExercises : [Exercise] = []
-    
+    var popuppageType = ["ClearTable" : false,"Back" : false,"changeName" : false]
     //var exerciseType = {"Abs":0,"Chest":0,"Back":0,"Legs":0,"Shoulders":0,"Triceps":0,"Biceps":0}
     //connectors that connect the gui to code
     @IBOutlet weak var headerView: UIView!
@@ -15,43 +14,67 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
     @IBOutlet weak var scheduleName: UILabel!
+    @IBOutlet weak var editableTableStackView: UIStackView!
+    @IBOutlet weak var EmptyTableStackView: UIStackView!
+    @IBOutlet weak var clearPageButton: UIButton!
     
     
     //button that clears the whole table
     @IBAction func ClickClearScheduleButton(_ sender: Any) {
-        //removing all the exercises
-        displayedSchedule?.exercises.removeAll()
-        //reloading the table
-        customTableView.reloadData()
+        popuppageType["ClearTable"]?.toggle()
+          let popup = openPopupPage()
+        popup.ClearPopupStackView.isHidden = false
+        popuppageType["ClearTable"]?.toggle()
+        
     }
     
-    @IBAction func ClickAddSchedulebutton(_ sender: Any) {}
+    
+    @IBAction func ClickAddSchedulebutton(_ sender: Any) {
+        self.performSegue(withIdentifier: "addExerciseSegue", sender: self)
+    }
     //button that saves the Schedule in a .json file
+    
     @IBAction func ClickSaveButton(_ sender: Any) {
-        Schedule.saveSchedules(displayedSchedule!)
+        if displayedSchedule.exercises.count != 0 {
+            Schedule.saveSchedules(displayedSchedule)
+            self.performSegue(withIdentifier: "unwindToViewSchedule", sender: self)
+           
+        }
+        else{
+            
+            self.performSegue(withIdentifier: "addExerciseSegue", sender: self)
+        }
     }
     
     //method to opens a popup and changes  the schedule name
     @IBAction func ClickUpdateScheduleButton(_ sender: Any) {
         //creating a var of the popup viewcontroller
-        let popOverVc = UIStoryboard(name: "ManageSchedule", bundle: nil).instantiateViewController(withIdentifier: "sbPopupID") as! PopupViewController
-        //assigning it as a child view and opening it over the parent view
-        self.addChild(popOverVc)
-        popOverVc.view.frame = self.view.frame
-        self.view.addSubview(popOverVc.view)
-        popOverVc.didMove(toParent: self)
+        popuppageType["changeName"]?.toggle()
+        let popup = openPopupPage()
+        popup.updatePopupStackView.isHidden = false
+        popuppageType["changeName"]?.toggle()
+       
     }
     
     
     //function that creates an unwind segue for this page
     @IBAction func unwindtoCreateSchedule(seague: UIStoryboardSegue){
         if let sourceViewController = seague.source as? PopupViewController   {
-            scheduleName.text = sourceViewController.ScheduleNameTextField.text
+            if sourceViewController.isClearConfirmPressed{
+                //removing all the exercises
+                displayedSchedule.exercises.removeAll()
+                //reloading the table
+                customTableView.reloadData()
+            }
+            else if sourceViewController.isupdatePressed {
+                scheduleName.text = sourceViewController.ScheduleNameTextField.text
+                displayedSchedule.name = sourceViewController.ScheduleNameTextField.text
+            }
         }
         if let sourceViewController = seague.source as? ExerciseListViewController      {
             print(sourceViewController.pickedExercises)
             addedExercises = sourceViewController.pickedExercises
-            displayedSchedule?.exercises.append(contentsOf: addedExercises)
+            displayedSchedule.exercises.append(contentsOf: addedExercises)
             customTableView.reloadData()
         }
     }
@@ -66,14 +89,37 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         //styling table view
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
-        scheduleName.text = displayedSchedule?.name
+        scheduleName.text = displayedSchedule.name
+        //creating a custom back nav bar button
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(CreateScheduleViewController.back(sender:)))
+                self.navigationItem.leftBarButtonItem = newBackButton
     }
     
+    @objc func back(sender: UIBarButtonItem) {
+        popuppageType["Back"]?.toggle()
+        let popup = openPopupPage()
+        popup.LeavePopupStackView.isHidden = false
+        popuppageType["Back"]?.toggle()
+        //_ = navigationController?.popViewController(animated: true)
+       }
+    override func viewWillAppear(_ animated: Bool) {
+        if displayedSchedule.exercises.count == 0 {
+            editableTableStackView.isHidden = true
+            EmptyTableStackView.isHidden = false
+            mainButton.setTitle("Add Exercise", for: .normal)
+        }
+        else {
+            editableTableStackView.isHidden = false
+            EmptyTableStackView.isHidden = true
+            mainButton.setTitle("Save", for: .normal)
+        }
+    }
    
     
     //function that sets the number of rows in the exercises table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayedSchedule!.exercises.count
+        return displayedSchedule.exercises.count
     }
     
     //function that fills the exercise table
@@ -81,9 +127,9 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         //adding data to the cell
-        cell.titleLabel.text = displayedSchedule?.exercises[indexPath.row].name
-        cell.subtitleLabel.text = displayedSchedule?.exercises[indexPath.row].targetMuscle
-        cell.cellImage.image = UIImage(named: displayedSchedule!.exercises[indexPath.row].imagePath)
+        cell.titleLabel.text = displayedSchedule.exercises[indexPath.row].name
+        cell.subtitleLabel.text = displayedSchedule.exercises[indexPath.row].targetMuscle
+        cell.cellImage.image = UIImage(named: displayedSchedule.exercises[indexPath.row].imagePath)
         return cell
     }
 
@@ -97,9 +143,19 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         //checking the editing style
         if editingStyle == .delete {
             //removing the instance from the stored schedule
-            displayedSchedule?.exercises.remove(at: indexPath.row)
+            displayedSchedule.exercises.remove(at: indexPath.row)
             //removing the row from the table in the gui
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func openPopupPage() -> PopupViewController{
+        let popOverVc = UIStoryboard(name: "ManageSchedule", bundle: nil).instantiateViewController(withIdentifier: "sbPopupID") as! PopupViewController
+        //assigning it as a child view and opening it over the parent view
+        self.addChild(popOverVc)
+        popOverVc.view.frame = self.view.frame
+        self.view.addSubview(popOverVc.view)
+        popOverVc.didMove(toParent: self)
+        return popOverVc
     }
 }

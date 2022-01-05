@@ -101,8 +101,6 @@ struct Constants {
 
             //taking a random key from array
             let arrayKey = Int(arc4random_uniform(UInt32(temparray.count)))
-            print(arrayKey)
-            print(temparray[arrayKey])
             //adding the randomly selected exercise to the output array
             outputArray.append(temparray[arrayKey])
 
