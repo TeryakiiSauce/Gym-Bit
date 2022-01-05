@@ -25,7 +25,11 @@ class PlayWorkoutViewController: UIViewController {
     
     // to access table view
     var tableViewController : PlayWorkoutTableViewController?
-
+    var isCompleted = false {
+        didSet{
+            setButtonStateButton()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +39,7 @@ class PlayWorkoutViewController: UIViewController {
         
         // set initial reps to be used for first exercise
         tableViewController?.initialReps = schedule?.exercises[exerciseIndex].reps
-        
+        tableViewController?.playWorkoutVC = self
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil)
         // set exercises count
@@ -47,6 +51,17 @@ class PlayWorkoutViewController: UIViewController {
         customizeProgressView()
         setExerciseInfo()
         updateProgressView()
+        setButtonStateButton()
+    }
+    
+    func setButtonStateButton(){
+        if isCompleted {
+            mainButton.isEnabled = true
+            mainButton.alpha = 1
+        }else{
+            mainButton.isEnabled = false
+            mainButton.alpha = 0.5
+        }
     }
     
     func customizeProgressView(){
@@ -69,6 +84,8 @@ class PlayWorkoutViewController: UIViewController {
         currentExerciseNoLabel.text = String(exerciseIndex + 1)
         exerciseNameLabel.text = DefaultData.schedules[0].exercises[exerciseIndex].name
     }
+    
+    
     
     @IBAction func nextButtonTapped(_ sender: Any) {
         

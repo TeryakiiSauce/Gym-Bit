@@ -7,11 +7,25 @@
 
 import UIKit
 
-class PlayWorkoutTableViewController: UITableViewController {
+class PlayWorkoutTableViewController: UITableViewController, SetCellDelegate, TimerCellDelegate {
     
+    func timerButtonTapped() {
+        playWorkoutVC?.isCompleted = checkExerciseStatus()
+    }
+    
+    
+    func setButtonTapped() {
+        playWorkoutVC?.isCompleted = checkExerciseStatus()
+    }
+    
+    weak var playWorkoutVC : PlayWorkoutViewController?
+
     @IBOutlet weak var firstSetCell: PlayWorkoutSetTableViewCell!
     @IBOutlet weak var secondSetCell: PlayWorkoutSetTableViewCell!
     @IBOutlet weak var thirdSetCell: PlayWorkoutSetTableViewCell!
+    @IBOutlet weak var firstRestCell: PlayWorkoutTimerTableViewCell!
+    @IBOutlet weak var secondRestCell: PlayWorkoutTimerTableViewCell!
+    @IBOutlet weak var thirdRestCell: PlayWorkoutTimerTableViewCell!
     
     var initialReps: Int?
     
@@ -52,7 +66,34 @@ class PlayWorkoutTableViewController: UITableViewController {
                 cell.resetCell()
             }
         }
+        
+        playWorkoutVC?.isCompleted = false
     }
+    
+    func checkExerciseStatus() -> Bool {
+        if(firstSetCell.isChecked && secondSetCell.isChecked && thirdSetCell.isChecked && firstRestCell.isCompleted && secondRestCell.isCompleted && thirdRestCell.isCompleted)
+        {
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? PlayWorkoutSetTableViewCell {
+            cell.delegate = self
+        }
+        else if let cell = cell as? PlayWorkoutTimerTableViewCell {
+            cell.delegate = self
+        }
+    }
+
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          tableView.deselectRow(at: indexPath, animated: true)
+            setButtonTapped()
+      }
 }
+
 
 

@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol TimerCellDelegate: AnyObject {
+    func timerButtonTapped()
+}
+
 class PlayWorkoutTimerTableViewCell: UITableViewCell {
     
+    weak var delegate: TimerCellDelegate?
+
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var playImage: UIImageView!
     @IBOutlet weak var timeRemainingLabel: UILabel!
@@ -16,8 +22,7 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     //default selected time
     var selectedTime: Int = PlayWorkoutLandingViewController.restTime
     var timeRemaining: Int = 45
-//    var timerIsCounting: Bool = false
-    var timerStarted = false
+    var isCompleted = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +46,7 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         playImage.image = UIImage(named: "unchecked_box")
         playImage.isUserInteractionEnabled = false
+       
     }
     
     
@@ -66,6 +72,10 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
             timer.invalidate()
             // display checked button button
             playImage.image = UIImage(named: "checked_box")
+            // set is completed to true
+            isCompleted.toggle()
+            
+            delegate?.timerButtonTapped()
         }
         // format time remaining
         formatTimeRemaining()
