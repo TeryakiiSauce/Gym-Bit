@@ -36,8 +36,8 @@ class RestTimeViewController: UIViewController {
         // format time
         totalSeconds = (minutes * 60) + seconds
         enableStartButton()
-        let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(totalSeconds))
-        let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+        let time = Constants.secondsToMinutesSeconds(seconds: Int(totalSeconds))
+        let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
         // update timer label
         restTimeLabel.text = timeString
     }

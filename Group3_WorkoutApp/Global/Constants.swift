@@ -1,6 +1,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 struct Constants {
     
@@ -46,14 +47,14 @@ struct Constants {
         if let headerView = headerView {
             headerView.layer.cornerRadius = Constants.viewRadius
             headerView.layer.masksToBounds = true
-            
+            headerView.backgroundColor = AppColors.bodyBg
             headerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
         }
         
         if let bodyView = bodyView {
             bodyView.layer.cornerRadius = Constants.viewRadius
             bodyView.layer.masksToBounds = true
-            
+            bodyView.backgroundColor = AppColors.bodyBg
         }
         
     
@@ -73,20 +74,89 @@ struct Constants {
     }
     
     // format time functions
-    static func secondsToHoursMinutesSeconds(seconds: Int) -> (Int,Int,Int)
+    static func secondsToMinutesSeconds(seconds: Int) -> (Int,Int)
     {
-        return (seconds / 3600, (seconds % 3600)/60,  (seconds % 3600) % 60)
+        return ((seconds % 3600)/60,  (seconds % 3600) % 60)
     }
     
-    static func formatTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
+    static func formatTimeString(minutes: Int, seconds: Int) -> String {
         var timeString = ""
-        timeString += String (format: "%02d", hours)
-        timeString += " : "
         timeString += String (format: "%02d", minutes)
         timeString += " : "
         timeString += String (format: "%02d", seconds)
         
         return timeString
                        
+    }
+    
+    //random exercise picker function
+    static func randomNumberGenerator(exercisesWanted: Int,exersizeArray: [Exercise]) -> [Exercise]{
+        //setting the output array and making a temporary editable array
+        var outputArray : [Exercise] = []
+        var temparray:[Exercise] = []
+        temparray.append(contentsOf: exersizeArray)
+        //while loop that runs to the amount of times requested
+        while temparray.count > (exersizeArray.count-exercisesWanted) {
+            //taking a random key from array
+            let arrayKey = Int(arc4random_uniform(UInt32(temparray.count)))
+            //adding the randomly selected exercise to the output array
+            outputArray.append(temparray[arrayKey])
+            // make sure the exercise isnt repeated by making it the last postion in the array and deleting it
+            temparray.swapAt(arrayKey, temparray.count-1)
+            temparray.removeLast()
+        }
+        return outputArray
+    }
+    
+    //function that gets an exercise array
+    static func getExerciseArray(exercisePostion: Int)-> [Exercise]{
+        //switch statment that returns the list of exercises depending on the postion sent
+        switch exercisePostion {
+        case 0:
+            return DefaultData.absExercises
+        case 1:
+            return DefaultData.backExercises
+        case 2:
+            return DefaultData.bicepExercises
+        case 3:
+            return DefaultData.chestExercises
+        case 4:
+            return DefaultData.legExercises
+        case 5:
+            return DefaultData.shoulderExercises
+        default:
+            return DefaultData.tricepExercises
+        }
+    }
+    
+    // declaring player should be outside the function
+    static private var player: AVAudioPlayer?
+    static func playTimerSound() {
+        // unwrap play and check if it is playing something
+        if let player = player, player.isPlaying {
+            // stop the sound
+            player.stop()
+        }else{
+            // set up player and play
+            // get url (alarm sound path)
+            guard let url = Bundle.main.path(forResource: "alarm", ofType: "wav") else { return }
+            
+            do{
+                // set sessions
+                try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true)
+                
+                // instantiate av audio player with the specified url
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))
+                
+                // unwrap player to make sure it was created properly
+                guard let player = player else {return}
+                
+                // play alarm
+                player.play()
+            }catch{
+                print("An error has occurred")
+            }
+        }
     }
 }

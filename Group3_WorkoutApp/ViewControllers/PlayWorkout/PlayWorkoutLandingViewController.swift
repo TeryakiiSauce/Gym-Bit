@@ -20,7 +20,8 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     @IBOutlet weak var scheduleTargetLabel: UILabel!
     
     // default rest time
-    var restTime = 45
+    static var restTime = 45
+    var schedule = DefaultData.user.activeSchedule
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DefaultData.schedules[0].exercises.count
+        return schedule?.exercises.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,8 +54,8 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         bgColorView.backgroundColor = AppColors.bodyBg
         cell.selectedBackgroundView = bgColorView
         cell.titleLabel.text = DefaultData.schedules[0].exercises[indexPath.row].name
-        cell.subtitleLabel.text = "3 sets x 12 reps"
-        cell.cellImage.image = UIImage(named: DefaultData.schedules[0].exercises[indexPath.row].imagePath)
+        cell.subtitleLabel.text = "\(schedule?.exercises[indexPath.row].reps ?? 0) reps x \(schedule?.exercises[indexPath.row].sets ?? 0) sets"
+        cell.cellImage.image = UIImage(named: schedule?.exercises[indexPath.row].imagePath ?? "")
         return cell
     }
     
@@ -74,10 +75,10 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     @IBAction func didUnwindFromSelectRestTime(_ seague: UIStoryboardSegue)
     {
         if let restTimeVc = seague.source as? RestTimeViewController {
-            restTime = restTimeVc.totalSeconds
+            PlayWorkoutLandingViewController.restTime = restTimeVc.totalSeconds
             
-            let time = Constants.secondsToHoursMinutesSeconds(seconds: Int(restTime))
-            let timeString = Constants.formatTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+            let time = Constants.secondsToMinutesSeconds(seconds: Int(PlayWorkoutLandingViewController.restTime))
+            let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
             
             restTimeLabel.text = timeString
         }
