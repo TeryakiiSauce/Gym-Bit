@@ -39,7 +39,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let sourceViewController = seague.source as? CreateScheduleViewController   {
             //updates the displayed schedule array
             displayedSchedule = displayedSchedule + [sourceViewController.displayedSchedule]
-            print(displayedSchedule.count)
         }
     }
     
@@ -52,7 +51,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         cell.titleLabel.text = displayedSchedule[indexPath.row].name
-        print(displayedSchedule.count)
         return cell
     }
     

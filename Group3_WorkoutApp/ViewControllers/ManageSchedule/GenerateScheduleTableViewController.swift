@@ -39,6 +39,9 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
         //styling table view
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
+        //disable button and change color
+        MainButton.isEnabled = false
+        MainButton.layer.backgroundColor = AppColors.buttonSecondaryColor.cgColor
     }
 
     //sets the number of rows in the table
@@ -66,12 +69,20 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt : IndexPath) {
         selectedMuscles[didSelectRowAt.row] = true
         numberOfSelectedMuscles = numberOfSelectedMuscles+1
+        //enable button and change color
+        MainButton.layer.backgroundColor = AppColors.buttonColor.cgColor
+        MainButton.isEnabled = true
     }
     
     //method that checkes if the user deselects a cell and removes it from the pickedexercises array
     func tableView(_ tableView: UITableView, didDeselectRowAt : IndexPath) {
         selectedMuscles[didDeselectRowAt.row] = false
         numberOfSelectedMuscles = numberOfSelectedMuscles-1
+        //if no muscles are selected disable button and change color
+        if numberOfSelectedMuscles == 0 {
+            MainButton.isEnabled = false
+            MainButton.layer.backgroundColor = AppColors.buttonSecondaryColor.cgColor
+        }
     }
     
     // function that generates random exercises depanding on how many muscles were selected
