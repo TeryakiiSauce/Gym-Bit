@@ -41,6 +41,7 @@
 		96890EB4278560F7000B3746 /* ResetTimerPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890EB3278560F7000B3746 /* ResetTimerPopupViewController.swift */; };
 		96A167192768A0AE0000947A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A167182768A0AE0000947A /* Constants.swift */; };
 		96A1671B2768A20E0000947A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1671A2768A20E0000947A /* AppColors.swift */; };
+		96E391CD278613F600B3A512 /* CompleteWorkoutPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E391CC278613F600B3A512 /* CompleteWorkoutPopupViewController.swift */; };
 		F017CF4A277E449E002569A9 /* MuscleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF49277E449E002569A9 /* MuscleListViewController.swift */; };
 		F017CF4D277E4F4D002569A9 /* ExerciseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF4C277E4F4D002569A9 /* ExerciseListViewController.swift */; };
 		F017CF502781F269002569A9 /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF4F2781F269002569A9 /* ExerciseTableViewCell.swift */; };
@@ -88,6 +89,7 @@
 		96890EB3278560F7000B3746 /* ResetTimerPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTimerPopupViewController.swift; sourceTree = "<group>"; };
 		96A167182768A0AE0000947A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		96A1671A2768A20E0000947A /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		96E391CC278613F600B3A512 /* CompleteWorkoutPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteWorkoutPopupViewController.swift; sourceTree = "<group>"; };
 		F017CF49277E449E002569A9 /* MuscleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleListViewController.swift; sourceTree = "<group>"; };
 		F017CF4C277E4F4D002569A9 /* ExerciseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewController.swift; sourceTree = "<group>"; };
 		F017CF4F2781F269002569A9 /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
@@ -132,7 +134,6 @@
 				9645ED9F27827C0600348FDA /* CustomPresentationController.swift */,
 				9645EDA1278282C200348FDA /* PlayWorkoutViewController.swift */,
 				9645EDA5278287EA00348FDA /* PlayWorkoutTableViewController.swift */,
-				96890EB3278560F7000B3746 /* ResetTimerPopupViewController.swift */,
 			);
 			path = PlayWorkout;
 			sourceTree = "<group>";
@@ -140,8 +141,10 @@
 		9645EDAB27829F9700348FDA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				96890EB3278560F7000B3746 /* ResetTimerPopupViewController.swift */,
 				9645EDA72782889B00348FDA /* PlayWorkoutSetTableViewCell.swift */,
 				9645EDA9278288B500348FDA /* PlayWorkoutTimerTableViewCell.swift */,
+				96E391CC278613F600B3A512 /* CompleteWorkoutPopupViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				9669361B27674BD400206950 /* AppDelegate.swift in Sources */,
 				966936342767570200206950 /* Schedule.swift in Sources */,
 				9622BD76277BF18500B5BFA8 /* PlayWorkoutLandingViewController.swift in Sources */,
+				96E391CD278613F600B3A512 /* CompleteWorkoutPopupViewController.swift in Sources */,
 				9645EDA2278282C200348FDA /* PlayWorkoutViewController.swift in Sources */,
 				9608FB4527793802009498F9 /* CustomTableViewCell.swift in Sources */,
 				F017CF522783BCCC002569A9 /* GenerateScheduleTableViewController.swift in Sources */,

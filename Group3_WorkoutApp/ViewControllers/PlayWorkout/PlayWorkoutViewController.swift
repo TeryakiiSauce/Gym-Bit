@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlayWorkoutViewController: UIViewController {
+class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
@@ -85,7 +85,13 @@ class PlayWorkoutViewController: UIViewController {
         exerciseNameLabel.text = DefaultData.schedules[0].exercises[exerciseIndex].name
     }
     
-    
+    func finishWorkout() {
+       
+        // display pop up
+        dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
+
+    }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
         
@@ -95,8 +101,17 @@ class PlayWorkoutViewController: UIViewController {
         }
         
         if exerciseIndex == exercisesCount! - 1 {
-            // display pop up
-            dismiss(animated: true, completion: nil)
+            // instantiate alret dialog
+            guard let alertVC = UIStoryboard(name: "PlayWorkout", bundle: nil).instantiateViewController(withIdentifier: "completeWorkoutViewController") as? CompleteWorkoutPopupViewController else {return}
+            
+            // pass timer controller
+            alertVC.delegate = self
+            // add alert to the view controller
+            self.addChild(alertVC)
+            alertVC.view.frame = self.view.frame
+            self.view.addSubview(alertVC.view)
+            alertVC.didMove(toParent: self)
+            
         }else{
             exerciseIndex += 1
             updateProgressView()
