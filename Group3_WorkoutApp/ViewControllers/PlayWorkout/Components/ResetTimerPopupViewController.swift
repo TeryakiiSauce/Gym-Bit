@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol ResetTimeDelegate:AnyObject  {
+    
+    func yesButtonTapped()
+}
 class ResetTimerPopupViewController: UIViewController {
+    
+    weak var delegate: ResetTimeDelegate?
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var yesButton: UIButton!
@@ -22,6 +28,10 @@ class ResetTimerPopupViewController: UIViewController {
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: bodyView, mainButton: yesButton, secondaryButton: cancelButton)
     }
     @IBAction func cancelTapped(_ sender: Any) {
+        self.view.removeFromSuperview()
+    }
+    @IBAction func yesTapped(_ sender: Any) {
+        delegate?.yesButtonTapped()
         self.view.removeFromSuperview()
     }
 }

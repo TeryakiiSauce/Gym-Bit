@@ -42,7 +42,6 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        print("play tapped")
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         playImage.image = UIImage(named: "unchecked_box")
         playImage.isUserInteractionEnabled = false

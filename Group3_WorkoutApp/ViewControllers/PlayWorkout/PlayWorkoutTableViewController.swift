@@ -10,7 +10,6 @@ import UIKit
 class PlayWorkoutTableViewController: UITableViewController, SetCellDelegate, TimerCellDelegate {
     
     func timerButtonTapped() {
-        print("play tapped here")
         playWorkoutVC?.isCompleted = checkExerciseStatus()
     }
     
