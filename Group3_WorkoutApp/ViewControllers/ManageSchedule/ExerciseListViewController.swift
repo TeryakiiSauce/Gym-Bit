@@ -1,7 +1,8 @@
 import UIKit
 
 class ExerciseListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
-
+    
+    //creating page vars
     var mainImageIconName = ""
     var exersizeList : [Exercise]?
     var pickedExercises : [Exercise] = []
@@ -13,6 +14,7 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
     
+    //function that gets the exercises by an inputed string and sets them in exercise list
     func getExercises(Type:String){
         switch Type {
         case "Chest":
@@ -33,13 +35,14 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     }
     
     //function that preformes a segue when the save button is clicked
-    @IBAction func clickSaveButton(_ sender: Any) {
-
-    }
+    @IBAction func clickSaveButton(_ sender: Any) {}
     
+    //view will appear function
     override func viewWillAppear(_ animated: Bool) {
+        //getting the exercise for the page
         getExercises(Type: mainImageIconName)
     }
+    
     //view did load function
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,10 +65,8 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     
     //function that fill the table with infromation
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! ExerciseTableViewCell
-
         //adding data to the cell
         cell.titleLabel.text = exersizeList?[indexPath.row].name
         cell.subtitleLabel.text = "\(exersizeList?[indexPath.row].reps ?? 10) reps x \(exersizeList?[indexPath.row].sets ?? 3) sets"
@@ -91,6 +92,4 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-
-
 }
