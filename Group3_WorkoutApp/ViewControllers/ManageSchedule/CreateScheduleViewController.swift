@@ -17,6 +17,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     @IBOutlet weak var editableTableStackView: UIStackView!
     @IBOutlet weak var EmptyTableStackView: UIStackView!
     @IBOutlet weak var clearPageButton: UIButton!
+    @IBOutlet weak var MuscleLabel: UILabel!
     
     //button that clears the whole table
     @IBAction func ClickClearScheduleButton(_ sender: Any) {
@@ -172,4 +173,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         popOverVc.didMove(toParent: self)
         return popOverVc
     }
+
+    //function that checks the exercises and changes the target label
+    func targetMuscle(){}
 }

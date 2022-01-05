@@ -229,6 +229,7 @@
                     <connections>
                         <outlet property="EmptyTableStackView" destination="RzI-1b-Bcg" id="sb7-Pi-gXc"/>
                         <outlet property="IconImage" destination="1jZ-Nf-dbF" id="ThJ-lT-xxr"/>
+                        <outlet property="MuscleLabel" destination="hWs-x8-3Ha" id="XX8-Ke-Ow4"/>
                         <outlet property="bodyView" destination="gIA-uT-L6S" id="jGX-uJ-Fun"/>
                         <outlet property="clearPageButton" destination="eIB-a6-Rre" id="9Gg-ea-4sQ"/>
                         <outlet property="customTableView" destination="C40-cr-peu" id="ozi-Uw-WjL"/>
@@ -691,6 +692,7 @@
                         <outlet property="IconImage" destination="HLn-oD-6T9" id="AYN-5v-MMU"/>
                         <outlet property="bodyView" destination="yqX-B0-Rm7" id="gbJ-U6-28s"/>
                         <outlet property="customTableView" destination="eml-YS-lvi" id="9Sp-Xc-w6y"/>
+                        <outlet property="exerciseCountLabel" destination="td5-NJ-oVX" id="uXC-F6-eUW"/>
                         <outlet property="headerView" destination="tgN-Jo-R0Y" id="z2d-fS-gA4"/>
                         <outlet property="mainButton" destination="K1j-F2-as4" id="o88-NT-4p5"/>
                     </connections>

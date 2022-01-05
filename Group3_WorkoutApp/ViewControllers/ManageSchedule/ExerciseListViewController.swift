@@ -6,8 +6,10 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     var mainImageIconName = ""
     var exersizeList : [Exercise]?
     var pickedExercises : [Exercise] = []
+    var numberOfpickedExercises = 0
     
     //connectors connecting the gui to the code
+    @IBOutlet weak var exerciseCountLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var mainButton: UIButton!
@@ -78,6 +80,8 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt : IndexPath) {
         let addedcell = exersizeList?[didSelectRowAt.row]
         pickedExercises.append(addedcell!)
+        numberOfpickedExercises = numberOfpickedExercises + 1
+        exerciseCountLabel.text = "Selected Exercises (" + String(numberOfpickedExercises) + ")"
     }
     
     //method that checkes if the user deselects a cell and removes it from the pickedexercises array
@@ -86,6 +90,8 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
         //finding the index of the deselected array so that it could be removed
         let index = pickedExercises.firstIndex(where:{$0.name == removecell?.name})
             pickedExercises.remove(at: index!)
+        numberOfpickedExercises = numberOfpickedExercises - 1
+        exerciseCountLabel.text = "Selected Exercises (" + String(numberOfpickedExercises) + ")"
     }
     
     //function that sets the height of the table
