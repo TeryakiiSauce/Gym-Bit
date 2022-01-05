@@ -66,7 +66,6 @@ class ViewExerciseViewController: UIViewController,UITableViewDataSource, UITabl
 
         //adding data to the cell
         cell.titleLabel.text = exersizeList?[indexPath.row].name
-        cell.subtitleLabel.text = ""
         cell.cellImage.image = UIImage(named: exersizeList?[indexPath.row].imagePath ?? "")
         return cell
     }
