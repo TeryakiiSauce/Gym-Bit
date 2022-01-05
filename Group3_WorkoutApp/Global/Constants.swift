@@ -1,6 +1,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 struct Constants {
     
@@ -128,6 +129,37 @@ struct Constants {
             return DefaultData.shoulderExercises
         default:
             return DefaultData.tricepExercises
+        }
+    }
+    
+    // declaring player should be outside the function
+    static private var player: AVAudioPlayer?
+    static func playTimerSound() {
+        // unwrap play and check if it is playing something
+        if let player = player, player.isPlaying {
+            // stop the sound
+            player.stop()
+        }else{
+            // set up player and play
+            // get url (alarm sound path)
+            guard let url = Bundle.main.path(forResource: "alarm", ofType: "wav") else { return }
+            
+            do{
+                // set sessions
+                try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true)
+                
+                // instantiate av audio player with the specified url
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))
+                
+                // unwrap player to make sure it was created properly
+                guard let player = player else {return}
+                
+                // play alarm
+                player.play()
+            }catch{
+                print("An error has occurred")
+            }
         }
     }
 }

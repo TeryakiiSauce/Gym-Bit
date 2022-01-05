@@ -49,7 +49,7 @@ class TimerViewController: UIViewController {
         
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: continueButton, secondaryButton: nil)
-
+        
         // set time remaining as the selected time
         timeRemaining = selectedTime
         
@@ -111,7 +111,7 @@ class TimerViewController: UIViewController {
         let position = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
         // define shape path
         let circularPath = UIBezierPath(arcCenter:position, radius:
-            120, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
+                                            120, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true)
         // assign circular path to the shape path
         timerShape.path = circularPath.cgPath
         // set stroke fill color
@@ -148,6 +148,7 @@ class TimerViewController: UIViewController {
             // display play button
             playPauseButton.setImage(UIImage(named: "play_button.svg"), for: .normal)
             timerIsCounting = false
+            Constants.playTimerSound()
         }
         // format time remaining
         formatTimeRemaining()
@@ -188,10 +189,10 @@ class TimerViewController: UIViewController {
         let pausedTime : CFTimeInterval = timerShape.convertTime(CACurrentMediaTime(), from: nil)
         timerShape.speed = 0.0
         timerShape.timeOffset = pausedTime
-//        timeRemaining =  selectedTime - pausedTime
-
+        //        timeRemaining =  selectedTime - pausedTime
+        
     }
-
+    
     // resume timer circle stroke animation
     func resumeAnimation(){
         let pausedTime = timerShape.timeOffset
@@ -200,9 +201,9 @@ class TimerViewController: UIViewController {
         timerShape.beginTime = 0.0
         let timeSincePause = timerShape.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         timerShape.beginTime = timeSincePause
-//        timeRemaining =  selectedTime - pausedTime
+        //        timeRemaining =  selectedTime - pausedTime
     }
- 
+    
     
     @IBAction func resetTapped(_ sender: Any) {
         
@@ -225,9 +226,9 @@ class TimerViewController: UIViewController {
             // add animation but pause it
             self.timerShape.add(self.basicAnimation, forKey: nil)
             self.pauseAnimation()
-
+            
         }))
-
+        
         // format time remaining
         formatTimeRemaining()
         

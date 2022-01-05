@@ -66,6 +66,8 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
             // subtract 1 second from the time remaining
             timeRemaining -= 1
         } else {
+            //play alarm
+            Constants.playTimerSound()
             // reset time remaining
             self.timeRemaining = selectedTime
             // stop time
@@ -74,8 +76,9 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
             playImage.image = UIImage(named: "checked_box")
             // set is completed to true
             isCompleted.toggle()
-            
+            // to update is completed of the play workout vc
             delegate?.timerButtonTapped()
+            
         }
         // format time remaining
         formatTimeRemaining()
