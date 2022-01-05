@@ -1008,7 +1008,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cellView" destination="SuX-JP-1t9" id="t5F-Ca-TUa"/>
+                                            <outlet property="cellView" destination="SuX-JP-1t9" id="id3-1i-hdb"/>
                                             <outlet property="checkBoxImage" destination="wds-C7-VRA" id="TrV-PE-6vh"/>
                                             <outlet property="repsLabel" destination="gue-b6-hHw" id="NvT-a8-7MR"/>
                                         </connections>
@@ -1076,6 +1076,14 @@
                             <outlet property="delegate" destination="VYi-I9-RSf" id="R2d-bb-Zlw"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="firstRestCell" destination="SOr-gs-FLg" id="CAh-yY-JMA"/>
+                        <outlet property="firstSetCell" destination="3sV-mh-kiT" id="JIf-cO-s0l"/>
+                        <outlet property="secondRestCell" destination="wG6-SU-nS0" id="H1t-Gk-EEh"/>
+                        <outlet property="secondSetCell" destination="bM0-R5-Jht" id="2Ka-1I-SDp"/>
+                        <outlet property="thirdRestCell" destination="HeH-ze-KgK" id="wqz-D5-7q1"/>
+                        <outlet property="thirdSetCell" destination="g1H-i9-9PT" id="7SG-cq-JP8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hR4-2l-Yoz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

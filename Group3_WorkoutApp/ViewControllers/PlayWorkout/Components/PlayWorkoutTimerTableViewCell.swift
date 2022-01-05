@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol TimerCellDelegate: AnyObject {
+    func timerButtonTapped()
+}
+
 class PlayWorkoutTimerTableViewCell: UITableViewCell {
     
+    weak var delegate: TimerCellDelegate?
+
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var playImage: UIImageView!
     @IBOutlet weak var timeRemainingLabel: UILabel!
@@ -16,8 +22,7 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     //default selected time
     var selectedTime: Int = PlayWorkoutLandingViewController.restTime
     var timeRemaining: Int = 45
-    var timerIsCounting: Bool = false
-    var timerStarted = false
+    var isCompleted = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,17 +42,17 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        timerIsCounting = true
+//        timerIsCounting = true
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         playImage.image = UIImage(named: "unchecked_box")
         playImage.isUserInteractionEnabled = false
+       
     }
     
     
     
     func formatTimeRemaining()
     {
-        
         let time = Constants.secondsToMinutesSeconds(seconds: Int(timeRemaining))
         let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
         // update timer label
@@ -67,8 +72,21 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
             timer.invalidate()
             // display checked button button
             playImage.image = UIImage(named: "checked_box")
+            // set is completed to true
+            isCompleted.toggle()
+            
+            delegate?.timerButtonTapped()
         }
         // format time remaining
+        formatTimeRemaining()
+    }
+    
+    func resetCell(){
+        playImage.image = UIImage(named: "play")
+        // reset time remaining
+        self.timeRemaining = selectedTime
+        // stop time
+        timer.invalidate()
         formatTimeRemaining()
     }
 }
