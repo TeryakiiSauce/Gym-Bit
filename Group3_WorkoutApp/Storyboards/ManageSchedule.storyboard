@@ -38,8 +38,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abs and Chest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWs-x8-3Ha">
-                                        <rect key="frame" x="187.5" y="67.5" width="88.5" height="16.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abs and Chest" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWs-x8-3Ha">
+                                        <rect key="frame" x="190" y="67.5" width="184" height="16.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="184" id="v7I-XG-VKD"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -51,10 +54,10 @@
                                     <constraint firstItem="hWs-x8-3Ha" firstAttribute="height" secondItem="WJK-Lq-U2T" secondAttribute="height" multiplier="1.02439" id="A9T-Sd-05n"/>
                                     <constraint firstItem="1jZ-Nf-dbF" firstAttribute="top" secondItem="sIz-aj-y8N" secondAttribute="top" constant="25" id="GBI-lp-bdl"/>
                                     <constraint firstItem="WJK-Lq-U2T" firstAttribute="top" secondItem="dPs-jw-RUr" secondAttribute="bottom" constant="15" id="Hjs-e4-Xci"/>
-                                    <constraint firstItem="hWs-x8-3Ha" firstAttribute="leading" secondItem="WJK-Lq-U2T" secondAttribute="trailing" constant="5" id="Qqx-5S-DtD"/>
                                     <constraint firstItem="dPs-jw-RUr" firstAttribute="leading" secondItem="1jZ-Nf-dbF" secondAttribute="trailing" constant="35" id="San-14-56u"/>
                                     <constraint firstItem="dPs-jw-RUr" firstAttribute="top" secondItem="sIz-aj-y8N" secondAttribute="top" constant="25" id="alF-ao-XUu"/>
                                     <constraint firstAttribute="bottom" secondItem="1jZ-Nf-dbF" secondAttribute="bottom" constant="25" id="cOZ-Qn-TB1"/>
+                                    <constraint firstAttribute="trailing" secondItem="hWs-x8-3Ha" secondAttribute="trailing" constant="20" id="foz-zE-gpt"/>
                                     <constraint firstItem="1jZ-Nf-dbF" firstAttribute="leading" secondItem="sIz-aj-y8N" secondAttribute="leading" constant="25" id="kgU-cZ-mb8"/>
                                     <constraint firstItem="WJK-Lq-U2T" firstAttribute="leading" secondItem="dPs-jw-RUr" secondAttribute="leading" id="zPE-XX-UZb"/>
                                 </constraints>
@@ -229,6 +232,7 @@
                     <connections>
                         <outlet property="EmptyTableStackView" destination="RzI-1b-Bcg" id="sb7-Pi-gXc"/>
                         <outlet property="IconImage" destination="1jZ-Nf-dbF" id="ThJ-lT-xxr"/>
+                        <outlet property="MuscleLabel" destination="hWs-x8-3Ha" id="XX8-Ke-Ow4"/>
                         <outlet property="bodyView" destination="gIA-uT-L6S" id="jGX-uJ-Fun"/>
                         <outlet property="clearPageButton" destination="eIB-a6-Rre" id="9Gg-ea-4sQ"/>
                         <outlet property="customTableView" destination="C40-cr-peu" id="ozi-Uw-WjL"/>
@@ -243,7 +247,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6r-Lv-pJD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="xKM-ow-PBd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3294" y="-389"/>
+            <point key="canvasLocation" x="-3294.202898550725" y="-389.0625"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="4We-JC-omk">
@@ -430,7 +434,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVE-C2-Uh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="eeZ-hI-7tF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3294" y="293"/>
+            <point key="canvasLocation" x="-2441" y="-1077"/>
         </scene>
         <!--Muscle List-->
         <scene sceneID="E01-jy-p10">
@@ -691,6 +695,7 @@
                         <outlet property="IconImage" destination="HLn-oD-6T9" id="AYN-5v-MMU"/>
                         <outlet property="bodyView" destination="yqX-B0-Rm7" id="gbJ-U6-28s"/>
                         <outlet property="customTableView" destination="eml-YS-lvi" id="9Sp-Xc-w6y"/>
+                        <outlet property="exerciseCountLabel" destination="td5-NJ-oVX" id="uXC-F6-eUW"/>
                         <outlet property="headerView" destination="tgN-Jo-R0Y" id="z2d-fS-gA4"/>
                         <outlet property="mainButton" destination="K1j-F2-as4" id="o88-NT-4p5"/>
                     </connections>
