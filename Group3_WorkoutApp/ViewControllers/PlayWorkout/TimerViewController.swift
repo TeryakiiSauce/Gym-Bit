@@ -207,32 +207,40 @@ class TimerViewController: UIViewController {
     
     @IBAction func resetTapped(_ sender: Any) {
         
-        // show alert dialog
-        let alert = UIAlertController(title: "Reset Timer?", message: "Are you sure you would like to reset the timer?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(_) in
-            // continue counting
-        }))
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler:  {(_) in
-            // stop time
-            self.timer.invalidate()
-            // reset time remaining
-            self.timeRemaining = self.selectedTime
-            // reset time label
-            self.formatTimeRemaining()
-            // display play button
-            self.playPauseButton.setImage(UIImage(named: "play_button.svg"), for: .normal)
-            self.timerIsCounting = false
-            
-            // add animation but pause it
-            self.timerShape.add(self.basicAnimation, forKey: nil)
-            self.pauseAnimation()
-            
-        }))
+//        // show alert dialog
+//        let alert = UIAlertController(title: "Reset Timer?", message: "Are you sure you would like to reset the timer?", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(_) in
+//            // continue counting
+//        }))
+//        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler:  {(_) in
+//            // stop time
+//            self.timer.invalidate()
+//            // reset time remaining
+//            self.timeRemaining = self.selectedTime
+//            // reset time label
+//            self.formatTimeRemaining()
+//            // display play button
+//            self.playPauseButton.setImage(UIImage(named: "play_button.svg"), for: .normal)
+//            self.timerIsCounting = false
+//
+//            // add animation but pause it
+//            self.timerShape.add(self.basicAnimation, forKey: nil)
+//            self.pauseAnimation()
+//
+//        }))
+//
+//        // format time remaining
+//        formatTimeRemaining()
+//
+//        self.present(alert, animated: true, completion: nil)
         
-        // format time remaining
-        formatTimeRemaining()
-        
-        self.present(alert, animated: true, completion: nil)
+        // instantiate alret dialog
+        let alertVC = UIStoryboard(name: "PlayWorkout", bundle: nil).instantiateViewController(withIdentifier: "resetTimerViewController") as! ResetTimerPopupViewController
+        //assigning it as a child view and opening it over the parent view
+        self.addChild(alertVC)
+        alertVC.view.frame = self.view.frame
+        self.view.addSubview(alertVC.view)
+        alertVC.didMove(toParent: self)
     }
     
     

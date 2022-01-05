@@ -38,6 +38,7 @@
 		966936342767570200206950 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966936332767570200206950 /* Schedule.swift */; };
 		966936362767578400206950 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966936352767578400206950 /* Exercise.swift */; };
 		96890EB2278552AA000B3746 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96890EB1278552AA000B3746 /* alarm.wav */; };
+		96890EB4278560F7000B3746 /* ResetTimerPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890EB3278560F7000B3746 /* ResetTimerPopupViewController.swift */; };
 		96A167192768A0AE0000947A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A167182768A0AE0000947A /* Constants.swift */; };
 		96A1671B2768A20E0000947A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1671A2768A20E0000947A /* AppColors.swift */; };
 		F017CF4A277E449E002569A9 /* MuscleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF49277E449E002569A9 /* MuscleListViewController.swift */; };
@@ -83,6 +84,7 @@
 		966936332767570200206950 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		966936352767578400206950 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		96890EB1278552AA000B3746 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
+		96890EB3278560F7000B3746 /* ResetTimerPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTimerPopupViewController.swift; sourceTree = "<group>"; };
 		96A167182768A0AE0000947A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		96A1671A2768A20E0000947A /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		F017CF49277E449E002569A9 /* MuscleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleListViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				9645ED9F27827C0600348FDA /* CustomPresentationController.swift */,
 				9645EDA1278282C200348FDA /* PlayWorkoutViewController.swift */,
 				9645EDA5278287EA00348FDA /* PlayWorkoutTableViewController.swift */,
+				96890EB3278560F7000B3746 /* ResetTimerPopupViewController.swift */,
 			);
 			path = PlayWorkout;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				F017CF522783BCCC002569A9 /* GenerateScheduleTableViewController.swift in Sources */,
 				9645EDA82782889B00348FDA /* PlayWorkoutSetTableViewCell.swift in Sources */,
 				F083A26627834DFA00A7919E /* ViewMuscleViewController.swift in Sources */,
+				96890EB4278560F7000B3746 /* ResetTimerPopupViewController.swift in Sources */,
 				9608FB492779E4C9009498F9 /* TemplateScreenViewController.swift in Sources */,
 				96A167192768A0AE0000947A /* Constants.swift in Sources */,
 				F0CF27B22779F12500832E6C /* CreateScheduleViewController.swift in Sources */,

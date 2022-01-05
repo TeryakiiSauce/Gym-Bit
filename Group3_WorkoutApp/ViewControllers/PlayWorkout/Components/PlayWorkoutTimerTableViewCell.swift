@@ -20,7 +20,7 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     @IBOutlet weak var timeRemainingLabel: UILabel!
     var timer = Timer()
     //default selected time
-    var selectedTime: Int = PlayWorkoutLandingViewController.restTime
+    let selectedTime: Int = PlayWorkoutLandingViewController.restTime
     var timeRemaining: Int = 45
     var isCompleted = false
     
@@ -42,7 +42,7 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-//        timerIsCounting = true
+        print("play tapped")
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         playImage.image = UIImage(named: "unchecked_box")
         playImage.isUserInteractionEnabled = false
@@ -75,7 +75,7 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
             // display checked button button
             playImage.image = UIImage(named: "checked_box")
             // set is completed to true
-            isCompleted.toggle()
+            isCompleted = true
             // to update is completed of the play workout vc
             delegate?.timerButtonTapped()
             
@@ -91,5 +91,8 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
         // stop time
         timer.invalidate()
         formatTimeRemaining()
+        playImage.isUserInteractionEnabled = true
+        isCompleted = false
+
     }
 }
