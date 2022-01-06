@@ -193,10 +193,10 @@
 		9669362F276750D700206950 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F0C67D282786AF1200E72A77 /* ViewSchedule&Profile */,
 				F083A26427834DC500A7919E /* ViewMuscle&Exercise */,
 				F017CF4B277E4B70002569A9 /* ManageSchedule */,
 				9622BD77277BF18800B5BFA8 /* PlayWorkout */,
-				9669361E27674BD400206950 /* ScheduleListViewController.swift */,
 				905031F827837827007C91EE /* QuizViewController.swift */,
 			);
 			path = ViewControllers;
@@ -257,6 +257,14 @@
 				F083A2692784D04E00A7919E /* ViewDetailExerciseViewController.swift */,
 			);
 			path = "ViewMuscle&Exercise";
+			sourceTree = "<group>";
+		};
+		F0C67D282786AF1200E72A77 /* ViewSchedule&Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9669361E27674BD400206950 /* ScheduleListViewController.swift */,
+			);
+			path = "ViewSchedule&Profile";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
