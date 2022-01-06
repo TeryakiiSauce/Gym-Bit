@@ -30,7 +30,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //function that prepares before moving to the next page
     override func prepare(for segue: UIStoryboardSegue, sender:Any?) {
-        if segue.identifier == "createPage"{}
+        if segue.identifier == "viewScheduleLink" {
+            let viewController = segue.destination as! ViewScheduleViewController
+            let selectedCell = customTableView.indexPathForSelectedRow?.row
+            viewController.displayedSchedule = self.displayedSchedule[selectedCell!]
+        }
     }
     
     //function that is used when the unwind is called

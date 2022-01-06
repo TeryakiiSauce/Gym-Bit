@@ -50,6 +50,7 @@
 		F083A26627834DFA00A7919E /* ViewMuscleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083A26527834DFA00A7919E /* ViewMuscleViewController.swift */; };
 		F083A26827834E1400A7919E /* ViewExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083A26727834E1400A7919E /* ViewExerciseViewController.swift */; };
 		F083A26A2784D04E00A7919E /* ViewDetailExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083A2692784D04E00A7919E /* ViewDetailExerciseViewController.swift */; };
+		F0C67D2A2786B23700E72A77 /* ViewScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C67D292786B23700E72A77 /* ViewScheduleViewController.swift */; };
 		F0CF27B22779F12500832E6C /* CreateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		F083A26527834DFA00A7919E /* ViewMuscleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMuscleViewController.swift; sourceTree = "<group>"; };
 		F083A26727834E1400A7919E /* ViewExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExerciseViewController.swift; sourceTree = "<group>"; };
 		F083A2692784D04E00A7919E /* ViewDetailExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailExerciseViewController.swift; sourceTree = "<group>"; };
+		F0C67D292786B23700E72A77 /* ViewScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewScheduleViewController.swift; sourceTree = "<group>"; };
 		F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,10 +195,10 @@
 		9669362F276750D700206950 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F0C67D282786AF1200E72A77 /* ViewSchedule&Profile */,
 				F083A26427834DC500A7919E /* ViewMuscle&Exercise */,
 				F017CF4B277E4B70002569A9 /* ManageSchedule */,
 				9622BD77277BF18800B5BFA8 /* PlayWorkout */,
-				9669361E27674BD400206950 /* ScheduleListViewController.swift */,
 				905031F827837827007C91EE /* QuizViewController.swift */,
 			);
 			path = ViewControllers;
@@ -257,6 +259,15 @@
 				F083A2692784D04E00A7919E /* ViewDetailExerciseViewController.swift */,
 			);
 			path = "ViewMuscle&Exercise";
+			sourceTree = "<group>";
+		};
+		F0C67D282786AF1200E72A77 /* ViewSchedule&Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9669361E27674BD400206950 /* ScheduleListViewController.swift */,
+				F0C67D292786B23700E72A77 /* ViewScheduleViewController.swift */,
+			);
+			path = "ViewSchedule&Profile";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +354,7 @@
 				9645EDAA278288B500348FDA /* PlayWorkoutTimerTableViewCell.swift in Sources */,
 				F017CF502781F269002569A9 /* ExerciseTableViewCell.swift in Sources */,
 				9641726D277D3576007BF9D0 /* SelectTimeViewController.swift in Sources */,
+				F0C67D2A2786B23700E72A77 /* ViewScheduleViewController.swift in Sources */,
 				9617126827748809008186F4 /* TimerViewController.swift in Sources */,
 				F017CF4D277E4F4D002569A9 /* ExerciseListViewController.swift in Sources */,
 				96A1671B2768A20E0000947A /* AppColors.swift in Sources */,
