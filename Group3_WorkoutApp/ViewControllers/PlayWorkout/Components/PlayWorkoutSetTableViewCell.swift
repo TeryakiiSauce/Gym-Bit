@@ -6,11 +6,16 @@
 //
 
 import UIKit
-
+protocol SetCellDelegate: AnyObject {
+    func setButtonTapped()
+}
 class PlayWorkoutSetTableViewCell: UITableViewCell {
 
+    weak var delegate: SetCellDelegate?
     @IBOutlet weak var cellView: UIView!
-    @IBOutlet weak var checkImage: UIImageView!
+    @IBOutlet weak var checkBoxImage: UIImageView!
+    @IBOutlet weak var repsLabel: UILabel!
+    var isChecked = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +26,27 @@ class PlayWorkoutSetTableViewCell: UITableViewCell {
         
         selectionStyle = .none
 
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        checkBoxImage.isUserInteractionEnabled = true
+        checkBoxImage.addGestureRecognizer(tapGestureRecognizer)
     }
 
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        if isChecked {
+            checkBoxImage.image = UIImage(named: "unchecked_box")
+        }else{
+            checkBoxImage.image = UIImage(named: "checked_box")
+        }
+        
+        isChecked.toggle()
+        
+        delegate?.setButtonTapped()
+    }
+    
+    func resetCell(){
+        isChecked = false
+        checkBoxImage.image = UIImage(named: "unchecked_box")
+    }
 
 }

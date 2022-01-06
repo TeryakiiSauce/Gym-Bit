@@ -15,6 +15,7 @@ struct DefaultData {
     //default instance of exercises
     static var backExercises =
         [
+
             Exercise(name: "Pull-ups", description: "Pull-ups are a functional bodyweight exercise that are great for building holistic upper-body strength.", imagePath: "back1", tips: ["You could wear extra weights if you are trying to make it more challenging.","If the exercise is too hard, put a chair below your feet to push yourself up a bit."], targetMuscle: Exercise.TargetMuscle.back.rawValue),
             
             Exercise(name: "Reverse Pull Down", description: "The reverse grip lat pull down is a variation of the lat pull down and an exercise used to build the muscles of the back. While the exercise will primarily target the lats, you will also notice a fair amount of bicep and middle back activation.", imagePath: "back2", tips: ["Keep some tone through your abdominals as you pull the bar into your body to ensure you don’t arch excessively through the spine.","Don’t allow momentum to dictate the movement, control the weight throughout the entirety of each rep."], targetMuscle: Exercise.TargetMuscle.back.rawValue),
@@ -29,10 +30,12 @@ struct DefaultData {
             
             Exercise(name: "Reverse Lat Pull Down", description: "The reverse grip lat pull down is a variation of the lat pull down and an exercise used to build the muscles of the back. While the exercise will primarily target the lats, you will also notice a fair amount of bicep and middle back activation.", imagePath: "back7", tips: ["Keep some tone through your abdominals as you pull the bar into your body to ensure you don’t arch excessively through the spine.","Don’t allow momentum to dictate the movement, control the weight throughout the entirety of each rep."], targetMuscle: Exercise.TargetMuscle.back.rawValue),
             
+
         ]
     
     static var chestExercises =
         [
+
             Exercise(name: "Seated Chest Press", description: "The chest press helps build the pectoral muscles while also working the biceps, deltoids, and latissimus dorsi. The seated chest press is an upright version of the lying bench press and a great addition to an upper-body strength workout.", imagePath: "chest1", tips: ["Don't stress your shoulder joint by extending your elbows too far back when grasping the handles. A little extension is okay, but the handgrips should always be in front of your body line.","Keep your back and shoulder blades against the back support. If you find yourself arching your back when you push, you are pressing too much weight. Reduce the weight so that you can push with effort but without arching the back."], targetMuscle: Exercise.TargetMuscle.chest.rawValue),
             
             Exercise(name: "Flat Bench Press", description: "The barbell bench press is a classic exercise popular among all weight lifting circles. From bodybuilders to powerlifters, the bench press is a staple chest exercise in nearly every workout program.", imagePath: "chest2", tips: ["Keep the bar in line with your wrist and elbows and ensure it travels in a straight line. In order to keep the wrist straight, try to position the bar as low in the palm as possible while still being able to wrap the thumb.","If you want to keep more tension through the triceps and chest, stop each repetition just short of lockout at the top."], targetMuscle: Exercise.TargetMuscle.chest.rawValue),
@@ -47,10 +50,12 @@ struct DefaultData {
             
             Exercise(name: "Flat Reverse Press", description: "This position places emphasis on building strength and size in the triceps muscles, as well as the chest.", imagePath: "chest7", tips: ["Maintain proper body position on the bench for safe and effective execution of the movement.","Lifting hips off the bench during a press may be an indicator the weight is too heavy. Reduce the weight as needed and pay attention to good body mechanics."], targetMuscle: Exercise.TargetMuscle.chest.rawValue)
             
+
         ]
     
     static var shoulderExercises =
         [
+
             Exercise(name: "Shoulder Press", description: "machine shoulder press is a exercise machine exercise that primarily targets the shoulders and to a lesser degree also targets the chest, middle back and triceps.", imagePath: "shoulder1", tips: ["Use weights that allow you to complete full reps before progressing.","Give your body time to grow bigger and stronger, and don’t rush the process by compromising your technique."], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue),
             
             Exercise(name: "Dumbbell Front Raise", description: "The dumbbell front raise is a fundamental weight training exercise that is great for people who want to build strength or create more definition in the shoulders.", imagePath: "shoulder2", tips: ["Your wrists should be in a neutral position, not bent up or down. If you find you can't maintain a neutral position, the weights are too heavy.","Keep the back straight and brace the abdominals (no rounded back or slack abs). "], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue),
@@ -64,10 +69,13 @@ struct DefaultData {
             Exercise(name: "Seated Dumbbell Press", description: "The seated dumbbell press is a variation of the standing dumbbell press and an exercise used to strengthen the muscles of the shoulders.", imagePath: "shoulder6", tips: ["Keeping the elbows slightly bent at the top and not locking out entirely will help to keep tension on the shoulders.","If you can’t lock out the elbows overhead than it may indicate a lack of shoulder mobility due to poor scapular upward rotation."], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue),
             
             Exercise(name: "Barbell Shrugs", description: "The barbell shrug is a great exercise for those looking to build their trap muscles. Heavy shrugs are a favorite among many professionals who use the exercise to build bigger traps.The shrug can be incorporated into your shoulder workouts, back workouts, upper body workouts, or full body workouts.", imagePath: "shoulder7", tips: ["Looking slightly up while shrugging may enhance the contraction as traps help to control movement of the skull. This motion should be smooth and controlled, as a ballistic movement could result in a neck injury.","Limit momentum and excessive jerking or bouncing of the weight. No one cares about how much you shrug."], targetMuscle: Exercise.TargetMuscle.shoulders.rawValue)
+    
+
         ]
     
     static var legExercises =
         [
+
             Exercise(name: "Lying Leg Curl", description: "The leg curl is an isolation exercise that targets the back of the leg (the hamstrings and calf muscles). It can be performed in a variety of positions and makes a good addition to most any lower body strength training workout.", imagePath: "legs1", tips: ["Select a weight that allows you to do 8 to 12 repetitions with reasonable effort and good form.","If the padded lever is too high on your calves, this can place pressure on your Achilles tendon and reduce your range of motion."], targetMuscle: Exercise.TargetMuscle.legs.rawValue),
             
             Exercise(name: "Sumo Deadlift", description: "The sumo deadlift has the lifter widen their stance and lift a barbell with their hands inside of their thighs. Compared to the conventional deadlift, which is done with a narrower stance and the hands outside of the legs, it’s generally easier on the lower back and allows the lifter to pull heavier weight.", imagePath: "legs2", tips: ["Visualize pressure rising in the body before every pull, with all the muscles being engaged and ready to fire at once.","Keep your chest up and, as you pull, make sure the bar is against your shins to avoid letting the path of the bar shift too far forward. This can disrupt your lift and, in severe cases, cause injury."], targetMuscle: Exercise.TargetMuscle.legs.rawValue),
@@ -81,11 +89,14 @@ struct DefaultData {
             Exercise(name: "Goblet Squat", description: "The goblet squat is a popular lower-body exercise where you hold a kettlebell or dumbbell in front of your chest as if you are supporting a heavy cup or goblet.", imagePath: "legs6", tips: ["Wrap a lightweight mini-band around your shins just below your knees. The tension from the band engages your glutes and teaches you to push your knees outward so they’re in line with your hips and ankles.","Consciously tighten your core and keep the dumbbell in contact with your stomach throughout the rep."], targetMuscle: Exercise.TargetMuscle.legs.rawValue),
             
             Exercise(name: "Hack Squat", description: "A hack squat works the entire lower body — including the glutes, hamstrings, quads, and calves — as well as the core.", imagePath: "legs7", tips: ["You’ll want to ensure that your feet are shoulder-width apart and not too high on the foot plate","The key with a hack squat is to get your knees to a 90-degree angle. With too much weight on the machine, you’ll have a hard time reaching that depth."], targetMuscle: Exercise.TargetMuscle.legs.rawValue)
+
+
             
         ]
     
     static var absExercises =
         [
+
             Exercise(name: "Jack Knives", description: "Jack knife sit ups are a great low-impact exercise for strengthening abdominal muscles. They are a great way to tighten the lower abs and help you get six pack abs. Jack knife sit ups will give your abs challenging workout, but the basics are easy to master!", imagePath: "abs1", tips: ["If you’ll be exercising on a hard floor, lay down an exercise mat before you begin","Use slow, controlled motions so you don't injure your back."], targetMuscle: Exercise.TargetMuscle.abs.rawValue),
             
             Exercise(name: "Declined Leg Raise", description: "This exercise trains the transverse and the lower area of the abs, although the entire abs are strengthened. Additionally, the hip muscles (Iliopsoas and Tensor fasciae latae) are required.", imagePath: "abs2", tips: ["Bend the legs to make the exercise easier","Use weight cuffs or clamp a dumbbell between your feet to impede your abs workout"], targetMuscle: Exercise.TargetMuscle.abs.rawValue),
@@ -100,10 +111,12 @@ struct DefaultData {
             
             Exercise(name: "Knee-ups", description: "Knee-ups is among the best exercises for targeting the lower abs while working out your entire core.", imagePath: "abs7", tips: ["To make the knee up easier, decrease the distance between the bench and your hips during the initial part of the movement.","To make the knee up more difficult, consider using a decline bench. This puts your body at an angle and requires more balance and activation of your core muscles."], targetMuscle: Exercise.TargetMuscle.abs.rawValue)
             
+
         ]
     
     static var bicepExercises =
         [
+
             Exercise(name: "Concentration Curl", description: "By activating both the long head and short head of your biceps brachii, concentration curls are one of the most useful exercises for toning the shape of your biceps.", imagePath: "bi1", tips: ["Maintain a slight bend in the elbow at the bottom of the movement in order to keep tension through the biceps.","Using a slow eccentric (lowering portion) of the exercise can help to improve tension and mind muscle connection."], targetMuscle: Exercise.TargetMuscle.biceps.rawValue),
             
             Exercise(name: "Close Grip EZ Bar Curl", description: "Close grip EZ bar curls are an excellent exercise for working the biceps muscles, especially the long head. This is because by using a narrow grip, you naturally shift the tension onto the outer muscle fibers of your biceps, which can make them look more peaked over time.", imagePath: "bi2", tips: ["Keep your elbows locked to your sides and your body still. Only your forearms should move.","An easy way to remember whether you’re working the short/inner or long/outer head of the biceps brachii is to look in the mirror. When using a close grip, which, as explained above, targets the long head, the long head will be visible. When using a wide grip, which targets the short head, the short head will be visible."], targetMuscle: Exercise.TargetMuscle.biceps.rawValue),
@@ -118,10 +131,12 @@ struct DefaultData {
             
             Exercise(name: "Seated Bicep Curl", description: "Performing dumbbell curls while you're seated allows you to more easily use special equipment and helps you better isolate your biceps. This is because the bench or chair serves to stabilize the body. Seated curls also let you work your arms and continue exercising if a leg problem prevents you from standing. ", imagePath: "bi7", tips: ["Sit on a preacher bench with your feet flat on the floor","Exhale as you raise the dumbbell toward your shoulder while keeping the rest of your body still. Contract your biceps as the weight reaches its peak."], targetMuscle: Exercise.TargetMuscle.biceps.rawValue)
             
+
         ]
     
     static var tricepExercises =
         [
+
             Exercise(name: "Dumbbell Kickback", description: "The bent over dumbbell tricep kickback is a classic tricep exercise that has been used for ages.When performing bent over dumbbell tricep kickbacks, the movement should be slow and focused. The point of this exercise is to get a good contraction on the triceps and establish a mind-muscle connection.", imagePath: "tri1", tips: ["Hinge forward from the hips, there shouldn’t be excessive curvature within the lumbar spine.","Don’t overextend through the lumbar spine, keep some tension through the abdominals."], targetMuscle: Exercise.TargetMuscle.triceps.rawValue),
             
             Exercise(name: "Overhead Extention", description: "The seated dumbbell tricep extension is a variation of the dumbbell tricep extension and an exercise used to isolate the muscles of the triceps.", imagePath: "tri2", tips: ["Don’t overextend through the lumbar spine, keep your ribcage down by maintaining tension through the abs and glutes.","Keep the head in a fairly neutral position, don’t allow the neck to jut forward as this may place excessive pressure on the cervical spine."], targetMuscle: Exercise.TargetMuscle.triceps.rawValue),
@@ -136,6 +151,7 @@ struct DefaultData {
             
             Exercise(name: "Skullcrusher", description: "The lying triceps extension is an isolation exercise that builds the triceps muscle group in the back of the upper arm.1 It is also called the skull crusher because if you use poor form, you could endanger your skull. It can be incorporated into an upper-body muscle-building workout.", imagePath: "tri7", tips: ["Keep a firm grip to keep the weight from accidentally slipping from your hands and potentially causing damage or injury to your head or face.","Keep your hands about shoulder-width apart during this movement. This helps reduce stress on your elbow joints."], targetMuscle: Exercise.TargetMuscle.triceps.rawValue)
             
+
         ]
     
     

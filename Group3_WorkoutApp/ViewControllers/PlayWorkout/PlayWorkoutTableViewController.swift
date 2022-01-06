@@ -7,80 +7,93 @@
 
 import UIKit
 
-class PlayWorkoutTableViewController: UITableViewController {
+class PlayWorkoutTableViewController: UITableViewController, SetCellDelegate, TimerCellDelegate {
+    
+    func timerButtonTapped() {
+        playWorkoutVC?.isCompleted = checkExerciseStatus()
+    }
+    
+    
+    func setButtonTapped() {
+        playWorkoutVC?.isCompleted = checkExerciseStatus()
+    }
+    
+    weak var playWorkoutVC : PlayWorkoutViewController?
 
+    @IBOutlet weak var firstSetCell: PlayWorkoutSetTableViewCell!
+    @IBOutlet weak var secondSetCell: PlayWorkoutSetTableViewCell!
+    @IBOutlet weak var thirdSetCell: PlayWorkoutSetTableViewCell!
+    @IBOutlet weak var firstRestCell: PlayWorkoutTimerTableViewCell!
+    @IBOutlet weak var secondRestCell: PlayWorkoutTimerTableViewCell!
+    @IBOutlet weak var thirdRestCell: PlayWorkoutTimerTableViewCell!
+    
+    var initialReps: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setInitailReps()
+    }
 
     
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    func setInitailReps(){
+        firstSetCell.repsLabel.text = "\(initialReps ?? 99) reps"
+        secondSetCell.repsLabel.text = "\(initialReps ?? 99) reps"
+        thirdSetCell.repsLabel.text = "\(initialReps ?? 99) reps"
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func setReps(reps: Int){
+        let cells = self.tableView.visibleCells
+        
+        for cell in cells {
+            if let cell = cell as? PlayWorkoutSetTableViewCell {
+                cell.repsLabel.text = "\(reps) reps"
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func resetTable(){
+        let cells = self.tableView.visibleCells
+        
+        for cell in cells {
+            if let cell = cell as? PlayWorkoutSetTableViewCell {
+                cell.resetCell()
+            }else if let cell = cell as? PlayWorkoutTimerTableViewCell {
+                cell.resetCell()
+            }
+        }
+        
+        playWorkoutVC?.isCompleted = false
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func checkExerciseStatus() -> Bool {
+        if(firstSetCell.isChecked && secondSetCell.isChecked && thirdSetCell.isChecked && firstRestCell.isCompleted && secondRestCell.isCompleted && thirdRestCell.isCompleted)
+        {
+            return true
+        }else{
+            return false
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? PlayWorkoutSetTableViewCell {
+            cell.delegate = self
+        }
+        else if let cell = cell as? PlayWorkoutTimerTableViewCell {
+            cell.delegate = self
+        }
     }
-    */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          tableView.deselectRow(at: indexPath, animated: true)
+            setButtonTapped()
+      }
 }
+
+
+

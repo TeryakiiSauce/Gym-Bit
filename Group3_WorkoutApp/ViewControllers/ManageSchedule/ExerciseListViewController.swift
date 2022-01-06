@@ -1,18 +1,22 @@
 import UIKit
 
 class ExerciseListViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
-
+    
+    //creating page vars
     var mainImageIconName = ""
     var exersizeList : [Exercise]?
     var pickedExercises : [Exercise] = []
+    var numberOfpickedExercises = 0
     
     //connectors connecting the gui to the code
+    @IBOutlet weak var exerciseCountLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var mainButton: UIButton!
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
     
+    //function that gets the exercises by an inputed string and sets them in exercise list
     func getExercises(Type:String){
         switch Type {
         case "Chest":
@@ -33,13 +37,14 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     }
     
     //function that preformes a segue when the save button is clicked
-    @IBAction func clickSaveButton(_ sender: Any) {
-
-    }
+    @IBAction func clickSaveButton(_ sender: Any) {}
     
+    //view will appear function
     override func viewWillAppear(_ animated: Bool) {
+        //getting the exercise for the page
         getExercises(Type: mainImageIconName)
     }
+    
     //view did load function
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +67,11 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     
     //function that fill the table with infromation
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! ExerciseTableViewCell
-
         //adding data to the cell
         cell.titleLabel.text = exersizeList?[indexPath.row].name
-        cell.subtitleLabel.text = ""
+        cell.subtitleLabel.text = "\(exersizeList?[indexPath.row].reps ?? 10) reps x \(exersizeList?[indexPath.row].sets ?? 3) sets"
         cell.cellImage.image = UIImage(named: exersizeList?[indexPath.row].imagePath ?? "")
         return cell
     }
@@ -77,6 +80,8 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt : IndexPath) {
         let addedcell = exersizeList?[didSelectRowAt.row]
         pickedExercises.append(addedcell!)
+        numberOfpickedExercises = numberOfpickedExercises + 1
+        exerciseCountLabel.text = "Selected Exercises (" + String(numberOfpickedExercises) + ")"
     }
     
     //method that checkes if the user deselects a cell and removes it from the pickedexercises array
@@ -85,12 +90,12 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
         //finding the index of the deselected array so that it could be removed
         let index = pickedExercises.firstIndex(where:{$0.name == removecell?.name})
             pickedExercises.remove(at: index!)
+        numberOfpickedExercises = numberOfpickedExercises - 1
+        exerciseCountLabel.text = "Selected Exercises (" + String(numberOfpickedExercises) + ")"
     }
     
     //function that sets the height of the table
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-
-
 }
