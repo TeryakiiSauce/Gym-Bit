@@ -3,7 +3,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //storing the table array
-    var displayedSchedule = [DefaultData.schedules[0]]
+    var displayedSchedule = DefaultData.schedules
     //gui outlet connections
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
@@ -39,6 +39,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let sourceViewController = seague.source as? CreateScheduleViewController   {
             //updates the displayed schedule array
             displayedSchedule = displayedSchedule + [sourceViewController.displayedSchedule]
+            //saving the schedule 
+            Schedule.saveSchedules(displayedSchedule)
         }
     }
     

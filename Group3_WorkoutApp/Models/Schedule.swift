@@ -14,7 +14,7 @@ struct Schedule: Codable {
     static let archiveURL =     documentsDirectory.appendingPathComponent("Schedule").appendingPathExtension("exerciseList")
     
     //method that saves the schedules
-    static func saveSchedules(_ Schedule: Schedule) {
+    static func saveSchedules(_ Schedule: [Schedule]) {
         //creating an encoder
         let propertyListEncoder = PropertyListEncoder()
         //encoding the schedule

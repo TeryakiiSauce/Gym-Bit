@@ -39,7 +39,6 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     @IBAction func ClickSaveButton(_ sender: Any) {
         //if statment that checks if the user has added an exercises or not
         if displayedSchedule.exercises.count != 0 {
-            Schedule.saveSchedules(displayedSchedule)
             //preforming a segue
             self.performSegue(withIdentifier: "unwindToViewSchedule", sender: self)
         }
@@ -91,7 +90,6 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     //view did load function
     override func viewDidLoad() {
         super.viewDidLoad()
-        targetMuscle()
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil)
         customTableView.delegate = self
