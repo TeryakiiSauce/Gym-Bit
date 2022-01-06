@@ -32,7 +32,6 @@ class ViewDetailExerciseViewController: UIViewController {
         getDescription()
         getTips()
         
-        
     }
     
     //function to prepare the Tips with the bullet points
