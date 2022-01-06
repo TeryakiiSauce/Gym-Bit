@@ -31,7 +31,7 @@ class ViewDetailExerciseViewController: UIViewController {
         exerciseImage.image = UIImage(named: imageName)
         getDescription()
         getTips()
-        
+
     }
     
     //function to prepare the Tips with the bullet points
@@ -43,6 +43,7 @@ class ViewDetailExerciseViewController: UIViewController {
         //Loop through array for each tip
         for x in exTips
         {
+            //This will add a bullet point
             tipsLabel.text?.append("\u{2022} ")
             tipsLabel.text?.append(x)
             tipsLabel.text?.append("\n")
