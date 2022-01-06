@@ -44,7 +44,7 @@ class ViewMuscleViewController: UIViewController,UITableViewDataSource, UITableV
     
     //sets the number of rows in the table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return cellNameArray.count
     }
     
     //function that fills the table

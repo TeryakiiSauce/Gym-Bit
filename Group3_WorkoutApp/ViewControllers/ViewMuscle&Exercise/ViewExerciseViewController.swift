@@ -18,6 +18,19 @@ class ViewExerciseViewController: UIViewController,UITableViewDataSource, UITabl
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
     
+    //function to transfer the infromation through seague to the next page
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //setting controller variable
+        let viewController = segue.destination as! ViewDetailExerciseViewController
+        let selectedCell = customTableView.indexPathForSelectedRow?.row
+        
+        viewController.imageName = (exersizeList?[selectedCell!].imagePath)!
+        viewController.exDescription = (exersizeList?[selectedCell!].description)!
+        viewController.exTips = (exersizeList?[selectedCell!].tips)!
+        viewController.title = (exersizeList?[selectedCell!].name)!
+        
+    }
+    
     func getExercises(Type:String){
         switch Type {
         case "Chest":
