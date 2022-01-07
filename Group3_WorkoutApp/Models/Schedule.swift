@@ -1,19 +1,19 @@
 import Foundation
 
 
-struct Schedule: Codable {
+struct Schedule: Codable, Equatable, Comparable {
     
     var id = UUID()
-    let dateCreated: Date?
-    var name: String?
+    let dateCreated: Date
+    var name: String
     var playsCounter: Int?
     var exercises: [Exercise]
     
-    //creating the directory and filename
+    // Creating the directory and filename
     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let archiveURL =     documentsDirectory.appendingPathComponent("Schedule").appendingPathExtension("exerciseList")
     
-    //method that saves the schedules
+    // Method that saves the schedules
     static func saveSchedules(_ Schedule: [Schedule]) {
         //creating an encoder
         let propertyListEncoder = PropertyListEncoder()
@@ -21,6 +21,23 @@ struct Schedule: Codable {
         let codedSchedules = try? propertyListEncoder.encode(Schedule)
         //writing the encoded sehedule to the file
         try? codedSchedules?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+    static func ==(lhs: Schedule, rhs: Schedule) -> Bool {
+        return lhs.id == rhs.id && lhs.dateCreated == rhs.dateCreated && lhs.name == rhs.name && lhs.playsCounter == rhs.playsCounter
+    }
+    
+    // Used for sorting the schedules depending on the method selected by the user
+    static func < (lhs: Schedule, rhs: Schedule) -> Bool {
+        if DefaultData.currSelectedSortOption == "alphabetical" {
+            return lhs.name.lowercased() < rhs.name.lowercased()
+        } else if DefaultData.currSelectedSortOption == "timesUsed" {
+            return lhs.playsCounter! < lhs.playsCounter!
+        } else if DefaultData.currSelectedSortOption == "dateCreated" {
+            return lhs.dateCreated < lhs.dateCreated
+        } else {
+            return false
+        }
     }
 }
 

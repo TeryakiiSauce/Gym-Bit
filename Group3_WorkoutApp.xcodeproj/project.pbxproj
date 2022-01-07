@@ -51,6 +51,7 @@
 		F083A26827834E1400A7919E /* ViewExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083A26727834E1400A7919E /* ViewExerciseViewController.swift */; };
 		F083A26A2784D04E00A7919E /* ViewDetailExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083A2692784D04E00A7919E /* ViewDetailExerciseViewController.swift */; };
 		F0C67D2A2786B23700E72A77 /* ViewScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C67D292786B23700E72A77 /* ViewScheduleViewController.swift */; };
+		F0C67D2C2787F8D600E72A77 /* SortingPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C67D2B2787F8D600E72A77 /* SortingPopupViewController.swift */; };
 		F0CF27B22779F12500832E6C /* CreateScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		F083A26727834E1400A7919E /* ViewExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExerciseViewController.swift; sourceTree = "<group>"; };
 		F083A2692784D04E00A7919E /* ViewDetailExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailExerciseViewController.swift; sourceTree = "<group>"; };
 		F0C67D292786B23700E72A77 /* ViewScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewScheduleViewController.swift; sourceTree = "<group>"; };
+		F0C67D2B2787F8D600E72A77 /* SortingPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingPopupViewController.swift; sourceTree = "<group>"; };
 		F0CF27B12779F12500832E6C /* CreateScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,6 +268,7 @@
 			children = (
 				9669361E27674BD400206950 /* ScheduleListViewController.swift */,
 				F0C67D292786B23700E72A77 /* ViewScheduleViewController.swift */,
+				F0C67D2B2787F8D600E72A77 /* SortingPopupViewController.swift */,
 			);
 			path = "ViewSchedule&Profile";
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				905031F927837827007C91EE /* QuizViewController.swift in Sources */,
 				F081CBDC277B975B00F2CAA6 /* PopupViewController.swift in Sources */,
 				9645EDA027827C0600348FDA /* CustomPresentationController.swift in Sources */,
+				F0C67D2C2787F8D600E72A77 /* SortingPopupViewController.swift in Sources */,
 				9645EDA6278287EA00348FDA /* PlayWorkoutTableViewController.swift in Sources */,
 				F083A26A2784D04E00A7919E /* ViewDetailExerciseViewController.swift in Sources */,
 				96170D982781341F001CA441 /* RestTimeViewController.swift in Sources */,

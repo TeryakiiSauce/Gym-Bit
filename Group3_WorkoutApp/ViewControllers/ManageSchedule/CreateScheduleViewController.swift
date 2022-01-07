@@ -75,7 +75,10 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
             else if sourceViewController.isupdatePressed {
                 //changing the name and saving the new name in the displayedSchedule value
                 scheduleName.text = sourceViewController.ScheduleNameTextField.text
-                displayedSchedule.name = sourceViewController.ScheduleNameTextField.text
+                
+                if let unwrappedText = sourceViewController.ScheduleNameTextField.text {
+                    displayedSchedule.name = unwrappedText
+                }
             }
         }
         if let sourceViewController = seague.source as? ExerciseListViewController      {

@@ -160,4 +160,7 @@ struct DefaultData {
     static var schedules =
         [Schedule(dateCreated: Date(), name: "Full Body Workout", playsCounter: 0,exercises: [tricepExercises[0],bicepExercises[0],shoulderExercises[0],backExercises[0],chestExercises[0],legExercises[0],absExercises[0]])]
     
+    // default sorting options
+    static var currSelectedSortOption:String = "alphabetical"
+    static var ascOrDesc = "asc"
 }
