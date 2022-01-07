@@ -159,4 +159,86 @@ struct Constants {
             }
         }
     }
+    //function that checks the exercises and changes the target label
+    static func targetMuscle(exerciseList : [Exercise]) -> String{
+        //values to create the types
+        var count = 0
+        var output = ""
+        let muscleName = ["Abs","Back","Biceps","Chest","Legs","Shoulders","Triceps"]
+        var isinSchedule = [false,false,false,false,false,false,false]
+        //looping and taking the type of muscle and setting it to true in isinSchedule array in the correct postion
+            for exercise in exerciseList{
+                let  type = exercise.targetMuscle
+                switch type {
+                case "chest":
+                    isinSchedule[3] = true
+                    count = count + 1
+                case "biceps":
+                    isinSchedule[2] = true
+                    count = count + 1
+                case"triceps":
+                    isinSchedule[6] = true
+                    count = count + 1
+                case "back":
+                    isinSchedule[1] = true
+                    count = count + 1
+                case"shoulders":
+                    isinSchedule[5] = true
+                    count = count + 1
+                case "abs":
+                    count = count + 1
+                    isinSchedule[0] = true
+                case "legs":
+                    count = count + 1
+                    isinSchedule[4] = true
+                default:
+                    output = "None"
+                }
+            }
+        //if the count of pickedMuscles is 1
+        if count == 1{
+            if isinSchedule[4]{
+                output = "Legs"
+            }
+            if isinSchedule[3]{
+                output = "Chest"
+            }
+            if isinSchedule[0]{
+                output = "Abs"
+            }
+            if isinSchedule[1]{
+                output = "Back"
+            }
+            if isinSchedule[5]{
+                output = "Shoulder"
+            }
+            if isinSchedule[2]{
+                output = "Bicep"
+            }
+            if isinSchedule[6]{
+                output = "Tricep"
+            }
+            //if the count of picked muscles is 0
+        }else if count == 0{
+            output = "None"
+        }
+        //if all of the muscles are picked
+        else if (isinSchedule[0] && isinSchedule[1] && isinSchedule[2] && isinSchedule[3] && isinSchedule[4] && isinSchedule[5] && isinSchedule[6]){
+            output = "FullBody"
+        }
+        //if more than one and less than 7
+        else{
+            //looping in the isinSchedule and adding to the output if its is set to true
+            var postion = 0
+            for boolean in isinSchedule{
+                if boolean{
+                    output = output + muscleName[postion] + ", "
+                }
+                postion = postion + 1
+            }
+        output.removeLast()
+        output.removeLast()
+        }
+        return output
+    }
 }
