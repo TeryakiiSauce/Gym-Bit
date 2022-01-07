@@ -19,6 +19,7 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var scheduleName: UILabel!
     @IBOutlet weak var IconImage: UIImageView!
+    @IBOutlet weak var dateLbl: UILabel!
     
         
         //view did load function
@@ -31,6 +32,10 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
             customTableView.separatorStyle = .none
             customTableView.showsVerticalScrollIndicator = false
             scheduleName.text = displayedSchedule.name
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM d, yyyy"
+            dateLbl.text = dateFormatter.string(from: Date())
         }
        
         //function that sets the number of rows in the exercises table
