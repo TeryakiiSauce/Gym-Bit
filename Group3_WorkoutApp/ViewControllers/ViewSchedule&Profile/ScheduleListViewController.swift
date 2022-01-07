@@ -4,13 +4,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Default Schedule Array
     var displayedSchedule = DefaultData.schedules
-    var tempArray = [Schedule]()
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var mainButton: UIButton!
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var SecondayButton: UIButton!
+    @IBOutlet weak var dateLbl: UILabel!
     
     
     
@@ -29,6 +29,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Table view styling
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
+        
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        dateLbl.text = "Date Today: \(dateFormatter.string(from: Date()))"
     }
     
     

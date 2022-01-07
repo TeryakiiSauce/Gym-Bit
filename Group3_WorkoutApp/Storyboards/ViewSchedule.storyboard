@@ -127,8 +127,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 19 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fV-qj-1rj">
-                                        <rect key="frame" x="140" y="67.5" width="75" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emc-2D-mcQ">
+                                        <rect key="frame" x="140" y="60" width="224" height="27.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="224" id="lLC-Ex-bxw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="textColor" red="0.13866119390000001" green="0.6753933486" blue="0.921319797" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Today: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fV-qj-1rj">
+                                        <rect key="frame" x="140" y="95" width="224" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="224" id="6rh-gl-GEH"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -139,10 +151,12 @@
                                     <constraint firstAttribute="bottom" secondItem="oIK-Gr-RWO" secondAttribute="bottom" constant="25" id="8an-Ly-CAx"/>
                                     <constraint firstItem="2Qd-Sr-O8S" firstAttribute="top" secondItem="t0a-oW-Sbu" secondAttribute="top" constant="25" id="984-pQ-ima"/>
                                     <constraint firstItem="oIK-Gr-RWO" firstAttribute="leading" secondItem="t0a-oW-Sbu" secondAttribute="leading" constant="25" id="9Ki-rj-1ph"/>
+                                    <constraint firstItem="0fV-qj-1rj" firstAttribute="top" secondItem="emc-2D-mcQ" secondAttribute="bottom" constant="7.5" id="Gap-FD-0JE"/>
                                     <constraint firstItem="2Qd-Sr-O8S" firstAttribute="leading" secondItem="oIK-Gr-RWO" secondAttribute="trailing" constant="35" id="TcM-o8-hAs"/>
-                                    <constraint firstItem="0fV-qj-1rj" firstAttribute="leading" secondItem="2Qd-Sr-O8S" secondAttribute="leading" id="TpS-Qb-9Ok"/>
                                     <constraint firstItem="oIK-Gr-RWO" firstAttribute="top" secondItem="t0a-oW-Sbu" secondAttribute="top" constant="25" id="XvK-An-x9e"/>
-                                    <constraint firstItem="0fV-qj-1rj" firstAttribute="top" secondItem="2Qd-Sr-O8S" secondAttribute="bottom" constant="15" id="Yzt-1C-Ac7"/>
+                                    <constraint firstItem="0fV-qj-1rj" firstAttribute="leading" secondItem="emc-2D-mcQ" secondAttribute="leading" id="bFs-gF-QeR"/>
+                                    <constraint firstAttribute="bottom" secondItem="0fV-qj-1rj" secondAttribute="bottom" constant="19" id="d5e-y6-fhJ"/>
+                                    <constraint firstItem="0fV-qj-1rj" firstAttribute="leading" secondItem="2Qd-Sr-O8S" secondAttribute="leading" id="lW5-DC-S7g"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -179,6 +193,7 @@
                         <outlet property="SecondayButton" destination="DzA-sY-HDm" id="Cjd-i7-Q9S"/>
                         <outlet property="bodyView" destination="aKy-gq-FoD" id="tUG-5H-9zu"/>
                         <outlet property="customTableView" destination="3K5-iw-ig9" id="cpA-zK-9WC"/>
+                        <outlet property="dateLbl" destination="0fV-qj-1rj" id="Axd-bs-X9b"/>
                         <outlet property="headerView" destination="t0a-oW-Sbu" id="dxe-MA-xwn"/>
                         <outlet property="mainButton" destination="vHk-Kl-BQX" id="C22-eH-100"/>
                         <segue destination="qd2-VJ-w1E" kind="show" identifier="openSortPopup" id="WIc-ed-yi2"/>
@@ -479,6 +494,7 @@
                     <connections>
                         <outlet property="bodyView" destination="RyL-Cf-5KZ" id="TlZ-eg-BDo"/>
                         <outlet property="customTableView" destination="Rxd-8k-0RU" id="SeQ-C3-HKF"/>
+                        <outlet property="dateLbl" destination="evW-hm-qpP" id="TOO-04-UIU"/>
                         <outlet property="headerView" destination="aKe-1Q-8uw" id="9Rz-9M-dhH"/>
                         <outlet property="mainBtn" destination="pas-Oi-AYq" id="6lQ-DF-4zA"/>
                         <outlet property="scheduleName" destination="bVa-I1-6Ou" id="0m4-lD-Dr0"/>
