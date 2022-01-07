@@ -29,6 +29,22 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         MuscleLabel.text = Constants.targetMuscle(exerciseList: displayedSchedule.exercises)
     }
     
+    //function that prepares data before preforming a segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //check the segue identifier
+        if segue.identifier == "showExerciseDetail"{
+            //access page controller
+            let viewController = segue.destination as! ViewDetailExerciseViewController
+            //setup selected row
+            let selectedCell = customTableView.indexPathForSelectedRow?.row
+            //adject the pages information 
+            viewController.imageName = (displayedSchedule.exercises[selectedCell!].imagePath)
+            viewController.exDescription = (displayedSchedule.exercises[selectedCell!].description)
+            viewController.exTips = (displayedSchedule.exercises[selectedCell!].tips)
+            viewController.title = (displayedSchedule.exercises[selectedCell!].name)
+         }
+    }
+    
     //outlit that triggers the select muscle page when the button is clicked
     @IBAction func ClickAddSchedulebutton(_ sender: Any) {
         //preforming a segue
