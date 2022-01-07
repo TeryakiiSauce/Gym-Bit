@@ -268,7 +268,7 @@
         <!--Excercise Details-->
         <scene sceneID="Ha7-G2-yoJ">
             <objects>
-                <viewController id="SuE-wi-8a3" customClass="ViewDetailExerciseViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewExercisesStoryBoard" id="SuE-wi-8a3" customClass="ViewDetailExerciseViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9W0-Am-Xu4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -173,6 +173,7 @@
                                                             <outlet property="cellView" destination="L89-tu-5OY" id="M0C-pq-E5c"/>
                                                             <outlet property="subtitleLabel" destination="WHW-rd-Gwm" id="eSE-hM-lki"/>
                                                             <outlet property="titleLabel" destination="VdT-0r-1zh" id="VYM-o9-2iP"/>
+                                                            <segue destination="icw-jM-LzS" kind="show" identifier="showExerciseDetail" id="T0P-Bw-ePb"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -248,6 +249,16 @@
                 <exit id="xKM-ow-PBd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3294.202898550725" y="-389.0625"/>
+        </scene>
+        <!--ViewExercisesStoryBoard-->
+        <scene sceneID="5YL-PI-vbc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ViewWorkout" referencedIdentifier="ViewExercisesStoryBoard" id="icw-jM-LzS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gz2-hC-n0h"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hha-5V-iIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2799" y="1"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="4We-JC-omk">
