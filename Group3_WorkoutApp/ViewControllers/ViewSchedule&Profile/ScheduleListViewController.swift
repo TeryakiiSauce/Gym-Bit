@@ -139,6 +139,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     }
     
+    // Slide to delete
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            schedulesListArr.remove(at: indexPath.row) // remove from array
+            tableView.deleteRows(at: [indexPath], with: .fade) // remove from screen
+        }
+    }
     
     // MARK: END
     /// ===================================================
