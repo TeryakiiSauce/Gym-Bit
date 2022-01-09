@@ -11,7 +11,7 @@
         <!--Schedule List-->
         <scene sceneID="YDn-md-ybd">
             <objects>
-                <viewController id="V7c-4E-Kwx" customClass="ViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SchedulesListScreen" id="V7c-4E-Kwx" customClass="ViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tFG-xj-vzt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,6 +191,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="SecondayButton" destination="DzA-sY-HDm" id="Cjd-i7-Q9S"/>
+                        <outlet property="activatedScheduleLbl" destination="emc-2D-mcQ" id="dau-sE-5rr"/>
                         <outlet property="bodyView" destination="aKy-gq-FoD" id="tUG-5H-9zu"/>
                         <outlet property="customTableView" destination="3K5-iw-ig9" id="cpA-zK-9WC"/>
                         <outlet property="dateLbl" destination="0fV-qj-1rj" id="Axd-bs-X9b"/>
@@ -343,7 +344,7 @@
             </objects>
             <point key="canvasLocation" x="-3086.9565217391305" y="-655.58035714285711"/>
         </scene>
-        <!--Create Schedule-->
+        <!--View Your Exercises-->
         <scene sceneID="TYr-5M-hdk">
             <objects>
                 <viewController storyboardIdentifier="ManageViewController" autoresizesArchivedViewToFullSize="NO" wantsFullScreenLayout="YES" id="CXK-wA-avi" customClass="ViewScheduleViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -467,15 +468,20 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pas-Oi-AYq">
                                 <rect key="frame" x="20" y="743" width="374" height="50"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ToC-n0-txj"/>
                                 </constraints>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Set as Active">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="setActiveSchedule:" destination="CXK-wA-avi" eventType="touchUpInside" id="qf0-U0-NXb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EuZ-UO-iED"/>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
                             <constraint firstItem="EuZ-UO-iED" firstAttribute="bottom" secondItem="pas-Oi-AYq" secondAttribute="bottom" constant="20" id="Em4-Qh-Cdp"/>
                             <constraint firstItem="EuZ-UO-iED" firstAttribute="trailing" secondItem="RyL-Cf-5KZ" secondAttribute="trailing" constant="20" id="GiB-NC-ASe"/>
@@ -490,7 +496,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Create Schedule" id="r9w-In-sKE"/>
+                    <navigationItem key="navigationItem" title="View Your Exercises" id="r9w-In-sKE"/>
                     <connections>
                         <outlet property="bodyView" destination="RyL-Cf-5KZ" id="TlZ-eg-BDo"/>
                         <outlet property="customTableView" destination="Rxd-8k-0RU" id="SeQ-C3-HKF"/>
@@ -508,6 +514,9 @@
     <resources>
         <image name="noun_body building_637498" width="231" height="235.80000305175781"/>
         <image name="schedule" width="24" height="24"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

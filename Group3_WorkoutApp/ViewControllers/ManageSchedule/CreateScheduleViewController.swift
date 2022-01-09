@@ -31,8 +31,9 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     
     //function that prepares data before preforming a segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         //check the segue identifier
-        if segue.identifier == "showExerciseDetail"{
+        if segue.identifier == "showExerciseDetail" {
             //access page controller
             let viewController = segue.destination as! ViewDetailExerciseViewController
             //setup selected row
@@ -42,7 +43,9 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
             viewController.exDescription = (displayedSchedule.exercises[selectedCell!].description)
             viewController.exTips = (displayedSchedule.exercises[selectedCell!].tips)
             viewController.title = (displayedSchedule.exercises[selectedCell!].name)
-         }
+        }
+        
+        
     }
     
     //outlit that triggers the select muscle page when the button is clicked
@@ -55,12 +58,13 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     @IBAction func ClickSaveButton(_ sender: Any) {
         //if statment that checks if the user has added an exercises or not
         if displayedSchedule.exercises.count != 0 {
-            //preforming a segue
-            self.performSegue(withIdentifier: "unwindToViewSchedule", sender: self)
+            
+            // performing segue
+            performSegue(withIdentifier: "unwindToViewSchedule", sender: self)
         }
         else{
             //preforming a segue
-            self.performSegue(withIdentifier: "addExerciseSegue", sender: self)
+            performSegue(withIdentifier: "addExerciseSegue", sender: self)
         }
     }
     

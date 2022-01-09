@@ -8,7 +8,6 @@ struct Schedule: Codable, Equatable, Comparable {
     var name: String
     var playsCounter: Int?
     var exercises: [Exercise]
-    var isActive = false
     
     // Creating the directory and filename
     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!

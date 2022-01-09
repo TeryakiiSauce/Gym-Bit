@@ -118,13 +118,13 @@ class SortingPopupViewController: UIViewController {
         }
         
         if DefaultData.ascOrDesc == "asc" {
-            dest.displayedSchedule = dest.displayedSchedule.sorted(by: <)
+            dest.schedulesListArr = dest.schedulesListArr.sorted(by: <)
             
         } else if DefaultData.ascOrDesc == "desc" {
             // Makes it in asc order and then reverses it so that there is less to code
-            dest.displayedSchedule = dest.displayedSchedule.sorted(by: <)
+            dest.schedulesListArr = dest.schedulesListArr.sorted(by: <)
             
-            dest.displayedSchedule = dest.displayedSchedule.reversed()
+            dest.schedulesListArr = dest.schedulesListArr.reversed()
         }
     }
 }

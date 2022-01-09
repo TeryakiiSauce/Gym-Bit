@@ -156,11 +156,26 @@ struct DefaultData {
     
     
     
+        
     // creating a default schedule
     static var schedules =
-        [Schedule(dateCreated: Date(), name: "Full Body Workout", playsCounter: 0,exercises: [tricepExercises[0],bicepExercises[0],shoulderExercises[0],backExercises[0],chestExercises[0],legExercises[0],absExercises[0]])]
+        [Schedule(dateCreated: getDefaultDate(), name: "Full Body Workout", playsCounter: 0,exercises: [tricepExercises[0],bicepExercises[0],shoulderExercises[0],backExercises[0],chestExercises[0],legExercises[0],absExercises[0]])]
+    static var activatedSchedule:String = ""
     
     // default sorting options
     static var currSelectedSortOption:String = "alphabetical"
     static var ascOrDesc = "asc"
+    
+    // Used for testing date created sort
+    static func getDefaultDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: "2020-06-08")
+        
+        if let unwrappedDate = date {
+            return unwrappedDate
+        }
+        
+        return Date()
+    }
 }
