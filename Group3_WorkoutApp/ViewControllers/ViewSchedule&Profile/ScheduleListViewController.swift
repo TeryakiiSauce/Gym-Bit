@@ -61,6 +61,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //print("Currently activated schedule: \(DefaultData.activatedSchedule). Index = \(selectedScheduleIndex)")
         
         activatedScheduleLbl.text = schedulesListArr[selectedScheduleIndex].name
+        
+        // Gets previously saved schedules from preferences file [schedulesData.plist]
+        schedulesListArr = Schedule.getSchedules()
     }
     
     
@@ -69,7 +72,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     /// ===================================================
-    // MARK: - NAVIGATION CONTROL FUCNTIONS
+    // MARK: - NAVIGATION CONTROL FUNCTIONS
     
     
     // Passes the selected schedule and prepares the next page [View Schedule]
@@ -88,13 +91,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // UNWINDING
     @IBAction func unwindtoViewSchedule(seague: UIStoryboardSegue){
+        // EDIT: Saves the schedules
         // Things to do done when "unwind" is called by "Create Schedule (Aziz)"
         if let sourceViewController = seague.source as? CreateScheduleViewController   {
             
             // Updates the displayed schedule array
             schedulesListArr = schedulesListArr + [sourceViewController.displayedSchedule]
             
-            // Saving the schedule
+            // Updates Schedule List Array
             Schedule.saveSchedules(schedulesListArr)
         }
     }
@@ -143,6 +147,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if editingStyle == .delete {
             schedulesListArr.remove(at: indexPath.row) // remove from array
             tableView.deleteRows(at: [indexPath], with: .fade) // remove from screen
+            
+            Schedule.saveSchedules(schedulesListArr) // Updates Schedule List Array
         }
     }
     

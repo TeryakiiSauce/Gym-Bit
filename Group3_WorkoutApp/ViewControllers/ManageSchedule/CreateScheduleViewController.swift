@@ -54,7 +54,10 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         self.performSegue(withIdentifier: "addExerciseSegue", sender: self)
     }
     
-    //button that saves the Schedule in a .json file or sends to add exercises page
+    /**
+     EDIT: sends the newly created schedule to the main schedules list screen
+     --button that saves the Schedule in a .json file or sends to add exercises page--
+     */
     @IBAction func ClickSaveButton(_ sender: Any) {
         //if statment that checks if the user has added an exercises or not
         if displayedSchedule.exercises.count != 0 {

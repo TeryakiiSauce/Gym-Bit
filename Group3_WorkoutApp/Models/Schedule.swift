@@ -4,23 +4,30 @@ import Foundation
 struct Schedule: Codable, Equatable, Comparable {
     
     var id = UUID()
-    let dateCreated: Date
     var name: String
+    let dateCreated: Date
     var playsCounter: Int?
     var exercises: [Exercise]
     
     // Creating the directory and filename
     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let archiveURL =     documentsDirectory.appendingPathComponent("Schedule").appendingPathExtension("exerciseList")
+    static let archiveURL = documentsDirectory.appendingPathComponent("schedulesData").appendingPathExtension("plist")
     
-    // Method that saves the schedules
-    static func saveSchedules(_ Schedule: [Schedule]) {
-        //creating an encoder
+    // Encodes & saves the schedules as "schedulesData.plist" in the App's Sandbox
+    static func saveSchedules(_ schedules: [Schedule]) {
         let propertyListEncoder = PropertyListEncoder()
-        //encoding the schedule
-        let codedSchedules = try? propertyListEncoder.encode(Schedule)
-        //writing the encoded sehedule to the file
-        try? codedSchedules?.write(to: archiveURL, options: .noFileProtection)
+        let encodedSchedulesData = try? propertyListEncoder.encode(schedules)
+        try? encodedSchedulesData?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+    // Decodes, reads & returns the array of schedules
+    static func getSchedules() -> [Schedule] {
+        let propertyListDecoder = PropertyListDecoder()
+        if let retrievedSchedulesData = try? Data(contentsOf: archiveURL), let decodedSchedulesData = try? propertyListDecoder.decode(Array<Schedule>.self, from: retrievedSchedulesData) {
+            return decodedSchedulesData
+        }
+        
+        return []
     }
     
     static func ==(lhs: Schedule, rhs: Schedule) -> Bool {
