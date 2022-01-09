@@ -243,12 +243,23 @@
                         <outlet property="scheduleName" destination="dPs-jw-RUr" id="018-hs-pfa"/>
                         <segue destination="LSm-UT-NVT" kind="show" identifier="addExerciseSegue" id="W2V-c7-hA1"/>
                         <segue destination="xKM-ow-PBd" kind="unwind" identifier="unwindToViewSchedule" unwindAction="unwindtoViewScheduleWithSeague:" id="n9E-qI-olY"/>
+                        <segue destination="lkN-ht-b15" kind="show" identifier="goToScheduleListScreen" id="9x9-eZ-uzf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6r-Lv-pJD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="xKM-ow-PBd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3294.202898550725" y="-389.0625"/>
+        </scene>
+        <!--SchedulesListScreen-->
+        <scene sceneID="KqO-3l-hdG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ViewSchedule" referencedIdentifier="SchedulesListScreen" id="lkN-ht-b15" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fws-Im-jv8"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zGP-Kf-6fv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3016" y="74"/>
         </scene>
         <!--ViewExercisesStoryBoard-->
         <scene sceneID="5YL-PI-vbc">
@@ -258,7 +269,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hha-5V-iIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2799" y="1"/>
+            <point key="canvasLocation" x="-3436" y="129"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="4We-JC-omk">

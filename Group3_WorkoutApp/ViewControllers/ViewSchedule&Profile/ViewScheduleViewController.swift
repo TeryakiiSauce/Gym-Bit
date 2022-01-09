@@ -1,61 +1,122 @@
-//
-//  ViewScheduleViewController.swift
-//  Group3_WorkoutApp
-//
-//  Created by mobileProg on 06/01/2022.
-//
-
 import UIKit
 
 class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
-
-        // filling data to test
-        var displayedSchedule = Schedule(dateCreated: Date(), name: "Your Schedule", playsCounter: nil, exercises: [])
-        
-        // connectors that connect the gui to code
+    
+    
+    /// ===================================================
+    // MARK: - DEFAULT VALUES VARIABLES
+    
+    
+    var selectedSchedule = Schedule(dateCreated: Date(), name: "", playsCounter: nil, exercises: [])
+    
+    
+    // MARK: END
+    /// ===================================================
+    
+    
+    /// ===================================================
+    // MARK: - SCREEN BUTTON VARIABLES
+    
+    
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var mainBtn: UIButton!
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var scheduleName: UILabel!
-    @IBOutlet weak var IconImage: UIImageView!
     @IBOutlet weak var dateLbl: UILabel!
     
+    
+    // MARK: END
+    /// ===================================================
+    
+    
+    /// ===================================================
+    // MARK: - SCREEN LOADING FUNCTIONS
+    
         
-        //view did load function
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            // apply default styling
-            customTableView.delegate = self
-            customTableView.dataSource = self
-            //styling table view
-            customTableView.separatorStyle = .none
-            customTableView.showsVerticalScrollIndicator = false
-            scheduleName.text = displayedSchedule.name
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMM d, yyyy"
-            dateLbl.text = dateFormatter.string(from: Date())
-        }
-       
-        //function that sets the number of rows in the exercises table
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return displayedSchedule.exercises.count
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        //function that fills the exercise table
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            //creating a cell identifier
-            let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
-            //adding data to the cell
-            cell.titleLabel.text = displayedSchedule.exercises[indexPath.row].name
-            cell.subtitleLabel.text = displayedSchedule.exercises[indexPath.row].targetMuscle
-            cell.cellImage.image = UIImage(named: displayedSchedule.exercises[indexPath.row].imagePath)
-            return cell
-        }
-
-        //function that sets the row height for the table
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 120
+        // Apply styling on load
+        customTableView.delegate = self
+        customTableView.dataSource = self
+        
+        customTableView.separatorStyle = .none
+        customTableView.showsVerticalScrollIndicator = false
+        
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainBtn, secondaryButton: .none)
+        
+        // Cell Info
+        scheduleName.text = selectedSchedule.name
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        dateLbl.text = dateFormatter.string(from: selectedSchedule.dateCreated)
+        
+        
+        //print("currently activated schedule = \(DefaultData.activatedSchedule)")
+        
+        if DefaultData.activatedSchedule == selectedSchedule.name {
+            mainBtn.setTitle("Currently Activated", for: .normal)
+            mainBtn.backgroundColor = .lightGray
+            mainBtn.isEnabled = false
+        } else {
+            mainBtn.isEnabled = true
+            mainBtn.setTitle("Set as Active", for: .normal)
         }
     }
+    
+    
+    // MARK: END
+    /// ===================================================
+    
+    
+    /// ===================================================
+    // MARK: - TABLE VIEW FUNCTIONS
+    
+    
+    // Set number of rows in the exercises table
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return selectedSchedule.exercises.count
+    }
+    
+    // Fills the table with exercises
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+        
+        // Data to add in the cell
+        cell.titleLabel.text = selectedSchedule.exercises[indexPath.row].name
+        cell.subtitleLabel.text = selectedSchedule.exercises[indexPath.row].targetMuscle
+        cell.cellImage.image = UIImage(named: selectedSchedule.exercises[indexPath.row].imagePath)
+        
+        return cell
+    }
+    
+    // Set row height for the cells
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    
+    // MARK: END
+    /// ===================================================
+    
+    
+    /// ===================================================
+    // MARK: - BUTTON FUNCTIONS
+    
+    
+    @IBAction func setActiveSchedule(_ sender: UIButton) {
+        DefaultData.activatedSchedule = selectedSchedule.name
+        mainBtn.setTitle("Currently Activated", for: .normal)
+        mainBtn.backgroundColor = .lightGray
+        mainBtn.isEnabled = false
+        
+        print("\"\(DefaultData.activatedSchedule)\" has been activated.")
+    }
+    
+    
+    // MARK: END
+    /// ===================================================
+}
