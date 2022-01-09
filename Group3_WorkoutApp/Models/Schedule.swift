@@ -4,8 +4,8 @@ import Foundation
 struct Schedule: Codable, Equatable, Comparable {
     
     var id = UUID()
-    var name: String
     let dateCreated: Date
+    var name: String
     var playsCounter: Int?
     var exercises: [Exercise]
     
