@@ -125,9 +125,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if schedule.name == DefaultData.activatedSchedule {
             //print("show image for \(schedule.name)")
             
-            cell.imageView?.image = UIImage(systemName: "checkmark.circle.fill")
+            cell.cellImage.image = UIImage(named: "activated_icon")
         } else {
-            cell.imageView?.image = UIImage(systemName: "")
+            cell.cellImage.image = UIImage(named: "deactivated_icon")
         }
         
         return cell
@@ -136,7 +136,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Sets the row height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
-    
     }
     
     // Slide to delete

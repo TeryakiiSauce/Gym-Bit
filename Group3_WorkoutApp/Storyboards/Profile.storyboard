@@ -20,7 +20,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile" selectedImage="profile" id="Hek-Oq-EnP"/>
                     <navigationItem key="navigationItem" title="Profile" id="w4b-Ze-qFb">
-                        <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" landscapeImage="gearshape" largeContentSizeImage="gearshape" style="plain" id="puA-DJ-2ph">
+                        <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" landscapeImage="gearshape" largeContentSizeImage="gearshape" id="puA-DJ-2ph">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="uRv-Mk-QJM">
                                 <rect key="frame" x="301" y="0.0" width="93" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

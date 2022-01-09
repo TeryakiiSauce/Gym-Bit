@@ -101,7 +101,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Warmup" id="P4v-YR-95r">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="9kC-0J-vQZ">
+                        <barButtonItem key="rightBarButtonItem" id="9kC-0J-vQZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="3V5-Og-sjW">
                                 <rect key="frame" x="355" y="7" width="39" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
