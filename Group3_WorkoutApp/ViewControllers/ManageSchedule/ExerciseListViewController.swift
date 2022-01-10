@@ -51,7 +51,8 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         // apply default styling
-        Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:mainButton)
+        
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil)
         customTableView.delegate = self
         customTableView.dataSource = self
         //allowing the user to multicelect the cell 
