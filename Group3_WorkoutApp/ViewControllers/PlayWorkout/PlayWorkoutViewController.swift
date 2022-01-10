@@ -120,7 +120,6 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             let totalWorkoutTime = calcWorkoutTimeInMinutes()
             
             alertVC.totalMinutes = Int(totalWorkoutTime)
-            print("totalWorkoutTime = \(totalWorkoutTime) and cardio Time = \(cardioTime)")
             // pass timer controller
             alertVC.delegate = self
             // add alert to the view controller

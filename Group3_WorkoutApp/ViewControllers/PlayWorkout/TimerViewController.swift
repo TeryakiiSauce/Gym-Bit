@@ -140,7 +140,6 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
     
     @objc func updateTime() {
         
-        print("Time remaining = \(timeRemaining)")
         if timeRemaining > 0 {
             // subtract 1 second from the time remaining
             timeRemaining -= 1
