@@ -132,6 +132,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="betterProfile" translatesAutoresizingMaskIntoConstraints="NO" id="Tv0-Ai-00g">
                                         <rect key="frame" x="25" y="25" width="80" height="80"/>
+                                        <color key="tintColor" red="0.53333333329999999" green="0.75294117650000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="IvS-AR-Ule"/>
                                             <constraint firstAttribute="width" constant="80" id="qEe-QW-xyV"/>
