@@ -37,10 +37,10 @@
 		96693632276751E600206950 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96693631276751E600206950 /* User.swift */; };
 		966936342767570200206950 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966936332767570200206950 /* Schedule.swift */; };
 		966936362767578400206950 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966936352767578400206950 /* Exercise.swift */; };
-		96890EB2278552AA000B3746 /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96890EB1278552AA000B3746 /* alarm.wav */; };
 		96890EB4278560F7000B3746 /* ResetTimerPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890EB3278560F7000B3746 /* ResetTimerPopupViewController.swift */; };
 		96A167192768A0AE0000947A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A167182768A0AE0000947A /* Constants.swift */; };
 		96A1671B2768A20E0000947A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1671A2768A20E0000947A /* AppColors.swift */; };
+		96BBFEE5278C8C44006FD5B0 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96BBFEE4278C8C44006FD5B0 /* alarm.mp3 */; };
 		96E391CD278613F600B3A512 /* CompleteWorkoutPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E391CC278613F600B3A512 /* CompleteWorkoutPopupViewController.swift */; };
 		F017CF4A277E449E002569A9 /* MuscleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF49277E449E002569A9 /* MuscleListViewController.swift */; };
 		F017CF4D277E4F4D002569A9 /* ExerciseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017CF4C277E4F4D002569A9 /* ExerciseListViewController.swift */; };
@@ -87,10 +87,10 @@
 		96693631276751E600206950 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		966936332767570200206950 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		966936352767578400206950 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		96890EB1278552AA000B3746 /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm.wav; sourceTree = "<group>"; };
 		96890EB3278560F7000B3746 /* ResetTimerPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTimerPopupViewController.swift; sourceTree = "<group>"; };
 		96A167182768A0AE0000947A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		96A1671A2768A20E0000947A /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		96BBFEE4278C8C44006FD5B0 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		96E391CC278613F600B3A512 /* CompleteWorkoutPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteWorkoutPopupViewController.swift; sourceTree = "<group>"; };
 		F017CF49277E449E002569A9 /* MuscleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleListViewController.swift; sourceTree = "<group>"; };
 		F017CF4C277E4F4D002569A9 /* ExerciseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewController.swift; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 		96890EB027855294000B3746 /* TimerSound */ = {
 			isa = PBXGroup;
 			children = (
-				96890EB1278552AA000B3746 /* alarm.wav */,
+				96BBFEE4278C8C44006FD5B0 /* alarm.mp3 */,
 			);
 			path = TimerSound;
 			sourceTree = "<group>";
@@ -332,13 +332,13 @@
 			files = (
 				9669362727674BD500206950 /* LaunchScreen.storyboard in Resources */,
 				9669362427674BD500206950 /* Assets.xcassets in Resources */,
-				96890EB2278552AA000B3746 /* alarm.wav in Resources */,
 				96433C732767633800263B52 /* Profile.storyboard in Resources */,
 				96433C7B2767637900263B52 /* ViewSchedule.storyboard in Resources */,
 				96433C792767636B00263B52 /* ViewWorkout.storyboard in Resources */,
 				96433C752767634100263B52 /* Settings.storyboard in Resources */,
 				9608FB472779E3B1009498F9 /* TemplateScreen.storyboard in Resources */,
 				96433C7D2767638500263B52 /* ManageSchedule.storyboard in Resources */,
+				96BBFEE5278C8C44006FD5B0 /* alarm.mp3 in Resources */,
 				9669362227674BD400206950 /* Main.storyboard in Resources */,
 				96433C772767635500263B52 /* PlayWorkout.storyboard in Resources */,
 				96433C712767632000263B52 /* Quiz.storyboard in Resources */,

@@ -139,7 +139,7 @@ struct Constants {
         }else{
             // set up player and play
             // get url (alarm sound path)
-            guard let url = Bundle.main.path(forResource: "alarm", ofType: "wav") else { return }
+            guard let url = Bundle.main.path(forResource: "alarm", ofType: "mp3") else { return }
             
             do{
                 // set sessions
