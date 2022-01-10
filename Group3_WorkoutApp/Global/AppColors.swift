@@ -18,6 +18,7 @@ struct AppColors {
     static var textColor = UIColor(red: 46/255, green: 52/255, blue: 64/266, alpha: 1)
     static var buttonColor = UIColor(red: 136/255, green: 192/255, blue: 208/255, alpha: 1)
     static var buttonSecondaryColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+    static var deleteColor = UIColor(red: 188/255, green: 100/255, blue: 108/255, alpha: 1 )
     
     
     static func toggleDarkMode(){
