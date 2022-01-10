@@ -39,9 +39,9 @@ struct Schedule: Codable, Equatable, Comparable {
         if DefaultData.currSelectedSortOption == "alphabetical" {
             return lhs.name.lowercased() < rhs.name.lowercased()
         } else if DefaultData.currSelectedSortOption == "timesUsed" {
-            return lhs.playsCounter! < lhs.playsCounter!
+            return lhs.playsCounter! < rhs.playsCounter!
         } else if DefaultData.currSelectedSortOption == "dateCreated" {
-            return lhs.dateCreated < lhs.dateCreated
+            return lhs.dateCreated < rhs.dateCreated
         } else {
             return false
         }

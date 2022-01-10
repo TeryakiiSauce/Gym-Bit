@@ -44,8 +44,6 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
             viewController.exTips = (displayedSchedule.exercises[selectedCell!].tips)
             viewController.title = (displayedSchedule.exercises[selectedCell!].name)
         }
-        
-        
     }
     
     //outlit that triggers the select muscle page when the button is clicked
@@ -71,8 +69,11 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         }
     }
     
-    //method to opens a popup and changes  the schedule name
+    // Opens a popup that allows users to change the schedule name
     @IBAction func ClickUpdateScheduleButton(_ sender: Any) {
+        let dictionary = UserDefaults.standard
+        dictionary.set(scheduleName.text, forKey: "tempScheduleName")
+        
         //creating a var of the popup viewcontroller
         popuppageType["changeName"]?.toggle()
         let popup = openPopupPage()
@@ -130,6 +131,33 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         self.navigationItem.leftBarButtonItem = newBackButton
     }
     
+    // Don't know what this override function do but it worked as I expected it so kudos :)
+    // Makes sure that no duplicated schedule titles would get saved; probably not very efficient
+    override func viewDidLayoutSubviews() {
+        var isDuplicate = false
+        for schedule in Schedule.getSchedules() {
+            if let unwrappedScheduleName = scheduleName.text {
+                //print("schedule = \(schedule.name)")
+                //print("unwrapped schedule = \(unwrappedScheduleName)")
+                if schedule.name == unwrappedScheduleName {
+                    isDuplicate = true
+                    //print("found similar = \(isDuplicate)")
+                    break
+                }
+            }
+        }
+        
+        if isDuplicate == true {
+            mainButton.isEnabled = false
+            mainButton.backgroundColor = .lightGray
+            mainButton.setTitle("Please change the schedule title!", for: .disabled)
+        } else {
+            mainButton.isEnabled = true
+            mainButton.backgroundColor = UIColor(red: 136/255, green: 192/255, blue: 208/255, alpha: 1)
+            mainButton.setTitle("Save", for: .normal)
+        }
+    }
+    
     //if the back nav bar is clicked
     @objc func back(sender: UIBarButtonItem) {
         popuppageType["Back"]?.toggle()
@@ -180,7 +208,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     }
 
     //makes it so that you can swipe to delete
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //checking the editing style
         if editingStyle == .delete {
             //removing the instance from the stored schedule
