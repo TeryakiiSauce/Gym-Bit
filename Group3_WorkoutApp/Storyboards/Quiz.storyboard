@@ -211,6 +211,10 @@
                                 <rect key="frame" x="356" y="54" width="38" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Skip"/>
+                                <connections>
+                                    <action selector="skipClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="clj-lk-joA"/>
+                                    <segue destination="Fb6-sm-BXk" kind="unwind" identifier="ToSchedule" unwindAction="unwindtoViewScheduleWithSeague:" id="BUB-Bu-1bL"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before you get started, we would like to personalize your app for you.." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEg-xc-f3n">
                                 <rect key="frame" x="20" y="94" width="374" height="48"/>
@@ -260,6 +264,7 @@
                         <outlet property="heightTxt" destination="h0j-bL-1LK" id="gmg-ZQ-slw"/>
                         <outlet property="heightValue" destination="LNC-MF-cCp" id="hEg-GW-clT"/>
                         <outlet property="nameField" destination="tGW-TX-RGA" id="eUo-wK-JU9"/>
+                        <outlet property="skipButton" destination="sM0-C2-XM3" id="EuQ-nb-BJi"/>
                         <outlet property="slider1" destination="UBd-1x-h6y" id="aNx-uo-Z9L"/>
                         <outlet property="slider2" destination="GIS-1V-mHd" id="X3A-0Z-tSV"/>
                         <outlet property="slider3" destination="X78-r3-GVF" id="ZoR-qx-sU7"/>
@@ -272,6 +277,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Fb6-sm-BXk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="113.04347826086958" y="75.669642857142847"/>
         </scene>
