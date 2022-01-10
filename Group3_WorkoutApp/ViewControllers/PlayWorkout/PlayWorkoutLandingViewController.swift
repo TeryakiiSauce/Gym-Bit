@@ -18,6 +18,8 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     @IBOutlet weak var restTimeLabel: UILabel!
     @IBOutlet weak var scheduleNameLabel: UILabel!
     @IBOutlet weak var scheduleTargetLabel: UILabel!
+    @IBOutlet weak var selectionLabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
     
     // default rest time
     static var restTime = 45
@@ -32,26 +34,28 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     }
     
     func setDefaultData(){
+        
         schedule = DefaultData.user.activeSchedule
         
         if schedule != nil{
-            scheduleNameLabel.text = DefaultData.schedules[0].name
-            scheduleTargetLabel.text = "Waiting for schedule activation"
+            scheduleNameLabel.text = schedule?.name
+            scheduleTargetLabel.text = Constants.targetMuscle(exerciseList: schedule?.exercises ?? [])
             customTableView.delegate = self
             customTableView.dataSource = self
             //styling table view
             customTableView.separatorStyle = .none
             customTableView.showsVerticalScrollIndicator = false
+            
+            // hide image and label of nil schedule
+            selectionLabel.isHidden = true
+            image.isHidden = true
         }else{
             customTableView.isHidden = true
             restTimeLabel.isHidden = true
             restTimeButton.isHidden = true
             startButton.isEnabled = false
-            
-            let image = UIImage(named: "no_selection")
-            let imageView = UIImageView(image: image!)
-
-            bodyView.addSubview(imageView)
+            scheduleNameLabel.text = "No Active Schedule"
+            scheduleTargetLabel.text = ""
         }
         
         
@@ -73,6 +77,20 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "ViewWorkout", bundle: nil)
+        
+        guard let exerciseDetailsVC = storyboard.instantiateViewController(withIdentifier: "ViewExercisesStoryBoard")  as? ViewDetailExerciseViewController else {return}
+        //setting controller variable
+        
+        exerciseDetailsVC.imageName = (schedule?.exercises[indexPath.row].imagePath)!
+        exerciseDetailsVC.exDescription = (schedule?.exercises[indexPath.row].description)!
+        exerciseDetailsVC.exTips = (schedule?.exercises[indexPath.row].tips)!
+        exerciseDetailsVC.title = schedule?.exercises[indexPath.row].name
+        show(exerciseDetailsVC, sender: tableView)
+//        present(exerciseDetailsVC, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
@@ -99,6 +117,10 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         else{
             return
         }
+    }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+
     }
 }
 

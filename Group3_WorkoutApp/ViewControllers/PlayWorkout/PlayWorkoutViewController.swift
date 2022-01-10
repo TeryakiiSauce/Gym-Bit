@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     
@@ -35,7 +36,6 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // set table view to the first embedded view controller (play workout table)
         tableViewController = self.children[0] as? PlayWorkoutTableViewController
         
@@ -50,10 +50,26 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         // set total exercises
         totalExercisesLabel.text = "/ \(String(exercisesCount!))"
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(exerciseLabelTapped(tapGestureRecognizer:)))
+        exerciseNameLabel.isUserInteractionEnabled = true
+        exerciseNameLabel.addGestureRecognizer(tapGestureRecognizer)
+        
         customizeProgressView()
         setExerciseInfo()
         updateProgressView()
         setButtonStateButton()
+    }
+    
+    @objc func exerciseLabelTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let storyboard = UIStoryboard(name: "ViewWorkout", bundle: nil)
+        guard let exerciseDetailsVC = storyboard.instantiateViewController(withIdentifier: "ViewExercisesStoryBoard")  as? ViewDetailExerciseViewController else {return}
+        //setting controller variable
+        exerciseDetailsVC.imageName = (schedule?.exercises[exerciseIndex].imagePath)!
+        exerciseDetailsVC.exDescription = (schedule?.exercises[exerciseIndex].description)!
+        exerciseDetailsVC.exTips = (schedule?.exercises[exerciseIndex].tips)!
+        exerciseDetailsVC.title = schedule?.exercises[exerciseIndex].name
+        show(exerciseDetailsVC, sender: tapGestureRecognizer)
     }
     
     func setButtonStateButton(){
@@ -104,6 +120,8 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         return Double(endDateMinutes - startDateMinutes)
     }
     
+    
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
         
         // change button title when reaching the last exercise
@@ -117,7 +135,48 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             
             endWorkoutTime = Date()
             
+            // calculate workout time
             let totalWorkoutTime = calcWorkoutTimeInMinutes()
+            
+            // get workout data (list of dictionaries) if exists
+            if var workoutData = Constants.getWorkoutData() {
+                // append new values
+                workoutData.append(["workoutTime": totalWorkoutTime, "cardioTime":cardioTime ?? 0])
+                // save new list
+                Constants.saveWorkoutData(workoutData)
+            }else{
+                Constants.saveWorkoutData([["workoutTime": totalWorkoutTime, "cardioTime":cardioTime ?? 0]])
+            }
+
+            // get workout date list if exists
+            if var workoutDates = Constants.getPlayingWorkoutDates() {
+                // append new values
+                workoutDates.append(endWorkoutTime!)
+                // save new list
+                Constants.savePlayingWorkoutDates(workoutDates)
+            }else{
+                // save new list
+                Constants.savePlayingWorkoutDates([endWorkoutTime!])
+            }
+            
+            // get schedule data dictionary
+            if var scheduleData = Constants.getPlayedScheduleData() {
+                
+                // check if schedule exists
+                if scheduleData[schedule!.name] != nil {
+                    scheduleData[schedule!.name]! += 1
+                }else {
+                    scheduleData[schedule!.name] = 1
+                }
+                // save dic
+                Constants.savePlayedScheduleData(scheduleData)
+            }else{
+                // save new dic
+                Constants.savePlayedScheduleData([schedule!.name: 1])
+            }
+            
+            
+            
             
             alertVC.totalMinutes = Int(totalWorkoutTime)
             // pass timer controller
@@ -127,6 +186,9 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             alertVC.view.frame = self.view.frame
             self.view.addSubview(alertVC.view)
             alertVC.didMove(toParent: self)
+            
+            self.performSegue(withIdentifier: "unwindToWorkoutLandingViewController", sender: self)
+
             
         }else{
             exerciseIndex += 1

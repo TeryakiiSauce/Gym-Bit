@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="883-tS-lBB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -216,6 +216,16 @@
             </objects>
             <point key="canvasLocation" x="1866.6666666666667" y="-127.23214285714285"/>
         </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="ORk-5Y-exT">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ViewExercisesStoryBoard" id="bEK-9k-owU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Xl7-HI-8xq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3SW-6N-g7N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="599" y="-488"/>
+        </scene>
         <!--Play Workout-->
         <scene sceneID="oCr-QZ-sD2">
             <objects>
@@ -349,20 +359,39 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No schedule has been selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXe-0Y-ZhM">
+                                        <rect key="frame" x="20" y="395" width="334" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_selection" translatesAutoresizingMaskIntoConstraints="NO" id="CHh-hG-coy">
+                                        <rect key="frame" x="20" y="90" width="334" height="236"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="236" id="sIV-7T-dW4"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="PXe-0Y-ZhM" secondAttribute="bottom" constant="41" id="3Ic-XJ-GrC"/>
                                     <constraint firstItem="O8M-e6-Sa2" firstAttribute="top" secondItem="cOy-QR-Gsh" secondAttribute="bottom" constant="20" id="5HV-Ea-Nak"/>
+                                    <constraint firstItem="PXe-0Y-ZhM" firstAttribute="leading" secondItem="j5X-OT-Zbb" secondAttribute="leading" constant="20" id="CcV-eH-NtX"/>
+                                    <constraint firstAttribute="trailing" secondItem="CHh-hG-coy" secondAttribute="trailing" constant="20" id="GsZ-RX-4B9"/>
                                     <constraint firstItem="O8M-e6-Sa2" firstAttribute="top" secondItem="I1H-Sw-jdd" secondAttribute="bottom" constant="20" id="J47-hz-yPR"/>
                                     <constraint firstItem="I1H-Sw-jdd" firstAttribute="leading" secondItem="j5X-OT-Zbb" secondAttribute="leading" constant="20" id="LKb-fT-jgd"/>
                                     <constraint firstItem="O8M-e6-Sa2" firstAttribute="leading" secondItem="j5X-OT-Zbb" secondAttribute="leading" id="Qeu-Xl-0q4"/>
                                     <constraint firstItem="I1H-Sw-jdd" firstAttribute="top" secondItem="j5X-OT-Zbb" secondAttribute="top" constant="20" id="SVG-G7-HOV"/>
+                                    <constraint firstItem="CHh-hG-coy" firstAttribute="top" secondItem="I1H-Sw-jdd" secondAttribute="bottom" constant="20" id="TJ0-sL-dm1"/>
+                                    <constraint firstItem="CHh-hG-coy" firstAttribute="leading" secondItem="j5X-OT-Zbb" secondAttribute="leading" constant="20" id="W38-K5-Fbm"/>
                                     <constraint firstAttribute="bottom" secondItem="O8M-e6-Sa2" secondAttribute="bottom" id="ZTv-xC-OTp"/>
                                     <constraint firstAttribute="trailing" secondItem="O8M-e6-Sa2" secondAttribute="trailing" id="Zcj-A8-mXq"/>
                                     <constraint firstItem="cOy-QR-Gsh" firstAttribute="leading" secondItem="I1H-Sw-jdd" secondAttribute="trailing" constant="20" id="fRA-EL-dW9"/>
                                     <constraint firstAttribute="trailing" secondItem="O8M-e6-Sa2" secondAttribute="trailing" id="hBo-OV-vzW"/>
                                     <constraint firstAttribute="trailing" secondItem="cOy-QR-Gsh" secondAttribute="trailing" constant="20" id="iH4-f4-M9X"/>
                                     <constraint firstItem="cOy-QR-Gsh" firstAttribute="top" secondItem="j5X-OT-Zbb" secondAttribute="top" constant="20" id="ljh-sc-LBN"/>
+                                    <constraint firstAttribute="trailing" secondItem="PXe-0Y-ZhM" secondAttribute="trailing" constant="20" id="oeR-f4-fwR"/>
+                                    <constraint firstItem="PXe-0Y-ZhM" firstAttribute="top" secondItem="CHh-hG-coy" secondAttribute="bottom" constant="69" id="xPw-3t-nxE"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PM1-hp-in5">
@@ -399,12 +428,15 @@
                         <outlet property="bodyView" destination="j5X-OT-Zbb" id="qqa-uZ-ivK"/>
                         <outlet property="customTableView" destination="O8M-e6-Sa2" id="3PI-Un-sEz"/>
                         <outlet property="headerView" destination="uci-75-dda" id="b2V-aT-dib"/>
+                        <outlet property="image" destination="CHh-hG-coy" id="3Qh-xQ-Rnv"/>
                         <outlet property="restTimeButton" destination="I1H-Sw-jdd" id="CCG-IO-cWy"/>
                         <outlet property="restTimeLabel" destination="cOy-QR-Gsh" id="nn5-l8-a4M"/>
                         <outlet property="scheduleNameLabel" destination="Bz8-mH-CJQ" id="qz8-8i-kBE"/>
                         <outlet property="scheduleTargetLabel" destination="buW-Xc-Efn" id="7u5-4g-z3c"/>
+                        <outlet property="selectionLabel" destination="PXe-0Y-ZhM" id="JMY-Q3-Efn"/>
                         <outlet property="startButton" destination="PM1-hp-in5" id="D7b-qs-y5a"/>
                         <segue destination="bnA-Ig-A4I" kind="presentation" identifier="openRestTime" id="9qB-e5-W2c"/>
+                        <segue destination="bEK-9k-owU" kind="show" id="wDj-fr-KPP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2P-ot-zM4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -655,9 +687,11 @@
                         <outlet property="mainButton" destination="8tg-uV-BGu" id="6iR-xc-PwT"/>
                         <outlet property="progressView" destination="5Cr-6A-ofF" id="0AD-RZ-Zl6"/>
                         <outlet property="totalExercisesLabel" destination="YmV-Sw-iEl" id="5MY-wR-zil"/>
+                        <segue destination="cqF-vv-alp" kind="unwind" identifier="unwindToWorkoutLandingViewController" unwindAction="prepareForUnwindWithSegue:" id="16o-Za-QqC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bz0-3H-wss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cqF-vv-alp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3766.666666666667" y="-869.19642857142856"/>
         </scene>
@@ -1241,6 +1275,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="no_selection" width="974" height="729.15130615234375"/>
         <image name="noun_body building_637498" width="231" height="235.80000305175781"/>
         <image name="play" width="24" height="24"/>
         <image name="play_button" width="120" height="120"/>
