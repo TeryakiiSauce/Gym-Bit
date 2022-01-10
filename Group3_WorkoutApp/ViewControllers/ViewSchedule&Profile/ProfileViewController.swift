@@ -76,52 +76,18 @@ class ProfileViewController: UIViewController {
         bottomSectionView.layer.borderWidth = 1
         bottomSectionView.layer.borderColor = AppColors.textColor.cgColor
         bottomSectionView.layer.cornerRadius = 10
-        
-        // Change the important text to blue to grab attention
-        // TODO: if json is not empty then load prev data otherwise set the below as default
-        // read top of file to know more about the function [halfTextColorChange] used
-        
-        // Get data to check whether the user has skipped the first-run page or not
-        // gets the data if found otherwise it will use the default values
-        let dict = UserDefaults.standard
-        let age = dict.object(forKey: "age") as? Int ?? 0
-        let height = dict.object(forKey: "height") as? Int ?? 0
-        let weight = dict.object(forKey: "weight") as? Int ?? 0
-        let name = dict.object(forKey: "name") as? String ?? "Update name in settings"
-        let goal = dict.object(forKey: "goal") as? Int ?? 0
-        let isImperialUnits = dict.object(forKey: "isPound") as? Bool ?? false
-        
-        print("== USER PREFERENCES ==")
-        print("name = \(name)")
-        print("age = \(age)")
-        print("height = \(height)")
-        print("weight = \(weight)")
-        print("goal = \(goal)")
-        print("US units = \(isImperialUnits)")
-        print("================")
-        
-        // HEADER VIEW
-        profileName.text = name
-        profileDoB.text = "\(age) Years Old"
-        
-        // TOP VIEW SECTION
-        
-        // Set label text
-        heightLbl.text = "Height: \(height) \(heightUnit)"
-        weightLbl.text = "Weight: \(weight) \(weightUnit)"
-        goalLbl.text = "Goal: \(goal) \(weightUnit)"
-        
-        // Color the important information in blue
-        heightLbl.halfTextColorChange(fullText: heightLbl.text!, changeText: "\(height) \(heightUnit)")
-        weightLbl.halfTextColorChange(fullText: weightLbl.text!, changeText: "\(weight) \(weightUnit)")
-        goalLbl.halfTextColorChange(fullText: goalLbl.text!, changeText: "\(goal) \(weightUnit)")
-        
+                
         // BOTTOM VIEW SECTION
         segmentLbl1.halfTextColorChange(fullText: segmentLbl1.text!, changeText: "0 min")
         segmentLbl2.halfTextColorChange(fullText: segmentLbl2.text!, changeText: "0 min")
         segmentLbl3.halfTextColorChange(fullText: segmentLbl3.text!, changeText: "0 min")
         
+        refreshData()
         updateSegmentView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        refreshData()
     }
     
     @IBAction func segmentUpdated(_ sender: UISegmentedControl) {
@@ -184,6 +150,45 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    // Change the important text to blue to grab attention
+    // Read the top of file to know more about the function [halfTextColorChange] used
+    func refreshData() {
+        // Get data to check whether the user has skipped the first-run page or not
+        // Gets the data if found otherwise it will use the default values
+        let dict = UserDefaults.standard
+        let age = dict.object(forKey: "age") as? Int ?? 0
+        let height = dict.object(forKey: "height") as? Int ?? 0
+        let weight = dict.object(forKey: "weight") as? Int ?? 0
+        let name = dict.object(forKey: "name") as? String ?? "Update name in settings"
+        let goal = dict.object(forKey: "goal") as? Int ?? 0
+        let isImperialUnits = dict.object(forKey: "isPound") as? Bool ?? false
+        
+        print("== USER PREFERENCES ==")
+        print("name = \(name)")
+        print("age = \(age)")
+        print("height = \(height)")
+        print("weight = \(weight)")
+        print("goal = \(goal)")
+        print("US units = \(isImperialUnits)")
+        print("================")
+        
+        // HEADER VIEW
+        profileName.text = name
+        profileDoB.text = "\(age) Years Old"
+        
+        // TOP VIEW SECTION
+        
+        // Set label text
+        heightLbl.text = "Height: \(height) \(heightUnit)"
+        weightLbl.text = "Weight: \(weight) \(weightUnit)"
+        goalLbl.text = "Goal: \(goal) \(weightUnit)"
+        
+        // Color the important information in blue
+        heightLbl.halfTextColorChange(fullText: heightLbl.text!, changeText: "\(height) \(heightUnit)")
+        weightLbl.halfTextColorChange(fullText: weightLbl.text!, changeText: "\(weight) \(weightUnit)")
+        goalLbl.halfTextColorChange(fullText: goalLbl.text!, changeText: "\(goal) \(weightUnit)")
+    }
+    
     // Getters
     func getHeightUnit() -> String {
         return self.heightUnit
@@ -201,12 +206,4 @@ class ProfileViewController: UIViewController {
     func setWeightUnit(_ unit: String) {
         self.weightUnit = unit
     }
-    
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
