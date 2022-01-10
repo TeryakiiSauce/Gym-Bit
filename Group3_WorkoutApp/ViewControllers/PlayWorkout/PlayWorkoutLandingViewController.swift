@@ -18,6 +18,8 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     @IBOutlet weak var restTimeLabel: UILabel!
     @IBOutlet weak var scheduleNameLabel: UILabel!
     @IBOutlet weak var scheduleTargetLabel: UILabel!
+    @IBOutlet weak var selectionLabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
     
     // default rest time
     static var restTime = 45
@@ -42,16 +44,13 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
             //styling table view
             customTableView.separatorStyle = .none
             customTableView.showsVerticalScrollIndicator = false
+            selectionLabel.isHidden = true
+            image.isHidden = true
         }else{
             customTableView.isHidden = true
             restTimeLabel.isHidden = true
             restTimeButton.isHidden = true
             startButton.isEnabled = false
-            
-            let image = UIImage(named: "no_selection")
-            let imageView = UIImageView(image: image!)
-
-            bodyView.addSubview(imageView)
         }
         
         
