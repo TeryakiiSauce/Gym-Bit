@@ -156,18 +156,24 @@ struct DefaultData {
     
     
     
-        
-    // creating a default schedule
+    /* OLD
+     static var schedules =
+     [Schedule(dateCreated: getDefaultDate(), name: "Full Body Workout", playsCounter: 0,exercises: [tricepExercises[0],bicepExercises[0],shoulderExercises[0],backExercises[0],chestExercises[0],legExercises[0],absExercises[0]])]
+     static var activatedSchedule:String = "Full Body Workout"
+     */
+    
+    // Creating a default schedule
+    // What shows when the app is opened for the very first time
     static var schedules =
-        [Schedule(dateCreated: getDefaultDate(), name: "Full Body Workout", playsCounter: 0,exercises: [tricepExercises[0],bicepExercises[0],shoulderExercises[0],backExercises[0],chestExercises[0],legExercises[0],absExercises[0]])]
-    static var activatedSchedule:String = "Full Body Workout"
+        [Schedule(dateCreated: getDefaultDate(), name: "None", playsCounter: 0,exercises:[])]
+    static var activatedSchedule:String = "None"
     static var activatedScheduleIndex: Int = 0
     
     // default sorting options
     static var currSelectedSortOption:String = "dateCreated"
     static var ascOrDesc = "desc"
     
-    // Used for testing date created sort
+    // Used for testing date created sort and well why not use it as default as well...?
     static func getDefaultDate() -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
