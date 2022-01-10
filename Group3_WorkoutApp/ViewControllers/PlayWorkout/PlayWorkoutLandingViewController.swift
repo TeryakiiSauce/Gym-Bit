@@ -36,8 +36,9 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     func setDefaultData(){
         
         schedule = DefaultData.user.activeSchedule
+       
         
-        if schedule != nil{
+        if schedule?.exercises.count != 0{
             scheduleNameLabel.text = schedule?.name
             scheduleTargetLabel.text = Constants.targetMuscle(exerciseList: schedule?.exercises ?? [])
             customTableView.delegate = self
@@ -55,7 +56,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
             restTimeButton.isHidden = true
             startButton.isEnabled = false
             scheduleNameLabel.text = "No Active Schedule"
-            scheduleTargetLabel.text = ""
+            scheduleTargetLabel.text = "None"
         }
         
         
