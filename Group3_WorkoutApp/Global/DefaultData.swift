@@ -164,8 +164,8 @@ struct DefaultData {
     static var activatedScheduleIndex: Int = 0
     
     // default sorting options
-    static var currSelectedSortOption:String = "alphabetical"
-    static var ascOrDesc = "asc"
+    static var currSelectedSortOption:String = "dateCreated"
+    static var ascOrDesc = "desc"
     
     // Used for testing date created sort
     static func getDefaultDate() -> Date {
