@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="883-tS-lBB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -216,6 +216,16 @@
             </objects>
             <point key="canvasLocation" x="1866.6666666666667" y="-127.23214285714285"/>
         </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="ORk-5Y-exT">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ViewExercisesStoryBoard" id="bEK-9k-owU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Xl7-HI-8xq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3SW-6N-g7N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="599" y="-488"/>
+        </scene>
         <!--Play Workout-->
         <scene sceneID="oCr-QZ-sD2">
             <objects>
@@ -426,6 +436,7 @@
                         <outlet property="selectionLabel" destination="PXe-0Y-ZhM" id="JMY-Q3-Efn"/>
                         <outlet property="startButton" destination="PM1-hp-in5" id="D7b-qs-y5a"/>
                         <segue destination="bnA-Ig-A4I" kind="presentation" identifier="openRestTime" id="9qB-e5-W2c"/>
+                        <segue destination="bEK-9k-owU" kind="show" id="wDj-fr-KPP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2P-ot-zM4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

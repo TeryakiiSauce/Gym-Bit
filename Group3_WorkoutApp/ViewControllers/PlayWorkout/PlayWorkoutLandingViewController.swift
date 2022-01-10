@@ -34,6 +34,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     }
     
     func setDefaultData(){
+        
         schedule = DefaultData.user.activeSchedule
         
         if schedule != nil{
@@ -76,6 +77,20 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "ViewWorkout", bundle: nil)
+        
+        guard let exerciseDetailsVC = storyboard.instantiateViewController(withIdentifier: "ViewExercisesStoryBoard")  as? ViewDetailExerciseViewController else {return}
+        //setting controller variable
+        
+        exerciseDetailsVC.imageName = (schedule?.exercises[indexPath.row].imagePath)!
+        exerciseDetailsVC.exDescription = (schedule?.exercises[indexPath.row].description)!
+        exerciseDetailsVC.exTips = (schedule?.exercises[indexPath.row].tips)!
+        exerciseDetailsVC.title = schedule?.exercises[indexPath.row].name
+        show(exerciseDetailsVC, sender: tableView)
+//        present(exerciseDetailsVC, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120

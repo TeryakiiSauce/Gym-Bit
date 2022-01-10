@@ -50,10 +50,26 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         // set total exercises
         totalExercisesLabel.text = "/ \(String(exercisesCount!))"
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(exerciseLabelTapped(tapGestureRecognizer:)))
+        exerciseNameLabel.isUserInteractionEnabled = true
+        exerciseNameLabel.addGestureRecognizer(tapGestureRecognizer)
+        
         customizeProgressView()
         setExerciseInfo()
         updateProgressView()
         setButtonStateButton()
+    }
+    
+    @objc func exerciseLabelTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let storyboard = UIStoryboard(name: "ViewWorkout", bundle: nil)
+        guard let exerciseDetailsVC = storyboard.instantiateViewController(withIdentifier: "ViewExercisesStoryBoard")  as? ViewDetailExerciseViewController else {return}
+        //setting controller variable
+        exerciseDetailsVC.imageName = (schedule?.exercises[exerciseIndex].imagePath)!
+        exerciseDetailsVC.exDescription = (schedule?.exercises[exerciseIndex].description)!
+        exerciseDetailsVC.exTips = (schedule?.exercises[exerciseIndex].tips)!
+        exerciseDetailsVC.title = schedule?.exercises[exerciseIndex].name
+        show(exerciseDetailsVC, sender: tapGestureRecognizer)
     }
     
     func setButtonStateButton(){
@@ -129,7 +145,6 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
                 // save new list
                 Constants.saveWorkoutData(workoutData)
             }else{
-                // save data into new list
                 Constants.saveWorkoutData([["workoutTime": totalWorkoutTime, "cardioTime":cardioTime ?? 0]])
             }
             
