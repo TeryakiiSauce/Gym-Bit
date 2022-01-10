@@ -15,6 +15,7 @@ class PopupViewController: UIViewController {
     @IBOutlet weak var updatePopupStackView: UIStackView!
     @IBOutlet weak var UpdateScheduleMainButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var cancelUpdate: UIButton!
     
     //action when update is clicked
     @IBAction func updateScheduleButton(_ sender: Any) {
@@ -105,7 +106,7 @@ class PopupViewController: UIViewController {
         //setting the background to be dimmed when the page is up
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         //Methods used for styling
-        Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: BodyView, mainButton: UpdateScheduleMainButton, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: BodyView, mainButton: UpdateScheduleMainButton, secondaryButton: cancelUpdate)
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: LeaveMainButton, secondaryButton: LeaveSecondButton)
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: ClearMainButton, secondaryButton: ClearSecondButton)
         ClearSecondButton.backgroundColor = AppColors.deleteColor

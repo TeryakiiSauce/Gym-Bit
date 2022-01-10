@@ -21,7 +21,6 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_body building_637498" translatesAutoresizingMaskIntoConstraints="NO" id="1jZ-Nf-dbF">
                                         <rect key="frame" x="25" y="25" width="80" height="80"/>
-
                                         <color key="tintColor" red="0.53333333329999999" green="0.75294117650000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Ulz-yq-RiC"/>
@@ -153,7 +152,6 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="Lw7-86-UiH" firstAttribute="top" secondItem="L89-tu-5OY" secondAttribute="top" constant="8" id="9vS-uj-Dcu"/>
                                                                         <constraint firstItem="VdT-0r-1zh" firstAttribute="leading" secondItem="Lw7-86-UiH" secondAttribute="trailing" constant="20" id="K77-fr-KcL"/>
                                                                         <constraint firstAttribute="bottom" secondItem="Lw7-86-UiH" secondAttribute="bottom" constant="10" id="PFn-Hz-hyr"/>
                                                                         <constraint firstItem="VdT-0r-1zh" firstAttribute="top" secondItem="L89-tu-5OY" secondAttribute="top" constant="15" id="S2i-TJ-NBh"/>
@@ -265,7 +263,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hha-5V-iIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3436" y="129"/>
+            <point key="canvasLocation" x="-2741" y="-3"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="4We-JC-omk">
@@ -377,36 +375,61 @@
                                         <rect key="frame" x="10" y="10" width="354" height="273"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Schedule Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1g-91-jSH">
-                                                <rect key="frame" x="0.0" y="0.0" width="354" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="35.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C5v-7o-Ecp">
-                                                <rect key="frame" x="0.0" y="57" width="354" height="128.5"/>
+                                                <rect key="frame" x="0.0" y="55.5" width="354" height="70"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XtY-8y-ubS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="78.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="Yrn-xd-c5E"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBO-E8-vsL">
-                                                        <rect key="frame" x="0.0" y="78.5" width="354" height="50"/>
+                                                        <rect key="frame" x="0.0" y="50" width="354" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="gCd-Ru-ZAG"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" systemColor="systemRedColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aze-AZ-NLP">
-                                                <rect key="frame" x="0.0" y="205.5" width="354" height="67.5"/>
-                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                                <color key="tintColor" systemColor="linkColor"/>
-                                                <state key="normal" title="Update"/>
-                                                <connections>
-                                                    <action selector="updateScheduleButton:" destination="Beh-Mm-Jff" eventType="touchUpInside" id="WOZ-gN-az0"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7lH-Ql-DRL">
+                                                <rect key="frame" x="0.0" y="145.5" width="354" height="127.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aze-AZ-NLP">
+                                                        <rect key="frame" x="0.0" y="39" width="172" height="50"/>
+                                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="05p-9O-EAe"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="linkColor"/>
+                                                        <state key="normal" title="Update"/>
+                                                        <connections>
+                                                            <action selector="updateScheduleButton:" destination="Beh-Mm-Jff" eventType="touchUpInside" id="WOZ-gN-az0"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTr-id-NM7" userLabel="Cancle">
+                                                        <rect key="frame" x="182" y="39" width="172" height="50"/>
+                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="bh2-uo-yAL"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Cancel"/>
+                                                        <connections>
+                                                            <action selector="ClearCancelButtonClicked:" destination="Beh-Mm-Jff" eventType="touchUpInside" id="uah-jq-ohR"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -449,6 +472,7 @@
                         <outlet property="LeaveSecondButton" destination="6e8-8f-Xu7" id="Bt4-Js-YXy"/>
                         <outlet property="ScheduleNameTextField" destination="XtY-8y-ubS" id="vll-oI-38W"/>
                         <outlet property="UpdateScheduleMainButton" destination="Aze-AZ-NLP" id="1o6-Iz-KkW"/>
+                        <outlet property="cancelUpdate" destination="wTr-id-NM7" id="7lC-a6-nPx"/>
                         <outlet property="errorLabel" destination="EBO-E8-vsL" id="kL4-Lb-EZd"/>
                         <outlet property="updatePopupStackView" destination="XDh-hb-zjK" id="HOO-sS-3t1"/>
                         <segue destination="eeZ-hI-7tF" kind="unwind" identifier="unwindToCreateSchedule" unwindAction="unwindtoCreateScheduleWithSeague:" id="1aj-nx-bx9"/>
@@ -513,7 +537,6 @@
                                                                 <constraint firstItem="So7-wk-ml7" firstAttribute="leading" secondItem="E4C-ka-jb9" secondAttribute="trailing" constant="41" id="CsD-0M-ebq"/>
                                                                 <constraint firstItem="So7-wk-ml7" firstAttribute="top" secondItem="Cqt-mZ-WC3" secondAttribute="top" constant="15" id="FAE-xE-MLH"/>
                                                                 <constraint firstItem="UBl-ce-Qif" firstAttribute="leading" secondItem="So7-wk-ml7" secondAttribute="leading" id="Zrd-9J-2ro"/>
-                                                                <constraint firstItem="E4C-ka-jb9" firstAttribute="top" secondItem="Cqt-mZ-WC3" secondAttribute="top" constant="8" id="vmI-AQ-KnU"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -661,7 +684,6 @@
                                                                 <constraint firstItem="X83-3P-T3h" firstAttribute="leading" secondItem="alP-l3-MZU" secondAttribute="trailing" constant="20" id="RnA-jL-TGo"/>
                                                                 <constraint firstItem="wfn-Nc-mEB" firstAttribute="leading" secondItem="X83-3P-T3h" secondAttribute="leading" id="SE5-Tp-Y3Z"/>
                                                                 <constraint firstItem="X83-3P-T3h" firstAttribute="top" secondItem="vvG-5n-0ou" secondAttribute="top" constant="15" id="Xgb-94-nCU"/>
-                                                                <constraint firstItem="alP-l3-MZU" firstAttribute="top" secondItem="vvG-5n-0ou" secondAttribute="top" constant="8" id="sDO-gA-glu"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -783,7 +805,6 @@
                                                                 <constraint firstItem="URs-hn-vDm" firstAttribute="leading" secondItem="o3m-od-RxL" secondAttribute="trailing" constant="41" id="81m-Dt-Gsf"/>
                                                                 <constraint firstItem="aMh-JD-Zxt" firstAttribute="leading" secondItem="URs-hn-vDm" secondAttribute="leading" id="bbz-U6-KyT"/>
                                                                 <constraint firstAttribute="bottom" secondItem="o3m-od-RxL" secondAttribute="bottom" constant="10" id="prY-wc-f1p"/>
-                                                                <constraint firstItem="o3m-od-RxL" firstAttribute="top" secondItem="IvL-Ed-PcT" secondAttribute="top" constant="8" id="qTf-YK-8fp"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
