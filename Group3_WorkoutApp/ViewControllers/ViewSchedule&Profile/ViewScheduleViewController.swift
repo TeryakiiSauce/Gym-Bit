@@ -8,7 +8,7 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
     
     
     var selectedSchedule = Schedule(dateCreated: Date(), name: "", playsCounter: nil, exercises: [])
-    
+    var selectedScheduleIndex = 0
     
     // MARK: END
     /// ===================================================
@@ -109,10 +109,15 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
     
     @IBAction func setActiveSchedule(_ sender: UIButton) {
         DefaultData.activatedSchedule = selectedSchedule.name
+        DefaultData.activatedScheduleIndex = selectedScheduleIndex
         mainBtn.setTitle("Currently Activated", for: .normal)
         mainBtn.backgroundColor = .lightGray
         mainBtn.isEnabled = false
         
+        // Save the activated schedule title and index
+        let dictionary = UserDefaults.standard
+        dictionary.set(DefaultData.activatedSchedule, forKey: "activatedSchedule")
+        dictionary.set(DefaultData.activatedScheduleIndex, forKey: "activatedScheduleIndex")
         print("\"\(DefaultData.activatedSchedule)\" has been activated.")
     }
     

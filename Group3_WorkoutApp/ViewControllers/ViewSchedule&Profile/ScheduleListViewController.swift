@@ -7,8 +7,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - DEFAULT VALUES VARIABLES
     
     
-    var schedulesListArr = DefaultData.schedules
-    var selectedScheduleIndex = 0
+    var schedulesListArr = Schedule.getSchedules()
+    var selectedScheduleIndex = DefaultData.activatedScheduleIndex
     
     
     // MARK: END
@@ -58,9 +58,38 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewWillAppear(_ animated: Bool) {
         customTableView.reloadData()
         
-        //print("Currently activated schedule: \(DefaultData.activatedSchedule). Index = \(selectedScheduleIndex)")
+        if DefaultData.ascOrDesc == "asc" {
+            schedulesListArr = schedulesListArr.sorted(by: <)
+            
+            Schedule.saveSchedules(schedulesListArr)
+            
+        } else if DefaultData.ascOrDesc == "desc" {
+            // Makes it in asc order and then reverses it so that there is less to code
+            schedulesListArr = schedulesListArr.sorted(by: <)
+            schedulesListArr = schedulesListArr.reversed()
+            
+            Schedule.saveSchedules(schedulesListArr)
+        }
         
-        activatedScheduleLbl.text = schedulesListArr[selectedScheduleIndex].name
+        // Loads the previously activated schedule and its index
+        let dictionary = UserDefaults.standard
+        if let unwrappedScheduleTitle = dictionary.object(forKey: "activatedSchedule") as? String, let unwrappedIndex = dictionary.object(forKey: "activatedScheduleIndex") as? Int {
+            DefaultData.activatedSchedule = unwrappedScheduleTitle
+            DefaultData.activatedScheduleIndex = unwrappedIndex
+        }
+        
+        // Print the selected/ default sorting method
+        print("loaded: \(DefaultData.currSelectedSortOption) \(DefaultData.ascOrDesc)")
+                
+        // Gets previously saved schedules from preferences file [schedulesData.plist]
+        schedulesListArr = Schedule.getSchedules()
+        
+        // Updates the schedule title and index
+        selectedScheduleIndex = DefaultData.activatedScheduleIndex
+        activatedScheduleLbl.text = DefaultData.activatedSchedule
+        
+        // TESTING
+        //print("Currently activated schedule: \(DefaultData.activatedSchedule). Index = \(selectedScheduleIndex)")
     }
     
     
@@ -69,7 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     /// ===================================================
-    // MARK: - NAVIGATION CONTROL FUCNTIONS
+    // MARK: - NAVIGATION CONTROL FUNCTIONS
     
     
     // Passes the selected schedule and prepares the next page [View Schedule]
@@ -81,20 +110,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 selectedScheduleIndex = selectedSchedule
                 
-                viewCurrScheduleScreen.selectedSchedule = self.schedulesListArr[selectedSchedule]
+                viewCurrScheduleScreen.selectedSchedule = schedulesListArr[selectedSchedule]
+                viewCurrScheduleScreen.selectedScheduleIndex = selectedScheduleIndex
             }
         }
     }
     
     // UNWINDING
     @IBAction func unwindtoViewSchedule(seague: UIStoryboardSegue){
+        // EDIT: Saves the schedules
         // Things to do done when "unwind" is called by "Create Schedule (Aziz)"
         if let sourceViewController = seague.source as? CreateScheduleViewController   {
             
             // Updates the displayed schedule array
             schedulesListArr = schedulesListArr + [sourceViewController.displayedSchedule]
             
-            // Saving the schedule
+            // Updates Schedule List Array
             Schedule.saveSchedules(schedulesListArr)
         }
     }
@@ -140,9 +171,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Slide to delete
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            schedulesListArr.remove(at: indexPath.row) // remove from array
-            tableView.deleteRows(at: [indexPath], with: .fade) // remove from screen
+        var safeToDelete = true
+        
+        // Should display an alert informing the user to NOT delete the activated schedule to avoid bugs
+        if schedulesListArr[indexPath.row].name == DefaultData.activatedSchedule {
+            let alertView = UIAlertController(title: "ERROR", message: "Cannot delete activated schedule!", preferredStyle: .alert)
+            
+            alertView.addAction(UIAlertAction(title: "Return", style: .destructive, handler: { (action: UIAlertAction!) in
+                safeToDelete = false
+            }))
+            present(alertView, animated: true, completion: nil)
+            
+        } else if safeToDelete == true && editingStyle == .delete {
+            let alertView = UIAlertController(title: "WARNING", message: "Are you sure you want to continue?", preferredStyle: .alert)
+            
+            alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                safeToDelete = false
+            }))
+            
+            alertView.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
+                safeToDelete = true
+                
+                self.schedulesListArr.remove(at: indexPath.row) // remove from array
+                tableView.deleteRows(at: [indexPath], with: .fade) // remove from screen
+                
+                Schedule.saveSchedules(self.schedulesListArr) // Updates Schedule List Array
+            }))
+            
+            present(alertView, animated: true, completion: nil)
         }
     }
     

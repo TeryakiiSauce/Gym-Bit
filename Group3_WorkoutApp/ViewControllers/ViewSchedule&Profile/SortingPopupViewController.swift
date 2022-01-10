@@ -28,12 +28,6 @@ class SortingPopupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Loads the previously selected/ default sorting method
-        
-        print("loaded: \(DefaultData.currSelectedSortOption)")
-        print("loaded: \(DefaultData.ascOrDesc)")
-        
-        
         // Sort Method
         if DefaultData.currSelectedSortOption == "alphabetical" {
             alphaLbl.setTitleColor(.systemRed, for: .normal)
@@ -90,8 +84,7 @@ class SortingPopupViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: UIButton) {
-        print("selected: \(DefaultData.currSelectedSortOption)")
-        print("selected \(DefaultData.ascOrDesc)")
+        print("selected: \(DefaultData.currSelectedSortOption) \(DefaultData.ascOrDesc)")
     }
     
     

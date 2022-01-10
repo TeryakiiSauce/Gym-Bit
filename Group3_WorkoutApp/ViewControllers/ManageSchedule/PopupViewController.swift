@@ -3,10 +3,12 @@ import UIKit
 class PopupViewController: UIViewController {
     
     //setting default varuables
+    var tempScheduleTitle: String = ""
     var isClearConfirmPressed = false
     var isLeaveConfirmPressed = false
     var isupdatePressed = false
     @IBOutlet weak var BodyView: UIView!
+    
     
     //update schedule name popup gui outlets
     @IBOutlet weak var ScheduleNameTextField: UITextField!
@@ -16,11 +18,32 @@ class PopupViewController: UIViewController {
     
     //action when update is clicked
     @IBAction func updateScheduleButton(_ sender: Any) {
-        if ScheduleNameTextField.text == ""{
+        // get schedules saved and checks if schedule name is already taken or not
+        var isDuplicate = false
+        
+        for schedule in Schedule.getSchedules() {
+            if let unwrappedScheduleName = ScheduleNameTextField.text {
+                //print("schedule = \(schedule.name)")
+                //print("unwrapped schedule = \(unwrappedScheduleName)")
+                if schedule.name == unwrappedScheduleName {
+                    isDuplicate = true
+                    //print("found similar = \(isDuplicate)")
+                    break
+                }
+            }
+        }
+        
+        if isDuplicate == true {
+            errorLabel.text = "Name is already being used!"
+            ScheduleNameTextField.layer.borderWidth = 1
+            ScheduleNameTextField.layer.borderColor = UIColor.red.cgColor
+            
+        } else if ScheduleNameTextField.text == "" {
             errorLabel.text = "Schedule must have a name"
             ScheduleNameTextField.layer.borderWidth = 1
             ScheduleNameTextField.layer.borderColor = UIColor.red.cgColor
-        }else{
+            
+        } else {
             errorLabel.text = ""
             //discard page
             self.view.removeFromSuperview()
@@ -83,6 +106,11 @@ class PopupViewController: UIViewController {
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: BodyView, mainButton: UpdateScheduleMainButton, secondaryButton: nil)
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: LeaveMainButton, secondaryButton: LeaveSecondButton)
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: ClearMainButton, secondaryButton: ClearSecondButton)
+        
+        // Loads the temporary (previous) schedule name
+        let dictionary = UserDefaults.standard
+        tempScheduleTitle = dictionary.object(forKey: "tempScheduleName") as! String
+        ScheduleNameTextField.text = tempScheduleTitle // For ease of access
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -199,7 +199,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="BnR-Wr-VZK"/>
                                 </constraints>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="ClickSaveButton:" destination="QFN-bX-WXZ" eventType="touchUpInside" id="aYr-zk-z8o"/>
                                 </connections>
@@ -435,6 +437,7 @@
                             <constraint firstAttribute="trailing" secondItem="ZjZ-9q-bcp" secondAttribute="trailing" constant="20" id="lxS-jD-GrK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="XrE-nP-uqZ"/>
                     <connections>
                         <outlet property="BodyView" destination="ZjZ-9q-bcp" id="Nf6-IB-CxS"/>
                         <outlet property="ClearLabel" destination="yzg-cK-EfT" id="yKX-yA-r0k"/>
