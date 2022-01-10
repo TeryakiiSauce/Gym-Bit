@@ -7,7 +7,7 @@ struct Constants {
     
     // body and header radius
     static let viewRadius : CGFloat = 10
-    
+    static var isSoundOn = true
     
     // function to change the radius on view did load in the view controller
     static func buildRoundedUIView(
@@ -240,5 +240,17 @@ struct Constants {
         output.removeLast()
         }
         return output
+    }
+    // This function will be called to display alerts on the screen.
+    static func displayAlert(thisClass: UIViewController ,alertTitle: String, msg: String, printInConsole: String?)
+    {
+        let alertController = UIAlertController(title: alertTitle, message: msg, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) {
+            (action: UIAlertAction!) in
+            // Code in this block will trigger when OK button tapped.
+            if let consoleMsg = printInConsole {print(consoleMsg)}
+        }
+        alertController.addAction(OKAction)
+        thisClass.present(alertController, animated: true, completion: nil)
     }
 }

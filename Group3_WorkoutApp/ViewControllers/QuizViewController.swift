@@ -43,6 +43,22 @@ class QuizViewController: UIViewController {
         //userDefaults.setValue(nil, forKey: "name")
         
         //Here we check if the user already did the quiz, if yes skip the page and move to the view schedual page
+        if let isDark = userDefaults.value(forKey: "darkMode") as? Bool
+        {
+            if isDark
+            {
+                AppColors.isDarkMode = true
+            }
+        }
+        
+        if let isSoundOn = userDefaults.value(forKey: "sound") as? Bool
+        {
+            if !isSoundOn
+            {
+                Constants.isSoundOn = false
+            }
+        }
+        
         if let usrName = userDefaults.value(forKey: "name") as? String
         {
             print(usrName)
@@ -108,6 +124,12 @@ class QuizViewController: UIViewController {
         heightValue.text = getHeight()
         weightValue.text = getWeight()
         goalValue.text = getGoal()
+        
+        //Set sound on when first time app launched
+        if userDefaults.value(forKey: "sound") == nil
+        {
+            userDefaults.setValue(true, forKey: "sound")
+        }
     }
     
     //removing "your name" text after field is focused so the user not need to erase it.
@@ -222,7 +244,7 @@ class QuizViewController: UIViewController {
         //Checking if the user did not entered his name.
         if (nameField.text == "Your name" || nameField.text == "")
         {
-            displayAlert(alertTitle: "Alert", msg: "Please enter your name!", printInConsole: nil)
+            Constants.displayAlert(thisClass: self, alertTitle: "Alert", msg: "Please enter your name!", printInConsole: nil)
             return
         }
         
@@ -231,12 +253,12 @@ class QuizViewController: UIViewController {
         name = name.trimmingCharacters(in: .whitespaces)
         if(name == "")
         {
-            displayAlert(alertTitle: "Alert", msg: "Please enter your name!", printInConsole: nil)
+            Constants.displayAlert(thisClass: self, alertTitle: "Alert", msg: "Please enter your name!", printInConsole: nil)
             return
         }
         if(name.count < 3)
         {
-            displayAlert(alertTitle: "Alert", msg: "Your name should be at least three letters", printInConsole: nil)
+            Constants.displayAlert(thisClass: self, alertTitle: "Alert", msg: "Your name should be at least three letters", printInConsole: nil)
             return
         }
         
@@ -248,7 +270,7 @@ class QuizViewController: UIViewController {
             {
                 if(!l.isWhitespace)
                 {
-                    displayAlert(alertTitle: "Alert", msg: "Your name can contain only letters and a white space", printInConsole: nil)
+                    Constants.displayAlert(thisClass: self, alertTitle: "Alert", msg: "Your name can contain only letters and a white space", printInConsole: nil)
                     return
                 }
                 else
@@ -259,7 +281,7 @@ class QuizViewController: UIViewController {
         }
         if numOfSpaces > 1
         {
-            displayAlert(alertTitle: "Alert", msg: "The name text field can contain only one white space (between first and last name)", printInConsole: nil)
+            Constants.displayAlert(thisClass: self, alertTitle: "Alert", msg: "The name text field can contain only one white space (between first and last name)", printInConsole: nil)
             return
         }
         
@@ -287,19 +309,6 @@ class QuizViewController: UIViewController {
         self.performSegue(withIdentifier: "mainIdentifier", sender: self)
     }
     
-    
-    // This function will be called to display alerts on the screen.
-    func displayAlert(alertTitle: String, msg: String, printInConsole: String?)
-    {
-        let alertController = UIAlertController(title: alertTitle, message: msg, preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "OK", style: .default) {
-            (action: UIAlertAction!) in
-            // Code in this block will trigger when OK button tapped.
-            if let consoleMsg = printInConsole {print(consoleMsg)}
-        }
-        alertController.addAction(OKAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
     /*
     // MARK: - Navigation
 
