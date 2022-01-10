@@ -333,6 +333,7 @@ struct Constants {
         }
         
         return [:]
+     }
 
            // This function will be called to display alerts on the screen.
     static func displayAlert(thisClass: UIViewController ,alertTitle: String, msg: String, printInConsole: String?)
@@ -347,3 +348,4 @@ struct Constants {
         thisClass.present(alertController, animated: true, completion: nil)
     }
 }
+
