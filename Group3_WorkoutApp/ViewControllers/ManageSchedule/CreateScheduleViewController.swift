@@ -6,7 +6,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     var displayedSchedule = Schedule(dateCreated: Date(), name: "Your Schedule", playsCounter: nil, exercises: [])
     var addedExercises : [Exercise] = []
     var popuppageType = ["ClearTable" : false,"Back" : false,"changeName" : false]
-    let myAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in })
+
     //connectors that connect the gui to code
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
@@ -206,11 +206,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         }
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        myAction.backgroundColor = AppColors.deleteColor
-        return UISwipeActionsConfiguration.init(actions: [myAction])
-    }
+
     
     
     
