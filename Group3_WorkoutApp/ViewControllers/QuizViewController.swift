@@ -15,6 +15,7 @@ class QuizViewController: UIViewController {
     
     let userDefaults = UserDefaults()
 
+    @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var HeadLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var ageTxt: UILabel!
@@ -275,7 +276,19 @@ class QuizViewController: UIViewController {
         userDefaults.setValue(goal, forKey: "goal")
         userDefaults.setValue(isPoundFeet, forKey: "isPound")
         print("Saved :)")
+        
+        self.view.removeFromSuperview()
+        //preform segue to view Schedule page
+        self.performSegue(withIdentifier: "ToSchedule", sender: self)
     }
+    
+    @IBAction func skipClicked(_ sender: Any)
+    {
+//        let storyboard = UIStoryboard(name: "ViewSchedule", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "SchedulesListScreen") as UIViewController
+//        present(vc, animated: true, completion: nil)
+    }
+    
     
     // This function will be called to display alerts on the screen.
     func displayAlert(alertTitle: String, msg: String, printInConsole: String?)
