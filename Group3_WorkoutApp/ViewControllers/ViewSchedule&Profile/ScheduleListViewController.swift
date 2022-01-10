@@ -7,7 +7,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - DEFAULT VALUES VARIABLES
     
     
-    var schedulesListArr = DefaultData.schedules
+    var schedulesListArr = Schedule.getSchedules()
     var selectedScheduleIndex = DefaultData.activatedScheduleIndex
     
     
@@ -61,11 +61,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if DefaultData.ascOrDesc == "asc" {
             schedulesListArr = schedulesListArr.sorted(by: <)
             
+            Schedule.saveSchedules(schedulesListArr)
+            
         } else if DefaultData.ascOrDesc == "desc" {
             // Makes it in asc order and then reverses it so that there is less to code
             schedulesListArr = schedulesListArr.sorted(by: <)
-            
             schedulesListArr = schedulesListArr.reversed()
+            
+            Schedule.saveSchedules(schedulesListArr)
         }
         
         // Loads the previously activated schedule and its index
