@@ -11,7 +11,7 @@
         <!--Quiz View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="QuizViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuizStoryboard" id="Y6W-OH-hqX" customClass="QuizViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +213,6 @@
                                 <state key="normal" title="Skip"/>
                                 <connections>
                                     <action selector="skipClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="clj-lk-joA"/>
-                                    <segue destination="Fb6-sm-BXk" kind="unwind" identifier="ToSchedule" unwindAction="unwindtoViewScheduleWithSeague:" id="BUB-Bu-1bL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before you get started, we would like to personalize your app for you.." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEg-xc-f3n">
@@ -258,13 +257,11 @@
                         <outlet property="Line4" destination="TSE-f3-2RA" id="jv4-qM-tjn"/>
                         <outlet property="ageTxt" destination="Oys-Qc-CkN" id="jna-cE-Tmd"/>
                         <outlet property="bodyView" destination="Sae-x7-rU3" id="czt-5Q-q08"/>
-                        <outlet property="finishButton" destination="lec-i1-x9J" id="zcn-yg-bzI"/>
                         <outlet property="goalTxt" destination="r0n-4S-fWy" id="Luh-Ag-H2m"/>
                         <outlet property="goalValue" destination="0Vb-IQ-nsW" id="4Ys-XY-j79"/>
                         <outlet property="heightTxt" destination="h0j-bL-1LK" id="gmg-ZQ-slw"/>
                         <outlet property="heightValue" destination="LNC-MF-cCp" id="hEg-GW-clT"/>
                         <outlet property="nameField" destination="tGW-TX-RGA" id="eUo-wK-JU9"/>
-                        <outlet property="skipButton" destination="sM0-C2-XM3" id="EuQ-nb-BJi"/>
                         <outlet property="slider1" destination="UBd-1x-h6y" id="aNx-uo-Z9L"/>
                         <outlet property="slider2" destination="GIS-1V-mHd" id="X3A-0Z-tSV"/>
                         <outlet property="slider3" destination="X78-r3-GVF" id="ZoR-qx-sU7"/>
@@ -277,7 +274,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Fb6-sm-BXk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="113.04347826086958" y="75.669642857142847"/>
         </scene>
