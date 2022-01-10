@@ -39,6 +39,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="rMn-8K-jBf">
                                         <rect key="frame" x="25" y="25" width="80" height="80"/>
+                                        <color key="tintColor" red="0.54031985999999999" green="0.75212955469999998" blue="0.81177008149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="XbR-f2-P7j"/>
                                             <constraint firstAttribute="height" constant="80" id="jsU-j3-Qaf"/>
@@ -228,6 +229,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun_body building_637498" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-9B-lO5">
                                         <rect key="frame" x="25" y="25" width="80" height="80"/>
+                                        <color key="tintColor" red="0.54031985999999999" green="0.75212955469999998" blue="0.81177008149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="3wY-sp-kF8"/>
                                             <constraint firstAttribute="width" constant="80" id="xlm-0n-qf9"/>
@@ -473,6 +475,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="N5D-AE-e0c">
                                         <rect key="frame" x="25" y="25" width="80" height="80"/>
+                                        <color key="tintColor" red="0.54031985999999999" green="0.75212955469999998" blue="0.81177008149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Wpy-L2-BvH"/>
                                             <constraint firstAttribute="width" constant="80" id="bM2-BD-9oM"/>
@@ -755,6 +758,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="FiD-tk-2Gf">
                                                             <rect key="frame" x="279" y="14" width="40" height="40"/>
+                                                            <color key="tintColor" red="0.54031985999999999" green="0.75212955469999998" blue="0.81177008149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="L8e-Bv-BAH"/>
@@ -884,6 +888,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="sgG-m6-GQT">
                                                             <rect key="frame" x="279" y="14" width="40" height="40"/>
+                                                            <color key="tintColor" red="0.54031985999999999" green="0.75212955469999998" blue="0.81177008149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="EoG-KC-w1y"/>
