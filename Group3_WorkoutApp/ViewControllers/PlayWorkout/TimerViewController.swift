@@ -131,7 +131,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
     func formatTimeRemaining()
     {
         
-        let time = Constants.secondsToMinutesSeconds(seconds: Int(timeRemaining))
+        let time = Constants.secondsToMinutesSeconds(seconds: Int(round(timeRemaining)))
         let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
         // update timer label
         timeLabel.text = timeString
@@ -193,7 +193,10 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         let pausedTime : CFTimeInterval = timerShape.convertTime(CACurrentMediaTime(), from: nil)
         timerShape.speed = 0.0
         timerShape.timeOffset = pausedTime
-        //        timeRemaining =  selectedTime - pausedTime
+        timeRemaining =  selectedTime - pausedTime
+        // format time remaining
+        formatTimeRemaining()
+        print("time remaining in pause \(timeRemaining)")
         
     }
     
@@ -205,10 +208,14 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         timerShape.beginTime = 0.0
         let timeSincePause = timerShape.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         timerShape.beginTime = timeSincePause
-        //        timeRemaining =  selectedTime - pausedTime
+//        timeRemaining =  selectedTime - pausedTime
+//        print("time remaining in resume \(timeRemaining)")
     }
     
     func yesButtonTapped() {
+        // add animation but pause it
+        self.timerShape.add(self.basicAnimation, forKey: nil)
+        self.pauseAnimation()
         // stop time
         self.timer.invalidate()
         // reset time remaining
@@ -219,9 +226,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         self.playPauseButton.setImage(UIImage(named: "play_button.svg"), for: .normal)
         self.timerIsCounting = false
 
-        // add animation but pause it
-        self.timerShape.add(self.basicAnimation, forKey: nil)
-        self.pauseAnimation()
+        
     }
     
     @IBAction func resetTapped(_ sender: Any) {
