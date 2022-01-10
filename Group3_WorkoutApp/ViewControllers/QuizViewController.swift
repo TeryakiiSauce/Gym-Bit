@@ -38,23 +38,23 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var unitSwitch: UIImageView!
     @IBOutlet weak var finishButton: UIButton!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //userDefaults.setValue(nil, forKey: "name")
+        
+        //Here we check if the user already did the quiz, if yes skip the page and move to the view schedual page
+        if let usrName = userDefaults.value(forKey: "name") as? String
+        {
+            print(usrName)
+            self.performSegue(withIdentifier: "mainIdentifier", sender: self)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Setting the default style to the view and the body view by calling a funcation from Constants struct.
         Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: finishButton, secondaryButton: nil)
         
-        if let usrName = userDefaults.value(forKey: "name") as? String
-        {
-            print(usrName)
-        }
-        if let usrAge = userDefaults.value(forKey: "age") as? Int
-        {
-            print(usrAge)
-        }
-        if let usrHeight = userDefaults.value(forKey: "height") as? Int
-        {
-            print(usrHeight)
-        }
+
         
         // Changing colors to match the app theme by calling AppColors stuct.
         HeadLabel.textColor = AppColors.textColor
@@ -277,16 +277,14 @@ class QuizViewController: UIViewController {
         userDefaults.setValue(isPoundFeet, forKey: "isPound")
         print("Saved :)")
         
-        self.view.removeFromSuperview()
         //preform segue to view Schedule page
-        self.performSegue(withIdentifier: "unwindToViewSchedule", sender: self)
+        self.performSegue(withIdentifier: "mainIdentifier", sender: self)
     }
     
     @IBAction func skipClicked(_ sender: Any)
     {
-        self.view.removeFromSuperview()
         //preform segue to view Schedule page
-        self.performSegue(withIdentifier: "unwindToViewSchedule", sender: self)
+        self.performSegue(withIdentifier: "mainIdentifier", sender: self)
     }
     
     
