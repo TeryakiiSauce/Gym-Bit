@@ -27,7 +27,8 @@ class MuscleListViewController: UIViewController,UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         // apply default styling
-        Constants.buildRoundedUIView(headerView: nil, bodyView: bodyView, button:nil)
+        
+        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
         customTableView.delegate = self
         customTableView.dataSource = self
         //styling table view
