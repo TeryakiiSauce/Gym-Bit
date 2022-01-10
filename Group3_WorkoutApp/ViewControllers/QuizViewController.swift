@@ -279,14 +279,14 @@ class QuizViewController: UIViewController {
         
         self.view.removeFromSuperview()
         //preform segue to view Schedule page
-        self.performSegue(withIdentifier: "ToSchedule", sender: self)
+        self.performSegue(withIdentifier: "unwindToViewSchedule", sender: self)
     }
     
     @IBAction func skipClicked(_ sender: Any)
     {
-//        let storyboard = UIStoryboard(name: "ViewSchedule", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "SchedulesListScreen") as UIViewController
-//        present(vc, animated: true, completion: nil)
+        self.view.removeFromSuperview()
+        //preform segue to view Schedule page
+        self.performSegue(withIdentifier: "unwindToViewSchedule", sender: self)
     }
     
     
