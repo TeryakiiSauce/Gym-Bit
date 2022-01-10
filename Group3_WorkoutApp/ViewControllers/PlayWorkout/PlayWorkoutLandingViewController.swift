@@ -37,13 +37,15 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         schedule = DefaultData.user.activeSchedule
         
         if schedule != nil{
-            scheduleNameLabel.text = DefaultData.schedules[0].name
-            scheduleTargetLabel.text = "Full Body"
+            scheduleNameLabel.text = schedule?.name
+            scheduleTargetLabel.text = Constants.targetMuscle(exerciseList: schedule?.exercises ?? [])
             customTableView.delegate = self
             customTableView.dataSource = self
             //styling table view
             customTableView.separatorStyle = .none
             customTableView.showsVerticalScrollIndicator = false
+            
+            // hide image and label of nil schedule
             selectionLabel.isHidden = true
             image.isHidden = true
         }else{
@@ -51,6 +53,8 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
             restTimeLabel.isHidden = true
             restTimeButton.isHidden = true
             startButton.isEnabled = false
+            scheduleNameLabel.text = "No Active Schedule"
+            scheduleTargetLabel.text = ""
         }
         
         
