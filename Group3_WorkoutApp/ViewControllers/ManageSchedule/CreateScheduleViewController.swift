@@ -6,7 +6,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     var displayedSchedule = Schedule(dateCreated: Date(), name: "Your Schedule", playsCounter: nil, exercises: [])
     var addedExercises : [Exercise] = []
     var popuppageType = ["ClearTable" : false,"Back" : false,"changeName" : false]
-    
+
     //connectors that connect the gui to code
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
@@ -71,8 +71,6 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     
     // Opens a popup that allows users to change the schedule name
     @IBAction func ClickUpdateScheduleButton(_ sender: Any) {
-        let dictionary = UserDefaults.standard
-        dictionary.set(scheduleName.text, forKey: "tempScheduleName")
         
         //creating a var of the popup viewcontroller
         popuppageType["changeName"]?.toggle()
@@ -128,6 +126,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         //creating a custom back nav bar button
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(CreateScheduleViewController.back(sender:)))
+        newBackButton.tintColor = AppColors.buttonColor
         self.navigationItem.leftBarButtonItem = newBackButton
     }
     
@@ -154,7 +153,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         } else {
             mainButton.isEnabled = true
             mainButton.backgroundColor = UIColor(red: 136/255, green: 192/255, blue: 208/255, alpha: 1)
-            mainButton.setTitle("Save", for: .normal)
+            updateMainButton()
         }
     }
     
@@ -169,20 +168,8 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     //view wil appear function
     override func viewWillAppear(_ animated: Bool) {
         //checking if there are any exercises there
-        if displayedSchedule.exercises.count == 0 {
-            //hiding the editable stack view and displaying an empty page
-            editableTableStackView.isHidden = true
-            EmptyTableStackView.isHidden = false
-            //changeing the button name
-            mainButton.setTitle("Add Exercise", for: .normal)
-        }
-        else {
-            //hiding the empty view and displaing the editable view
-            editableTableStackView.isHidden = false
-            EmptyTableStackView.isHidden = true
-            //changing the button name
-            mainButton.setTitle("Save", for: .normal)
-        }
+        updateMainButton()
+        
         MuscleLabel.text = Constants.targetMuscle(exerciseList: displayedSchedule.exercises)
     }
    
@@ -211,12 +198,17 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //checking the editing style
         if editingStyle == .delete {
+            
             //removing the instance from the stored schedule
             displayedSchedule.exercises.remove(at: indexPath.row)
             //removing the row from the table in the gui
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+
+    
+    
     
     //function that creates an instance of popup page viewcontreoller and returns it
     func openPopupPage() -> PopupViewController{
@@ -227,5 +219,22 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         self.view.addSubview(popOverVc.view)
         popOverVc.didMove(toParent: self)
         return popOverVc
+    }
+    
+    func updateMainButton(){
+        if displayedSchedule.exercises.count == 0 {
+            //hiding the editable stack view and displaying an empty page
+            editableTableStackView.isHidden = true
+            EmptyTableStackView.isHidden = false
+            //changeing the button name
+            mainButton.setTitle("Add Exercise", for: .normal)
+        }
+        else {
+            //hiding the empty view and displaing the editable view
+            editableTableStackView.isHidden = false
+            EmptyTableStackView.isHidden = true
+            //changing the button name
+            mainButton.setTitle("Save", for: .normal)
+        }
     }
 }

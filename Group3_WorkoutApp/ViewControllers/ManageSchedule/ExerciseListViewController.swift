@@ -15,6 +15,7 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     @IBOutlet weak var mainButton: UIButton!
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
+    @IBOutlet weak var TargetLabel: UILabel!
     
     //function that gets the exercises by an inputed string and sets them in exercise list
     func getExercises(Type:String){
@@ -43,13 +44,15 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     override func viewWillAppear(_ animated: Bool) {
         //getting the exercise for the page
         getExercises(Type: mainImageIconName)
+        TargetLabel.text = Constants.targetMuscle(exerciseList: exersizeList!)
     }
     
     //view did load function
     override func viewDidLoad() {
         super.viewDidLoad()
         // apply default styling
-        Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:mainButton)
+        
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil)
         customTableView.delegate = self
         customTableView.dataSource = self
         //allowing the user to multicelect the cell 
