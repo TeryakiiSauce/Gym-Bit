@@ -187,6 +187,9 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             self.view.addSubview(alertVC.view)
             alertVC.didMove(toParent: self)
             
+            self.performSegue(withIdentifier: "unwindToWorkoutLandingViewController", sender: self)
+
+            
         }else{
             exerciseIndex += 1
             updateProgressView()

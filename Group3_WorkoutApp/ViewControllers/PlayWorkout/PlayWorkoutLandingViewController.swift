@@ -118,6 +118,10 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
             return
         }
     }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+
+    }
 }
 
 extension PlayWorkoutLandingViewController: UIViewControllerTransitioningDelegate {

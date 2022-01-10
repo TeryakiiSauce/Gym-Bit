@@ -687,9 +687,11 @@
                         <outlet property="mainButton" destination="8tg-uV-BGu" id="6iR-xc-PwT"/>
                         <outlet property="progressView" destination="5Cr-6A-ofF" id="0AD-RZ-Zl6"/>
                         <outlet property="totalExercisesLabel" destination="YmV-Sw-iEl" id="5MY-wR-zil"/>
+                        <segue destination="cqF-vv-alp" kind="unwind" identifier="unwindToWorkoutLandingViewController" unwindAction="prepareForUnwindWithSegue:" id="16o-Za-QqC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bz0-3H-wss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cqF-vv-alp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3766.666666666667" y="-869.19642857142856"/>
         </scene>
