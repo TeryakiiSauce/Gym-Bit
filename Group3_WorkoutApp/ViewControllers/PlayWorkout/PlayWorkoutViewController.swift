@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     
@@ -35,7 +36,6 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // set table view to the first embedded view controller (play workout table)
         tableViewController = self.children[0] as? PlayWorkoutTableViewController
         
@@ -104,6 +104,8 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         return Double(endDateMinutes - startDateMinutes)
     }
     
+    
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
         
         // change button title when reaching the last exercise
@@ -117,7 +119,20 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             
             endWorkoutTime = Date()
             
+            // calculate workout time
             let totalWorkoutTime = calcWorkoutTimeInMinutes()
+            
+            // get workout data (list of dictionaries) if exists
+            if var workoutData = Constants.getWorkoutData() {
+                // append new values
+                workoutData.append(["workoutTime": totalWorkoutTime, "cardioTime":cardioTime ?? 0])
+                // save new list
+                Constants.saveWorkoutData(workoutData)
+            }else{
+                // save data into new list
+                Constants.saveWorkoutData([["workoutTime": totalWorkoutTime, "cardioTime":cardioTime ?? 0]])
+            }
+            
             
             alertVC.totalMinutes = Int(totalWorkoutTime)
             // pass timer controller

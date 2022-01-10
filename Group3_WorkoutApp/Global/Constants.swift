@@ -241,4 +241,36 @@ struct Constants {
         }
         return output
     }
+    
+    
+    // Encodes & saves the workout duration as "workoutData.plist" in the App's Sandbox
+   static func saveWorkoutData(_ workoutsList: [[String: Double]]) {
+        // Creating the directory and filename
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory,
+         in: .userDomainMask).first!
+        let archiveURL =
+         documentsDirectory.appendingPathComponent("workoutData").appendingPathExtension("plist")
+        
+        let propertyListEncoder = PropertyListEncoder()
+        let encodedWorkoutData = try? propertyListEncoder.encode(workoutsList)
+        try? encodedWorkoutData?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+    // Decodes, reads & returns the array of schedules
+     static func getWorkoutData() -> [[String: Double]]? {
+        
+        // Creating the directory and filename
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory,
+         in: .userDomainMask).first!
+        let archiveURL =
+         documentsDirectory.appendingPathComponent("workoutData").appendingPathExtension("plist")
+        let propertyListDecoder = PropertyListDecoder()
+        
+        
+        if let retrievedWorkoutData = try? Data(contentsOf: archiveURL), let decodedWorkoutData = try? propertyListDecoder.decode(Array<[String: Double]>.self, from: retrievedWorkoutData) {
+            return decodedWorkoutData
+        }
+        
+        return []
+    }
 }
