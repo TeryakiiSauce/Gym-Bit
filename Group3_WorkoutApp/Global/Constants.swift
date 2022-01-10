@@ -256,7 +256,7 @@ struct Constants {
         try? encodedWorkoutData?.write(to: archiveURL, options: .noFileProtection)
     }
     
-    // Decodes, reads & returns the array of schedules
+    // Decodes, reads & returns the array of dictionaries (workout data)
      static func getWorkoutData() -> [[String: Double]]? {
         
         // Creating the directory and filename
@@ -272,5 +272,67 @@ struct Constants {
         }
         
         return []
+    }
+    
+    // Encodes & saves playing workout dates as "playingWorkoutDates.plist" in the App's Sandbox
+   static func savePlayingWorkoutDates(_ workoutsList: [Date]) {
+        // Creating the directory and filename
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory,
+         in: .userDomainMask).first!
+        let archiveURL =
+         documentsDirectory.appendingPathComponent("playingWorkoutDates").appendingPathExtension("plist")
+        
+        let propertyListEncoder = PropertyListEncoder()
+        let encodedDateList = try? propertyListEncoder.encode(workoutsList)
+        try? encodedDateList?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+    // Decodes, reads & returns the array of playing workout dates
+     static func getPlayingWorkoutDates() -> [Date]? {
+        
+        // Creating the directory and filename
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory,
+         in: .userDomainMask).first!
+        let archiveURL =
+         documentsDirectory.appendingPathComponent("workoutData").appendingPathExtension("plist")
+        let propertyListDecoder = PropertyListDecoder()
+        
+        
+        if let retrievedDateList = try? Data(contentsOf: archiveURL), let decodedDateList = try? propertyListDecoder.decode(Array<Date>.self, from: retrievedDateList) {
+            return decodedDateList
+        }
+        
+        return []
+    }
+    
+    // Encodes & saves playing schedule counter as "playingScheduleCounter.plist" in the App's Sandbox
+    static func savePlayedScheduleData(_ workoutsList: [String: Int]) {
+        // Creating the directory and filename
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory,
+         in: .userDomainMask).first!
+        let archiveURL =
+         documentsDirectory.appendingPathComponent("playingWorkoutDates").appendingPathExtension("plist")
+        
+        let propertyListEncoder = PropertyListEncoder()
+        let encodedCounterList = try? propertyListEncoder.encode(workoutsList)
+        try? encodedCounterList?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+    // Decodes, reads & returns the array of playing workout dates
+     static func getPlayedScheduleData() -> [String: Int]? {
+        
+        // Creating the directory and filename
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory,
+         in: .userDomainMask).first!
+        let archiveURL =
+         documentsDirectory.appendingPathComponent("workoutData").appendingPathExtension("plist")
+        let propertyListDecoder = PropertyListDecoder()
+        
+        
+        if let ScheduleDataList = try? Data(contentsOf: archiveURL), let decodedScheduleDataList = try? propertyListDecoder.decode([String: Int].self, from: ScheduleDataList) {
+            return decodedScheduleDataList
+        }
+        
+        return [:]
     }
 }

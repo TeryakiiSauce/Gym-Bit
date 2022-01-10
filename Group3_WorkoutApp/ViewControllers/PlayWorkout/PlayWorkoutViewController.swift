@@ -147,6 +147,35 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             }else{
                 Constants.saveWorkoutData([["workoutTime": totalWorkoutTime, "cardioTime":cardioTime ?? 0]])
             }
+
+            // get workout date list if exists
+            if var workoutDates = Constants.getPlayingWorkoutDates() {
+                // append new values
+                workoutDates.append(endWorkoutTime!)
+                // save new list
+                Constants.savePlayingWorkoutDates(workoutDates)
+            }else{
+                // save new list
+                Constants.savePlayingWorkoutDates([endWorkoutTime!])
+            }
+            
+            // get schedule data dictionary
+            if var scheduleData = Constants.getPlayedScheduleData() {
+                
+                // check if schedule exists
+                if scheduleData[schedule!.name] != nil {
+                    scheduleData[schedule!.name]! += 1
+                }else {
+                    scheduleData[schedule!.name] = 1
+                }
+                // save dic
+                Constants.savePlayedScheduleData(scheduleData)
+            }else{
+                // save new dic
+                Constants.savePlayedScheduleData([schedule!.name: 1])
+            }
+            
+            
             
             
             alertVC.totalMinutes = Int(totalWorkoutTime)
