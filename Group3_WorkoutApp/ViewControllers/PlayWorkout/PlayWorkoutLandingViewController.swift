@@ -21,7 +21,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     
     // default rest time
     static var restTime = 45
-    var schedule = DefaultData.user.activeSchedule
+    var schedule: Schedule?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,18 +29,32 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: startButton, secondaryButton: restTimeButton)
         
         setDefaultData()
-        
-        customTableView.delegate = self
-        customTableView.dataSource = self
-        //styling table view
-        customTableView.separatorStyle = .none
-        customTableView.showsVerticalScrollIndicator = false
-        
     }
     
     func setDefaultData(){
-        scheduleNameLabel.text = DefaultData.schedules[0].name
-        scheduleTargetLabel.text = "Full Body"
+        schedule = DefaultData.user.activeSchedule
+        
+        if schedule != nil{
+            scheduleNameLabel.text = DefaultData.schedules[0].name
+            scheduleTargetLabel.text = "Full Body"
+            customTableView.delegate = self
+            customTableView.dataSource = self
+            //styling table view
+            customTableView.separatorStyle = .none
+            customTableView.showsVerticalScrollIndicator = false
+        }else{
+            customTableView.isHidden = true
+            restTimeLabel.isHidden = true
+            restTimeButton.isHidden = true
+            startButton.isEnabled = false
+            
+            let image = UIImage(named: "no_selection")
+            let imageView = UIImageView(image: image!)
+
+            bodyView.addSubview(imageView)
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

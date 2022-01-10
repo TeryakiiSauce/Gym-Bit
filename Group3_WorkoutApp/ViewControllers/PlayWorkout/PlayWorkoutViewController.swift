@@ -20,8 +20,10 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     var exerciseIndex = 0
     var schedule = DefaultData.user.activeSchedule
     var exercisesCount: Int?
-    
     var progress = Progress(totalUnitCount: Int64(DefaultData.schedules[0].exercises.count))
+    var cardioTime: Double?
+    var startWorkoutTime: Date?
+    var endWorkoutTime: Date?
     
     // to access table view
     var tableViewController : PlayWorkoutTableViewController?
@@ -93,6 +95,15 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
 
     }
     
+    func calcWorkoutTimeInMinutes() -> Double {
+        // get both times sinces refrenced date and divide by 60 to get minutes
+        let endDateMinutes = endWorkoutTime!.timeIntervalSinceReferenceDate/60
+        let startDateMinutes = startWorkoutTime!.timeIntervalSinceReferenceDate/60
+
+        // return the difference
+        return Double(endDateMinutes - startDateMinutes)
+    }
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
         
         // change button title when reaching the last exercise
@@ -104,6 +115,11 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             // instantiate alret dialog
             guard let alertVC = UIStoryboard(name: "PlayWorkout", bundle: nil).instantiateViewController(withIdentifier: "completeWorkoutViewController") as? CompleteWorkoutPopupViewController else {return}
             
+            endWorkoutTime = Date()
+            
+            let totalWorkoutTime = calcWorkoutTimeInMinutes()
+            
+            alertVC.totalMinutes = Int(totalWorkoutTime)
             // pass timer controller
             alertVC.delegate = self
             // add alert to the view controller
