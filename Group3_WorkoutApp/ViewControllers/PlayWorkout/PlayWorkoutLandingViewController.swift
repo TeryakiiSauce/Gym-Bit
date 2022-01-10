@@ -36,7 +36,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         
         if schedule != nil{
             scheduleNameLabel.text = DefaultData.schedules[0].name
-            scheduleTargetLabel.text = "Full Body"
+            scheduleTargetLabel.text = "Waiting for schedule activation"
             customTableView.delegate = self
             customTableView.dataSource = self
             //styling table view
