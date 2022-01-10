@@ -179,7 +179,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile" selectedImage="profile" id="Hek-Oq-EnP"/>
                     <navigationItem key="navigationItem" title="My Profile" id="w4b-Ze-qFb">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" image="gearshape" catalog="system" largeContentSizeImage="gear" id="puA-DJ-2ph"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="gearshape" catalog="system" largeContentSizeImage="gear" id="puA-DJ-2ph">
+                            <connections>
+                                <segue destination="fe1-wb-c12" kind="show" id="Dh1-v4-oNB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
