@@ -37,11 +37,13 @@ class PopupViewController: UIViewController {
             errorLabel.text = "Name is already being used!"
             ScheduleNameTextField.layer.borderWidth = 1
             ScheduleNameTextField.layer.borderColor = UIColor.red.cgColor
+            ScheduleNameTextField.layer.cornerRadius = Constants.viewRadius
             
         } else if ScheduleNameTextField.text == "" {
             errorLabel.text = "Schedule must have a name"
             ScheduleNameTextField.layer.borderWidth = 1
             ScheduleNameTextField.layer.borderColor = UIColor.red.cgColor
+            ScheduleNameTextField.layer.cornerRadius = Constants.viewRadius
             
         } else {
             errorLabel.text = ""
@@ -106,11 +108,9 @@ class PopupViewController: UIViewController {
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: BodyView, mainButton: UpdateScheduleMainButton, secondaryButton: nil)
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: LeaveMainButton, secondaryButton: LeaveSecondButton)
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: ClearMainButton, secondaryButton: ClearSecondButton)
+        ClearSecondButton.backgroundColor = AppColors.deleteColor
         
-        // Loads the temporary (previous) schedule name
-        let dictionary = UserDefaults.standard
-        tempScheduleTitle = dictionary.object(forKey: "tempScheduleName") as! String
-        ScheduleNameTextField.text = tempScheduleTitle // For ease of access
+        ScheduleNameTextField.placeholder = "Enter Schedule Name" // For ease of access
     }
     
     override func viewWillAppear(_ animated: Bool) {

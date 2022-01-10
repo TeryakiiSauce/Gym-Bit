@@ -15,6 +15,7 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     @IBOutlet weak var mainButton: UIButton!
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
+    @IBOutlet weak var TargetLabel: UILabel!
     
     //function that gets the exercises by an inputed string and sets them in exercise list
     func getExercises(Type:String){
@@ -43,6 +44,7 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     override func viewWillAppear(_ animated: Bool) {
         //getting the exercise for the page
         getExercises(Type: mainImageIconName)
+        TargetLabel.text = Constants.targetMuscle(exerciseList: exersizeList!)
     }
     
     //view did load function

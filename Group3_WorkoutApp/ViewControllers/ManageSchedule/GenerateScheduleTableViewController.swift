@@ -41,7 +41,7 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
         customTableView.showsVerticalScrollIndicator = false
         //disable button and change color
         MainButton.isEnabled = false
-        MainButton.layer.backgroundColor = AppColors.buttonSecondaryColor.cgColor
+        MainButton.alpha = 0.5
     }
 
     //sets the number of rows in the table
@@ -70,7 +70,7 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
         selectedMuscles[didSelectRowAt.row] = true
         numberOfSelectedMuscles = numberOfSelectedMuscles+1
         //enable button and change color
-        MainButton.layer.backgroundColor = AppColors.buttonColor.cgColor
+        MainButton.alpha = 1
         MainButton.isEnabled = true
     }
     
@@ -81,7 +81,7 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
         //if no muscles are selected disable button and change color
         if numberOfSelectedMuscles == 0 {
             MainButton.isEnabled = false
-            MainButton.layer.backgroundColor = AppColors.buttonSecondaryColor.cgColor
+            MainButton.alpha = 0.5
         }
     }
     
