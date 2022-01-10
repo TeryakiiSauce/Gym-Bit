@@ -1018,6 +1018,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="BcQ-EO-rbh">
                                                             <rect key="frame" x="279" y="14" width="40" height="40"/>
+                                                            <color key="tintColor" red="0.54031985999999999" green="0.75212955469999998" blue="0.81177008149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="7Qk-3s-pUw"/>
@@ -1230,6 +1231,7 @@
                     </view>
                     <connections>
                         <outlet property="bodyView" destination="yoj-Go-Y1w" id="RRW-gH-zSW"/>
+                        <outlet property="completeLabel" destination="Bfa-fp-jXq" id="stH-pb-v8I"/>
                         <outlet property="continueButton" destination="crE-Wc-luE" id="nXg-Le-y3f"/>
                     </connections>
                 </viewController>

@@ -248,6 +248,9 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         
         guard let playWorkoutVC = self.storyboard?.instantiateViewController(identifier: "performWorkoutView") as? PlayWorkoutViewController else {return}
         
+        playWorkoutVC.startWorkoutTime = Date()
+        playWorkoutVC.cardioTime = selectedTime / 60
+        
         present(playWorkoutVC, animated: true)
     }
     

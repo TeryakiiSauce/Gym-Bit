@@ -18,13 +18,17 @@ class CompleteWorkoutPopupViewController: UIViewController {
 
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var completeLabel: UILabel!
     
+    var totalMinutes: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         //setting the background to be dimmed when the page is up
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         //method that makes the views have round edges
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: bodyView, mainButton: continueButton, secondaryButton: nil)
+        
+        completeLabel.text = "You have completed your workout in \(totalMinutes ?? 0) minutes"
     }
     @IBAction func continueTapped(_ sender: Any) {
         delegate?.finishWorkout()
