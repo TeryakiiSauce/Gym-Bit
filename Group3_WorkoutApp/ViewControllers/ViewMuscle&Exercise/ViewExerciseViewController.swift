@@ -51,13 +51,14 @@ class ViewExerciseViewController: UIViewController,UITableViewDataSource, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // apply default styling
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
         getExercises(Type: mainImageIconName)
     }
     //view did load function
     override func viewDidLoad() {
         super.viewDidLoad()
-        // apply default styling
-        Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:nil)
+
         customTableView.delegate = self
         customTableView.dataSource = self
         //styling table view
