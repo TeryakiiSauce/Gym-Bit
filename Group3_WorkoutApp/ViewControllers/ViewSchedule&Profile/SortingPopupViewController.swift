@@ -9,26 +9,25 @@ import UIKit
 
 class SortingPopupViewController: UIViewController {
 
+    // MARK: - Outlets
+    
     @IBOutlet weak var alphaLbl: UIButton!
     @IBOutlet weak var timesUsedLbl: UIButton!
     @IBOutlet weak var dateCreatedLbl: UIButton!
     @IBOutlet weak var orderBy: UISegmentedControl!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var bgView: UIStackView!
+    
+    // MARK: END
     
     
     
-    
-    
-    // GENERATED FUNCTIONS //
-    
-    
-    
-    
+    // MARK: - Screen loading functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         
         // Sort Method
         if DefaultData.currSelectedSortOption == "alphabetical" {
@@ -56,6 +55,23 @@ class SortingPopupViewController: UIViewController {
             orderBy.selectedSegmentIndex = 1
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let selectedSegmentFontColor = [NSAttributedString.Key.foregroundColor: AppColors.phoneBg]
+        let unselectedSegmentFontColor = [NSAttributedString.Key.foregroundColor: AppColors.textColor]
+        orderBy.setTitleTextAttributes(selectedSegmentFontColor, for: .selected)
+        orderBy.setTitleTextAttributes(unselectedSegmentFontColor, for: .normal)
+        orderBy.selectedSegmentTintColor = AppColors.buttonColor
+        orderBy.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], for: .normal)
+        
+        bgView.layer.cornerRadius = Constants.viewRadius
+    }
+    
+    // MARK: END
+    
+    
+    
+    // MARK: - Button Actions
     
     @IBAction func AlphaBtn(_ sender: UIButton) {
         alphaLbl.setTitleColor(.systemRed, for: .normal)
@@ -91,36 +107,5 @@ class SortingPopupViewController: UIViewController {
         performSegue(withIdentifier: "returnToMainPage", sender: self)
     }
     
-    
-    
-    
-    
-    
-    
-    
-    // CUSTOM FUNCTIONS //
-    
-    
-    
-    
-    // Should update the schdules sort order in the previous screen
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! ViewController
-        
-        if orderBy.selectedSegmentIndex == 0 {
-            DefaultData.ascOrDesc = "asc"
-        } else if orderBy.selectedSegmentIndex == 1 {
-            DefaultData.ascOrDesc = "desc"
-        }
-        
-        if DefaultData.ascOrDesc == "asc" {
-            dest.schedulesListArr = dest.schedulesListArr.sorted(by: <)
-            
-        } else if DefaultData.ascOrDesc == "desc" {
-            // Makes it in asc order and then reverses it so that there is less to code
-            dest.schedulesListArr = dest.schedulesListArr.sorted(by: <)
-            
-            dest.schedulesListArr = dest.schedulesListArr.reversed()
-        }
-    }*/
+    // MARK: END
 }

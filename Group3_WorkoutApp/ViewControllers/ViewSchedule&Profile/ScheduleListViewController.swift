@@ -9,7 +9,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var schedulesListArr = Schedule.getSchedules()
     var activatedSchedule = Schedule.getActivatedSchedule()
-    //var selectedScheduleIndex = DefaultData.activatedScheduleIndex
     
     
     // MARK: END
@@ -39,9 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Default styling
-        /*Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: SecondayButton)*/
+
         customTableView.delegate = self
         customTableView.dataSource = self
         
@@ -61,17 +58,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             activatedScheduleLbl.text = DefaultData.user.activeSchedule?.name
         }
-        
-        /*
-         UNREQUIRED CODES (MAY BE USED AS REFERENCE!)
-         
-         // Read from local storage and update the header
-         if activatedSchedule.name == "" {
-             activatedScheduleLbl.text = "None"
-         } else {
-             activatedScheduleLbl.text = activatedSchedule.name
-         }
-         */
     }
     
     // Updates the view whenever the screen appears
@@ -106,38 +92,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // So that the schedule array & activated schedule are always up-to-date
         schedulesListArr = Schedule.getSchedules()
         activatedSchedule = Schedule.getActivatedSchedule()
-        
-        /*
-         
-         UNREQUIRED CODES (MAY BE USED FOR REFERENCE!)
-         
-         // Read from local storage and update the header
-         if activatedSchedule.name == "" {
-             activatedScheduleLbl.text = "None"
-         } else {
-             activatedScheduleLbl.text = activatedSchedule.name
-         }
-         
-         // Loads the previously activated schedule and its index
-         /*let dictionary = UserDefaults.standard
-         if let unwrappedScheduleTitle = dictionary.object(forKey: "activatedScheduleTitle") as? String, let unwrappedIndex = dictionary.object(forKey: "activatedScheduleIndex") as? Int {
-             DefaultData.activatedSchedule = unwrappedScheduleTitle
-             DefaultData.activatedScheduleIndex = unwrappedIndex
-         }*/
-         
-         // Updates the schedule title and index
-         /*selectedScheduleIndex = DefaultData.activatedScheduleIndex
-         activatedScheduleLbl.text = DefaultData.activatedSchedule*/
-         
-         // TESTING
-         //print("Currently activated schedule: \(DefaultData.activatedSchedule). Index = \(selectedScheduleIndex)")
-         
-        */
     }
     
-    /*override func viewWillDisappear(_ animated: Bool) {
-        print(DefaultData.user.activeSchedule!)
-    }*/
     
     // MARK: END
     /// ===================================================
@@ -155,12 +111,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let selectedScheduleIndex = customTableView.indexPathForSelectedRow?.row {
                 
                 viewCurrScheduleScreen.selectedSchedule = schedulesListArr[selectedScheduleIndex]
-                
-                /*
-                 UNREQUIRED CODES (MAYBE BE USED FOR REFERENCE!)
-                 //selectedScheduleIndex = selectedSchedule
-                 //viewCurrScheduleScreen.selectedScheduleIndex = selectedScheduleIndex
-                 */
             }
         } else if segue.identifier == "createPage" {
             let viewController = segue.destination as! CreateScheduleViewController

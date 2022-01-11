@@ -179,7 +179,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="KUq-GX-Xpk"/>
                     <navigationItem key="navigationItem" title="Schedule List" id="lOr-JH-R1j">
-                        <barButtonItem key="rightBarButtonItem" id="GBu-Bo-w8H">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="GBu-Bo-w8H">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ywA-e8-CAx">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -214,19 +214,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5S-5g-1D4">
-                                <rect key="frame" x="20" y="294" width="374" height="302"/>
+                                <rect key="frame" x="20" y="219" width="374" height="502"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="QeB-FR-lNv">
-                                        <rect key="frame" x="10" y="10" width="354" height="282"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QeB-FR-lNv">
+                                        <rect key="frame" x="40" y="30" width="294" height="442"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aA2-E0-UcZ">
-                                                <rect key="frame" x="149" y="0.0" width="56.5" height="38.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="117.5" y="0.0" width="59" height="59"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gA7-pg-AFL">
-                                                <rect key="frame" x="128.5" y="40.5" width="97" height="38.5"/>
+                                                <rect key="frame" x="98.5" y="64" width="97" height="58.5"/>
                                                 <state key="normal" title="Alphabetically">
                                                     <color key="titleColor" systemColor="systemRedColor"/>
                                                 </state>
@@ -235,35 +235,39 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7t-hX-yBJ">
-                                                <rect key="frame" x="136" y="81" width="82" height="38.5"/>
+                                                <rect key="frame" x="106" y="127.5" width="82" height="59"/>
                                                 <state key="normal" title="Times Used"/>
                                                 <connections>
                                                     <action selector="TimesUsedBtn:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="LD5-DF-mAr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0i-vN-ITq">
-                                                <rect key="frame" x="131.5" y="121.5" width="91" height="39"/>
+                                                <rect key="frame" x="101.5" y="191.5" width="91" height="59"/>
                                                 <state key="normal" title="Date Created"/>
                                                 <connections>
                                                     <action selector="DateCreatedBtn:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="bcd-8g-yX9"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8Z-ku-5p8">
-                                                <rect key="frame" x="143" y="162.5" width="68" height="38.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="112" y="255.5" width="70.5" height="59"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Nh-p2-kPQ">
-                                                <rect key="frame" x="84.5" y="203" width="185" height="39.5"/>
+                                                <rect key="frame" x="54.5" y="319.5" width="185" height="59.5"/>
                                                 <segments>
                                                     <segment title="Ascending"/>
                                                     <segment title="Descending"/>
                                                 </segments>
+                                                <color key="selectedSegmentTintColor" red="0.53333333329999999" green="0.75294117650000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VQ-3Z-m8F">
-                                                <rect key="frame" x="162" y="243.5" width="30" height="38.5"/>
-                                                <state key="normal" title="Sort"/>
+                                                <rect key="frame" x="129.5" y="383" width="35" height="59"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="Sort">
+                                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="submit:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="OEE-ws-OEg"/>
                                                 </connections>
@@ -274,10 +278,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="QeB-FR-lNv" secondAttribute="bottom" constant="10" id="MFs-ge-Fzz"/>
-                                    <constraint firstItem="QeB-FR-lNv" firstAttribute="leading" secondItem="w5S-5g-1D4" secondAttribute="leading" constant="10" id="Qu9-B8-8PS"/>
-                                    <constraint firstItem="QeB-FR-lNv" firstAttribute="top" secondItem="w5S-5g-1D4" secondAttribute="top" constant="10" id="s5P-Tc-Yd0"/>
-                                    <constraint firstAttribute="trailing" secondItem="QeB-FR-lNv" secondAttribute="trailing" constant="10" id="uiy-AZ-nXu"/>
+                                    <constraint firstAttribute="bottom" secondItem="QeB-FR-lNv" secondAttribute="bottom" constant="30" id="MFs-ge-Fzz"/>
+                                    <constraint firstItem="QeB-FR-lNv" firstAttribute="leading" secondItem="w5S-5g-1D4" secondAttribute="leading" constant="40" id="Qu9-B8-8PS"/>
+                                    <constraint firstItem="QeB-FR-lNv" firstAttribute="top" secondItem="w5S-5g-1D4" secondAttribute="top" constant="30" id="s5P-Tc-Yd0"/>
+                                    <constraint firstAttribute="trailing" secondItem="QeB-FR-lNv" secondAttribute="trailing" constant="40" id="uiy-AZ-nXu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -285,14 +289,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="w5S-5g-1D4" firstAttribute="leading" secondItem="Fhz-ov-R1B" secondAttribute="leading" constant="20" id="1Qe-kf-7LX"/>
-                            <constraint firstItem="w5S-5g-1D4" firstAttribute="top" secondItem="Fhz-ov-R1B" secondAttribute="top" constant="250" id="2sX-Pu-t2B"/>
+                            <constraint firstItem="w5S-5g-1D4" firstAttribute="top" secondItem="Fhz-ov-R1B" secondAttribute="top" constant="175" id="2sX-Pu-t2B"/>
                             <constraint firstAttribute="trailing" secondItem="w5S-5g-1D4" secondAttribute="trailing" constant="20" id="8bv-ce-oKY"/>
-                            <constraint firstAttribute="bottom" secondItem="w5S-5g-1D4" secondAttribute="bottom" constant="300" id="Tt2-Z6-NY7"/>
+                            <constraint firstAttribute="bottom" secondItem="w5S-5g-1D4" secondAttribute="bottom" constant="175" id="Tt2-Z6-NY7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Bxi-Ph-DQa"/>
                     <connections>
                         <outlet property="alphaLbl" destination="gA7-pg-AFL" id="N0Y-jw-kO3"/>
+                        <outlet property="bgView" destination="QeB-FR-lNv" id="VJw-ii-XJY"/>
                         <outlet property="dateCreatedLbl" destination="D0i-vN-ITq" id="vmh-K2-eO1"/>
                         <outlet property="orderBy" destination="4Nh-p2-kPQ" id="h1q-dF-XTt"/>
                         <outlet property="submitBtn" destination="8VQ-3Z-m8F" id="PCc-Mk-vTd"/>
@@ -542,6 +547,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
