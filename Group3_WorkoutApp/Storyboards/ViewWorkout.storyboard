@@ -238,6 +238,7 @@
                         <outlet property="customTableView" destination="4tI-dr-QNl" id="oMz-9B-IcR"/>
                         <outlet property="exerciseNameLabel" destination="Wr1-CQ-Q9P" id="Zrh-WD-SSO"/>
                         <outlet property="headerView" destination="mgs-NN-9Bq" id="hiY-c7-Ugi"/>
+                        <outlet property="targetLabel" destination="0uE-VK-7nl" id="fM2-IK-AbD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNx-Yj-e1P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -372,9 +373,11 @@
                     <connections>
                         <outlet property="bodyView" destination="P2u-KQ-uXh" id="njL-pd-eo9"/>
                         <outlet property="descView" destination="XLi-j7-NDW" id="0Ms-Xr-qOp"/>
-                        <outlet property="descriptionLabel" destination="KsP-ae-bS6" id="YxE-Sx-TQR"/>
+                        <outlet property="descriptionLabel" destination="KsP-ae-bS6" id="Obb-mu-i9c"/>
+                        <outlet property="descriptionTitleLabel" destination="HBh-rq-WqX" id="5Rs-cg-wiN"/>
                         <outlet property="exerciseImage" destination="TGr-bD-oAO" id="2kh-sU-enS"/>
                         <outlet property="tipsLabel" destination="i3S-mz-EuF" id="Dbo-yk-Gyy"/>
+                        <outlet property="tipsTitleLabel" destination="kUo-el-LFr" id="mzW-tJ-Aak"/>
                         <outlet property="tipsView" destination="RbB-KK-N8p" id="G1N-Uf-uQL"/>
                     </connections>
                 </viewController>

@@ -30,6 +30,9 @@ class ViewMuscleViewController: UIViewController,UITableViewDataSource, UITableV
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         customTableView.reloadData()
+        
+        Constants.applyTableAndTextStyling(titleLabels: [], bodyLabels: [], tableView: customTableView)
+        
     }
     
     //view did load function
@@ -53,6 +56,12 @@ class ViewMuscleViewController: UIViewController,UITableViewDataSource, UITableV
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         //adding data to the cell
+        Constants.applyCellStyling(cell: cell)
+            let bgColorView = UIView()
+            cell.selectedBackgroundView = bgColorView
+        
+        
+        
         cell.titleLabel.text = cellNameArray[indexPath.row]
         cell.subtitleLabel.text = "Total exercises (" + String(exersizeCountArray[indexPath.row]) + ")"
         cell.cellImage.image = UIImage(named: cellNameArray[indexPath.row])

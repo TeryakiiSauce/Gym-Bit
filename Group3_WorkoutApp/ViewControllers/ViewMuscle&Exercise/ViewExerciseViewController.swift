@@ -18,6 +18,7 @@ class ViewExerciseViewController: UIViewController,UITableViewDataSource, UITabl
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
     @IBOutlet weak var exerciseNameLabel: UILabel!
+    @IBOutlet weak var targetLabel: UILabel!
     
     //function to transfer the infromation through seague to the next page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,6 +57,9 @@ class ViewExerciseViewController: UIViewController,UITableViewDataSource, UITabl
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         getExercises(Type: mainImageIconName)
         exerciseNameLabel.text = mainImageIconName
+        
+        Constants.applyTableAndTextStyling(titleLabels: [], bodyLabels: [targetLabel,exerciseNameLabel], tableView: customTableView)
+        
     }
     //view did load function
     override func viewDidLoad() {
@@ -79,6 +83,12 @@ class ViewExerciseViewController: UIViewController,UITableViewDataSource, UITabl
         
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+        
+        cell.backgroundColor = AppColors.bodyBg
+        cell.cellView.backgroundColor = AppColors.bodyBg
+        cell.titleLabel.textColor = AppColors.textColor
+                let bgColorView = UIView()
+                cell.selectedBackgroundView = bgColorView
 
         //adding data to the cell
         cell.titleLabel.text = exersizeList?[indexPath.row].name
