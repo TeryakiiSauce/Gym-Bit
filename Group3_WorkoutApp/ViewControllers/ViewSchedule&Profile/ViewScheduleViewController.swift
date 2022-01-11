@@ -12,8 +12,6 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
     // The activated schedule that should loaded from local storage
     var activatedSchedule = Schedule.getActivatedSchedule()
     
-    //var selectedScheduleIndex = 0
-    
     // MARK: END
     /// ===================================================
     
@@ -70,19 +68,6 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
             mainBtn.isEnabled = true
             mainBtn.setTitle("Set as Active", for: .normal)
         }
-        
-        /*
-         UNREQUIRED CODES (MAYBE BE USED FOR REFERENCE!)
-         
-         if /*DefaultData.activatedSchedule*/ == selectedSchedule.name {
-            mainBtn.setTitle("Currently Activated", for: .normal)
-            mainBtn.backgroundColor = .lightGray
-            mainBtn.isEnabled = false
-         } else {
-            mainBtn.isEnabled = true
-            mainBtn.setTitle("Set as Active", for: .normal)
-         }
-        */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -142,21 +127,6 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
         
         // Returns back
         _ = navigationController?.popViewController(animated: true)
-        
-        /*
-         UNREQUIRED CODES (MAYBE BE USED FOR REFERENCE!)
-         
-         //DefaultData.activatedSchedule = selectedSchedule.name
-         //DefaultData.activatedScheduleIndex = selectedScheduleIndex
-         //mainBtn.setTitle("Currently Activated", for: .normal)
-         //mainBtn.backgroundColor = .lightGray
-         //mainBtn.isEnabled = false
-         
-         // Save the activated schedule title and index
-         //dictionary.set(DefaultData.activatedSchedule, forKey: "activatedScheduleTitle")
-         //dictionary.set(DefaultData.activatedScheduleIndex, forKey: "activatedScheduleIndex")
-         //DefaultData.user.activeSchedule = Schedule.getSchedules()[DefaultData.activatedScheduleIndex]
-         */
     }
     
     
