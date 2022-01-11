@@ -21,14 +21,17 @@ class RestTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: confirmButton, secondaryButton: nil, vc: self)
-        
         pickerView.delegate = self
         
         enableStartButton()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // apply default styling
+        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: confirmButton, secondaryButton: nil, vc: self)
+        
+        pickerView.setValue(AppColors.textColor, forKey: "textColor")
     }
     
     // update total time label

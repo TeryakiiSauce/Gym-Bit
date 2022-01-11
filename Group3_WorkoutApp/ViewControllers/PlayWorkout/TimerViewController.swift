@@ -49,9 +49,6 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: continueButton, secondaryButton: nil, vc: self)
-        
         // set time remaining as the selected time
         timeRemaining = selectedTime
         
@@ -70,9 +67,12 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         // don't remove the stroke when reaching the end
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
-        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // apply default styling
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: continueButton, secondaryButton: nil, vc: self)
+    }
     
     
     func addTimeLabelToBackgroundCircle() {
