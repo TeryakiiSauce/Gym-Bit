@@ -108,7 +108,7 @@ class PopupViewController: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         //Methods used for styling
         
-        ClearSecondButton.backgroundColor = AppColors.deleteColor
+       
         
         ScheduleNameTextField.placeholder = "Enter Schedule Name" // For ease of access
     }
@@ -120,7 +120,7 @@ class PopupViewController: UIViewController {
         Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: ClearMainButton, secondaryButton: ClearSecondButton, vc: nil)
         
         Constants.applyTableAndTextStyling(titleLabels: nil, bodyLabels: [ClearLabel,LeaveLabel,updateLabel], tableView: nil)
-        
+        ClearSecondButton.backgroundColor = AppColors.deleteColor
         isClearConfirmPressed = false
         isLeaveConfirmPressed = false
         isupdatePressed = false
