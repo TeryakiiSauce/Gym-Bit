@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         // Default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: SecondayButton)
+        /*Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: SecondayButton)*/
         customTableView.delegate = self
         customTableView.dataSource = self
         
@@ -77,6 +77,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Updates the view whenever the screen appears
     override func viewWillAppear(_ animated: Bool) {
         customTableView.reloadData()
+        
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: SecondayButton)
         
         // Print the selected/ default sorting method
         print("sort method loaded: \(DefaultData.currSelectedSortOption) \(DefaultData.ascOrDesc)")
@@ -191,6 +193,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             
         }
+        
+        if let sortSourceViewController = seague.source as? SortingPopupViewController {
+            if sortSourceViewController.orderBy.selectedSegmentIndex == 0 {
+                DefaultData.ascOrDesc = "asc"
+            } else if sortSourceViewController.orderBy.selectedSegmentIndex == 1 {
+                DefaultData.ascOrDesc = "desc"
+            }
+            
+            if DefaultData.ascOrDesc == "asc" {
+                schedulesListArr = schedulesListArr.sorted(by: <)
+                
+            } else if DefaultData.ascOrDesc == "desc" {
+                // Makes it in asc order and then reverses it so that there is less to code
+                schedulesListArr = schedulesListArr.sorted(by: <)
+                
+                schedulesListArr = schedulesListArr.reversed()
+            }
+            
+            customTableView.reloadData()
+        }
     }
     
     
@@ -275,9 +297,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Displays the sorting menu
     @IBAction func sortPopup(_ sender: UIButton) {
-        performSegue(withIdentifier: "openSortPopup", sender: self)
+        //performSegue(withIdentifier: "openSortPopup", sender: self)
+        
+        openPopupPage()
     }
     
+    //function that creates an instance of popup page viewcontreoller and returns it
+    func openPopupPage() {
+        let popOverVc = UIStoryboard(name: "ViewSchedule", bundle: nil).instantiateViewController(withIdentifier: "sortPopupVC") as! SortingPopupViewController
+        //assigning it as a child view and opening it over the parent view
+        self.addChild(popOverVc)
+        popOverVc.view.frame = self.view.frame
+        self.view.addSubview(popOverVc.view)
+        popOverVc.didMove(toParent: self)
+    }
     
     // MARK: END
     /// ===================================================

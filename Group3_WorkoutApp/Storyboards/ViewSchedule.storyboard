@@ -199,7 +199,6 @@
                         <outlet property="dateLbl" destination="0fV-qj-1rj" id="Axd-bs-X9b"/>
                         <outlet property="headerView" destination="t0a-oW-Sbu" id="dxe-MA-xwn"/>
                         <outlet property="mainButton" destination="vHk-Kl-BQX" id="C22-eH-100"/>
-                        <segue destination="qd2-VJ-w1E" kind="show" identifier="openSortPopup" id="WIc-ed-yi2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKs-ZW-plW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -209,25 +208,25 @@
         <!--Sorting Popup View Controller-->
         <scene sceneID="bgf-SF-PW3">
             <objects>
-                <viewController id="qd2-VJ-w1E" customClass="SortingPopupViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sortPopupVC" id="qd2-VJ-w1E" customClass="SortingPopupViewController" customModule="Group3_WorkoutApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZQl-VB-d5I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5S-5g-1D4">
-                                <rect key="frame" x="20" y="338" width="374" height="258"/>
+                                <rect key="frame" x="20" y="294" width="374" height="302"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="QeB-FR-lNv">
-                                        <rect key="frame" x="10" y="10" width="354" height="238"/>
+                                        <rect key="frame" x="10" y="10" width="354" height="282"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aA2-E0-UcZ">
-                                                <rect key="frame" x="149" y="0.0" width="56.5" height="32.5"/>
+                                                <rect key="frame" x="149" y="0.0" width="56.5" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gA7-pg-AFL">
-                                                <rect key="frame" x="128.5" y="34.5" width="97" height="32"/>
+                                                <rect key="frame" x="128.5" y="40.5" width="97" height="38.5"/>
                                                 <state key="normal" title="Alphabetically">
                                                     <color key="titleColor" systemColor="systemRedColor"/>
                                                 </state>
@@ -236,38 +235,37 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7t-hX-yBJ">
-                                                <rect key="frame" x="136" y="68.5" width="82" height="32.5"/>
+                                                <rect key="frame" x="136" y="81" width="82" height="38.5"/>
                                                 <state key="normal" title="Times Used"/>
                                                 <connections>
                                                     <action selector="TimesUsedBtn:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="LD5-DF-mAr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0i-vN-ITq">
-                                                <rect key="frame" x="131.5" y="103" width="91" height="32"/>
+                                                <rect key="frame" x="131.5" y="121.5" width="91" height="39"/>
                                                 <state key="normal" title="Date Created"/>
                                                 <connections>
                                                     <action selector="DateCreatedBtn:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="bcd-8g-yX9"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8Z-ku-5p8">
-                                                <rect key="frame" x="143" y="137" width="68" height="32.5"/>
+                                                <rect key="frame" x="143" y="162.5" width="68" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Nh-p2-kPQ">
-                                                <rect key="frame" x="84.5" y="171.5" width="185" height="33"/>
+                                                <rect key="frame" x="84.5" y="203" width="185" height="39.5"/>
                                                 <segments>
                                                     <segment title="Ascending"/>
                                                     <segment title="Descending"/>
                                                 </segments>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VQ-3Z-m8F">
-                                                <rect key="frame" x="162" y="205.5" width="30" height="32.5"/>
+                                                <rect key="frame" x="162" y="243.5" width="30" height="38.5"/>
                                                 <state key="normal" title="Sort"/>
                                                 <connections>
                                                     <action selector="submit:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="OEE-ws-OEg"/>
-                                                    <segue destination="UPV-mq-1iR" kind="unwind" unwindAction="unwindtoViewScheduleWithSeague:" id="d5Q-vn-eJa"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -299,6 +297,7 @@
                         <outlet property="orderBy" destination="4Nh-p2-kPQ" id="h1q-dF-XTt"/>
                         <outlet property="submitBtn" destination="8VQ-3Z-m8F" id="PCc-Mk-vTd"/>
                         <outlet property="timesUsedLbl" destination="e7t-hX-yBJ" id="zdt-pP-bKt"/>
+                        <segue destination="UPV-mq-1iR" kind="unwind" identifier="returnToMainPage" unwindAction="unwindtoViewScheduleWithSeague:" id="5lR-W5-G6z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjn-Gc-Zff" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
