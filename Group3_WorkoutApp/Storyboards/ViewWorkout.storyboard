@@ -236,6 +236,7 @@
                         <outlet property="IconImage" destination="qEV-TL-D7Y" id="6GP-Oi-WHz"/>
                         <outlet property="bodyView" destination="e8R-kt-mrV" id="bhe-AH-pql"/>
                         <outlet property="customTableView" destination="4tI-dr-QNl" id="oMz-9B-IcR"/>
+                        <outlet property="exerciseNameLabel" destination="Wr1-CQ-Q9P" id="Zrh-WD-SSO"/>
                         <outlet property="headerView" destination="mgs-NN-9Bq" id="hiY-c7-Ugi"/>
                     </connections>
                 </viewController>
