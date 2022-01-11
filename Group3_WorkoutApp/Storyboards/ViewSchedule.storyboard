@@ -366,7 +366,10 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Workout Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVa-I1-6Ou">
-                                        <rect key="frame" x="140" y="25" width="218" height="27.5"/>
+                                        <rect key="frame" x="140" y="25" width="224" height="27.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="224" id="TBS-rr-WKj"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <color key="textColor" red="0.53333333329999999" green="0.75294117650000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -480,6 +483,7 @@
                                 </state>
                                 <connections>
                                     <action selector="setActiveSchedule:" destination="CXK-wA-avi" eventType="touchUpInside" id="qf0-U0-NXb"/>
+                                    <segue destination="vrB-7v-Srq" kind="unwind" unwindAction="unwindtoCreateScheduleWithSeague:" id="hc2-uK-y3Y"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -510,6 +514,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBL-gy-d0O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="vrB-7v-Srq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1172.4637681159422" y="-58.258928571428569"/>
         </scene>

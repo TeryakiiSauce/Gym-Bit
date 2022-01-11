@@ -6,9 +6,13 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
     /// ===================================================
     // MARK: - DEFAULT VALUES VARIABLES
     
-    
+    // Schedule clicked on; not necessarily the activated one
     var selectedSchedule = Schedule(dateCreated: Date(), name: "", playsCounter: nil, exercises: [])
-    var selectedScheduleIndex = 0
+    
+    // The activated schedule that should loaded from local storage
+    var activatedSchedule = Schedule.getActivatedSchedule()
+    
+    //var selectedScheduleIndex = 0
     
     // MARK: END
     /// ===================================================
@@ -53,17 +57,32 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
         dateFormatter.dateFormat = "MMM d, yyyy"
         dateLbl.text = dateFormatter.string(from: selectedSchedule.dateCreated)
         
+        // Check if currently selected schedule is activated or not
+        print("currently activated schedule = \(activatedSchedule.name)")
+        print("the selected schedule = \(selectedSchedule.name)")
         
-        //print("currently activated schedule = \(DefaultData.activatedSchedule)")
-        
-        if DefaultData.activatedSchedule == selectedSchedule.name {
+        if selectedSchedule.name == activatedSchedule.name {
             mainBtn.setTitle("Currently Activated", for: .normal)
             mainBtn.backgroundColor = .lightGray
             mainBtn.isEnabled = false
+            
         } else {
             mainBtn.isEnabled = true
             mainBtn.setTitle("Set as Active", for: .normal)
         }
+        
+        /*
+         UNREQUIRED CODES (MAYBE BE USED FOR REFERENCE!)
+         
+         if /*DefaultData.activatedSchedule*/ == selectedSchedule.name {
+            mainBtn.setTitle("Currently Activated", for: .normal)
+            mainBtn.backgroundColor = .lightGray
+            mainBtn.isEnabled = false
+         } else {
+            mainBtn.isEnabled = true
+            mainBtn.setTitle("Set as Active", for: .normal)
+         }
+        */
     }
     
     
@@ -108,18 +127,28 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
     
     
     @IBAction func setActiveSchedule(_ sender: UIButton) {
-        DefaultData.activatedSchedule = selectedSchedule.name
-        DefaultData.activatedScheduleIndex = selectedScheduleIndex
-        mainBtn.setTitle("Currently Activated", for: .normal)
-        mainBtn.backgroundColor = .lightGray
-        mainBtn.isEnabled = false
+        Schedule.saveActivatedSchedule(selectedSchedule)
         
-        // Save the activated schedule title and index
-        let dictionary = UserDefaults.standard
-        dictionary.set(DefaultData.activatedSchedule, forKey: "activatedSchedule")
-        dictionary.set(DefaultData.activatedScheduleIndex, forKey: "activatedScheduleIndex")
-        DefaultData.user.activeSchedule = Schedule.getSchedules()[DefaultData.activatedScheduleIndex]
-        print("\"\(DefaultData.activatedSchedule)\" has been activated.")
+        DefaultData.user.activeSchedule = Schedule.getActivatedSchedule()
+        print("\"\(Schedule.getActivatedSchedule().name)\" has been activated.")
+        
+        // Returns back
+        _ = navigationController?.popViewController(animated: true)
+        
+        /*
+         UNREQUIRED CODES (MAYBE BE USED FOR REFERENCE!)
+         
+         //DefaultData.activatedSchedule = selectedSchedule.name
+         //DefaultData.activatedScheduleIndex = selectedScheduleIndex
+         //mainBtn.setTitle("Currently Activated", for: .normal)
+         //mainBtn.backgroundColor = .lightGray
+         //mainBtn.isEnabled = false
+         
+         // Save the activated schedule title and index
+         //dictionary.set(DefaultData.activatedSchedule, forKey: "activatedScheduleTitle")
+         //dictionary.set(DefaultData.activatedScheduleIndex, forKey: "activatedScheduleIndex")
+         //DefaultData.user.activeSchedule = Schedule.getSchedules()[DefaultData.activatedScheduleIndex]
+         */
     }
     
     

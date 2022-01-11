@@ -258,7 +258,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Workout Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bz8-mH-CJQ">
-                                        <rect key="frame" x="140" y="38" width="218" height="27.5"/>
+                                        <rect key="frame" x="140" y="38" width="224" height="27.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="224" id="Hkn-h4-naD"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
