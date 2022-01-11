@@ -159,6 +159,11 @@ class ProfileViewController: UIViewController {
             self.setHeight(round((height / 30.48) * 10) / 10.0)
             self.setWeight(weight * 2.205)
             self.setGoal(goal * 2.205)
+            
+        } else {
+            self.setHeight(height)
+            self.setWeight(weight)
+            self.setGoal(goal)
         }
     }
     
