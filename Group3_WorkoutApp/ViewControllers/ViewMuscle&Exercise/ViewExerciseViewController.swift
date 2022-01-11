@@ -52,7 +52,7 @@ class ViewExerciseViewController: UIViewController,UITableViewDataSource, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         getExercises(Type: mainImageIconName)
     }
     //view did load function

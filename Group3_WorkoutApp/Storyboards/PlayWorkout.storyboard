@@ -224,7 +224,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3SW-6N-g7N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="599" y="-488"/>
+            <point key="canvasLocation" x="563" y="-419"/>
         </scene>
         <!--Play Workout-->
         <scene sceneID="oCr-QZ-sD2">
@@ -438,6 +438,7 @@
                         <outlet property="scheduleTargetLabel" destination="buW-Xc-Efn" id="7u5-4g-z3c"/>
                         <outlet property="selectionLabel" destination="PXe-0Y-ZhM" id="JMY-Q3-Efn"/>
                         <outlet property="startButton" destination="PM1-hp-in5" id="D7b-qs-y5a"/>
+                        <outlet property="targetTitleLabel" destination="zgy-05-PbT" id="0Zu-Qh-ehb"/>
                         <segue destination="bnA-Ig-A4I" kind="presentation" identifier="openRestTime" id="9qB-e5-W2c"/>
                         <segue destination="bEK-9k-owU" kind="show" id="wDj-fr-KPP"/>
                     </connections>

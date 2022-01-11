@@ -344,7 +344,7 @@ class SettingsViewController: UIViewController {
     func setColorsByTheme()
     {
         // Setting the default styles to the page elements by calling a funcation from Constants struct.
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headView1, bodyView: settingsView, mainButton: saveButton, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headView1, bodyView: settingsView, mainButton: saveButton, secondaryButton: nil, vc: self)
         Constants.buildRoundedUIView(headerView: headView2, bodyView: settingsView2, button: nil)
         
         // Changing view 1 elements colors to match the app theme by calling AppColors stuct.

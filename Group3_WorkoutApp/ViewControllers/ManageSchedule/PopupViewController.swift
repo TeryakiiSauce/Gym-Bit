@@ -106,9 +106,9 @@ class PopupViewController: UIViewController {
         //setting the background to be dimmed when the page is up
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         //Methods used for styling
-        Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: BodyView, mainButton: UpdateScheduleMainButton, secondaryButton: cancelUpdate)
-        Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: LeaveMainButton, secondaryButton: LeaveSecondButton)
-        Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: ClearMainButton, secondaryButton: ClearSecondButton)
+        Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: BodyView, mainButton: UpdateScheduleMainButton, secondaryButton: cancelUpdate, vc: nil)
+        Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: LeaveMainButton, secondaryButton: LeaveSecondButton, vc: nil)
+        Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: nil, mainButton: ClearMainButton, secondaryButton: ClearSecondButton, vc: nil)
         ClearSecondButton.backgroundColor = AppColors.deleteColor
         
         ScheduleNameTextField.placeholder = "Enter Schedule Name" // For ease of access

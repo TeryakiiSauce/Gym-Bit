@@ -23,7 +23,7 @@ class RestTimeViewController: UIViewController {
         super.viewDidLoad()
 
         // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: confirmButton, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: confirmButton, secondaryButton: nil, vc: self)
         
         pickerView.delegate = self
         

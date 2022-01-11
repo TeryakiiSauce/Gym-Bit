@@ -28,7 +28,7 @@ class ViewMuscleViewController: UIViewController,UITableViewDataSource, UITableV
     //function that resets the table whenever the page appears
     override func viewWillAppear(_ animated: Bool) {
         // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         customTableView.reloadData()
     }
     
