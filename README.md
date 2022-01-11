@@ -1,4 +1,4 @@
-# MP_2021A_Grp03_WorkoutApp
+# Workout App ReadMe
 for the app's demonstration we dicided that we wanted the app to be in Dark mode by default as it looked good for the eye and more appealing. 
 
 Albaraa: 
