@@ -40,6 +40,9 @@ class ProfileViewController: UIViewController {
     
     private var heightUnit = "cm" // default
     private var weightUnit = "kg" // default
+    private var height: Double = 0.0 // default
+    private var weight: Double = 0.0 // default
+    private var goal: Double = 0.0   // default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,6 +153,15 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    // Convert height, weight & goal from UK system to US system
+    func convertData(_ isImperialUnit: Bool, _ height: Double, _ weight: Double, _ goal: Double) {
+        if isImperialUnit == true {
+            self.setHeight(round((height / 30.48) * 10) / 10.0)
+            self.setWeight(weight * 2.205)
+            self.setGoal(goal * 2.205)
+        }
+    }
+    
     // Change the important text to blue to grab attention
     // Read the top of file to know more about the function [halfTextColorChange] used
     func refreshData() {
@@ -157,11 +169,14 @@ class ProfileViewController: UIViewController {
         // Gets the data if found otherwise it will use the default values
         let dict = UserDefaults.standard
         let age = dict.object(forKey: "age") as? Int ?? 0
-        let height = dict.object(forKey: "height") as? Int ?? 0
-        let weight = dict.object(forKey: "weight") as? Int ?? 0
+        let dictHeight = dict.object(forKey: "height") as? Double ?? 0.0
+        let dictWeight = dict.object(forKey: "weight") as? Double ?? 0.0
         let name = dict.object(forKey: "name") as? String ?? "Update name in settings"
-        let goal = dict.object(forKey: "goal") as? Int ?? 0
+        let dictGoal = dict.object(forKey: "goal") as? Double ?? 0.0
         let isImperialUnits = dict.object(forKey: "isPound") as? Bool ?? false
+        
+        setUnitSystem(isImperialUnits)
+        convertData(isImperialUnits, dictHeight, dictWeight, dictGoal)
         
         print("== USER PREFERENCES ==")
         print("name = \(name)")
@@ -169,7 +184,7 @@ class ProfileViewController: UIViewController {
         print("height = \(height)")
         print("weight = \(weight)")
         print("goal = \(goal)")
-        print("US units = \(isImperialUnits)")
+        print("US units = \(isImperialUnits) (\(heightUnit), \(weightUnit))")
         print("================")
         
         // HEADER VIEW
@@ -198,6 +213,18 @@ class ProfileViewController: UIViewController {
         return self.weightUnit
     }
     
+    func getHeight() -> Double {
+        return self.height
+    }
+    
+    func getWeight() -> Double {
+        return self.weight
+    }
+    
+    func getGoal() -> Double {
+        return self.goal
+    }
+    
     // Setters
     func setHeightUnit(_ unit: String) {
         self.heightUnit = unit
@@ -205,5 +232,17 @@ class ProfileViewController: UIViewController {
     
     func setWeightUnit(_ unit: String) {
         self.weightUnit = unit
+    }
+    
+    func setHeight(_ height: Double) {
+        self.height = height
+    }
+    
+    func setWeight(_ weight: Double) {
+        self.weight = weight
+    }
+    
+    func setGoal(_ goal: Double) {
+        self.goal = goal
     }
 }
