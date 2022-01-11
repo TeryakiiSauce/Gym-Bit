@@ -12,6 +12,7 @@ class QuizViewController: UIViewController {
     var switchOnImg: UIImage = UIImage(named: "switch_on.svg")!
     var switchOffImg: UIImage = UIImage(named: "switch_off.svg")!
     var isPoundFeet = false
+    var setStatusClr = 1
     
     let userDefaults = UserDefaults()
 
@@ -41,7 +42,7 @@ class QuizViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        userDefaults.setValue(nil, forKey: "name")
+        //userDefaults.setValue(nil, forKey: "name")
         
         //Check if dark mode on, if yes switch the theme
         if let isDark = userDefaults.value(forKey: "darkMode") as? Bool
@@ -49,6 +50,11 @@ class QuizViewController: UIViewController {
             if isDark
             {
                 AppColors.toggleDarkMode()
+                setStatusClr = 3
+            }
+            else
+            {
+                setStatusClr = 1
             }
         }
 
@@ -73,21 +79,31 @@ class QuizViewController: UIViewController {
         // Setting the default style to the view and the body view by calling a funcation from Constants struct.
         Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: finishButton, secondaryButton: nil, vc: self)
         
-        print(AppColors.isDarkMode)
+        var txtLabels: [UILabel] = [UILabel]()
+        txtLabels.append(HeadLabel)
+        txtLabels.append(ageTxt)
+        txtLabels.append(heightTxt)
+        txtLabels.append(weightTxt)
+        txtLabels.append(goalTxt)
+        txtLabels.append(unitTxt)
+        
+        
+        Constants.applyTableAndTextStyling(titleLabels: nil, bodyLabels: txtLabels, tableView: nil)
+        
         
         // Changing colors to match the app theme by calling AppColors stuct.
-        HeadLabel.textColor = AppColors.textColor
+        //HeadLabel.textColor = AppColors.textColor
         bodyView.backgroundColor = AppColors.bodyBg
         nameField.textColor = AppColors.phoneBg
         Line1.textColor = AppColors.phoneBg
         Line2.textColor = AppColors.phoneBg
         Line3.textColor = AppColors.phoneBg
         Line4.textColor = AppColors.phoneBg
-        ageTxt.textColor = AppColors.textColor
-        heightTxt.textColor = AppColors.textColor
-        weightTxt.textColor = AppColors.textColor
-        goalTxt.textColor = AppColors.textColor
-        unitTxt.textColor = AppColors.textColor
+        //ageTxt.textColor = AppColors.textColor
+        //heightTxt.textColor = AppColors.textColor
+        //weightTxt.textColor = AppColors.textColor
+        //goalTxt.textColor = AppColors.textColor
+        //unitTxt.textColor = AppColors.textColor
         yearsValue.textColor = AppColors.buttonColor
         heightValue.textColor = AppColors.buttonColor
         weightValue.textColor = AppColors.buttonColor
@@ -129,7 +145,13 @@ class QuizViewController: UIViewController {
         goalValue.text = getGoal()
         
     }
-    
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        if AppColors.isDarkMode
+//        {
+//            return .lightContent
+//        }
+//        return .darkContent
+//    }
     //removing "your name" text after field is focused so the user not need to erase it.
     @IBAction func fieldIsFocused(_ sender: UITextField)
     {
@@ -166,6 +188,7 @@ class QuizViewController: UIViewController {
     //Changing the text after any of the slides moved.
     @IBAction func sliderMoved(_ sender: UISlider)
     {
+        //setNeedsStatusBarAppearanceUpdate()
         //Checking which slider is moved.
         switch sender.tag {
         case 1:
