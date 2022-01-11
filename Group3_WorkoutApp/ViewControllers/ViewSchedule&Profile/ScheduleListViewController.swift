@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewWillAppear(_ animated: Bool) {
         customTableView.reloadData()
         
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: SecondayButton)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: SecondayButton, vc: self)
         
         // Print the selected/ default sorting method
         print("sort method loaded: \(DefaultData.currSelectedSortOption) \(DefaultData.ascOrDesc)")

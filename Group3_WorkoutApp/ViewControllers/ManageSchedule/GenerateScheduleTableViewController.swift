@@ -34,7 +34,7 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: MainButton, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: MainButton, secondaryButton: nil, vc: self)
         customTableView.delegate = self
         customTableView.dataSource = self
         customTableView.allowsMultipleSelection = true

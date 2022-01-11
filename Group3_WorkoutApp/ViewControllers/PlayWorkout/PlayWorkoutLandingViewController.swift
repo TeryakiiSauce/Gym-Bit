@@ -21,23 +21,28 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     @IBOutlet weak var selectionLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     
+    @IBOutlet weak var targetTitleLabel: UILabel!
     // default rest time
     static var restTime = 45
     var schedule: Schedule?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: startButton, secondaryButton: restTimeButton)
-        
-        scheduleNameLabel.textColor = AppColors.buttonColor
-        
-        //setDefaultData() // no need to call this twice
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
+        // apply default styling
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: startButton, secondaryButton: restTimeButton, vc: self)
+        
+        Constants.applyTableAndTextStyling(titleLabels: [scheduleNameLabel], bodyLabels:  [selectionLabel,targetTitleLabel, scheduleTargetLabel, restTimeLabel], tableView: customTableView)
+        
         setDefaultData()
         customTableView.reloadData()
+        
+//        tabBarController?.tabBar.barTintColor =  AppColors.bodyBg
+//        tabBarController?.tabBar.unselectedItemTintColor = AppColors.textColor
+//        navigationController?.navigationBar.barTintColor = AppColors.bodyBg
+//        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColors.textColor]
+        
+
+//        navigationController?.tabBarController.
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -80,8 +85,9 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
+        Constants.applyCellStyling(cell: cell)
         let bgColorView = UIView()
-        bgColorView.backgroundColor = AppColors.bodyBg
+//        bgColorView.backgroundColor = AppColors.bodyBg
         cell.selectedBackgroundView = bgColorView
         cell.titleLabel.text = schedule?.exercises[indexPath.item].name
         cell.subtitleLabel.text = "\(schedule?.exercises[indexPath.row].reps ?? 0) reps x \(schedule?.exercises[indexPath.row].sets ?? 0) sets"

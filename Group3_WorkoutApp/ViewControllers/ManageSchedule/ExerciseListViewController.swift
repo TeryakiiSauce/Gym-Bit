@@ -52,7 +52,7 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
         super.viewDidLoad()
         // apply default styling
         
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil, vc: self)
         customTableView.delegate = self
         customTableView.dataSource = self
         //allowing the user to multicelect the cell 

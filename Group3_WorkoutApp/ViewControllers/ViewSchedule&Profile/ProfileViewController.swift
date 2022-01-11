@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Constants.applyDefaultStyling(backgroundView: backgroundView, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: backgroundView, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         
         // Set all font colors & sizes appropriately
                 

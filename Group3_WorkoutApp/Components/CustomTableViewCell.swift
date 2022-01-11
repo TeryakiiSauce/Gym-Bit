@@ -25,18 +25,20 @@ class CustomTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         
         super.setSelected(selected, animated: animated)
-        
+//        let bgColorView = UIView()
+
         // Configure the view for the selected state
         if self.isSelected {
             cellView.layer.borderColor = AppColors.buttonColor.cgColor
             cellView.layer.borderWidth = 3
-            let bgColorView = UIView()
-            bgColorView.backgroundColor = AppColors.bodyBg
-            self.selectedBackgroundView = bgColorView
+//            bgColorView.backgroundColor = AppColors.bodyBg
+//            self.selectedBackgroundView = bgColorView
             
         } else {
             cellView.layer.borderColor = AppColors.secondaryColor.cgColor
             cellView.layer.borderWidth = 1
+//            bgColorView.backgroundColor = AppColors.bodyBg
+
         }
     }
 }

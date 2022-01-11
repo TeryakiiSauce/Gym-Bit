@@ -50,7 +50,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         super.viewDidLoad()
         
         // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: continueButton, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: continueButton, secondaryButton: nil, vc: self)
         
         // set time remaining as the selected time
         timeRemaining = selectedTime

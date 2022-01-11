@@ -37,7 +37,7 @@ struct Constants {
     
     static func applyDefaultStyling(
         backgroundView: UIView?,
-        headerView: UIView?, bodyView: UIView?, mainButton: UIButton?, secondaryButton: UIButton?){
+        headerView: UIView?, bodyView: UIView?, mainButton: UIButton?, secondaryButton: UIButton?, vc: UIViewController?){
         
         if let backgroundView = backgroundView {
             backgroundView.backgroundColor = AppColors.phoneBg
@@ -71,6 +71,36 @@ struct Constants {
             secondaryButton.backgroundColor = AppColors.buttonColor
             secondaryButton.tintColor = AppColors.bodyBg
         }
+        
+        vc?.tabBarController?.tabBar.barTintColor =  AppColors.bodyBg
+        vc?.tabBarController?.tabBar.unselectedItemTintColor = AppColors.textColor
+        vc?.navigationController?.navigationBar.barTintColor = AppColors.bodyBg
+        vc?.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColors.textColor]
+        vc?.navigationController?.navigationBar.tintColor = AppColors.buttonColor
+    }
+    
+    static func applyTableAndTextStyling(titleLabels: [UILabel]?, bodyLabels: [UILabel], tableView: UITableView?){
+        
+        if let titleLabels = titleLabels {
+            for label in titleLabels {
+                label.textColor = AppColors.buttonColor
+            }
+        }
+        
+        for label in bodyLabels {
+            label.textColor = AppColors.textColor
+        }
+        
+        if let tableView = tableView{
+            tableView.backgroundColor = AppColors.bodyBg
+        }
+    }
+    
+    static func applyCellStyling(cell: CustomTableViewCell){
+        cell.backgroundColor = AppColors.bodyBg
+        cell.cellView.backgroundColor = AppColors.bodyBg
+        cell.titleLabel.textColor = AppColors.textColor
+        cell.subtitleLabel.textColor = AppColors.secondaryColor
     }
     
     // format time functions
