@@ -15,7 +15,9 @@ class SelectTimeViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var totalTimeLabel: UILabel!
-    
+    @IBOutlet weak var headerTitleLabel: UILabel!
+    @IBOutlet weak var headerSubtitleLabel: UILabel!
+    @IBOutlet weak var bodyTitleLabel: UILabel!
     
     // variables
     //    var hour:Int = 0
@@ -25,14 +27,21 @@ class SelectTimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerView.delegate = self
+        //disable start button by default
+        enableStartButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: startButton, secondaryButton: nil, vc: self)
         
-        pickerView.delegate = self
+        Constants.applyTableAndTextStyling(titleLabels: [totalTimeLabel, headerTitleLabel], bodyLabels: [bodyTitleLabel, headerSubtitleLabel], tableView: nil)
         
-        //disable start button by default
-        enableStartButton()
+        pickerView.setValue(AppColors.textColor, forKey: "textColor")
+
+        
     }
     
     func enableStartButton()
