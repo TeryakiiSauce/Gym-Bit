@@ -21,6 +21,8 @@ extension UILabel {
 
 class ProfileViewController: UIViewController {
     
+    // MARK: - OUTLETS
+    
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileDoB: UILabel!
     @IBOutlet weak var heightLbl: UILabel!
@@ -38,19 +40,36 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     
+    // MARK: END
+    
+    
+    // MARK: - DEFAULT VALUES
+    
     private var heightUnit = "cm" // default
     private var weightUnit = "kg" // default
     private var height: Double = 0.0 // default
     private var weight: Double = 0.0 // default
     private var goal: Double = 0.0   // default
     
+    // MARK: END
+    
+    
+    // MARK: - SCREEN LOADING FUNCTIONS
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshData()
+        updateSegmentView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         Constants.applyDefaultStyling(backgroundView: backgroundView, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
         
         // Set all font colors & sizes appropriately
-                
+        
+        profileName.textColor = AppColors.textColor
+        profileDoB.textColor = AppColors.textColor
         heightLbl.textColor = AppColors.textColor
         weightLbl.textColor = AppColors.textColor
         goalLbl.textColor = AppColors.textColor
@@ -84,18 +103,25 @@ class ProfileViewController: UIViewController {
         segmentLbl1.halfTextColorChange(fullText: segmentLbl1.text!, changeText: "0 min")
         segmentLbl2.halfTextColorChange(fullText: segmentLbl2.text!, changeText: "0 min")
         segmentLbl3.halfTextColorChange(fullText: segmentLbl3.text!, changeText: "0 min")
-        
-        refreshData()
-        updateSegmentView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         refreshData()
     }
     
+    // MARK: END
+    
+    
+    // MARK: - BUTTON ACTIONS
+    
     @IBAction func segmentUpdated(_ sender: UISegmentedControl) {
         updateSegmentView()
     }
+    
+    // MARK: END
+    
+    
+    // MARK: - CUSTOM FUNCTIONS
     
     func updateSegmentView() {
         if segmentCtrl.selectedSegmentIndex == 0 {
@@ -209,7 +235,12 @@ class ProfileViewController: UIViewController {
         goalLbl.halfTextColorChange(fullText: goalLbl.text!, changeText: "\(goal) \(weightUnit)")
     }
     
-    // Getters
+    // MARK: END
+    
+    
+    // MARK: - GETTERS AND SETTERS
+    
+    // MARK: Getters
     func getHeightUnit() -> String {
         return self.heightUnit
     }
@@ -230,7 +261,7 @@ class ProfileViewController: UIViewController {
         return self.goal
     }
     
-    // Setters
+    // MARK: Setters
     func setHeightUnit(_ unit: String) {
         self.heightUnit = unit
     }
@@ -250,4 +281,6 @@ class ProfileViewController: UIViewController {
     func setGoal(_ goal: Double) {
         self.goal = goal
     }
+    
+    // MARK: END
 }
