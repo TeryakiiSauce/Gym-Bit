@@ -59,13 +59,13 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSchedule&profile
         refreshData()
         updateSegmentView()
     }
     
-    override func viewWillAppear(_ animated: Bool)
+    override func viewWillAppear(_ animated: Bool) {
         Constants.applyDefaultStyling(backgroundView: backgroundView, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
+        
         
         // Set all font colors & sizes appropriately
         
@@ -99,7 +99,7 @@ class ProfileViewController: UIViewController {
         bottomSectionView.layer.borderWidth = 1
         bottomSectionView.layer.borderColor = AppColors.textColor.cgColor
         bottomSectionView.layer.cornerRadius = 10
-                
+        
         // BOTTOM VIEW SECTION
         segmentLbl1.halfTextColorChange(fullText: segmentLbl1.text!, changeText: "0 min")
         segmentLbl2.halfTextColorChange(fullText: segmentLbl2.text!, changeText: "0 min")
@@ -154,7 +154,7 @@ class ProfileViewController: UIViewController {
         let pattern: String = "(?<=: ).*" // pattern to get all text after the colon and the space characters
         return match(text, pattern)[0]
     }
-        
+    
     // Returns an array of regex matches by using the pattern passed [used by "getProfileStatsString()"]
     func match(_ text: String, _ pattern: String) -> [String] {
         do {
