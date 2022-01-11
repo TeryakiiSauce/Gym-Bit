@@ -30,18 +30,19 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: startButton, secondaryButton: restTimeButton)
         
-        setDefaultData()
+        scheduleNameLabel.textColor = AppColors.buttonColor
+        
+        //setDefaultData() // no need to call this twice
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //print(DefaultData.user.activeSchedule ?? []) // testing
         setDefaultData()
     }
     
     func setDefaultData(){
         
         schedule = DefaultData.user.activeSchedule
-       
+       print(schedule!) // testing - the active schedule is passed successfully but there are some bugs in this file i think
         
         if schedule?.exercises.count != 0{
             scheduleNameLabel.text = schedule?.name
