@@ -48,6 +48,8 @@ class MuscleListViewController: UIViewController,UITableViewDataSource, UITableV
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         Constants.applyCellStyling(cell: cell)
+        let bgColorView = UIView()
+        cell.selectedBackgroundView = bgColorView
         //adding data to the cell
         cell.titleLabel.text = cellNameArray[indexPath.row]
         cell.subtitleLabel.text = "Total exercises (" + String(exersizeCountArray[indexPath.row]) + ")"

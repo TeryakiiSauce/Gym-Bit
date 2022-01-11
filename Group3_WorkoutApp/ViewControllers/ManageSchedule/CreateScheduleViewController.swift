@@ -196,7 +196,10 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+        
         Constants.applyCellStyling(cell: cell)
+        let bgColorView = UIView()
+        cell.selectedBackgroundView = bgColorView
         //adding data to the cell
         cell.titleLabel.text = displayedSchedule.exercises[indexPath.row].name
         cell.subtitleLabel.text = displayedSchedule.exercises[indexPath.row].targetMuscle

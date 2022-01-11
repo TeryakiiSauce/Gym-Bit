@@ -74,11 +74,11 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     //function that fill the table with infromation
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //creating a cell identifier
-        let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! ExerciseTableViewCell
-        cell.backgroundColor = AppColors.bodyBg
-        cell.cellView.backgroundColor = AppColors.bodyBg
-        cell.titleLabel.textColor = AppColors.textColor
-        cell.subtitleLabel.textColor = AppColors.secondaryColor
+        let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+        
+        let bgColorView = UIView()
+        cell.selectedBackgroundView = bgColorView
+        Constants.applyCellStyling(cell: cell)
         //adding data to the cell
         cell.titleLabel.text = exersizeList?[indexPath.row].name
         cell.subtitleLabel.text = "\(exersizeList?[indexPath.row].reps ?? 10) reps x \(exersizeList?[indexPath.row].sets ?? 3) sets"
