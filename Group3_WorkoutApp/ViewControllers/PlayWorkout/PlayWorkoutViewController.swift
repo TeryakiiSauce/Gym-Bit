@@ -21,7 +21,7 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     var exerciseIndex = 0
     var schedule = DefaultData.user.activeSchedule
     var exercisesCount: Int?
-    var progress = Progress(totalUnitCount: Int64(DefaultData.schedules[0].exercises.count))
+    var progress = Progress(totalUnitCount: Int64((DefaultData.user.activeSchedule?.exercises.count)!))
     var cardioTime: Double?
     var startWorkoutTime: Date?
     var endWorkoutTime: Date?
@@ -100,14 +100,15 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     // set exercises name and index based on the exercise index
     func setExerciseInfo(){
         currentExerciseNoLabel.text = String(exerciseIndex + 1)
-        exerciseNameLabel.text = DefaultData.schedules[0].exercises[exerciseIndex].name
+        exerciseNameLabel.text = DefaultData.user.activeSchedule?.name
     }
     
     func finishWorkout() {
        
         // display pop up
         dismiss(animated: true, completion: nil)
-        navigationController?.popToRootViewController(animated: true)
+        // navigate to the first screen
+        self.performSegue(withIdentifier: "unwindToWorkoutLandingViewController", sender: self)
 
     }
     
@@ -187,7 +188,7 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             self.view.addSubview(alertVC.view)
             alertVC.didMove(toParent: self)
             
-            self.performSegue(withIdentifier: "unwindToWorkoutLandingViewController", sender: self)
+//            self.performSegue(withIdentifier: "unwindToWorkoutLandingViewController", sender: self)
 
             
         }else{
