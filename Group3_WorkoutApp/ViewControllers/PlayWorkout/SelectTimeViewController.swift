@@ -33,17 +33,13 @@ class SelectTimeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: startButton, secondaryButton: nil, vc: self)
-        
         Constants.applyTableAndTextStyling(titleLabels: [totalTimeLabel, headerTitleLabel], bodyLabels: [bodyTitleLabel, headerSubtitleLabel], tableView: nil)
-        
         pickerView.setValue(AppColors.textColor, forKey: "textColor")
-
-        
     }
     
+    // enable start button only when there is time selected
     func enableStartButton()
     {
         if totalSeconds > 0 {
@@ -66,25 +62,23 @@ class SelectTimeViewController: UIViewController {
         totalTimeLabel.text = timeString
     }
     
-    
+    // show timer controller
     @IBAction func startButtonPressed(_ sender: Any) {
         
         guard let timerVC = self.storyboard?.instantiateViewController(identifier: "warmupView") as? TimerViewController else {return}
-        
         timerVC.selectedTime = Double(self.totalSeconds)
         self.show(timerVC, sender: sender)
-//        self.present(timerView, animated: true)
     }
 }
 
 extension SelectTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
-    // 3 sections in the picker
+    // 2 sections in the picker (mins and seconds)
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
-    // number of rows for hours, minutes and seconds
+    // number of rows for minutes and seconds
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0, 1:
@@ -111,7 +105,7 @@ extension SelectTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource
         }
     }
     
-    // set hour, min, and sec when scrolling through the picker
+    // set min, and sec when scrolling through the picker
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:

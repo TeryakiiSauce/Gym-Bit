@@ -9,11 +9,12 @@ import UIKit
 
 class PlayWorkoutTableViewController: UITableViewController, SetCellDelegate, TimerCellDelegate {
     
+    // start timer
     func timerButtonTapped() {
         playWorkoutVC?.isCompleted = checkExerciseStatus()
     }
     
-    
+    // check set box
     func setButtonTapped() {
         playWorkoutVC?.isCompleted = checkExerciseStatus()
     }
@@ -31,22 +32,26 @@ class PlayWorkoutTableViewController: UITableViewController, SetCellDelegate, Ti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // customize table view
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setInitailReps()
+        // set table view bg color
         tableView.backgroundColor = AppColors.bodyBg
     }
 
-    
+    // set initial exercise reps
     func setInitailReps(){
         firstSetCell.repsLabel.text = "\(initialReps ?? 99) reps"
         secondSetCell.repsLabel.text = "\(initialReps ?? 99) reps"
         thirdSetCell.repsLabel.text = "\(initialReps ?? 99) reps"
     }
     
+    // set actual reps
     func setReps(reps: Int){
         let cells = self.tableView.visibleCells
         
@@ -57,6 +62,7 @@ class PlayWorkoutTableViewController: UITableViewController, SetCellDelegate, Ti
         }
     }
     
+    // reset table (check marks) when navigating to the next exercise
     func resetTable(){
         let cells = self.tableView.visibleCells
         
@@ -67,10 +73,10 @@ class PlayWorkoutTableViewController: UITableViewController, SetCellDelegate, Ti
                 cell.resetCell()
             }
         }
-        
         playWorkoutVC?.isCompleted = false
     }
     
+    // handle the navigation to the next exercise (allow only when all sets and timers are checked)
     func checkExerciseStatus() -> Bool {
         if(firstSetCell.isChecked && secondSetCell.isChecked && thirdSetCell.isChecked && firstRestCell.isCompleted && secondRestCell.isCompleted && thirdRestCell.isCompleted)
         {
@@ -92,6 +98,7 @@ class PlayWorkoutTableViewController: UITableViewController, SetCellDelegate, Ti
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           tableView.deselectRow(at: indexPath, animated: true)
+            // check set box
             setButtonTapped()
       }
 }

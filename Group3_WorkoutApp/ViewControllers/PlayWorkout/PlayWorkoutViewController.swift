@@ -10,6 +10,7 @@ import Foundation
 
 class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     
+    // outlets
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var mainButton: UIButton!
@@ -61,10 +62,10 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     override func viewWillAppear(_ animated: Bool) {
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil, vc: self)
-        
         Constants.applyTableAndTextStyling(titleLabels: [exerciseNameLabel], bodyLabels: [], tableView: nil)
     }
     
+    // show exercise details when clicking on the exercise name
     @objc func exerciseLabelTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         let storyboard = UIStoryboard(name: "ViewWorkout", bundle: nil)
@@ -77,6 +78,7 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         show(exerciseDetailsVC, sender: tapGestureRecognizer)
     }
     
+    // disable the button only when all rest and sets are completed
     func setButtonStateButton(){
         if isCompleted {
             mainButton.isEnabled = true
@@ -87,6 +89,7 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         }
     }
     
+    // customize progress view
     func customizeProgressView(){
         // cahnge height of the progress view
         progressView.transform =  progressView.transform.scaledBy (x: 1, y: 2)
@@ -95,6 +98,7 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         progressView.clipsToBounds = true
     }
     
+    // update progress view when clicking on next
     func updateProgressView(){
         guard !progress.isFinished else {return}
         progress.completedUnitCount += 1
@@ -108,26 +112,17 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         exerciseNameLabel.text = DefaultData.user.activeSchedule?.exercises[exerciseIndex].name
     }
     
-    func finishWorkout() {
-       
-        // display pop up
-        dismiss(animated: true, completion: nil)
-        // navigate to the first screen
-        self.performSegue(withIdentifier: "unwindToWorkoutLandingViewController", sender: self)
-
-    }
-    
+    // calculate workout time
     func calcWorkoutTimeInMinutes() -> Double {
         // get both times sinces refrenced date and divide by 60 to get minutes
         let endDateMinutes = endWorkoutTime!.timeIntervalSinceReferenceDate/60
         let startDateMinutes = startWorkoutTime!.timeIntervalSinceReferenceDate/60
-
         // return the difference
         return Double(endDateMinutes - startDateMinutes)
     }
     
     
-    
+    // next or finish button tapped
     @IBAction func nextButtonTapped(_ sender: Any) {
         
         // change button title when reaching the last exercise
@@ -135,10 +130,12 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             mainButton.setTitle("Finish", for: .normal)
         }
         
+        // when reaching the last exercise and clicking finish
         if exerciseIndex == exercisesCount! - 1 {
             // instantiate alret dialog
             guard let alertVC = UIStoryboard(name: "PlayWorkout", bundle: nil).instantiateViewController(withIdentifier: "completeWorkoutViewController") as? CompleteWorkoutPopupViewController else {return}
             
+            // set ending time
             endWorkoutTime = Date()
             
             // calculate workout time
@@ -181,9 +178,7 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
                 Constants.savePlayedScheduleData([schedule!.name: 1])
             }
             
-            
-            
-            
+            // display pop up to indicate the end of the workout
             alertVC.totalMinutes = Int(totalWorkoutTime)
             // pass timer controller
             alertVC.delegate = self
@@ -193,10 +188,8 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             self.view.addSubview(alertVC.view)
             alertVC.didMove(toParent: self)
             
-//            self.performSegue(withIdentifier: "unwindToWorkoutLandingViewController", sender: self)
-
-            
         }else{
+            // when going to next exercise
             exerciseIndex += 1
             updateProgressView()
             setExerciseInfo()
@@ -205,5 +198,14 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             // reset table
             tableViewController?.resetTable()
         }
+    }
+    
+    // go to the landing screen when finishing the workout
+    func finishWorkout() {
+        // display pop up
+        dismiss(animated: true, completion: nil)
+        // navigate to the first screen
+        self.performSegue(withIdentifier: "unwindToWorkoutLandingViewController", sender: self)
+
     }
 }

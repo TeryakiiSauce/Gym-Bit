@@ -10,6 +10,7 @@ import SwiftUI
 
 class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, UITableViewDelegate {
     
+    // outlets
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var startButton: UIButton!
@@ -20,8 +21,9 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     @IBOutlet weak var scheduleTargetLabel: UILabel!
     @IBOutlet weak var selectionLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
-    
     @IBOutlet weak var targetTitleLabel: UILabel!
+    
+    
     // default rest time
     static var restTime = 45
     var schedule: Schedule?
@@ -29,30 +31,19 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     override func viewWillAppear(_ animated: Bool) {
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: startButton, secondaryButton: restTimeButton, vc: self)
-        
         Constants.applyTableAndTextStyling(titleLabels: [scheduleNameLabel], bodyLabels:  [selectionLabel,targetTitleLabel, scheduleTargetLabel, restTimeLabel], tableView: customTableView)
         
         setDefaultData()
         customTableView.reloadData()
-        
-//        tabBarController?.tabBar.barTintColor =  AppColors.bodyBg
-//        tabBarController?.tabBar.unselectedItemTintColor = AppColors.textColor
-//        navigationController?.navigationBar.barTintColor = AppColors.bodyBg
-//        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColors.textColor]
-        
-
-//        navigationController?.tabBarController.
-
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        // set schedule to nil  to avoid crashing when activating another schedule
         schedule = nil
     }
     
     func setDefaultData(){
-        
         schedule = DefaultData.user.activeSchedule
-       //print(schedule!) // testing - the active schedule is passed successfully but there are some bugs in this file i think
         
         if schedule?.exercises.count != 0{
             scheduleNameLabel.text = schedule?.name
@@ -85,9 +76,9 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
+        // style the cell and set its data
         Constants.applyCellStyling(cell: cell)
         let bgColorView = UIView()
-//        bgColorView.backgroundColor = AppColors.bodyBg
         cell.selectedBackgroundView = bgColorView
         cell.titleLabel.text = schedule?.exercises[indexPath.item].name
         cell.subtitleLabel.text = "\(schedule?.exercises[indexPath.row].reps ?? 0) reps x \(schedule?.exercises[indexPath.row].sets ?? 0) sets"
@@ -97,17 +88,14 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        // show workout details screen
         let storyboard = UIStoryboard(name: "ViewWorkout", bundle: nil)
-        
         guard let exerciseDetailsVC = storyboard.instantiateViewController(withIdentifier: "ViewExercisesStoryBoard")  as? ViewDetailExerciseViewController else {return}
-        //setting controller variable
-        
         exerciseDetailsVC.imageName = (schedule?.exercises[indexPath.row].imagePath)!
         exerciseDetailsVC.exDescription = (schedule?.exercises[indexPath.row].description)!
         exerciseDetailsVC.exTips = (schedule?.exercises[indexPath.row].tips)!
         exerciseDetailsVC.title = schedule?.exercises[indexPath.row].name
         show(exerciseDetailsVC, sender: tableView)
-//        present(exerciseDetailsVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -115,6 +103,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     }
     
     
+    // present rest time selection view controller modally
     @IBAction func setRestTimeTapped(_ sender: Any) {
         guard let restTimeView = storyboard?.instantiateViewController(identifier: "restTimeView") as? RestTimeViewController else {return}
         restTimeView.modalPresentationStyle = .custom
@@ -124,6 +113,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     
     @IBAction func didUnwindFromSelectRestTime(_ seague: UIStoryboardSegue)
     {
+        // set selected time after unwinding
         if let restTimeVc = seague.source as? RestTimeViewController {
             PlayWorkoutLandingViewController.restTime = restTimeVc.totalSeconds
             
@@ -142,6 +132,7 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
     }
 }
 
+// for presenting rest time view controller in half screen
 extension PlayWorkoutLandingViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         CustomPresentationController(presentedViewController: presented, presenting: presenting)

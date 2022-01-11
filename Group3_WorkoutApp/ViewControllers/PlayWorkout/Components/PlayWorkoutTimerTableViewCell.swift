@@ -14,7 +14,8 @@ protocol TimerCellDelegate: AnyObject {
 class PlayWorkoutTimerTableViewCell: UITableViewCell {
     
     weak var delegate: TimerCellDelegate?
-
+    
+    // outlets
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var playImage: UIImageView!
     @IBOutlet weak var timeRemainingLabel: UILabel!
@@ -28,28 +29,28 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // view and cell styling
         cellView.layer.cornerRadius = Constants.viewRadius
         cellView.layer.borderColor = AppColors.secondaryColor.cgColor
         cellView.layer.borderWidth = 1
-        selectionStyle = .none
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        playImage.isUserInteractionEnabled = true
-        playImage.addGestureRecognizer(tapGestureRecognizer)
-        
-        timeRemaining = selectedTime
-        formatTimeRemaining()
-        
-        
         backgroundColor = AppColors.bodyBg
         cellView.backgroundColor = AppColors.bodyBg
         timeRemainingLabel.textColor = AppColors.textColor
         cellTitle.textColor = AppColors.textColor
         cellTitle.textColor = AppColors.textColor
-
+        selectionStyle = .none
+        
+        // add gesture to the play button image
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        playImage.isUserInteractionEnabled = true
+        playImage.addGestureRecognizer(tapGestureRecognizer)
+        
+        // set default timing and format it
+        timeRemaining = selectedTime
+        formatTimeRemaining()
     }
     
+    // play the rest timer
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
@@ -58,8 +59,7 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
        
     }
     
-    
-    
+    // format the time
     func formatTimeRemaining()
     {
         let time = Constants.secondsToMinutesSeconds(seconds: Int(timeRemaining))
@@ -68,7 +68,7 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
         timeRemainingLabel.text = timeString
     }
     
-    
+    // update the time (every second)
     @objc func updateTime() {
         
         if timeRemaining > 0 {
@@ -87,12 +87,12 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
             isCompleted = true
             // to update is completed of the play workout vc
             delegate?.timerButtonTapped()
-            
         }
         // format time remaining
         formatTimeRemaining()
     }
     
+    // reset the timer
     func resetCell(){
         playImage.image = UIImage(named: "play")
         // reset time remaining

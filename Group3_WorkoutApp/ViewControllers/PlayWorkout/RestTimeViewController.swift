@@ -9,6 +9,7 @@ import UIKit
 
 class RestTimeViewController: UIViewController {
 
+    // outlets
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var restTimeLabel: UILabel!
@@ -31,9 +32,7 @@ class RestTimeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: confirmButton, secondaryButton: nil, vc: self)
-        
         Constants.applyTableAndTextStyling(titleLabels: [restTimeLabel], bodyLabels: [bodyTitleLabel], tableView: nil)
-        
         pickerView.setValue(AppColors.textColor, forKey: "textColor")
     }
     
@@ -48,7 +47,7 @@ class RestTimeViewController: UIViewController {
         restTimeLabel.text = timeString
     }
     
-    
+    // enable the button only when selecting a time
     func enableStartButton()
     {
         if totalSeconds > 0 {
@@ -63,19 +62,16 @@ class RestTimeViewController: UIViewController {
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-
-    
 }
 
 extension RestTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
-    // 3 sections in the picker
+    // 2 sections in the picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
-    // number of rows for hours, minutes and seconds
+    // number of rows for minutes and seconds
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
 
@@ -103,7 +99,7 @@ extension RestTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-    // set hour, min, and sec when scrolling through the picker
+    // set min, and sec when scrolling through the picker
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
        
@@ -114,7 +110,6 @@ extension RestTimeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         default:
             break;
         }
-        
         updateTotalTime()
     }
 
