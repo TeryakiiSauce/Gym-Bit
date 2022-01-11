@@ -160,8 +160,7 @@ struct DefaultData {
      */
     
     //instance of user
-    static var user = User(dateJoined: Date(), fullName: "Mike Gonzalis", height: 177, weight: 68, goalWeight: 70, dailyWorkoutMinutes: nil, dailyCardioMinutes: nil, avgWeeklyWorkoutMinutes: nil, avgWeeklyCardioMinutes: nil, totalyWorkoutMinutes: nil, totalCardioMinutes: nil, totalWorkedoutDays: nil, workoutStreak: nil, schedules: schedules, activeSchedule: schedules[0])
-    
+    static var user = User(activeSchedule: schedules[0])
     // Creating a default schedule
     // What shows when the app is opened for the very first time
     static var schedules =

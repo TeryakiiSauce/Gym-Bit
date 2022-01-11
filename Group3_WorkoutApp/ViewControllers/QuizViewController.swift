@@ -12,7 +12,6 @@ class QuizViewController: UIViewController {
     var switchOnImg: UIImage = UIImage(named: "switch_on.svg")!
     var switchOffImg: UIImage = UIImage(named: "switch_off.svg")!
     var isPoundFeet = false
-    var setStatusClr = 1
     
     let userDefaults = UserDefaults()
 
@@ -50,11 +49,6 @@ class QuizViewController: UIViewController {
             if isDark
             {
                 AppColors.toggleDarkMode()
-                setStatusClr = 3
-            }
-            else
-            {
-                setStatusClr = 1
             }
         }
 
@@ -92,18 +86,12 @@ class QuizViewController: UIViewController {
         
         
         // Changing colors to match the app theme by calling AppColors stuct.
-        //HeadLabel.textColor = AppColors.textColor
         bodyView.backgroundColor = AppColors.bodyBg
         nameField.textColor = AppColors.phoneBg
         Line1.textColor = AppColors.phoneBg
         Line2.textColor = AppColors.phoneBg
         Line3.textColor = AppColors.phoneBg
         Line4.textColor = AppColors.phoneBg
-        //ageTxt.textColor = AppColors.textColor
-        //heightTxt.textColor = AppColors.textColor
-        //weightTxt.textColor = AppColors.textColor
-        //goalTxt.textColor = AppColors.textColor
-        //unitTxt.textColor = AppColors.textColor
         yearsValue.textColor = AppColors.buttonColor
         heightValue.textColor = AppColors.buttonColor
         weightValue.textColor = AppColors.buttonColor
@@ -145,13 +133,7 @@ class QuizViewController: UIViewController {
         goalValue.text = getGoal()
         
     }
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        if AppColors.isDarkMode
-//        {
-//            return .lightContent
-//        }
-//        return .darkContent
-//    }
+    
     //removing "your name" text after field is focused so the user not need to erase it.
     @IBAction func fieldIsFocused(_ sender: UITextField)
     {
@@ -188,7 +170,6 @@ class QuizViewController: UIViewController {
     //Changing the text after any of the slides moved.
     @IBAction func sliderMoved(_ sender: UISlider)
     {
-        //setNeedsStatusBarAppearanceUpdate()
         //Checking which slider is moved.
         switch sender.tag {
         case 1:

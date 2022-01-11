@@ -45,12 +45,13 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var unitSwitch: UIImageView!
     @IBOutlet weak var line1: UILabel!
     @IBOutlet weak var line2: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //changin colors to match the theme (dark mode or day mode)
         setColorsByTheme()
-        
+
         //Load switches, checking if on or off
         if let snd = userDefaults.value(forKey: "sound") as? Bool
         {
@@ -339,12 +340,27 @@ class SettingsViewController: UIViewController {
         userDefaults.setValue(goal, forKey: "goal")
         Constants.displayAlert(thisClass: self, alertTitle: "Done", msg: "Your data updated successfully", printInConsole: nil)
     }
-    
+
     //this function created to eleminate the redudancy, since the colors will be changed when the page loads, also it can be changed when the user switched to dark mode.
     func setColorsByTheme()
     {
         // Setting the default styles to the page elements by calling a funcation from Constants struct.
         Constants.applyDefaultStyling(backgroundView: view, headerView: headView1, bodyView: settingsView, mainButton: saveButton, secondaryButton: nil, vc: self)
+        
+        var txtLabels: [UILabel] = [UILabel]()
+        txtLabels.append(headLabel)
+        txtLabels.append(appSettingsLabel)
+        txtLabels.append(ageTxt)
+        txtLabels.append(heightTxt)
+        txtLabels.append(weightTxt)
+        txtLabels.append(goalTxt)
+        txtLabels.append(timeSoundTxt)
+        txtLabels.append(darkModeTxt)
+        txtLabels.append(unitTxt)
+        
+        
+        Constants.applyTableAndTextStyling(titleLabels: nil, bodyLabels: txtLabels, tableView: nil)
+        
         Constants.buildRoundedUIView(headerView: headView2, bodyView: settingsView2, button: nil)
         
         // Changing view 1 elements colors to match the app theme by calling AppColors stuct.
@@ -352,13 +368,7 @@ class SettingsViewController: UIViewController {
         settingsView2.backgroundColor = AppColors.bodyBg
         scrollView.backgroundColor = AppColors.phoneBg
         backView.backgroundColor = AppColors.phoneBg
-        appSettingsLabel.textColor = AppColors.textColor
-        headLabel.textColor = AppColors.textColor
         nameField.textColor = AppColors.phoneBg
-        ageTxt.textColor = AppColors.textColor
-        heightTxt.textColor = AppColors.textColor
-        weightTxt.textColor = AppColors.textColor
-        goalTxt.textColor = AppColors.textColor
         yearsValue.textColor = AppColors.buttonColor
         heightValue.textColor = AppColors.buttonColor
         weightValue.textColor = AppColors.buttonColor
@@ -372,10 +382,7 @@ class SettingsViewController: UIViewController {
         slider4.thumbTintColor = AppColors.buttonColor
         slider4.tintColor = AppColors.buttonColor
         
-        // Changing view 2 elements colors to match the app theme by calling AppColors stuct.
-        timeSoundTxt.textColor = AppColors.textColor
-        darkModeTxt.textColor = AppColors.textColor
-        unitTxt.textColor = AppColors.textColor
+        // Changing view 2 lines colors to match the app theme by calling AppColors stuct.
         line1.textColor = AppColors.phoneBg
         line2.textColor = AppColors.phoneBg
     }
