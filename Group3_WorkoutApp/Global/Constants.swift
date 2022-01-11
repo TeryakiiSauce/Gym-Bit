@@ -132,6 +132,8 @@ struct Constants {
     // declaring player should be outside the function
     static private var player: AVAudioPlayer?
     static func playTimerSound() {
+        
+        if isSoundOn {
         // unwrap play and check if it is playing something
         if let player = player, player.isPlaying {
             // stop the sound
@@ -157,6 +159,7 @@ struct Constants {
             }catch{
                 print("An error has occurred")
             }
+        }
         }
     }
     //function that checks the exercises and changes the target label
