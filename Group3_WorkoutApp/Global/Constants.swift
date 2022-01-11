@@ -354,5 +354,28 @@ struct Constants {
         alertController.addAction(OKAction)
         thisClass.present(alertController, animated: true, completion: nil)
     }
+    
+    static func getImageName(bodyType: String) -> String {
+        var output = ""
+        switch bodyType{
+        case "Chest":
+            output = "chest"
+        case "Biceps":
+            output = "biceps"
+        case"Triceps":
+            output = "triceps"
+        case "Back":
+            output = "back"
+        case"Shoulders":
+            output = "shoulders"
+        case "Abs":
+            output = "abs"
+        case "Legs":
+            output = "legs"
+        default:
+            output = "None"
+        }
+        return output
+    }
 }
 

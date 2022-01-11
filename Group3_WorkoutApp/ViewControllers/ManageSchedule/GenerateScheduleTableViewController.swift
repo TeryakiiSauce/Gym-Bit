@@ -65,7 +65,7 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
         //adding data to the cell
         cell.titleLabel.text = cellNameArray[indexPath.row]
         cell.subtitleLabel.text = "Total exercises (" + String(exersizeCountArray[indexPath.row]) + ")"
-        cell.cellImage.image = UIImage(named: cellNameArray[indexPath.row])
+        cell.cellImage.image = UIImage(named:  Constants.getImageName(bodyType:cellNameArray[indexPath.row]))
         return cell
     }
 
