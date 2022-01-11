@@ -31,10 +31,14 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
     }
     
     //view did load function
+    override func viewWillAppear(_ animated: Bool) {
+        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: MainButton, secondaryButton: nil, vc: self)
+        Constants.applyTableAndTextStyling(titleLabels: [], bodyLabels: [], tableView: customTableView)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: MainButton, secondaryButton: nil, vc: self)
+        //Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: MainButton, secondaryButton: nil, vc: self)
         customTableView.delegate = self
         customTableView.dataSource = self
         customTableView.allowsMultipleSelection = true
@@ -55,6 +59,7 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+        Constants.applyCellStyling(cell:   cell)
         //adding data to the cell
         cell.titleLabel.text = cellNameArray[indexPath.row]
         cell.subtitleLabel.text = "Total exercises (" + String(exersizeCountArray[indexPath.row]) + ")"

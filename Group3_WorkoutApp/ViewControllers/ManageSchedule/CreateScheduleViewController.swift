@@ -20,6 +20,8 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     @IBOutlet weak var EmptyTableStackView: UIStackView!
     @IBOutlet weak var clearPageButton: UIButton!
     @IBOutlet weak var MuscleLabel: UILabel!
+    @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     //button that clears the whole table
     @IBAction func ClickClearScheduleButton(_ sender: Any) {
@@ -119,7 +121,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil, vc: self)
+       
         customTableView.delegate = self
         customTableView.dataSource = self
         //styling table view
@@ -180,7 +182,8 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     override func viewWillAppear(_ animated: Bool) {
         //checking if there are any exercises there
         updateMainButton()
-        
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil, vc: self)
+        Constants.applyTableAndTextStyling(titleLabels: nil, bodyLabels: [targetLabel,MuscleLabel,emptyLabel], tableView: customTableView)
         MuscleLabel.text = Constants.targetMuscle(exerciseList: displayedSchedule.exercises)
     }
    
@@ -193,6 +196,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+        Constants.applyCellStyling(cell: cell)
         //adding data to the cell
         cell.titleLabel.text = displayedSchedule.exercises[indexPath.row].name
         cell.subtitleLabel.text = displayedSchedule.exercises[indexPath.row].targetMuscle

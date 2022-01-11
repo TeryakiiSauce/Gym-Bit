@@ -16,6 +16,7 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
     @IBOutlet weak var TargetLabel: UILabel!
+    @IBOutlet weak var orgTargetLabel: UILabel!
     
     //function that gets the exercises by an inputed string and sets them in exercise list
     func getExercises(Type:String){
@@ -45,6 +46,8 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
         //getting the exercise for the page
         getExercises(Type: mainImageIconName)
         TargetLabel.text = Constants.targetMuscle(exerciseList: exersizeList!)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil, vc: self)
+        Constants.applyTableAndTextStyling(titleLabels: nil, bodyLabels: [orgTargetLabel,TargetLabel,exerciseCountLabel], tableView: customTableView)
     }
     
     //view did load function
@@ -52,7 +55,7 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
         super.viewDidLoad()
         // apply default styling
         
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil, vc: self)
+        
         customTableView.delegate = self
         customTableView.dataSource = self
         //allowing the user to multicelect the cell 
@@ -72,6 +75,10 @@ class ExerciseListViewController: UIViewController,UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! ExerciseTableViewCell
+        cell.backgroundColor = AppColors.bodyBg
+        cell.cellView.backgroundColor = AppColors.bodyBg
+        cell.titleLabel.textColor = AppColors.textColor
+        cell.subtitleLabel.textColor = AppColors.secondaryColor
         //adding data to the cell
         cell.titleLabel.text = exersizeList?[indexPath.row].name
         cell.subtitleLabel.text = "\(exersizeList?[indexPath.row].reps ?? 10) reps x \(exersizeList?[indexPath.row].sets ?? 3) sets"

@@ -21,6 +21,8 @@ class MuscleListViewController: UIViewController,UITableViewDataSource, UITableV
     //function that resets the table whenever the page appears
     override func viewWillAppear(_ animated: Bool) {
         customTableView.reloadData()
+        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
+        
     }
     
     //view did load function
@@ -28,7 +30,7 @@ class MuscleListViewController: UIViewController,UITableViewDataSource, UITableV
         super.viewDidLoad()
         // apply default styling
         
-        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
+        
         customTableView.delegate = self
         customTableView.dataSource = self
         //styling table view
@@ -45,6 +47,7 @@ class MuscleListViewController: UIViewController,UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //creating a cell identifier
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+        Constants.applyCellStyling(cell: cell)
         //adding data to the cell
         cell.titleLabel.text = cellNameArray[indexPath.row]
         cell.subtitleLabel.text = "Total exercises (" + String(exersizeCountArray[indexPath.row]) + ")"
