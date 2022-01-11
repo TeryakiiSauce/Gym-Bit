@@ -38,10 +38,11 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var unitSwitch: UIImageView!
     @IBOutlet weak var finishButton: UIButton!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        //userDefaults.setValue(nil, forKey: "name")
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //userDefaults.setValue(nil, forKey: "name")
+        
         //Check if dark mode on, if yes switch the theme
         if let isDark = userDefaults.value(forKey: "darkMode") as? Bool
         {
@@ -50,7 +51,7 @@ class QuizViewController: UIViewController {
                 AppColors.toggleDarkMode()
             }
         }
-        
+
         //Check if sound is off, if yes turn of the sounds
         if let isSoundOn = userDefaults.value(forKey: "sound") as? Bool
         {
@@ -59,7 +60,7 @@ class QuizViewController: UIViewController {
                 Constants.isSoundOn = false
             }
         }
-        
+
         //Here we check if the user already did the quiz, if yes skip the page and move to the view schedual page
         if let usrName = userDefaults.value(forKey: "name") as? String
         {
@@ -67,12 +68,12 @@ class QuizViewController: UIViewController {
             self.performSegue(withIdentifier: "mainIdentifier", sender: self)
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    override func viewWillAppear(_ animated: Bool) {
         // Setting the default style to the view and the body view by calling a funcation from Constants struct.
         Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: finishButton, secondaryButton: nil)
         
-
+        print(AppColors.isDarkMode)
         
         // Changing colors to match the app theme by calling AppColors stuct.
         HeadLabel.textColor = AppColors.textColor
