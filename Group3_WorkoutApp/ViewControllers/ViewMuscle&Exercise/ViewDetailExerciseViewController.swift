@@ -12,7 +12,9 @@ class ViewDetailExerciseViewController: UIViewController {
     //connectors connecting the gui to the code
     @IBOutlet weak var exerciseImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionTitleLabel: UILabel!
     @IBOutlet weak var tipsLabel: UILabel!
+    @IBOutlet weak var tipsTitleLabel: UILabel!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var tipsView: UIView!
     @IBOutlet weak var descView: UIView!
@@ -37,6 +39,8 @@ class ViewDetailExerciseViewController: UIViewController {
         //apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         setViewsBroder()
+        
+        Constants.applyTableAndTextStyling(titleLabels: [], bodyLabels: [descriptionTitleLabel,tipsTitleLabel,descriptionLabel, tipsLabel], tableView: nil)
     }
     
     func setViewsBroder()
