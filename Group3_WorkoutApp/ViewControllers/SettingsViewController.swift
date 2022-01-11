@@ -361,7 +361,7 @@ class SettingsViewController: UIViewController {
         
         Constants.applyTableAndTextStyling(titleLabels: nil, bodyLabels: txtLabels, tableView: nil)
         
-        Constants.buildRoundedUIView(headerView: headView2, bodyView: settingsView2, button: nil)
+        Constants.applyDefaultStyling(backgroundView: nil, headerView: headView2, bodyView: settingsView2, mainButton: nil, secondaryButton: nil, vc: nil)
         
         // Changing view 1 elements colors to match the app theme by calling AppColors stuct.
         headView2.backgroundColor = AppColors.bodyBg

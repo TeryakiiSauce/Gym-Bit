@@ -86,6 +86,7 @@ class QuizViewController: UIViewController {
         
         
         // Changing colors to match the app theme by calling AppColors stuct.
+        skipButton.tintColor = AppColors.buttonColor
         bodyView.backgroundColor = AppColors.bodyBg
         nameField.textColor = AppColors.phoneBg
         Line1.textColor = AppColors.phoneBg
