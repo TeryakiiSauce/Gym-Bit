@@ -50,6 +50,8 @@ class ProfileViewController: UIViewController {
     private var height: Double = 0.0 // default
     private var weight: Double = 0.0 // default
     private var goal: Double = 0.0   // default
+    private var cardioTime: Double = 0.0
+    private var workoutTime: Double = 0.0
     
     // MARK: END
     
@@ -66,6 +68,21 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         Constants.applyDefaultStyling(backgroundView: backgroundView, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         
+        
+        let dict = UserDefaults.standard
+        if let listOfWorkouts = Constants.getWorkoutData() {
+            for workout in listOfWorkouts {
+                self.setWorkoutTime(workout["workoutTime"]!)
+                self.setCardioTime(workout["cardioTime"]!)
+                
+                dict.setValue(workoutTime, forKey: "todayWorkoutTime")
+                dict.setValue(cardioTime, forKey: "todayCardioTime")
+                dict.setValue(workoutTime + cardioTime, forKey: "todayTotalTime")
+                
+                print("workout time: \(workoutTime)")
+                print("cardio time: \(cardioTime)")
+            }
+        }
         
         // Set all font colors & sizes appropriately
         
@@ -101,9 +118,7 @@ class ProfileViewController: UIViewController {
         bottomSectionView.layer.cornerRadius = 10
         
         // BOTTOM VIEW SECTION
-        segmentLbl1.halfTextColorChange(fullText: segmentLbl1.text!, changeText: "0 min")
-        segmentLbl2.halfTextColorChange(fullText: segmentLbl2.text!, changeText: "0 min")
-        segmentLbl3.halfTextColorChange(fullText: segmentLbl3.text!, changeText: "0 min")
+        updateSegmentView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -125,28 +140,66 @@ class ProfileViewController: UIViewController {
     // MARK: - CUSTOM FUNCTIONS
     
     func updateSegmentView() {
+        let dict = UserDefaults.standard
         if segmentCtrl.selectedSegmentIndex == 0 {
             
-            segmentLbl1.text = "Time Worked Out: 0 min"
-            segmentLbl2.text = "Cardio Time: 0 min"
-            segmentLbl3.text = "Total Time: 0 min"
+            if segmentCtrl.selectedSegmentIndex == 0 {
+                segmentLbl1.text = "Time Worked Out: \(workoutTime) min"
+                segmentLbl2.text = "Cardio Time: \(cardioTime) min"
+                segmentLbl3.text = "Total Time: \(workoutTime + cardioTime) min"
+                
+                segmentLbl1.halfTextColorChange(fullText: segmentLbl1.text!, changeText: "\(workoutTime) min")
+                segmentLbl2.halfTextColorChange(fullText: segmentLbl2.text!, changeText: "\(cardioTime) min")
+                segmentLbl3.halfTextColorChange(fullText: segmentLbl3.text!, changeText: "\(workoutTime + cardioTime) min")
+                
+                
+                dict.setValue(workoutTime, forKey: "todayWorkoutTime")
+                dict.setValue(cardioTime, forKey: "todayCardioTime")
+                dict.setValue((workoutTime + cardioTime), forKey: "todayTotalTime")
+            }
             
-        } else if segmentCtrl.selectedSegmentIndex == 1 {
-            
-            segmentLbl1.text = "Average Time Worked Out: 0 min"
-            segmentLbl2.text = "Average Cardio Time: 0 min"
-            segmentLbl3.text = "Total Days Worked Out: 0 days"
+            //segmentLbl1.text = "Time Worked Out: 0 min"
+            //segmentLbl2.text = "Cardio Time: 0 min"
+            //segmentLbl3.text = "Total Time: 0 min"
             
         } else {
+            var sumOfWorkoutTime: Double = 0.0
+            var sumOfCardioTime: Double = 0.0
+            var totalOfSum: Double = 0.0
             
-            segmentLbl1.text = "Total Days Worked Out: 0 days"
-            segmentLbl2.text = "Total Cardio Time: 0 min"
-            segmentLbl3.text = "Streak: 0 days (longest: 0 days)"
+            if let listOfWorkouts = Constants.getWorkoutData() {
+                for workout in listOfWorkouts {
+                    self.setWorkoutTime(workout["workoutTime"]!)
+                    self.setCardioTime(workout["cardioTime"]!)
+                    
+                    dict.setValue(workoutTime, forKey: "todayWorkoutTime")
+                    dict.setValue(cardioTime, forKey: "todayCardioTime")
+                    dict.setValue(workoutTime + cardioTime, forKey: "todayTotalTime")
+                    
+                    sumOfWorkoutTime += workout["workoutTime"]!
+                    sumOfCardioTime += workout["cardioTime"]!
+                    
+                }
+            }
+            
+            totalOfSum = sumOfWorkoutTime + sumOfCardioTime
+            
+            print("all workout time: \(sumOfWorkoutTime)")
+            print("all cardio time: \(sumOfCardioTime)")
+            print("all total time: \(totalOfSum)")
+            
+            segmentLbl1.text = "Total Time Worked Out: \(round(sumOfWorkoutTime * 1) / 1) min"
+            segmentLbl2.text = "Total Cardio Time: \(round(sumOfCardioTime * 1) / 1) min"
+            segmentLbl3.text = "Total Days Worked Out: \(round((totalOfSum/1440) * 1) / 1) days"
+            
+            segmentLbl1.halfTextColorChange(fullText: segmentLbl1.text!, changeText: "\(round(sumOfWorkoutTime * 1) / 1) min")
+            segmentLbl2.halfTextColorChange(fullText: segmentLbl2.text!, changeText: "\(round(sumOfCardioTime * 1) / 1) min")
+            segmentLbl3.halfTextColorChange(fullText: segmentLbl3.text!, changeText: "\(round((totalOfSum/1440) * 1) / 1) days")
+            
         }
         
         segmentLbl1.halfTextColorChange(fullText: segmentLbl1.text!, changeText: getProfileStatsString(segmentLbl1.text!))
         segmentLbl2.halfTextColorChange(fullText: segmentLbl2.text!, changeText: getProfileStatsString(segmentLbl2.text!))
-        segmentLbl3.halfTextColorChange(fullText: segmentLbl3.text!, changeText: getProfileStatsString(segmentLbl3.text!))
     }
     
     // Passes the characters after the colon so that it can be used to change their color to blue
@@ -262,6 +315,14 @@ class ProfileViewController: UIViewController {
         return self.goal
     }
     
+    func getCardioTime() -> Double {
+        return round(self.cardioTime * 10) / 10
+    }
+    
+    func getWorkoutTime() -> Double {
+        return round(self.getWorkoutTime() * 10) / 10
+    }
+    
     // MARK: Setters
     func setHeightUnit(_ unit: String) {
         self.heightUnit = unit
@@ -281,6 +342,14 @@ class ProfileViewController: UIViewController {
     
     func setGoal(_ goal: Double) {
         self.goal = goal
+    }
+    
+    func setCardioTime(_ cardio: Double) {
+        self.cardioTime = round(cardio * 10) / 10
+    }
+    
+    func setWorkoutTime(_ workoutTime: Double) {
+        self.workoutTime = round(workoutTime * 10) / 10
     }
     
     // MARK: END

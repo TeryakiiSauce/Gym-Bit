@@ -103,7 +103,6 @@
                                                 </constraints>
                                                 <segments>
                                                     <segment title="Today"/>
-                                                    <segment title="Weekly"/>
                                                     <segment title="All Time"/>
                                                 </segments>
                                                 <color key="selectedSegmentTintColor" red="0.53333333329999999" green="0.75294117650000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -192,8 +191,8 @@
                         <outlet property="profileName" destination="Oyb-0z-lOb" id="VLg-gk-l9N"/>
                         <outlet property="segmentCtrl" destination="4gi-pl-juZ" id="fzz-3m-LMz"/>
                         <outlet property="segmentLbl1" destination="ULm-w2-7Jh" id="ncl-ll-MWO"/>
-                        <outlet property="segmentLbl2" destination="Zwk-EY-bqb" id="hnU-aP-gjO"/>
-                        <outlet property="segmentLbl3" destination="hgT-jt-TXT" id="xeK-QG-7Yb"/>
+                        <outlet property="segmentLbl2" destination="Zwk-EY-bqb" id="T5O-pG-3LT"/>
+                        <outlet property="segmentLbl3" destination="hgT-jt-TXT" id="vdl-SD-lw8"/>
                         <outlet property="topSectionView" destination="axU-Dp-BH3" id="6IP-g0-Du6"/>
                         <outlet property="weightLbl" destination="8Bp-01-bxl" id="PFa-2U-QzD"/>
                     </connections>
@@ -210,7 +209,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGI-7V-Fwk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196" y="-845"/>
+            <point key="canvasLocation" x="2209" y="-814"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Uk-lB-ZiL">
