@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - SCREEN BUTTONS VARIABLES
     
     
+    @IBOutlet weak var activeScheduleLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var mainButton: UIButton!
@@ -65,7 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         customTableView.reloadData()
         
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: SecondayButton, vc: self)
-        
+        Constants.applyTableAndTextStyling(titleLabels: [], bodyLabels: [dateLbl,activatedScheduleLbl,activeScheduleLabel], tableView: customTableView)
         // Print the selected/ default sorting method
         print("sort method loaded: \(DefaultData.currSelectedSortOption) \(DefaultData.ascOrDesc)")
         
@@ -184,6 +185,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
+        cell.backgroundColor = AppColors.bodyBg
+        cell.cellView.backgroundColor = AppColors.bodyBg
+        cell.titleLabel.textColor = AppColors.textColor
+        let bgColorView = UIView()
+        cell.selectedBackgroundView = bgColorView
         let schedule = schedulesListArr[indexPath.row]
         
         cell.titleLabel.text = schedule.name

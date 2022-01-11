@@ -194,6 +194,7 @@
                     <connections>
                         <outlet property="SecondayButton" destination="DzA-sY-HDm" id="Cjd-i7-Q9S"/>
                         <outlet property="activatedScheduleLbl" destination="emc-2D-mcQ" id="dau-sE-5rr"/>
+                        <outlet property="activeScheduleLabel" destination="2Qd-Sr-O8S" id="FRd-Wp-3zm"/>
                         <outlet property="bodyView" destination="aKy-gq-FoD" id="tUG-5H-9zu"/>
                         <outlet property="customTableView" destination="3K5-iw-ig9" id="cpA-zK-9WC"/>
                         <outlet property="dateLbl" destination="0fV-qj-1rj" id="Axd-bs-X9b"/>
@@ -516,9 +517,11 @@
                     <connections>
                         <outlet property="bodyView" destination="RyL-Cf-5KZ" id="TlZ-eg-BDo"/>
                         <outlet property="customTableView" destination="Rxd-8k-0RU" id="SeQ-C3-HKF"/>
+                        <outlet property="dateCreateLabel" destination="Xia-fU-QiZ" id="7bU-j8-kw1"/>
                         <outlet property="dateLbl" destination="evW-hm-qpP" id="TOO-04-UIU"/>
                         <outlet property="headerView" destination="aKe-1Q-8uw" id="9Rz-9M-dhH"/>
                         <outlet property="mainBtn" destination="pas-Oi-AYq" id="6lQ-DF-4zA"/>
+                        <outlet property="scheduleDate" destination="evW-hm-qpP" id="jwi-Pj-smh"/>
                         <outlet property="scheduleName" destination="bVa-I1-6Ou" id="0m4-lD-Dr0"/>
                     </connections>
                 </viewController>

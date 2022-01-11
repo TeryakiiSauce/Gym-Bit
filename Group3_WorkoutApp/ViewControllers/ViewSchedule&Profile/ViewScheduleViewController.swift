@@ -20,6 +20,8 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
     // MARK: - SCREEN BUTTON VARIABLES
     
     
+    @IBOutlet weak var scheduleDate: UILabel!
+    @IBOutlet weak var dateCreateLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var mainBtn: UIButton!
@@ -34,7 +36,10 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
     
     /// ===================================================
     // MARK: - SCREEN LOADING FUNCTIONS
-    
+    override func viewWillAppear(_ animated: Bool) {
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainBtn, secondaryButton: .none, vc: self)
+        Constants.applyTableAndTextStyling(titleLabels: [], bodyLabels: [dateLbl,dateCreateLabel,scheduleDate], tableView: customTableView)
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +51,8 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
         
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainBtn, secondaryButton: .none, vc: self)
+        
+        
         
         // Cell Info
         scheduleName.text = selectedSchedule.name
@@ -96,7 +102,9 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = customTableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
-        
+        Constants.applyCellStyling(cell: cell)
+        let bgColorView = UIView()
+        cell.selectedBackgroundView = bgColorView
         // Data to add in the cell
         cell.titleLabel.text = selectedSchedule.exercises[indexPath.row].name
         cell.subtitleLabel.text = selectedSchedule.exercises[indexPath.row].targetMuscle
