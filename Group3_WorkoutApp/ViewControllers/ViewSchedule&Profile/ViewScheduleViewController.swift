@@ -85,6 +85,14 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
         */
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editSchedule" {
+            let viewController = segue.destination as! CreateScheduleViewController
+            viewController.displayedSchedule = selectedSchedule
+            viewController.isEditingSchedule = true
+            viewController.orgScheduleTitle = selectedSchedule.name
+        }
+    }
     
     // MARK: END
     /// ===================================================

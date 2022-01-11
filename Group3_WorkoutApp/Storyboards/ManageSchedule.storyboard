@@ -30,7 +30,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Workout Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPs-jw-RUr">
                                         <rect key="frame" x="140" y="25" width="218" height="27.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.53333333329999999" green="0.75294117650000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJK-Lq-U2T">

@@ -157,8 +157,8 @@ class ProfileViewController: UIViewController {
     func convertData(_ isImperialUnit: Bool, _ height: Double, _ weight: Double, _ goal: Double) {
         if isImperialUnit == true {
             self.setHeight(round((height / 30.48) * 10) / 10.0)
-            self.setWeight(weight * 2.205)
-            self.setGoal(goal * 2.205)
+            self.setWeight(round((weight * 2.205) * 10) / 10.0)
+            self.setGoal(round((goal * 2.205) * 10) / 10.0)
             
         } else {
             self.setHeight(height)

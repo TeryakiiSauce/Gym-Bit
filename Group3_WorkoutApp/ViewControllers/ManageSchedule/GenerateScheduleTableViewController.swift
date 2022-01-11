@@ -26,6 +26,8 @@ class GenerateScheduleTableViewController:UIViewController,UITableViewDataSource
         viewController.displayedSchedule = genratedSchedule
         //resetting the array of selected exerciese
         listOfSelectedExerciseArrays.removeAll()
+        
+        viewController.isEditingSchedule = false
     }
     
     //view did load function

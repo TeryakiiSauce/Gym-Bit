@@ -6,6 +6,8 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
     var displayedSchedule = Schedule(dateCreated: Date(), name: "Your Schedule", playsCounter: nil, exercises: [])
     var addedExercises : [Exercise] = []
     var popuppageType = ["ClearTable" : false,"Back" : false,"changeName" : false]
+    var isEditingSchedule = false
+    var orgScheduleTitle = ""
 
     //connectors that connect the gui to code
     @IBOutlet weak var headerView: UIView!
@@ -43,6 +45,7 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
             viewController.exDescription = (displayedSchedule.exercises[selectedCell!].description)
             viewController.exTips = (displayedSchedule.exercises[selectedCell!].tips)
             viewController.title = (displayedSchedule.exercises[selectedCell!].name)
+            
         }
     }
     
@@ -147,9 +150,17 @@ class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITa
         }
         
         if isDuplicate == true {
-            mainButton.isEnabled = false
-            mainButton.backgroundColor = .lightGray
-            mainButton.setTitle("Please change the schedule title!", for: .disabled)
+            if isEditingSchedule == true {
+                mainButton.isEnabled = true
+                mainButton.backgroundColor = UIColor(red: 136/255, green: 192/255, blue: 208/255, alpha: 1)
+                updateMainButton()
+                
+            } else {
+                mainButton.isEnabled = false
+                mainButton.backgroundColor = .lightGray
+                mainButton.setTitle("Please change the schedule title!", for: .disabled)
+            }
+
         } else {
             mainButton.isEnabled = true
             mainButton.backgroundColor = UIColor(red: 136/255, green: 192/255, blue: 208/255, alpha: 1)
