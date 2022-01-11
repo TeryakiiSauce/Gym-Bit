@@ -111,6 +111,18 @@ class SettingsViewController: UIViewController {
         heightValue.text = getHeight()
         weightValue.text = getWeight()
         goalValue.text = getGoal()
+        
+        // Adding gesture to switches images
+        let soundSwitchtapGR = UITapGestureRecognizer(target: self, action: #selector(self.soundSwitchTapped))
+        soundSwitch.addGestureRecognizer(soundSwitchtapGR)
+        soundSwitch.isUserInteractionEnabled = true
+        let darkModeSwitchtapGR = UITapGestureRecognizer(target: self, action: #selector(self.darkModeSwitchTapped))
+        darkModeSwitch.addGestureRecognizer(darkModeSwitchtapGR)
+        darkModeSwitch.isUserInteractionEnabled = true
+        let unitSwitchtapGR = UITapGestureRecognizer(target: self, action: #selector(self.unitSwitchTapped))
+        unitSwitch.addGestureRecognizer(unitSwitchtapGR)
+        unitSwitch.isUserInteractionEnabled = true
+        
     }
     
     //Check if field editted, for first time it will be "your name" so we will remove it and change the color of the text.
@@ -122,6 +134,8 @@ class SettingsViewController: UIViewController {
             sender.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         }
     }
+    
+    //Changing the text after any of the slides moved.
     @IBAction func sliderMoved(_ sender: UISlider)
     {
         //Checking which slider is moved.
@@ -136,6 +150,67 @@ class SettingsViewController: UIViewController {
             goalValue.text = getGoal()
         default:
             return;
+        }
+    }
+    //if sound switch clicked this function will change its image, set sounds to off by calling isSoundOn variable and save in userdata if the switch is on or off.
+    @objc func soundSwitchTapped(sender: UITapGestureRecognizer)
+    {
+        if sender.state == .ended
+        {
+            if soundSwitch.image == switchOffImg
+            {
+                soundSwitch.image = switchOnImg
+                Constants.isSoundOn = true
+            }
+            else
+            {
+                soundSwitch.image = switchOnImg
+                Constants.isSoundOn = false
+            }
+            userDefaults.setValue(Constants.isSoundOn, forKey: "sound")
+        }
+    }
+    
+    //if dark mode switch clicked this function will change its image, set colors to dark mode by calling isDarkMode variable and save in userdata if the switch is on or off.
+    @objc func darkModeSwitchTapped(sender: UITapGestureRecognizer)
+    {
+        if sender.state == .ended
+        {
+            if darkModeSwitch.image == switchOffImg
+            {
+                darkModeSwitch.image = switchOnImg
+                AppColors.isDarkMode = true
+            }
+            else
+            {
+                darkModeSwitch.image = switchOnImg
+                AppColors.isDarkMode = false
+            }
+            userDefaults.setValue(AppColors.isDarkMode, forKey: "darkMode")
+        }
+    }
+    
+    //if unit switch clicked this function will change its image, update the labels and save in userdata if the switch is on or off.
+    @objc func unitSwitchTapped(sender: UITapGestureRecognizer)
+    {
+        if sender.state == .ended
+        {
+            if unitSwitch.image == switchOffImg
+            {
+                unitSwitch.image = switchOnImg
+                unitTxt.text = "Unit (Foot/lbs)"
+                isPoundFeet = true
+            }
+            else
+            {
+                unitSwitch.image = switchOffImg
+                unitTxt.text = "Unit (cm/Kg)"
+                isPoundFeet = false;
+            }
+            userDefaults.setValue(isPoundFeet, forKey: "isPound")
+            heightValue.text = getHeight()
+            weightValue.text = getWeight()
+            goalValue.text = getGoal()
         }
     }
     
