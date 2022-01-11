@@ -42,7 +42,7 @@ class QuizViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         //userDefaults.setValue(nil, forKey: "name")
 
-        //Here we check if the user already did the quiz, if yes skip the page and move to the view schedual page
+        //Check if dark mode on, if yes switch the theme
         if let isDark = userDefaults.value(forKey: "darkMode") as? Bool
         {
             if isDark
@@ -51,6 +51,7 @@ class QuizViewController: UIViewController {
             }
         }
         
+        //Check if sound is off, if yes turn of the sounds
         if let isSoundOn = userDefaults.value(forKey: "sound") as? Bool
         {
             if !isSoundOn
@@ -59,6 +60,7 @@ class QuizViewController: UIViewController {
             }
         }
         
+        //Here we check if the user already did the quiz, if yes skip the page and move to the view schedual page
         if let usrName = userDefaults.value(forKey: "name") as? String
         {
             print(usrName)
@@ -125,11 +127,6 @@ class QuizViewController: UIViewController {
         weightValue.text = getWeight()
         goalValue.text = getGoal()
         
-        //Set sound on when first time app launched
-        if userDefaults.value(forKey: "sound") == nil
-        {
-            userDefaults.setValue(true, forKey: "sound")
-        }
     }
     
     //removing "your name" text after field is focused so the user not need to erase it.
