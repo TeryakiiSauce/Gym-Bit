@@ -38,6 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: SecondayButton)
         customTableView.delegate = self
@@ -46,8 +47,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Table view styling
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
-        
-        
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy"
@@ -88,8 +87,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         selectedScheduleIndex = DefaultData.activatedScheduleIndex
         activatedScheduleLbl.text = DefaultData.activatedSchedule
         
+        DefaultData.user.activeSchedule = Schedule.getSchedules()[DefaultData.activatedScheduleIndex]
+        
         // TESTING
         //print("Currently activated schedule: \(DefaultData.activatedSchedule). Index = \(selectedScheduleIndex)")
+    }
+    
+    // Just in case
+    override func viewDidDisappear(_ animated: Bool) {
+        DefaultData.user.activeSchedule = Schedule.getSchedules()[DefaultData.activatedScheduleIndex]
     }
     
     
@@ -112,6 +118,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 viewCurrScheduleScreen.selectedSchedule = schedulesListArr[selectedSchedule]
                 viewCurrScheduleScreen.selectedScheduleIndex = selectedScheduleIndex
+                
+                DefaultData.user.activeSchedule = Schedule.getSchedules()[DefaultData.activatedScheduleIndex]
             }
         }
     }

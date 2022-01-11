@@ -9,9 +9,6 @@ import Foundation
 
 struct DefaultData {
     
-    //instance of user
-    static var user = User(dateJoined: Date(), fullName: "Mike Gonzalis", height: 177, weight: 68, goalWeight: 70, dailyWorkoutMinutes: nil, dailyCardioMinutes: nil, avgWeeklyWorkoutMinutes: nil, avgWeeklyCardioMinutes: nil, totalyWorkoutMinutes: nil, totalCardioMinutes: nil, totalWorkedoutDays: nil, workoutStreak: nil, schedules: schedules, activeSchedule: schedules[0])
-    
     //default instance of exercises
     static var backExercises =
         [
@@ -161,6 +158,9 @@ struct DefaultData {
      [Schedule(dateCreated: getDefaultDate(), name: "Full Body Workout", playsCounter: 0,exercises: [tricepExercises[0],bicepExercises[0],shoulderExercises[0],backExercises[0],chestExercises[0],legExercises[0],absExercises[0]])]
      static var activatedSchedule:String = "Full Body Workout"
      */
+    
+    //instance of user
+    static var user = User(dateJoined: Date(), fullName: "Mike Gonzalis", height: 177, weight: 68, goalWeight: 70, dailyWorkoutMinutes: nil, dailyCardioMinutes: nil, avgWeeklyWorkoutMinutes: nil, avgWeeklyCardioMinutes: nil, totalyWorkoutMinutes: nil, totalCardioMinutes: nil, totalWorkedoutDays: nil, workoutStreak: nil, schedules: schedules, activeSchedule: schedules[0])
     
     // Creating a default schedule
     // What shows when the app is opened for the very first time
