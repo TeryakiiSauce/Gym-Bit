@@ -118,6 +118,7 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
         let dictionary = UserDefaults.standard
         dictionary.set(DefaultData.activatedSchedule, forKey: "activatedSchedule")
         dictionary.set(DefaultData.activatedScheduleIndex, forKey: "activatedScheduleIndex")
+        DefaultData.user.activeSchedule = Schedule.getSchedules()[DefaultData.activatedScheduleIndex]
         print("\"\(DefaultData.activatedSchedule)\" has been activated.")
     }
     
