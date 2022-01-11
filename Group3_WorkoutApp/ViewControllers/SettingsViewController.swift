@@ -21,9 +21,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var slider1: UISlider!
     @IBOutlet weak var slider2: UISlider!
     @IBOutlet weak var slider3: UISlider!
+    @IBOutlet weak var slider4: UISlider!
+    @IBOutlet weak var yearsValue: UILabel!
     @IBOutlet weak var heightValue: UILabel!
     @IBOutlet weak var weightValue: UILabel!
     @IBOutlet weak var goalValue: UILabel!
+    @IBOutlet weak var ageTxt: UILabel!
     @IBOutlet weak var heightTxt: UILabel!
     @IBOutlet weak var weightTxt: UILabel!
     @IBOutlet weak var goalTxt: UILabel!
@@ -53,9 +56,11 @@ class SettingsViewController: UIViewController {
         // Changing view 1 elements colors to match the app theme by calling AppColors stuct.
         headLabel.textColor = AppColors.textColor
         nameField.textColor = AppColors.phoneBg
+        ageTxt.textColor = AppColors.textColor
         heightTxt.textColor = AppColors.textColor
         weightTxt.textColor = AppColors.textColor
         goalTxt.textColor = AppColors.textColor
+        yearsValue.textColor = AppColors.buttonColor
         heightValue.textColor = AppColors.buttonColor
         weightValue.textColor = AppColors.buttonColor
         goalValue.textColor = AppColors.buttonColor
@@ -65,6 +70,8 @@ class SettingsViewController: UIViewController {
         slider2.tintColor = AppColors.buttonColor
         slider3.thumbTintColor = AppColors.buttonColor
         slider3.tintColor = AppColors.buttonColor
+        slider4.thumbTintColor = AppColors.buttonColor
+        slider4.tintColor = AppColors.buttonColor
         
         // Changing view 2 elements colors to match the app theme by calling AppColors stuct.
         timeSoundTxt.textColor = AppColors.textColor
@@ -78,27 +85,35 @@ class SettingsViewController: UIViewController {
             nameField.text = usrName
             nameField.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             isPoundFeet = userDefaults.value(forKey: "isPound") as! Bool
+            let usrAge = userDefaults.value(forKey: "age") as! Int
             let usrHeight = userDefaults.value(forKey: "height") as! Int
             let usrWeight = userDefaults.value(forKey: "weight") as! Int
             let usrGoal = userDefaults.value(forKey: "goal") as! Int
+            let ageInFloat = Float(usrAge)
             let heightInFloat = Float(usrHeight)
             let weightInFloat = Float(usrWeight)
             let goalInFloat = Float(usrGoal)
-            slider1.value = heightInFloat
-            slider2.value = weightInFloat
-            slider3.value = goalInFloat
+            slider1.value = ageInFloat
+            slider2.value = heightInFloat
+            slider3.value = weightInFloat
+            slider4.value = goalInFloat
         }
         else
         {
             //If the code reached here it means there is no data saved, the user skipped the quiz so we will set the defualt values.
-            slider1.value = 175
-            slider2.value = 120
+            slider1.value = 47.5
+            slider2.value = 175
             slider3.value = 120
+            slider4.value = 120
         }
+        //Assiging labels to the actual value
+        yearsValue.text = getYears()
         heightValue.text = getHeight()
         weightValue.text = getWeight()
         goalValue.text = getGoal()
     }
+    
+    //Check if field editted, for first time it will be "your name" so we will remove it and change the color of the text.
     @IBAction func fieldEditted(_ sender: UITextField)
     {
         if (sender.text == "Your name")
@@ -112,27 +127,36 @@ class SettingsViewController: UIViewController {
         //Checking which slider is moved.
         switch sender.tag {
         case 1:
-            heightValue.text = getHeight()
+            yearsValue.text = getYears()
         case 2:
-            weightValue.text = getWeight()
+            heightValue.text = getHeight()
         case 3:
+            weightValue.text = getWeight()
+        case 4:
             goalValue.text = getGoal()
         default:
             return;
         }
     }
     
+    func getYears() -> String
+    {
+        var years: String
+        years = String(Int(slider1.value))
+        years += " years"
+        return years
+    }
     func getHeight() -> String
     {
         var height: String
         if (!isPoundFeet)
         {
-            height = String(Int(slider1.value))
+            height = String(Int(slider2.value))
             height += " cm"
         }
         else
         {
-            let roundedInFoot = round((slider1.value / 30.48) * 10) / 10.0
+            let roundedInFoot = round((slider2.value / 30.48) * 10) / 10.0
             height = String(roundedInFoot)
             height += " Foot"
         }
@@ -144,12 +168,12 @@ class SettingsViewController: UIViewController {
         var weight: String
         if (!isPoundFeet)
         {
-            weight = String(Int(slider2.value))
+            weight = String(Int(slider3.value))
             weight += " Kg"
         }
         else
         {
-            weight = String(Int(slider2.value * 2.205))
+            weight = String(Int(slider3.value * 2.205))
             weight += " lbs"
         }
         return weight
@@ -158,12 +182,12 @@ class SettingsViewController: UIViewController {
         var goal: String
         if (!isPoundFeet)
         {
-            goal = String(Int(slider3.value))
+            goal = String(Int(slider4.value))
             goal += " Kg"
         }
         else
         {
-            goal = String(Int(slider3.value * 2.205))
+            goal = String(Int(slider4.value * 2.205))
             goal += " lbs"
         }
         return goal
@@ -215,11 +239,18 @@ class SettingsViewController: UIViewController {
         }
         
         //Since the code reached hear it means that the input passed all the validations.
+        if userDefaults.value(forKey: "isPound") == nil
+        {
+            //if user did not chose if it is pound unit or not, it means that is his first time saving the data, he did not do the quiz so we set it to false to encounter any errors may occur while force wrapping this value in any other class.
+            userDefaults.setValue(false, forKey: "isPound")
+        }
         //Saving the data to retrieve it later.
-        let height = Int(slider1.value)
-        let weight = Int(slider2.value)
-        let goal = Int(slider3.value)
+        let age = Int(slider1.value)
+        let height = Int(slider2.value)
+        let weight = Int(slider3.value)
+        let goal = Int(slider4.value)
         userDefaults.setValue(name, forKey: "name")
+        userDefaults.setValue(age, forKey: "age")
         userDefaults.setValue(height, forKey: "height")
         userDefaults.setValue(weight, forKey: "weight")
         userDefaults.setValue(goal, forKey: "goal")
