@@ -21,24 +21,26 @@ class PlayWorkoutSetTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // cell and view styling
+        backgroundColor = AppColors.bodyBg
+
         cellView.layer.cornerRadius = Constants.viewRadius
         cellView.layer.borderColor = AppColors.secondaryColor.cgColor
         cellView.layer.borderWidth = 1
-        
-        selectionStyle = .none
-
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        checkBoxImage.isUserInteractionEnabled = true
-        checkBoxImage.addGestureRecognizer(tapGestureRecognizer)
-        
-        
-        backgroundColor = AppColors.bodyBg
         cellView.backgroundColor = AppColors.bodyBg
         repsLabel.textColor = AppColors.textColor
         cellTitle.textColor = AppColors.textColor
+        
+        selectionStyle = .none
+        
+        // add gesture to the check box image
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        checkBoxImage.isUserInteractionEnabled = true
+        checkBoxImage.addGestureRecognizer(tapGestureRecognizer)
     }
-
+    
+    
+    // check the image box
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         if isChecked {
@@ -52,6 +54,7 @@ class PlayWorkoutSetTableViewCell: UITableViewCell {
         delegate?.setButtonTapped()
     }
     
+    // reset check box
     func resetCell(){
         isChecked = false
         checkBoxImage.image = UIImage(named: "unchecked_box")

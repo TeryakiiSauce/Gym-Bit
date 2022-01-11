@@ -1213,6 +1213,8 @@
                     <connections>
                         <outlet property="bodyView" destination="Prv-FN-UMm" id="qWL-Wc-Ha7"/>
                         <outlet property="cancelButton" destination="y6a-sA-WTg" id="HA7-Xd-0Zq"/>
+                        <outlet property="msgLabel" destination="5Kv-WG-sYQ" id="1pz-xf-oY2"/>
+                        <outlet property="titleLabel" destination="Tra-2T-x50" id="e4B-Kz-hfK"/>
                         <outlet property="yesButton" destination="jhU-yR-l0Y" id="4Zi-oE-i7E"/>
                     </connections>
                 </viewController>
@@ -1284,6 +1286,7 @@
                         <outlet property="bodyView" destination="yoj-Go-Y1w" id="RRW-gH-zSW"/>
                         <outlet property="completeLabel" destination="Bfa-fp-jXq" id="stH-pb-v8I"/>
                         <outlet property="continueButton" destination="crE-Wc-luE" id="nXg-Le-y3f"/>
+                        <outlet property="titleLabel" destination="MPn-MY-Xoi" id="9vo-Hq-mI9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FO2-KZ-XTo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

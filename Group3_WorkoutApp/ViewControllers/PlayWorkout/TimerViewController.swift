@@ -26,7 +26,6 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var headerTitle: UILabel!
     
-    // constants and variables
     // circle of the timer background
     let backgroundShape = CAShapeLayer()
     // circle to use its stroke for timer animation
@@ -73,11 +72,11 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
     override func viewWillAppear(_ animated: Bool) {
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: continueButton, secondaryButton: nil, vc: self)
-        
         Constants.applyTableAndTextStyling(titleLabels: [headerTitle], bodyLabels: [selectedTimeLabel], tableView: nil)
     }
     
     
+    // add time remaining label in the center of the timer circle
     func addTimeLabelToBackgroundCircle() {
         timeLabel = UILabel(frame: CGRect(x: backgroundShape.frame.midX ,y: backgroundShape.frame.height/2, width: 100, height: 50))
         timeLabel.center = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
@@ -86,10 +85,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         timeLabel.textColor = AppColors.buttonColor
 
         // format time remaining
-        let time = Constants.secondsToMinutesSeconds(seconds: Int(selectedTime))
-        let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
-        
-        timeLabel.text = timeString
+        formatTimeRemaining()
         
         bodyView.addSubview(timeLabel)
     }
@@ -113,6 +109,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         bodyView.layer.addSublayer(backgroundShape)
     }
     
+    // timer circle to use its stroke to be animated
     func drawTimerCircle() {
         // timer circle position
         let position = CGPoint(x:bodyView.frame.width/2, y:bodyView.frame.height/3)
@@ -131,9 +128,9 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         bodyView.layer.addSublayer(timerShape)
     }
     
+    // format time remaining as 00 : 00
     func formatTimeRemaining()
     {
-        
         let time = Constants.secondsToMinutesSeconds(seconds: Int(round(timeRemaining)))
         let timeString = Constants.formatTimeString(minutes: time.0, seconds: time.1)
         // update timer label
@@ -141,6 +138,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
     }
     
     
+    // update time (runs every second)
     @objc func updateTime() {
         
         if timeRemaining > 0 {
@@ -160,6 +158,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         formatTimeRemaining()
     }
     
+    // play/puase button tapped to start/puase the timer
     @IBAction func playPauseTapped(_ sender: Any) {
         
         // add animation to the timer circle only in first run
@@ -190,7 +189,8 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         }
     }
     
-    // pause timer circle stroke animation
+    
+    // pause timer circle stroke animation should stop
     func pauseAnimation(){
         let pausedTime : CFTimeInterval = timerShape.convertTime(CACurrentMediaTime(), from: nil)
         timerShape.speed = 0.0
@@ -198,8 +198,6 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         timeRemaining =  selectedTime - pausedTime
         // format time remaining
         formatTimeRemaining()
-        print("time remaining in pause \(timeRemaining)")
-        
     }
     
     // resume timer circle stroke animation
@@ -210,10 +208,9 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         timerShape.beginTime = 0.0
         let timeSincePause = timerShape.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         timerShape.beginTime = timeSincePause
-//        timeRemaining =  selectedTime - pausedTime
-//        print("time remaining in resume \(timeRemaining)")
     }
     
+    // reset workout on the pop up (click yes)
     func yesButtonTapped() {
         // add animation but pause it
         self.timerShape.add(self.basicAnimation, forKey: nil)
@@ -231,6 +228,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         
     }
     
+    // reset button tapped (nav bar)
     @IBAction func resetTapped(_ sender: Any) {
 
         // instantiate alret dialog
@@ -246,6 +244,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
     }
     
     
+    // continue workout process (show workouts with check list)
     @IBAction func continueTapped(_ sender: Any) {
         
         guard let playWorkoutVC = self.storyboard?.instantiateViewController(identifier: "performWorkoutView") as? PlayWorkoutViewController else {return}
