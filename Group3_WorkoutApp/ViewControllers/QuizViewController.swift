@@ -41,7 +41,7 @@ class QuizViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //userDefaults.setValue(nil, forKey: "name")
+        userDefaults.setValue(nil, forKey: "name")
         
         //Check if dark mode on, if yes switch the theme
         if let isDark = userDefaults.value(forKey: "darkMode") as? Bool
