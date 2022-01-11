@@ -7,7 +7,7 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
     // MARK: - DEFAULT VALUES VARIABLES
     
     // Schedule clicked on; not necessarily the activated one
-    var selectedSchedule = Schedule(dateCreated: Date(), name: "", playsCounter: nil, exercises: [])
+    var selectedSchedule = Schedule(dateCreated: Date(), name: "", playsCounter: 0, exercises: [])
     
     // The activated schedule that should loaded from local storage
     var activatedSchedule = Schedule.getActivatedSchedule()

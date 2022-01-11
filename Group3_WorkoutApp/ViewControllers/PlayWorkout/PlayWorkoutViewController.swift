@@ -163,6 +163,14 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
             }
             
             // get schedule data dictionary
+            //var selectedSchedule = Schedule.getActivatedSchedule()
+            
+            // print(selectedSchedule) // successful
+            
+            //selectedSchedule.incPlayCounter()
+            //print(selectedSchedule.playsCounter)
+            
+            
             if var scheduleData = Constants.getPlayedScheduleData() {
                 
                 // check if schedule exists
@@ -173,6 +181,7 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
                 }
                 // save dic
                 Constants.savePlayedScheduleData(scheduleData)
+                
             }else{
                 // save new dic
                 Constants.savePlayedScheduleData([schedule!.name: 1])
