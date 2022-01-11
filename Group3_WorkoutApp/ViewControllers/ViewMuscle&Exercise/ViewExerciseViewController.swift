@@ -17,6 +17,7 @@ class ViewExerciseViewController: UIViewController,UITableViewDataSource, UITabl
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var IconImage: UIImageView!
+    @IBOutlet weak var exerciseNameLabel: UILabel!
     
     //function to transfer the infromation through seague to the next page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,6 +55,7 @@ class ViewExerciseViewController: UIViewController,UITableViewDataSource, UITabl
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         getExercises(Type: mainImageIconName)
+        exerciseNameLabel.text = mainImageIconName
     }
     //view did load function
     override func viewDidLoad() {
