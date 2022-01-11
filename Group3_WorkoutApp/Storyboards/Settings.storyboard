@@ -22,9 +22,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMm-DO-LnX" userLabel="BackView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1150"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="chA-hT-Ohp" userLabel="Settings View">
-                                                <rect key="frame" x="38" y="133" width="339" height="530"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chA-hT-Ohp" userLabel="Settings View">
+                                                <rect key="frame" x="38" y="133" width="338" height="530"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TrS-yN-lX0">
                                                         <rect key="frame" x="34" y="32" width="271" height="34"/>
@@ -130,9 +129,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sVg-Oa-oIR">
-                                                <rect key="frame" x="-1" y="24" width="377" height="78"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVg-Oa-oIR">
+                                                <rect key="frame" x="1" y="24" width="375" height="78"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaU-Dt-5Np">
                                                         <rect key="frame" x="39" y="8" width="300" height="62"/>
@@ -144,9 +142,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dUd-mQ-oK1" userLabel="Head View2">
-                                                <rect key="frame" x="-1" y="694" width="377" height="78"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUd-mQ-oK1" userLabel="Head View2">
+                                                <rect key="frame" x="0.0" y="694" width="376" height="78"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5T-zK-Lvc">
                                                         <rect key="frame" x="39" y="8" width="300" height="62"/>
@@ -158,9 +155,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJ3-8C-gNm" userLabel="Settings View2">
-                                                <rect key="frame" x="38" y="802" width="339" height="256"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJ3-8C-gNm" userLabel="Settings View2">
+                                                <rect key="frame" x="38" y="802" width="338" height="256"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Sound" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVE-Ga-1Gb">
                                                         <rect key="frame" x="42" y="24" width="119" height="28"/>
@@ -215,7 +211,25 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="chA-hT-Ohp" firstAttribute="leading" secondItem="lJ3-8C-gNm" secondAttribute="leading" id="1Of-rR-h9w"/>
+                                            <constraint firstItem="sVg-Oa-oIR" firstAttribute="trailing" secondItem="dUd-mQ-oK1" secondAttribute="trailing" id="7zi-kt-gZt"/>
+                                            <constraint firstAttribute="bottom" secondItem="lJ3-8C-gNm" secondAttribute="bottom" constant="92" id="KEt-tv-l7n"/>
+                                            <constraint firstItem="sVg-Oa-oIR" firstAttribute="top" secondItem="JMm-DO-LnX" secondAttribute="top" constant="24" id="Kk7-oy-UFa"/>
+                                            <constraint firstItem="lJ3-8C-gNm" firstAttribute="top" secondItem="dUd-mQ-oK1" secondAttribute="bottom" constant="30" id="LFj-A0-kAx"/>
                                             <constraint firstAttribute="height" constant="1150" id="QCJ-kX-8df"/>
+                                            <constraint firstItem="lJ3-8C-gNm" firstAttribute="leading" secondItem="JMm-DO-LnX" secondAttribute="leading" constant="38" id="VcC-aq-Ncc"/>
+                                            <constraint firstItem="chA-hT-Ohp" firstAttribute="leading" secondItem="JMm-DO-LnX" secondAttribute="leading" constant="38" id="W5e-eR-oiW"/>
+                                            <constraint firstItem="chA-hT-Ohp" firstAttribute="top" secondItem="sVg-Oa-oIR" secondAttribute="bottom" constant="31" id="WWx-VL-Mm8"/>
+                                            <constraint firstItem="sVg-Oa-oIR" firstAttribute="leading" secondItem="dUd-mQ-oK1" secondAttribute="leading" constant="1" id="bYU-Q4-uQm"/>
+                                            <constraint firstAttribute="trailing" secondItem="lJ3-8C-gNm" secondAttribute="trailing" constant="38" id="eHw-wo-W4m"/>
+                                            <constraint firstAttribute="bottom" secondItem="dUd-mQ-oK1" secondAttribute="bottom" constant="378" id="gRg-0N-GVu"/>
+                                            <constraint firstAttribute="trailing" secondItem="dUd-mQ-oK1" secondAttribute="trailing" constant="38" id="iqa-1o-zOr"/>
+                                            <constraint firstAttribute="trailing" secondItem="chA-hT-Ohp" secondAttribute="trailing" constant="38" id="iz5-8B-egY"/>
+                                            <constraint firstItem="dUd-mQ-oK1" firstAttribute="leading" secondItem="JMm-DO-LnX" secondAttribute="leading" id="jdc-0r-42M"/>
+                                            <constraint firstItem="dUd-mQ-oK1" firstAttribute="top" secondItem="chA-hT-Ohp" secondAttribute="bottom" constant="31" id="nb8-0i-KL0"/>
+                                            <constraint firstAttribute="bottom" secondItem="sVg-Oa-oIR" secondAttribute="bottom" constant="1048" id="pNA-Ae-qSF"/>
+                                            <constraint firstAttribute="trailing" secondItem="sVg-Oa-oIR" secondAttribute="trailing" constant="38" id="u5R-5V-wc8"/>
+                                            <constraint firstAttribute="bottom" secondItem="chA-hT-Ohp" secondAttribute="bottom" constant="487" id="xti-ee-EDv"/>
                                         </constraints>
                                     </view>
                                 </subviews>
