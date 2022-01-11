@@ -25,7 +25,7 @@ class ResetTimerPopupViewController: UIViewController {
         //setting the background to be dimmed when the page is up
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         //method that makes the views have round edges
-        Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: bodyView, mainButton: yesButton, secondaryButton: cancelButton)
+        Constants.applyDefaultStyling(backgroundView: nil, headerView: nil, bodyView: bodyView, mainButton: yesButton, secondaryButton: cancelButton, vc: nil)
     }
     @IBAction func cancelTapped(_ sender: Any) {
         self.view.removeFromSuperview()

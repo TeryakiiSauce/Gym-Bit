@@ -43,7 +43,7 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         tableViewController?.initialReps = schedule?.exercises[exerciseIndex].reps
         tableViewController?.playWorkoutVC = self
         // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil, vc: self)
         // set exercises count
         exercisesCount = schedule?.exercises.count
 

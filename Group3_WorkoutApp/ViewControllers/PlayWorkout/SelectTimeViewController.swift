@@ -27,7 +27,7 @@ class SelectTimeViewController: UIViewController {
         super.viewDidLoad()
         
         // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: startButton, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: startButton, secondaryButton: nil, vc: self)
         
         pickerView.delegate = self
         

@@ -59,12 +59,13 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewSchedule&profile
         refreshData()
         updateSegmentView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        Constants.applyDefaultStyling(backgroundView: backgroundView, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
+    override func viewWillAppear(_ animated: Bool)
+        Constants.applyDefaultStyling(backgroundView: backgroundView, headerView: headerView, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         
         // Set all font colors & sizes appropriately
         

@@ -46,7 +46,7 @@ class ViewScheduleViewController: UIViewController,UITableViewDataSource, UITabl
         customTableView.separatorStyle = .none
         customTableView.showsVerticalScrollIndicator = false
         
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainBtn, secondaryButton: .none)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainBtn, secondaryButton: .none, vc: self)
         
         // Cell Info
         scheduleName.text = selectedSchedule.name

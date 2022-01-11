@@ -35,7 +35,7 @@ class ViewDetailExerciseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         setViewsBroder()
     }
     

@@ -28,7 +28,7 @@ class MuscleListViewController: UIViewController,UITableViewDataSource, UITableV
         super.viewDidLoad()
         // apply default styling
         
-        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: nil, secondaryButton: nil, vc: self)
         customTableView.delegate = self
         customTableView.dataSource = self
         //styling table view

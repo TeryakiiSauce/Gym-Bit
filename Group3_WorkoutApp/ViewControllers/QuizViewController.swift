@@ -41,7 +41,7 @@ class QuizViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //userDefaults.setValue(nil, forKey: "name")
+        userDefaults.setValue(nil, forKey: "name")
         
         //Check if dark mode on, if yes switch the theme
         if let isDark = userDefaults.value(forKey: "darkMode") as? Bool
@@ -71,7 +71,7 @@ class QuizViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         // Setting the default style to the view and the body view by calling a funcation from Constants struct.
-        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: finishButton, secondaryButton: nil)
+        Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: finishButton, secondaryButton: nil, vc: self)
         
         print(AppColors.isDarkMode)
         
