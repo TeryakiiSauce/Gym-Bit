@@ -21,7 +21,6 @@ class TemplateScreenViewController: UIViewController,UITableViewDataSource, UITa
         override func viewDidLoad() {
             super.viewDidLoad()
             // apply default styling
-            Constants.buildRoundedUIView(headerView: headerView, bodyView: bodyView, button:mainButton)
             customTableView.delegate = self
             customTableView.dataSource = self
             //styling table view
