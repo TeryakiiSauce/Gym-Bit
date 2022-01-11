@@ -35,14 +35,19 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
         //setDefaultData() // no need to call this twice
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         setDefaultData()
+        customTableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        schedule = nil
     }
     
     func setDefaultData(){
         
         schedule = DefaultData.user.activeSchedule
-       print(schedule!) // testing - the active schedule is passed successfully but there are some bugs in this file i think
+       //print(schedule!) // testing - the active schedule is passed successfully but there are some bugs in this file i think
         
         if schedule?.exercises.count != 0{
             scheduleNameLabel.text = schedule?.name

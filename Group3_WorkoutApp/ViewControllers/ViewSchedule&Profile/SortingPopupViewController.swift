@@ -27,7 +27,9 @@ class SortingPopupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        
         // Sort Method
         if DefaultData.currSelectedSortOption == "alphabetical" {
             alphaLbl.setTitleColor(.systemRed, for: .normal)
@@ -85,6 +87,8 @@ class SortingPopupViewController: UIViewController {
     
     @IBAction func submit(_ sender: UIButton) {
         print("selected: \(DefaultData.currSelectedSortOption) \(DefaultData.ascOrDesc)")
+        self.view.removeFromSuperview()
+        performSegue(withIdentifier: "returnToMainPage", sender: self)
     }
     
     
@@ -99,9 +103,8 @@ class SortingPopupViewController: UIViewController {
     
     
     
-    
     // Should update the schdules sort order in the previous screen
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dest = segue.destination as! ViewController
         
         if orderBy.selectedSegmentIndex == 0 {
@@ -119,5 +122,5 @@ class SortingPopupViewController: UIViewController {
             
             dest.schedulesListArr = dest.schedulesListArr.reversed()
         }
-    }
+    }*/
 }

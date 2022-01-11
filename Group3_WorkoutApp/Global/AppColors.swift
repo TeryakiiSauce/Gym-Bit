@@ -34,9 +34,6 @@ struct AppColors {
             bodyBg = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             secondaryColor = UIColor(red: 159/255, green: 159/255, blue: 159/255, alpha: 1)
             textColor = UIColor(red: 46/255, green: 52/255, blue: 64/266, alpha: 1)
-            buttonColor = UIColor(red: 136/255, green: 192/255, blue: 208/255, alpha: 1)
-            buttonSecondaryColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
-            deleteColor = UIColor(red: 188/255, green: 100/255, blue: 108/255, alpha: 1 )
         }
     }
     
