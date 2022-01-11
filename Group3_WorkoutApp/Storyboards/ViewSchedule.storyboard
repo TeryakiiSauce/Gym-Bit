@@ -215,19 +215,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5S-5g-1D4">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="20" y="338" width="374" height="258"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QeB-FR-lNv">
-                                        <rect key="frame" x="114.5" y="238" width="185" height="300"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="QeB-FR-lNv">
+                                        <rect key="frame" x="10" y="10" width="354" height="238"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aA2-E0-UcZ">
-                                                <rect key="frame" x="64.5" y="0.0" width="56.5" height="20.5"/>
+                                                <rect key="frame" x="149" y="0.0" width="56.5" height="32.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gA7-pg-AFL">
-                                                <rect key="frame" x="44" y="38.5" width="97" height="30"/>
+                                                <rect key="frame" x="128.5" y="34.5" width="97" height="32"/>
                                                 <state key="normal" title="Alphabetically">
                                                     <color key="titleColor" systemColor="systemRedColor"/>
                                                 </state>
@@ -236,34 +236,34 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7t-hX-yBJ">
-                                                <rect key="frame" x="51.5" y="86.5" width="82" height="30"/>
+                                                <rect key="frame" x="136" y="68.5" width="82" height="32.5"/>
                                                 <state key="normal" title="Times Used"/>
                                                 <connections>
                                                     <action selector="TimesUsedBtn:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="LD5-DF-mAr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0i-vN-ITq">
-                                                <rect key="frame" x="47" y="134.5" width="91" height="30"/>
+                                                <rect key="frame" x="131.5" y="103" width="91" height="32"/>
                                                 <state key="normal" title="Date Created"/>
                                                 <connections>
                                                     <action selector="DateCreatedBtn:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="bcd-8g-yX9"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8Z-ku-5p8">
-                                                <rect key="frame" x="58.5" y="182.5" width="68" height="20.5"/>
+                                                <rect key="frame" x="143" y="137" width="68" height="32.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Nh-p2-kPQ">
-                                                <rect key="frame" x="0.0" y="221" width="185" height="32"/>
+                                                <rect key="frame" x="84.5" y="171.5" width="185" height="33"/>
                                                 <segments>
                                                     <segment title="Ascending"/>
                                                     <segment title="Descending"/>
                                                 </segments>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VQ-3Z-m8F">
-                                                <rect key="frame" x="77.5" y="270" width="30" height="30"/>
+                                                <rect key="frame" x="162" y="205.5" width="30" height="32.5"/>
                                                 <state key="normal" title="Sort"/>
                                                 <connections>
                                                     <action selector="submit:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="OEE-ws-OEg"/>
@@ -272,26 +272,24 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="185" id="cJU-IS-Fhy"/>
-                                            <constraint firstAttribute="height" constant="300" id="uDH-Vx-o3Y"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="QeB-FR-lNv" firstAttribute="centerX" secondItem="w5S-5g-1D4" secondAttribute="centerX" id="KDr-Zd-oYf"/>
-                                    <constraint firstItem="QeB-FR-lNv" firstAttribute="top" secondItem="w5S-5g-1D4" secondAttribute="top" constant="238" id="QuF-fA-hpb"/>
+                                    <constraint firstAttribute="bottom" secondItem="QeB-FR-lNv" secondAttribute="bottom" constant="10" id="MFs-ge-Fzz"/>
+                                    <constraint firstItem="QeB-FR-lNv" firstAttribute="leading" secondItem="w5S-5g-1D4" secondAttribute="leading" constant="10" id="Qu9-B8-8PS"/>
+                                    <constraint firstItem="QeB-FR-lNv" firstAttribute="top" secondItem="w5S-5g-1D4" secondAttribute="top" constant="10" id="s5P-Tc-Yd0"/>
+                                    <constraint firstAttribute="trailing" secondItem="QeB-FR-lNv" secondAttribute="trailing" constant="10" id="uiy-AZ-nXu"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Fhz-ov-R1B"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Fhz-ov-R1B" firstAttribute="trailing" secondItem="w5S-5g-1D4" secondAttribute="trailing" id="LGT-s5-KPc"/>
-                            <constraint firstItem="Fhz-ov-R1B" firstAttribute="bottom" secondItem="w5S-5g-1D4" secondAttribute="bottom" id="M4x-CP-pGC"/>
-                            <constraint firstItem="w5S-5g-1D4" firstAttribute="top" secondItem="Fhz-ov-R1B" secondAttribute="top" id="RJk-dK-H0W"/>
-                            <constraint firstItem="w5S-5g-1D4" firstAttribute="leading" secondItem="Fhz-ov-R1B" secondAttribute="leading" id="oyp-tp-QZR"/>
+                            <constraint firstItem="w5S-5g-1D4" firstAttribute="leading" secondItem="Fhz-ov-R1B" secondAttribute="leading" constant="20" id="1Qe-kf-7LX"/>
+                            <constraint firstItem="w5S-5g-1D4" firstAttribute="top" secondItem="Fhz-ov-R1B" secondAttribute="top" constant="250" id="2sX-Pu-t2B"/>
+                            <constraint firstAttribute="trailing" secondItem="w5S-5g-1D4" secondAttribute="trailing" constant="20" id="8bv-ce-oKY"/>
+                            <constraint firstAttribute="bottom" secondItem="w5S-5g-1D4" secondAttribute="bottom" constant="300" id="Tt2-Z6-NY7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Bxi-Ph-DQa"/>
@@ -503,7 +501,14 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="View Your Exercises" id="r9w-In-sKE"/>
+                    <navigationItem key="navigationItem" title="View Your Exercises" id="r9w-In-sKE">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="edit" id="fMJ-6p-IOb">
+                            <color key="tintColor" red="0.53333333329999999" green="0.75294117650000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="9QB-4j-oUF" kind="show" identifier="editSchedule" id="Wqt-8o-TDR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bodyView" destination="RyL-Cf-5KZ" id="TlZ-eg-BDo"/>
                         <outlet property="customTableView" destination="Rxd-8k-0RU" id="SeQ-C3-HKF"/>
@@ -518,8 +523,19 @@
             </objects>
             <point key="canvasLocation" x="-1172.4637681159422" y="-58.258928571428569"/>
         </scene>
+        <!--ManageViewController-->
+        <scene sceneID="mHI-db-qeg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ManageSchedule" referencedIdentifier="ManageViewController" id="9QB-4j-oUF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TZT-93-6hE"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tZa-vA-fYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-403" y="-167"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="edit" width="40" height="40"/>
         <image name="noun_body building_637498" width="231" height="235.80000305175781"/>
         <image name="schedule" width="24" height="24"/>
         <systemColor name="opaqueSeparatorColor">

@@ -160,6 +160,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                  //viewCurrScheduleScreen.selectedScheduleIndex = selectedScheduleIndex
                  */
             }
+        } else if segue.identifier == "createPage" {
+            let viewController = segue.destination as! CreateScheduleViewController
+            viewController.isEditingSchedule = false
         }
     }
     
@@ -168,12 +171,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // EDIT: Saves the schedules
         // Things to do done when "unwind" is called by "Create Schedule (Aziz)"
         if let sourceViewController = seague.source as? CreateScheduleViewController   {
+            if sourceViewController.isEditingSchedule == true {
+                var position = 0
+                for schedule in schedulesListArr {
+                    if schedule.name == sourceViewController.orgScheduleTitle {
+                        break
+                    }
+                    position += 1
+                }
+                
+                schedulesListArr[position] = sourceViewController.displayedSchedule
+                
+            } else {
+                // Updates the displayed schedule array
+                schedulesListArr = schedulesListArr + [sourceViewController.displayedSchedule]
+                
+                // Updates Schedule List Array
+                Schedule.saveSchedules(schedulesListArr)
+            }
             
-            // Updates the displayed schedule array
-            schedulesListArr = schedulesListArr + [sourceViewController.displayedSchedule]
-            
-            // Updates Schedule List Array
-            Schedule.saveSchedules(schedulesListArr)
         }
     }
     
