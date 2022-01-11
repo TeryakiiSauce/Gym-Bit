@@ -24,6 +24,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var selectedTimeLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var headerTitle: UILabel!
     
     // constants and variables
     // circle of the timer background
@@ -72,6 +73,8 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
     override func viewWillAppear(_ animated: Bool) {
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: continueButton, secondaryButton: nil, vc: self)
+        
+        Constants.applyTableAndTextStyling(titleLabels: [headerTitle], bodyLabels: [selectedTimeLabel], tableView: nil)
     }
     
     

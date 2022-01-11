@@ -18,6 +18,8 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var playImage: UIImageView!
     @IBOutlet weak var timeRemainingLabel: UILabel!
+    @IBOutlet weak var cellTitle: UILabel!
+    
     var timer = Timer()
     //default selected time
     let selectedTime: Int = PlayWorkoutLandingViewController.restTime
@@ -38,6 +40,14 @@ class PlayWorkoutTimerTableViewCell: UITableViewCell {
         
         timeRemaining = selectedTime
         formatTimeRemaining()
+        
+        
+        backgroundColor = AppColors.bodyBg
+        cellView.backgroundColor = AppColors.bodyBg
+        timeRemainingLabel.textColor = AppColors.textColor
+        cellTitle.textColor = AppColors.textColor
+        cellTitle.textColor = AppColors.textColor
+
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)

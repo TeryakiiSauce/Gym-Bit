@@ -42,8 +42,6 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         // set initial reps to be used for first exercise
         tableViewController?.initialReps = schedule?.exercises[exerciseIndex].reps
         tableViewController?.playWorkoutVC = self
-        // apply default styling
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil, vc: self)
         // set exercises count
         exercisesCount = schedule?.exercises.count
 
@@ -58,6 +56,13 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
         setExerciseInfo()
         updateProgressView()
         setButtonStateButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // apply default styling
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headerView, bodyView: bodyView, mainButton: mainButton, secondaryButton: nil, vc: self)
+        
+        Constants.applyTableAndTextStyling(titleLabels: [exerciseNameLabel], bodyLabels: [], tableView: nil)
     }
     
     @objc func exerciseLabelTapped(tapGestureRecognizer: UITapGestureRecognizer)
