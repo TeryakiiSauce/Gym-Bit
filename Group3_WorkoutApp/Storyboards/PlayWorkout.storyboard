@@ -117,6 +117,7 @@
                     <connections>
                         <outlet property="bodyView" destination="itg-kC-L5J" id="vdf-aK-Mpr"/>
                         <outlet property="continueButton" destination="1az-ZR-Lfm" id="xhB-nt-8Ib"/>
+                        <outlet property="headerTitle" destination="bkJ-Ut-rvF" id="6am-Ix-Y8n"/>
                         <outlet property="headerView" destination="scW-2A-hN9" id="sl8-sh-GlG"/>
                         <outlet property="playPauseButton" destination="Xcv-kD-MCO" id="Vmk-kY-KsW"/>
                         <outlet property="selectedTimeLabel" destination="jsg-3r-prM" id="HJD-ZG-a1o"/>
@@ -206,6 +207,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bodyTitleLabel" destination="DcE-R9-Xna" id="pRs-PR-goE"/>
                         <outlet property="bodyView" destination="WlG-yv-HeJ" id="Ody-PR-QvX"/>
                         <outlet property="confirmButton" destination="S97-7D-wrw" id="YPe-rX-o74"/>
                         <outlet property="exitButton" destination="R2t-9h-cR1" id="sGC-eV-lSP"/>
@@ -784,6 +786,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellTitle" destination="ZNd-mz-Tr5" id="Sq4-KN-qQI"/>
                                             <outlet property="cellView" destination="BPO-Aj-e4y" id="fVU-QC-MOO"/>
                                             <outlet property="checkBoxImage" destination="edI-bP-R7V" id="qI5-qp-lAe"/>
                                             <outlet property="repsLabel" destination="t0L-qQ-lDa" id="KE3-GM-jcA"/>
@@ -840,6 +843,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellTitle" destination="7C6-xH-Z3F" id="k6J-J7-FZb"/>
                                             <outlet property="cellView" destination="mTE-rw-7tV" id="dho-vw-RVH"/>
                                             <outlet property="playImage" destination="FiD-tk-2Gf" id="OIe-dm-Dra"/>
                                             <outlet property="timeRemainingLabel" destination="ZVR-bt-BkR" id="HQJ-oh-ade"/>
@@ -914,6 +918,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellTitle" destination="1Aq-uM-v6s" id="Ohb-BD-Fsp"/>
                                             <outlet property="cellView" destination="XWy-Sg-cQi" id="ZlT-U1-JNC"/>
                                             <outlet property="checkBoxImage" destination="6Rt-g2-uRg" id="Woq-l2-mxC"/>
                                             <outlet property="repsLabel" destination="5GT-Dw-pGr" id="7xo-RN-5Bk"/>
@@ -970,6 +975,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellTitle" destination="XMA-rd-URO" id="kvJ-ao-xzW"/>
                                             <outlet property="cellView" destination="6n9-au-e4G" id="BQF-FR-pjw"/>
                                             <outlet property="playImage" destination="sgG-m6-GQT" id="LMG-0D-xCj"/>
                                             <outlet property="timeRemainingLabel" destination="JDg-ux-rOh" id="TDz-0V-Onl"/>
@@ -1044,6 +1050,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellTitle" destination="XaI-ZW-fz7" id="2jk-5r-Zlu"/>
                                             <outlet property="cellView" destination="SuX-JP-1t9" id="id3-1i-hdb"/>
                                             <outlet property="checkBoxImage" destination="wds-C7-VRA" id="TrV-PE-6vh"/>
                                             <outlet property="repsLabel" destination="gue-b6-hHw" id="NvT-a8-7MR"/>
@@ -1100,6 +1107,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellTitle" destination="Htb-hB-HK0" id="NMc-7i-h0F"/>
                                             <outlet property="cellView" destination="yui-rt-0iZ" id="uQu-Td-n3c"/>
                                             <outlet property="playImage" destination="BcQ-EO-rbh" id="QdE-ZY-A9a"/>
                                             <outlet property="timeRemainingLabel" destination="PXl-UZ-lQE" id="NhN-2m-ojb"/>

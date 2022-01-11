@@ -14,6 +14,7 @@ class RestTimeViewController: UIViewController {
     @IBOutlet weak var restTimeLabel: UILabel!
     @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var bodyTitleLabel: UILabel!
     
     var minutes:Int = 0
     var seconds:Int = 0
@@ -30,6 +31,8 @@ class RestTimeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // apply default styling
         Constants.applyDefaultStyling(backgroundView: view, headerView: nil, bodyView: bodyView, mainButton: confirmButton, secondaryButton: nil, vc: self)
+        
+        Constants.applyTableAndTextStyling(titleLabels: [restTimeLabel], bodyLabels: [bodyTitleLabel], tableView: nil)
         
         pickerView.setValue(AppColors.textColor, forKey: "textColor")
     }

@@ -37,6 +37,7 @@ class PlayWorkoutTableViewController: UITableViewController, SetCellDelegate, Ti
     
     override func viewWillAppear(_ animated: Bool) {
         setInitailReps()
+        tableView.backgroundColor = AppColors.bodyBg
     }
 
     

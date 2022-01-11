@@ -15,6 +15,8 @@ class PlayWorkoutSetTableViewCell: UITableViewCell {
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var checkBoxImage: UIImageView!
     @IBOutlet weak var repsLabel: UILabel!
+    @IBOutlet weak var cellTitle: UILabel!
+    
     var isChecked = false
     
     override func awakeFromNib() {
@@ -29,6 +31,12 @@ class PlayWorkoutSetTableViewCell: UITableViewCell {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         checkBoxImage.isUserInteractionEnabled = true
         checkBoxImage.addGestureRecognizer(tapGestureRecognizer)
+        
+        
+        backgroundColor = AppColors.bodyBg
+        cellView.backgroundColor = AppColors.bodyBg
+        repsLabel.textColor = AppColors.textColor
+        cellTitle.textColor = AppColors.textColor
     }
 
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
