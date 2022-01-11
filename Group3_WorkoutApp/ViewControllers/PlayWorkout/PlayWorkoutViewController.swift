@@ -100,7 +100,7 @@ class PlayWorkoutViewController: UIViewController, CompleteWorkoutDelegate {
     // set exercises name and index based on the exercise index
     func setExerciseInfo(){
         currentExerciseNoLabel.text = String(exerciseIndex + 1)
-        exerciseNameLabel.text = DefaultData.user.activeSchedule?.name
+        exerciseNameLabel.text = DefaultData.user.activeSchedule?.exercises[exerciseIndex].name
     }
     
     func finishWorkout() {
