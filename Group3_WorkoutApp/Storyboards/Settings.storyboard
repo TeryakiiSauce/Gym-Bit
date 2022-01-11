@@ -169,7 +169,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="switch_off" translatesAutoresizingMaskIntoConstraints="NO" id="O4a-PY-Lsp" userLabel="Sound switch">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="switch_on" translatesAutoresizingMaskIntoConstraints="NO" id="O4a-PY-Lsp" userLabel="Sound switch">
                                                         <rect key="frame" x="200" y="20" width="139" height="39"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
@@ -280,6 +280,7 @@
     </scenes>
     <resources>
         <image name="switch_off" width="51" height="22"/>
+        <image name="switch_on" width="52" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -47,44 +47,51 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var line2: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Setting the default styles to the page elements by calling a funcation from Constants struct.
-        Constants.applyDefaultStyling(backgroundView: view, headerView: headView1, bodyView: settingsView, mainButton: saveButton, secondaryButton: nil)
-        Constants.buildRoundedUIView(headerView: headView2, bodyView: settingsView2, button: nil)
-        scrollView.backgroundColor = AppColors.phoneBg
-        backView.backgroundColor = AppColors.phoneBg
         
-        // Changing view 1 elements colors to match the app theme by calling AppColors stuct.
-        headLabel.textColor = AppColors.textColor
-        nameField.textColor = AppColors.phoneBg
-        ageTxt.textColor = AppColors.textColor
-        heightTxt.textColor = AppColors.textColor
-        weightTxt.textColor = AppColors.textColor
-        goalTxt.textColor = AppColors.textColor
-        yearsValue.textColor = AppColors.buttonColor
-        heightValue.textColor = AppColors.buttonColor
-        weightValue.textColor = AppColors.buttonColor
-        goalValue.textColor = AppColors.buttonColor
-        slider1.thumbTintColor = AppColors.buttonColor
-        slider1.tintColor = AppColors.buttonColor
-        slider2.thumbTintColor = AppColors.buttonColor
-        slider2.tintColor = AppColors.buttonColor
-        slider3.thumbTintColor = AppColors.buttonColor
-        slider3.tintColor = AppColors.buttonColor
-        slider4.thumbTintColor = AppColors.buttonColor
-        slider4.tintColor = AppColors.buttonColor
+        //changin colors to match the theme (dark mode or day mode)
+        setColorsByTheme()
         
-        // Changing view 2 elements colors to match the app theme by calling AppColors stuct.
-        timeSoundTxt.textColor = AppColors.textColor
-        darkModeTxt.textColor = AppColors.textColor
-        unitTxt.textColor = AppColors.textColor
-        line1.textColor = AppColors.phoneBg
-        line2.textColor = AppColors.phoneBg
+        //Load switches, checking if on or off
+        if let snd = userDefaults.value(forKey: "sound") as? Bool
+        {
+            if snd
+            {
+                soundSwitch.image = switchOnImg
+            }
+            else
+            {
+                soundSwitch.image = switchOffImg
+            }
+        }
+        if let isDark = userDefaults.value(forKey: "darkMode") as? Bool
+        {
+            if isDark
+            {
+                darkModeSwitch.image = switchOnImg
+            }
+            else
+            {
+                darkModeSwitch.image = switchOffImg
+            }
+        }
+        if let pound = userDefaults.value(forKey: "isPound") as? Bool
+        {
+            if pound
+            {
+                unitSwitch.image = switchOnImg
+            }
+            else
+            {
+                unitSwitch.image = switchOffImg
+            }
+            isPoundFeet = pound
+        }
+        
         //Checking if name key is not nil, if it is not it means that the user did the quiz so we will retrieve the data.
         if let usrName = userDefaults.value(forKey: "name") as? String
         {
             nameField.text = usrName
             nameField.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            isPoundFeet = userDefaults.value(forKey: "isPound") as! Bool
             let usrAge = userDefaults.value(forKey: "age") as! Int
             let usrHeight = userDefaults.value(forKey: "height") as! Int
             let usrWeight = userDefaults.value(forKey: "weight") as! Int
@@ -111,6 +118,7 @@ class SettingsViewController: UIViewController {
         heightValue.text = getHeight()
         weightValue.text = getWeight()
         goalValue.text = getGoal()
+        
         
         // Adding gesture to switches images
         let soundSwitchtapGR = UITapGestureRecognizer(target: self, action: #selector(self.soundSwitchTapped))
@@ -164,14 +172,14 @@ class SettingsViewController: UIViewController {
             }
             else
             {
-                soundSwitch.image = switchOnImg
+                soundSwitch.image = switchOffImg
                 Constants.isSoundOn = false
             }
             userDefaults.setValue(Constants.isSoundOn, forKey: "sound")
         }
     }
     
-    //if dark mode switch clicked this function will change its image, set colors to dark mode by calling isDarkMode variable and save in userdata if the switch is on or off.
+    //if dark mode switch clicked, this function will change its image, set colors to dark mode by calling togleDarkMode method and then calling setColors method, lastly it will save in userdata if the switch is on or off.
     @objc func darkModeSwitchTapped(sender: UITapGestureRecognizer)
     {
         if sender.state == .ended
@@ -179,13 +187,13 @@ class SettingsViewController: UIViewController {
             if darkModeSwitch.image == switchOffImg
             {
                 darkModeSwitch.image = switchOnImg
-                AppColors.isDarkMode = true
             }
             else
             {
-                darkModeSwitch.image = switchOnImg
-                AppColors.isDarkMode = false
+                darkModeSwitch.image = switchOffImg
             }
+            AppColors.toggleDarkMode()
+            setColorsByTheme()
             userDefaults.setValue(AppColors.isDarkMode, forKey: "darkMode")
         }
     }
@@ -330,6 +338,46 @@ class SettingsViewController: UIViewController {
         userDefaults.setValue(weight, forKey: "weight")
         userDefaults.setValue(goal, forKey: "goal")
         Constants.displayAlert(thisClass: self, alertTitle: "Done", msg: "Your data updated successfully", printInConsole: nil)
+    }
+    
+    //this function created to eleminate the redudancy, since the colors will be changed when the page loads, also it can be changed when the user switched to dark mode.
+    func setColorsByTheme()
+    {
+        // Setting the default styles to the page elements by calling a funcation from Constants struct.
+        Constants.applyDefaultStyling(backgroundView: view, headerView: headView1, bodyView: settingsView, mainButton: saveButton, secondaryButton: nil)
+        Constants.buildRoundedUIView(headerView: headView2, bodyView: settingsView2, button: nil)
+        
+        // Changing view 1 elements colors to match the app theme by calling AppColors stuct.
+        headView2.backgroundColor = AppColors.bodyBg
+        settingsView2.backgroundColor = AppColors.bodyBg
+        scrollView.backgroundColor = AppColors.phoneBg
+        backView.backgroundColor = AppColors.phoneBg
+        appSettingsLabel.textColor = AppColors.textColor
+        headLabel.textColor = AppColors.textColor
+        nameField.textColor = AppColors.phoneBg
+        ageTxt.textColor = AppColors.textColor
+        heightTxt.textColor = AppColors.textColor
+        weightTxt.textColor = AppColors.textColor
+        goalTxt.textColor = AppColors.textColor
+        yearsValue.textColor = AppColors.buttonColor
+        heightValue.textColor = AppColors.buttonColor
+        weightValue.textColor = AppColors.buttonColor
+        goalValue.textColor = AppColors.buttonColor
+        slider1.thumbTintColor = AppColors.buttonColor
+        slider1.tintColor = AppColors.buttonColor
+        slider2.thumbTintColor = AppColors.buttonColor
+        slider2.tintColor = AppColors.buttonColor
+        slider3.thumbTintColor = AppColors.buttonColor
+        slider3.tintColor = AppColors.buttonColor
+        slider4.thumbTintColor = AppColors.buttonColor
+        slider4.tintColor = AppColors.buttonColor
+        
+        // Changing view 2 elements colors to match the app theme by calling AppColors stuct.
+        timeSoundTxt.textColor = AppColors.textColor
+        darkModeTxt.textColor = AppColors.textColor
+        unitTxt.textColor = AppColors.textColor
+        line1.textColor = AppColors.phoneBg
+        line2.textColor = AppColors.phoneBg
     }
     /*
     // MARK: - Navigation
