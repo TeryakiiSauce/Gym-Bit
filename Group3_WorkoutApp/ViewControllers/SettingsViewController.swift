@@ -80,10 +80,12 @@ class SettingsViewController: UIViewController {
             if pound
             {
                 unitSwitch.image = switchOnImg
+                unitTxt.text = "Unit (Foot/lbs)"
             }
             else
             {
                 unitSwitch.image = switchOffImg
+                unitTxt.text = "Unit (cm/Kg)"
             }
             isPoundFeet = pound
         }
