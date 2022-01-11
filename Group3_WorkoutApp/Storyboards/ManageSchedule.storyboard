@@ -243,9 +243,11 @@
                         <outlet property="clearPageButton" destination="eIB-a6-Rre" id="9Gg-ea-4sQ"/>
                         <outlet property="customTableView" destination="C40-cr-peu" id="ozi-Uw-WjL"/>
                         <outlet property="editableTableStackView" destination="Vsz-h5-VvR" id="3FC-eZ-gFN"/>
+                        <outlet property="emptyLabel" destination="rxz-zt-qhT" id="ecx-70-yh1"/>
                         <outlet property="headerView" destination="sIz-aj-y8N" id="ckr-d2-Zcf"/>
                         <outlet property="mainButton" destination="CBc-pd-E8C" id="Btl-2d-tGU"/>
                         <outlet property="scheduleName" destination="dPs-jw-RUr" id="018-hs-pfa"/>
+                        <outlet property="targetLabel" destination="WJK-Lq-U2T" id="IA2-bc-Ryo"/>
                         <segue destination="LSm-UT-NVT" kind="show" identifier="addExerciseSegue" id="W2V-c7-hA1"/>
                         <segue destination="xKM-ow-PBd" kind="unwind" identifier="unwindToViewSchedule" unwindAction="unwindtoViewScheduleWithSeague:" id="n9E-qI-olY"/>
                     </connections>
@@ -474,6 +476,7 @@
                         <outlet property="UpdateScheduleMainButton" destination="Aze-AZ-NLP" id="1o6-Iz-KkW"/>
                         <outlet property="cancelUpdate" destination="wTr-id-NM7" id="7lC-a6-nPx"/>
                         <outlet property="errorLabel" destination="EBO-E8-vsL" id="kL4-Lb-EZd"/>
+                        <outlet property="updateLabel" destination="C1g-91-jSH" id="K5e-t6-j1P"/>
                         <outlet property="updatePopupStackView" destination="XDh-hb-zjK" id="HOO-sS-3t1"/>
                         <segue destination="eeZ-hI-7tF" kind="unwind" identifier="unwindToCreateSchedule" unwindAction="unwindtoCreateScheduleWithSeague:" id="1aj-nx-bx9"/>
                         <segue destination="eeZ-hI-7tF" kind="unwind" identifier="unwindToViewSchedule" unwindAction="unwindtoViewScheduleWithSeague:" id="ymm-i8-CMC"/>
@@ -522,7 +525,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBl-ce-Qif">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBl-ce-Qif">
                                                                     <rect key="frame" x="133" y="61.5" width="58.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -532,11 +535,11 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="E4C-ka-jb9" secondAttribute="bottom" constant="10" id="0qL-mX-vcF"/>
-                                                                <constraint firstAttribute="bottom" secondItem="UBl-ce-Qif" secondAttribute="bottom" constant="16" id="6si-zB-nBA"/>
                                                                 <constraint firstItem="E4C-ka-jb9" firstAttribute="leading" secondItem="Cqt-mZ-WC3" secondAttribute="leading" constant="10" id="8n9-dt-RK2"/>
                                                                 <constraint firstItem="So7-wk-ml7" firstAttribute="leading" secondItem="E4C-ka-jb9" secondAttribute="trailing" constant="41" id="CsD-0M-ebq"/>
                                                                 <constraint firstItem="So7-wk-ml7" firstAttribute="top" secondItem="Cqt-mZ-WC3" secondAttribute="top" constant="15" id="FAE-xE-MLH"/>
-                                                                <constraint firstItem="UBl-ce-Qif" firstAttribute="leading" secondItem="So7-wk-ml7" secondAttribute="leading" id="Zrd-9J-2ro"/>
+                                                                <constraint firstItem="UBl-ce-Qif" firstAttribute="leading" secondItem="So7-wk-ml7" secondAttribute="leading" constant="2" id="Zrd-9J-2ro"/>
+                                                                <constraint firstItem="UBl-ce-Qif" firstAttribute="top" secondItem="So7-wk-ml7" secondAttribute="bottom" constant="20" id="mB7-XT-1yL"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -646,7 +649,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" rowHeight="120" id="Yqt-Uz-myw" customClass="ExerciseTableViewCell" customModule="Group3_WorkoutApp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" rowHeight="120" id="Yqt-Uz-myw" customClass="CustomTableViewCell" customModule="Group3_WorkoutApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="24.5" width="374" height="120"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yqt-Uz-myw" id="oeM-Ly-GqJ">
@@ -745,6 +748,7 @@
                         <outlet property="exerciseCountLabel" destination="td5-NJ-oVX" id="uXC-F6-eUW"/>
                         <outlet property="headerView" destination="tgN-Jo-R0Y" id="z2d-fS-gA4"/>
                         <outlet property="mainButton" destination="K1j-F2-as4" id="o88-NT-4p5"/>
+                        <outlet property="orgTargetLabel" destination="yq9-sc-E5A" id="pHb-Ah-kTG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCW-Bf-npI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
