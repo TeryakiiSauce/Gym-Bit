@@ -58,7 +58,7 @@
 
 /* Begin PBXFileReference section */
 		905031F827837827007C91EE /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
-		909CC7DC278C81D60047C22F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		909CC7DC278C81D60047C22F /* SettingsViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9608FB4427793802009498F9 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		9608FB462779E3B1009498F9 /* TemplateScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TemplateScreen.storyboard; sourceTree = "<group>"; };
 		9608FB482779E4C9009498F9 /* TemplateScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateScreenViewController.swift; sourceTree = "<group>"; };

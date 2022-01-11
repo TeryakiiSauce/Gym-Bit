@@ -41,13 +41,13 @@ class QuizViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //userDefaults.setValue(nil, forKey: "name")
-        
+
         //Here we check if the user already did the quiz, if yes skip the page and move to the view schedual page
         if let isDark = userDefaults.value(forKey: "darkMode") as? Bool
         {
             if isDark
             {
-                AppColors.isDarkMode = true
+                AppColors.toggleDarkMode()
             }
         }
         
@@ -116,7 +116,7 @@ class QuizViewController: UIViewController {
         unitSwitch.isUserInteractionEnabled = true
         
         //Set sliders and labels values
-        slider1.value = 48
+        slider1.value = 47.5
         slider2.value = 175
         slider3.value = 120
         slider4.value = 120
