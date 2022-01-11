@@ -6,13 +6,17 @@ struct Schedule: Codable, Equatable, Comparable {
     var id = UUID()
     let dateCreated: Date
     var name: String
-    var playsCounter: Int?
+    var playsCounter: Int
     var exercises: [Exercise]
     
     // Creating the directory and filename
     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let scheduleArrArchiveURL = documentsDirectory.appendingPathComponent("schedulesData").appendingPathExtension("plist")
     static let activatedScheduleArchiveURL = documentsDirectory.appendingPathComponent("activatedSchedule").appendingPathExtension("plist")
+    
+    mutating func incPlayCounter() {
+        self.playsCounter += 1
+    }
     
     // Encodes & saves the schedules as "schedulesData.plist" in the App's Sandbox
     static func saveSchedules(_ schedules: [Schedule]) {
@@ -45,7 +49,7 @@ struct Schedule: Codable, Equatable, Comparable {
             return decodedSchedule
         }
         
-        return Schedule(dateCreated: Date(), name: "", playsCounter: nil, exercises: [])
+        return Schedule(dateCreated: Date(), name: "", playsCounter: 0, exercises: [])
     }
     
     static func ==(lhs: Schedule, rhs: Schedule) -> Bool {
@@ -57,7 +61,7 @@ struct Schedule: Codable, Equatable, Comparable {
         if DefaultData.currSelectedSortOption == "alphabetical" {
             return lhs.name.lowercased() < rhs.name.lowercased()
         } else if DefaultData.currSelectedSortOption == "timesUsed" {
-            return lhs.playsCounter! < rhs.playsCounter!
+            return lhs.playsCounter < rhs.playsCounter
         } else if DefaultData.currSelectedSortOption == "dateCreated" {
             return lhs.dateCreated < rhs.dateCreated
         } else {

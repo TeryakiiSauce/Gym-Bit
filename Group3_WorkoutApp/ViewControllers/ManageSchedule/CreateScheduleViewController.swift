@@ -3,7 +3,7 @@ import UIKit
 class CreateScheduleViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     //filling data to test
-    var displayedSchedule = Schedule(dateCreated: Date(), name: "Your Schedule", playsCounter: nil, exercises: [])
+    var displayedSchedule = Schedule(dateCreated: Date(), name: "Your Schedule", playsCounter: 0, exercises: [])
     var addedExercises : [Exercise] = []
     var popuppageType = ["ClearTable" : false,"Back" : false,"changeName" : false]
     var isEditingSchedule = false

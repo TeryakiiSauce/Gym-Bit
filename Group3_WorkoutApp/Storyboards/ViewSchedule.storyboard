@@ -179,11 +179,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="KUq-GX-Xpk"/>
                     <navigationItem key="navigationItem" title="Schedule List" id="lOr-JH-R1j">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="GBu-Bo-w8H">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ywA-e8-CAx">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ort" id="GBu-Bo-w8H">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ywA-e8-CAx">
+                                <rect key="frame" x="335" y="10" width="59" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sort"/>
+                                <state key="normal" image="sort-1"/>
                                 <connections>
                                     <action selector="sortPopup:" destination="V7c-4E-Kwx" eventType="touchUpInside" id="8kG-9L-Lic"/>
                                 </connections>
@@ -221,13 +221,13 @@
                                         <rect key="frame" x="40" y="30" width="294" height="442"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aA2-E0-UcZ">
-                                                <rect key="frame" x="117.5" y="0.0" width="59" height="59"/>
+                                                <rect key="frame" x="117.5" y="0.0" width="59" height="69.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gA7-pg-AFL">
-                                                <rect key="frame" x="98.5" y="64" width="97" height="58.5"/>
+                                                <rect key="frame" x="98.5" y="74.5" width="97" height="69.5"/>
                                                 <state key="normal" title="Alphabetically">
                                                     <color key="titleColor" systemColor="systemRedColor"/>
                                                 </state>
@@ -235,28 +235,28 @@
                                                     <action selector="AlphaBtn:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="Wvj-HJ-FdZ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7t-hX-yBJ">
-                                                <rect key="frame" x="106" y="127.5" width="82" height="59"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7t-hX-yBJ">
+                                                <rect key="frame" x="106" y="146.5" width="82" height="0.0"/>
                                                 <state key="normal" title="Times Used"/>
                                                 <connections>
                                                     <action selector="TimesUsedBtn:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="LD5-DF-mAr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0i-vN-ITq">
-                                                <rect key="frame" x="101.5" y="191.5" width="91" height="59"/>
+                                                <rect key="frame" x="101.5" y="149" width="91" height="69.5"/>
                                                 <state key="normal" title="Date Created"/>
                                                 <connections>
                                                     <action selector="DateCreatedBtn:" destination="qd2-VJ-w1E" eventType="touchUpInside" id="bcd-8g-yX9"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8Z-ku-5p8">
-                                                <rect key="frame" x="112" y="255.5" width="70.5" height="59"/>
+                                                <rect key="frame" x="112" y="223.5" width="70.5" height="69.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Nh-p2-kPQ">
-                                                <rect key="frame" x="54.5" y="319.5" width="185" height="59.5"/>
+                                                <rect key="frame" x="54.5" y="298" width="185" height="70.5"/>
                                                 <segments>
                                                     <segment title="Ascending"/>
                                                     <segment title="Descending"/>
@@ -264,7 +264,7 @@
                                                 <color key="selectedSegmentTintColor" red="0.53333333329999999" green="0.75294117650000003" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VQ-3Z-m8F">
-                                                <rect key="frame" x="129.5" y="383" width="35" height="59"/>
+                                                <rect key="frame" x="129.5" y="372.5" width="35" height="69.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Sort">
                                                     <color key="titleColor" systemColor="systemBlueColor"/>
@@ -544,7 +544,9 @@
     <resources>
         <image name="edit" width="40" height="40"/>
         <image name="noun_body building_637498" width="231" height="235.80000305175781"/>
+        <image name="ort" width="128" height="128"/>
         <image name="schedule" width="24" height="24"/>
+        <image name="sort-1" width="24" height="24"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
