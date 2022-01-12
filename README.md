@@ -1,5 +1,6 @@
 # Gym Bit - Workout App ReadMe
 For the app's demonstration we decided that we wanted the app to be in Dark mode by default as it looked good for the eye and more appealing. 
+use an iphone 11 for the best uiView
 
 ![Pixel Art](https://media4.giphy.com/media/3oz8xOJiQ9VtnOKAIU/giphy.gif?cid=ecf05e47beuuq23qkseyb9r9qb2egz222ff8fh3xff6ldb42&rid=giphy.gif&ct=g)
 
@@ -15,10 +16,9 @@ _Abdulaziz:_
 
 * Create Function
     1. Couldn't make the swipe to delete to look exactly like the mock as it was slightly different
-
-* Made fully modular custom popups that come from one page and display different popups depending on what button is clicked 
-* Added a confirm popup for clear schedule 
-* Made the update name popup recognise if the name is empty or its been used and promts the user
+    2. Made fully modular custom popups that come from one page and display different popups depending on what button is clicked 
+    3. Added a confirm popup for clear schedule 
+    4. Made the update name popup recognise if the name is empty or its been used and promts the user
 
 _Yusuf:_     
 In the Exercise Details Page, the Description and Tips label titles have been moved to stick closer to the top. The reason behind it is that it looks clearer for the user instead of it being so close to the actual text and squeezed in.
