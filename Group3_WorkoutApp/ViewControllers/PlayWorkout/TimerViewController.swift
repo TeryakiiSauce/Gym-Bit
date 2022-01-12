@@ -144,6 +144,11 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         if timeRemaining > 0 {
             // subtract 1 second from the time remaining
             timeRemaining -= 1
+            
+            // prevent negative numbers from appearing
+            if timeRemaining < 0 {
+                timeRemaining = 0
+            }
         } else {
             // reset time remaining
             self.timeRemaining = selectedTime
@@ -208,6 +213,8 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         timerShape.beginTime = 0.0
         let timeSincePause = timerShape.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         timerShape.beginTime = timeSincePause
+        
+        timeRemaining =  selectedTime - pausedTime
     }
     
     // reset workout on the pop up (click yes)
