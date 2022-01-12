@@ -27,4 +27,14 @@ _Elias:_
 Have removed the "playsCounter" sort which should have sorted the schedules array based on the number of times they have been played because. Moreover, The "average total time" has also been removed because time was running out.
 
 _Ali:_    
-_No changes yet_
+* Timer Feature
+    1. Added a seperate screen to selet the warmup time as it would be less confusing for the users.
+    2. Removed the skip button and replace it with a button on the screen to increase the consistency of the app.
+    3. Added a header on the select time and timer screen to increase the consistency of the app.
+    4. Added a sound that is played when the timer count down is completed to alert the user once the warmup or rest time between sets finishes.
+    5. Removed the hours column since it will not be used for warming up or rest time between sets.
+
+* Play Workout Feature
+    1. Removed some details from the landing screen such as number of sets and exercises as it was containing a lot of details which made it confusing for a lot of users.
+    2. Added custom UIPresentationController to present rest time selection view for the half of the screen with blurry effect.
+    3. Linked the exercise list on the landing screen with the exercise details screen to make it accessible for the users
