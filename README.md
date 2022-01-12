@@ -31,8 +31,9 @@ _Ali:_
     1. Added a seperate screen to selet the warmup time as it would be less confusing for the users.
     2. Removed the skip button and replace it with a button on the screen to increase the consistency of the app.
     3. Added a header on the select time and timer screen to increase the consistency of the app.
-    4. Added a sound that is played when the timer count down is completed to alert the user once the warmup or rest time between sets finishes.
-    5. Removed the hours column since it will not be used for warming up or rest time between sets.
+    4. Added the timer indicator with animation using the code only without using any UIKit elements.
+    5. Added a sound that is played when the timer count down is completed to alert the user once the warmup or rest time between sets finishes.
+    6. Removed the hours column since it will not be used for warming up or rest time between sets.
 
 * Play Workout Feature
     1. Removed some details from the landing screen such as number of sets and exercises as it was containing a lot of details which made it confusing for a lot of users.
