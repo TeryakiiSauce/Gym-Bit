@@ -57,6 +57,10 @@ class PlayWorkoutLandingViewController:UIViewController,UITableViewDataSource, U
             // hide image and label of nil schedule
             selectionLabel.isHidden = true
             image.isHidden = true
+            startButton.isEnabled = true
+            customTableView.isHidden = false
+            restTimeLabel.isHidden = false
+            restTimeButton.isHidden = false
         }else{
             customTableView.isHidden = true
             restTimeLabel.isHidden = true

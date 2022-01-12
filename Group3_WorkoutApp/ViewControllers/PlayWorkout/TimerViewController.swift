@@ -214,7 +214,7 @@ class TimerViewController: UIViewController, ResetTimeDelegate {
         let timeSincePause = timerShape.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         timerShape.beginTime = timeSincePause
         
-        timeRemaining =  selectedTime - pausedTime
+//        timeRemaining =  selectedTime - pausedTime
     }
     
     // reset workout on the pop up (click yes)
