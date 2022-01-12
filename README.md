@@ -1,6 +1,8 @@
 # Gym Bit - Workout App ReadMe
 For the app's demonstration we decided that we wanted the app to be in Dark mode by default as it looked good for the eye and more appealing. 
 
+![Pixel Art](https://media4.giphy.com/media/3oz8xOJiQ9VtnOKAIU/giphy.gif?cid=ecf05e47beuuq23qkseyb9r9qb2egz222ff8fh3xff6ldb42&rid=giphy.gif&ct=g)
+
 ## Changes
 _Albaraa:_
 1. Removed notification switch from the settings page since it was an extra feature and we cancelled it.
