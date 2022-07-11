@@ -73,7 +73,7 @@
 		9645EDA72782889B00348FDA /* PlayWorkoutSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWorkoutSetTableViewCell.swift; sourceTree = "<group>"; };
 		9645EDA9278288B500348FDA /* PlayWorkoutTimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWorkoutTimerTableViewCell.swift; sourceTree = "<group>"; };
 		96613EED2780CD0C0008992E /* DefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultData.swift; sourceTree = "<group>"; };
-		9669361727674BD400206950 /* Group3_WorkoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group3_WorkoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9669361727674BD400206950 /* Gym-Bit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gym-Bit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9669361A27674BD400206950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9669361C27674BD400206950 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9669361E27674BD400206950 /* ScheduleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		9669360E27674BD400206950 = {
 			isa = PBXGroup;
 			children = (
-				9669361927674BD400206950 /* Group3_WorkoutApp */,
+				9669361927674BD400206950 /* Gym-Bit */,
 				9669361827674BD400206950 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,12 +150,12 @@
 		9669361827674BD400206950 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9669361727674BD400206950 /* Group3_WorkoutApp.app */,
+				9669361727674BD400206950 /* Gym-Bit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9669361927674BD400206950 /* Group3_WorkoutApp */ = {
+		9669361927674BD400206950 /* Gym-Bit */ = {
 			isa = PBXGroup;
 			children = (
 				96A167172768A0930000947A /* Global */,
@@ -166,7 +166,7 @@
 				9669361C27674BD400206950 /* SceneDelegate.swift */,
 				9669362327674BD500206950 /* Assets.xcassets */,
 			);
-			path = Group3_WorkoutApp;
+			path = "Gym-Bit";
 			sourceTree = "<group>";
 		};
 		9669362E276750CD00206950 /* Models */ = {
@@ -262,9 +262,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9669361627674BD400206950 /* Group3_WorkoutApp */ = {
+		9669361627674BD400206950 /* Gym-Bit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9669362B27674BD500206950 /* Build configuration list for PBXNativeTarget "Group3_WorkoutApp" */;
+			buildConfigurationList = 9669362B27674BD500206950 /* Build configuration list for PBXNativeTarget "Gym-Bit" */;
 			buildPhases = (
 				9669361327674BD400206950 /* Sources */,
 				9669361427674BD400206950 /* Frameworks */,
@@ -274,9 +274,9 @@
 			);
 			dependencies = (
 			);
-			name = Group3_WorkoutApp;
+			name = "Gym-Bit";
 			productName = Group3_WorkoutApp;
-			productReference = 9669361727674BD400206950 /* Group3_WorkoutApp.app */;
+			productReference = 9669361727674BD400206950 /* Gym-Bit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -293,7 +293,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9669361227674BD400206950 /* Build configuration list for PBXProject "Group3_WorkoutApp" */;
+			buildConfigurationList = 9669361227674BD400206950 /* Build configuration list for PBXProject "Gym-Bit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -306,7 +306,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9669361627674BD400206950 /* Group3_WorkoutApp */,
+				9669361627674BD400206950 /* Gym-Bit */,
 			);
 		};
 /* End PBXProject section */
@@ -518,7 +518,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42X65J8VPT;
-				INFOPLIST_FILE = Group3_WorkoutApp/Info.plist;
+				INFOPLIST_FILE = "Gym-Bit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -537,7 +537,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42X65J8VPT;
-				INFOPLIST_FILE = Group3_WorkoutApp/Info.plist;
+				INFOPLIST_FILE = "Gym-Bit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -552,7 +552,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9669361227674BD400206950 /* Build configuration list for PBXProject "Group3_WorkoutApp" */ = {
+		9669361227674BD400206950 /* Build configuration list for PBXProject "Gym-Bit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9669362927674BD500206950 /* Debug */,
@@ -561,7 +561,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9669362B27674BD500206950 /* Build configuration list for PBXNativeTarget "Group3_WorkoutApp" */ = {
+		9669362B27674BD500206950 /* Build configuration list for PBXNativeTarget "Gym-Bit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9669362C27674BD500206950 /* Debug */,
